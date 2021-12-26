@@ -54,7 +54,19 @@ Why would you do this?
 
 ## Clone an existing repo (cloning a repo that is not yours)
 
-something here
+```
+git clone https_url
+```
+
+### Push the cloned files up to your repo
+
+Because you cloned this repo from an existing repo, git will try to push it to its original destination. For example, if you type git remote -v you will get his repo address where git thinks you want to push to.
+
+You need to update the address. Copy the address for your repo from the overview page then type:
+
+```
+git remote set-url origin https_url
+```
 
 ## Create a repo from the command line and initialize the repo
 
