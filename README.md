@@ -112,13 +112,13 @@ To pull changes from GitHub to your machine use `git pull origin master`
 
 To delete a branch use `git branch -d branch_name`
 
-To remove git tracking from a foler use the following command in git bash or from the command promt, it does not work in VS Code:
-
-`rm -rf .git`
-
 ## Miscellaneous commands to know
 
 I need to look into somee of these:
+
+To remove git tracking from a folder use the following command in git bash or from the command promt, it does not work in VS Code:
+
+`rm -rf .git`
 
 ```
 git commit -am
