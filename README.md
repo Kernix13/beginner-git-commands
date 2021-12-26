@@ -3,12 +3,14 @@
 **Note**: On your first push ever to GitHub, you may need to provide a user name and email address, I assume the ones used when you created your GitHub account. I think the commands are something like this:
 
 ```
-git config --global user.name “your-name”
+git config --global user.name "any user name"
 
-git config --global user.email “something@something.com”
+git config --global user.email "someone@someone.com"
+or is it this:
+git config --global user.email <email id>
 ```
 
-Sorry, I can't remember exactly what you have to do.
+The git config command is used initially to configure the user.name and user.email. This specifies what email id and username will be used from a local repository. When git config is used with --global flag, it writes the settings to all repositories on the computer.
 
 ## Pushing your local files to an existing empty repo
 
@@ -114,11 +116,11 @@ To delete a branch use `git branch -d branch_name`
 
 ## Miscellaneous commands to know
 
-I need to look into somee of these:
-
 To remove git tracking from a folder use the following command in git bash or from the command promt, it does not work in VS Code:
 
 `rm -rf .git`
+
+I do not know what some of these do:
 
 ```
 git commit -am
@@ -136,4 +138,6 @@ git push --set-upstream origin branch-name
 git merge --abort
 git config --global core.editor "code –wait"
 git config --global core.autocrlf true
+git fetch
+git stash
 ```
