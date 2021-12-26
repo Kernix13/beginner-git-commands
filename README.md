@@ -60,12 +60,19 @@ git clone https_url
 
 ### Push the cloned files up to your repo
 
-Because you cloned this repo from an existing repo, git will try to push it to its original destination. For example, if you type git remote -v you will get his repo address where git thinks you want to push to.
+Because you cloned this repo from an existing repo, git will try to push it to its original destination. For example, if you type `git remote -v` you will get their repo address where git thinks you want to push to.
 
-You need to update the address. Copy the address for your repo from the overview page then type:
+You need to update the address. Copy the address for your repo from the overview page then use:
 
 ```
 git remote set-url origin https_url
+git remote -v
+```
+
+Now git knows that the origin is your repo. Then do:
+
+```
+git push origin master
 ```
 
 ## Create a repo from the command line and initialize the repo
