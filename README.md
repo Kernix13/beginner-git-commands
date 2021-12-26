@@ -62,7 +62,7 @@ git clone https_url
 
 Because you cloned this repo from an existing repo, git will try to push it to its original destination. For example, if you type `git remote -v` you will get their repo address where git thinks you want to push to.
 
-You need to update the address. Copy the address for your repo from the overview page then use:
+You need to update the address. Copy the address from the overview page for the repo you created for the clone, then use:
 
 ```
 git remote set-url origin https_url
