@@ -69,7 +69,7 @@ git remote set-url origin https_url
 git remote -v
 ```
 
-Now git knows that the origin is your repo, Using `git reomote -v` again is to check that git is pointing to your repo adddress. Then to push the cloned repo files to your repo use:
+Now git knows that the origin is your repo. Using `git reomote -v` again is to check that git is pointing to your repo adddress. Then to push the cloned repo files to your repo use:
 
 ```
 git push origin master
@@ -87,3 +87,49 @@ gh repo create project-name
 ```
 
 I get an error for the use of `&&` and `gh` so just create an empty repo.
+
+## Branches and merging
+
+Here are common commands:
+
+```
+git branch
+git checkout branch_name
+git checkout -b new_branch
+git merge branch_name
+git diff branch_name
+```
+
+The 1st command above just lists all the branch names in your repo. The next two switches to the branch and creates then switches to that branch, respectively. The merge command merges the branch into whatever branch you are currently in, most likely master.
+
+More commonly you will push the changes to github then make a PR (push request).. For a new branch, git push wont work because git doesn’t know what branch you are pushing to – so do:
+
+```
+git push --set-upstream origin branch-name
+```
+
+To pull changes from GitHub to your machine use `git pull origin master`
+
+To delete a branch use `git branch -d branch_name`
+
+## Miscellaneous commands to know
+
+I need to look into somee of these:
+
+```
+git commit -am
+git reset filename.ext
+git reset HEAD
+git revert id
+git log
+git add -A
+git add *.html
+git --version
+git config -l
+git rm –cached filename
+git remote -v
+git push --set-upstream origin branch-name
+git merge --abort
+git config --global core.editor "code –wait"
+git config --global core.autocrlf true
+```
