@@ -46,7 +46,7 @@ git commit -m "Reason for commit"
 git push -u origin master
 ```
 
-**Note**: You need to use `git push -u origin master` for the next commit only after the initial push (don't ask me why). After that just use `git push`, although I believe you could do `git push origin master` and it won't have a negative effect.
+**Note**: You need to use `git push -u origin master` for the next commit only after the initial push (don't ask me why). After that just use `git push`, although I believe you could do `git push origin master` and it won't have a negative effect. Also, I'm adding `git status' as a habit to check the status of the files. That command is not necessary.
 
 ## Clone your own repo
 
@@ -69,7 +69,7 @@ git remote set-url origin https_url
 git remote -v
 ```
 
-Now git knows that the origin is your repo. Then do:
+Now git knows that the origin is your repo, Using `git reomote -v` again is to check that git is pointing to your repo adddress. Then to push the cloned repo files to your repo use:
 
 ```
 git push origin master
