@@ -46,7 +46,7 @@ git commit -m "Reason for commit"
 git push -u origin master
 ```
 
-**Note**: You need to use `git push -u origin master` for the next commit only. After that just use `git push`, although I believe you could do `git push origin master` and it won't have a negative effect.
+**Note**: You need to use `git push -u origin master` for the next commit only after the initial push. After that just use `git push`, although I believe you could do `git push origin master` and it won't have a negative effect.
 
 ## Clone an existing repo (when you created a repo WITH a README file)
 
