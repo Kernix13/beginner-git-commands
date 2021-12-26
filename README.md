@@ -33,7 +33,7 @@ git remote add origin https_url
 git push -u origin main
 ```
 
-I know the first code block works, but I remember following the GitHub commands exactly and it worked as well - your choice.
+I know the first code block works, but I remember following the GitHub commands exactly and it worked as well - it's your choice.
 
 ### Commands after you do the above commands
 
