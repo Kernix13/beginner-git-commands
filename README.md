@@ -201,4 +201,4 @@ git commit -m "write some commit message here"
 git push --set-upstream origin fix/catphotoapp-typos
 ```
 
-Why the difference with the first way with `git push origin fix/catphotoapp-typos` and the second with `git push --set-upstream origin fix/catphotoapp-typos`
+Why the difference with the first way with `git push origin fix/catphotoapp-typos` and the second with `git push --set-upstream origin fix/catphotoapp-typos`?
