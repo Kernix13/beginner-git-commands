@@ -117,7 +117,7 @@ To delete a branch use `git branch -d branch_name`
 
 ## Miscellaneous commands to know
 
-To remove git tracking from a folder use the following command in git bash or from the command promt, it does not work in VS Code:
+To remove git tracking from a folder use the following command in git bash or from the command prompt, it does not work in VS Code:
 
 `rm -rf .git`
 
@@ -128,7 +128,7 @@ git init
 git commit -am
 git log
 git add -A
-git add *.html
+git add *.ext
 git --version
 git remote -v
 git remote add upstream remote-url
@@ -138,7 +138,7 @@ git merge --abort
 git branch -a
 ```
 
-I am not sure what these commands do, mostly because I beieve these are advanced git commands:
+I am not sure what these commands do, mostly because I believe these are advanced git commands:
 
 ```
 git reset
@@ -146,7 +146,7 @@ git reset filename.ext
 git reset HEAD
 git revert id
 git config -l
-git diff filename.html
+git diff filename.ext
 git fetch
 git fetch upstream
 gitreflog
@@ -163,20 +163,42 @@ git bisect good
 git config --list
 git config --global core.editor "code –wait"
 git config --global core.autocrlf true
+git rebase -i HEAD~n
 q, Q, ESC | :WQ | ENTER, exit, pwd
 ```
 
-Is this how you add a description
+Is this how you add a description?
 
 ```
 - git commit -m "Title" -m "Description ..........";
 ```
 
-Here is a list of commands from trying to figure out how to contribute to freeCodeCamp:
+Here is a list of commands from trying to figure out how to contribute to freeCodeCamp. These are after the obvious fork and then git clone command:
 
 ```
+git clone --depth=1 https://github.com/User_Name/freeCodeCamp
+git remote add upstream https://github.com/freeCodeCamp/freeCodeCamp.git
+git remote -v
+git status or git checkout main
 git fetch upstream
 git reset --hard upstream/main
-git push origin main –force
+git push origin main --force
 git diff upstream/main
+git checkout -b fix/catphotoapp-typos
+git status
+git add .
+git status
+git commit -m "short description"
+git push origin branch/name-here
 ```
+
+Those are from [how-to-setup-freecodecamp-locally.md](https://github.com/freeCodeCamp/freeCodeCamp/blob/main/docs/how-to-setup-freecodecamp-locally.md). The following is from a reply in the freeCodeCamp forum:
+
+```
+git checkout -b fix/catphotoapp-typos
+git add .
+git commit -m "write some commit message here"
+git push --set-upstream origin fix/catphotoapp-typos
+```
+
+Why the difference with the first way with `git push origin branch/name-here` and the second with `git push --set-upstream origin fix/catphotoapp-typos`
