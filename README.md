@@ -48,7 +48,7 @@ git commit -m "Reason for commit"
 git push -u origin master
 ```
 
-**Note**: You need to use `git push -u origin master` for the next commit only after the initial push (don't ask me why). After that just use `git push`, although I believe you could do `git push origin master` and it won't have a negative effect. Also, I'm adding `git status' as a habit to check the status of the files. That command is not necessary.
+**Note**: You need to use `git push -u origin master` for the next commit only after the initial push (don't ask me why). After that just use `git push`, although I believe you could do `git push origin master` and it won't have a negative effect. Also, I'm adding `git status` as a habit to check the status of the files. That command is not necessary.
 
 ## Clone your own repo
 
