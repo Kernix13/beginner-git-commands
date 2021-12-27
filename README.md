@@ -189,7 +189,7 @@ git status
 git add .
 git status
 git commit -m "short description"
-git push origin branch/name-here
+git push origin fix/catphotoapp-typos
 ```
 
 Those are from [how-to-setup-freecodecamp-locally.md](https://github.com/freeCodeCamp/freeCodeCamp/blob/main/docs/how-to-setup-freecodecamp-locally.md). The following is from a reply in the freeCodeCamp forum:
