@@ -195,7 +195,9 @@ git push origin fix/catphotoapp-typos
 Those are from [how-to-setup-freecodecamp-locally.md](https://github.com/freeCodeCamp/freeCodeCamp/blob/main/docs/how-to-setup-freecodecamp-locally.md). The following is from a reply in the freeCodeCamp forum:
 
 ```
+git clone https://github.com/User_Name/freeCodeCamp
 git checkout -b fix/catphotoapp-typos
+git status
 git add .
 git commit -m "write some commit message here"
 git push --set-upstream origin fix/catphotoapp-typos
