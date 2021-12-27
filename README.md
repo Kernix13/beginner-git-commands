@@ -96,13 +96,14 @@ Here are common commands:
 
 ```
 git branch
+git branch -a
 git checkout branch_name
 git checkout -b new_branch
 git merge branch_name
 git diff branch_name
 ```
 
-The 1st command above just lists all the branch names in your repo. The next two switches to the branch and creates then switches to that branch, respectively. The merge command merges the branch into whatever branch you are currently in, most likely master.
+The 1st command shows the branch you are working on. The 2nd one lists all the branch names in your repo. The next two switches to the branch and creates then switches to that branch, respectively. The merge command merges the branch into whatever branch you are currently in, most likely master.
 
 More commonly you will push the changes to github then make a PR (push request).. For a new branch, git push wont work because git doesn’t know what branch you are pushing to – so do:
 
@@ -120,7 +121,7 @@ To remove git tracking from a folder use the following command in git bash or fr
 
 `rm -rf .git`
 
-I do not know what some of these do:
+I know what some of these commands do, and some I do not:
 
 ```
 git commit -am
@@ -149,7 +150,7 @@ Is this how you add a description
 - git commit -m "Title" -m "Description ..........";
 ```
 
-Here is a list of commands from starting trying to figure out contributing to freeCodeCAmp:
+Here is a list of commands from trying to figure out how to contribute to freeCodeCamp:
 
 ```
 git fetch upstream
