@@ -121,27 +121,49 @@ To remove git tracking from a folder use the following command in git bash or fr
 
 `rm -rf .git`
 
-I know what some of these commands do, and some I do not:
+I (mostly) know what these commands do:
 
 ```
+git init
 git commit -am
-git reset filename.ext
-git reset HEAD
-git revert id
 git log
 git add -A
 git add *.html
 git --version
-git config -l
-git rm –cached filename
 git remote -v
+git remote add upstream remote-url
 git push --set-upstream origin branch-name
+git rm –cached filename
 git merge --abort
+git branch -a
+```
+
+I am not sure what these commands do, mostly because I beieve these are advanced git commands:
+
+```
+git reset
+git reset filename.ext
+git reset HEAD
+git revert id
+git config -l
+git diff filename.html
+git fetch
+git fetch upstream
+gitreflog
+git log --graph --decorate –oneline
+git stash
+git stash pop
+git branch login
+git branch -vv
+git remote update --prune
+git rebase
+git bisect start
+git bisect bad
+git bisect good
+git config --list
 git config --global core.editor "code –wait"
 git config --global core.autocrlf true
-git fetch
-git stash
-git branch -a
+q, Q, ESC | :WQ | ENTER, exit, pwd
 ```
 
 Is this how you add a description
