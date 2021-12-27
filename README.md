@@ -140,4 +140,20 @@ git config --global core.editor "code –wait"
 git config --global core.autocrlf true
 git fetch
 git stash
+git branch -a
+```
+
+Is this how you add a description
+
+```
+- git commit -m "Title" -m "Description ..........";
+```
+
+Here is a list of commands from starting trying to figure out contributing to freeCodeCAmp:
+
+```
+git fetch upstream
+git reset --hard upstream/main
+git push origin main –force
+git diff upstream/main
 ```
