@@ -173,17 +173,40 @@ Is this how you add a description?
 - git commit -m "Title" -m "Description ..........";
 ```
 
-Here is a list of commands from trying to figure out how to contribute to freeCodeCamp. These are after the obvious fork and then git clone command:
+## Forking, cloning and contributing commands
+
+Here is a list of commands from [how-to-setup-freecodecamp-locally.md](https://github.com/freeCodeCamp/freeCodeCamp/blob/main/docs/how-to-setup-freecodecamp-locally.md). After you fork a repo:
 
 ```
 git clone --depth=1 https://github.com/User_Name/freeCodeCamp
+```
+
+**Note**: `--depth=1` creates a shallow clone of your fork, with only the most recent history/commit.
+
+Next, add a remote reference to the main freeCodeCamp repo, or whatever repo you are cloning after forking, then check the configuration:
+
+```
 git remote add upstream https://github.com/freeCodeCamp/freeCodeCamp.git
 git remote -v
-git status or git checkout main
+```
+
+Then use `git status` and `git checkout main` if not on main. Then:
+
+1. Update your local copy of the freeCodeCamp upstream repository,
+1. Hard reset your main branch with the freeCodeCamp main,
+1. Push your main branch to your origin to have a clean history on your fork on GitHub,
+1. And validate your current main matches the upstream/main by performing a diff:
+
+```
 git fetch upstream
 git reset --hard upstream/main
 git push origin main --force
 git diff upstream/main
+```
+
+Finally, create a branch matching your contribution, make your changes, and then commit and push:
+
+```
 git checkout -b fix/catphotoapp-typos
 git status
 git add .
@@ -192,7 +215,9 @@ git commit -m "short description"
 git push origin fix/catphotoapp-typos
 ```
 
-Those are from [how-to-setup-freecodecamp-locally.md](https://github.com/freeCodeCamp/freeCodeCamp/blob/main/docs/how-to-setup-freecodecamp-locally.md). The following is from a reply in the freeCodeCamp forum:
+**Note**: The link above mentions keeping commit messages to 50 or less characters. My first commit message was about 74 characters. On the freeCodeCamp repo it looks like it cut off my message at either 69 or 70 characters, so I think keeping to a max of 69 or 70 characters will work but don't quote me on that.
+
+Before covering the Pull Request back on GitHub, here is a reply from the freeCodeCamp forum about the process:
 
 ```
 git clone https://github.com/User_Name/freeCodeCamp
@@ -204,3 +229,65 @@ git push --set-upstream origin fix/catphotoapp-typos
 ```
 
 Why the difference with the first way with `git push origin fix/catphotoapp-typos` and the second with `git push --set-upstream origin fix/catphotoapp-typos`?
+
+If you realize that you need to edit a file or update the commit message after making a commit you can do so after editing the files with:
+
+`git commit --amend`
+
+This will open up a default text editor like `nano` or `vi` where you can edit the commit message title and add/edit the description.
+
+## Pull request process on GitHub
+
+After you push your changes go to your cloned copy of the repo on GitHub and refresh the page if necessary. You should see a green button labeled **_Compare & pull request_**. If you do not see it then click the Pull requests link to go to that tab.
+
+Click "Compare & pull request" button and notice the page title of **_Open a pull request_** and the paragraph in the section below the title saying **_Able to merge. These branches can be automatically merged._**
+
+You can then edit your commit message if need be. In the text area field:
+
+1. Put an `x` in the checkboxes,
+1. Remove all the comment fields,
+1. You can preview the message if you like,
+1. Remove the phrase "Closes #XXXXX"
+1. Click the green button **_Create pull request_**.
+
+### Notes about the Pull requests page
+
+Check the values for the fields labeled `base repository` and `head repository`.
+
+1. The base repository is the original source, the repo you forked and cloned, the public version.
+1. The head repository is your local copy of the base repo.
+
+Those fields should be correct but just be aware of the values. You will also see fields labeled just `base` which shows the branch of the original repo that you pushed to, and `compare` which shows the name of the branch you created and pushed.
+
+**Note**: Large repos like the one for freeCodeCamp will have fields created in the pull request text area that I reference in the steps below. A smaller repo that you are contributing to may not have that setup. In the latter case, be as descriptive but concise as possible - don't write a book!
+
+Also, if you scroll further down on the page you will see all the changes you made. And after clicking the "Create pull request" button you will be taken to the source repo showing your pull request, other pull requests, the conversations for each, etc.
+
+### Replies to your pull request
+
+You will get a meesage when a reviewer for the source repo adds a comment about your pull request. Perhaps then wan you to make additional changes. Or they will just merge the changes into their code.
+
+Regardless, your changes will either be accepted or rejected. When the owner of the repo accepts your changes they will do so by clicking the **Merge pull request** button.
+
+## Handling merge conflicts
+
+Here is where I'm a little fuzzy on the steps. I think you may have to do a pull request to get changes from other contributors. Make sure you are on the `master` or `main` branch then do `git pull`.
+
+A merge conflict when 2 or more people change the same code/content but with different values and you run the command `git merge branch-name`. However, I'm not sure a contributor would actually run that command.
+
+But if you did, in VS Code you will see something like:
+
+```
+<<<<<<< HEAD (Current Change)
+<p>some change here</p>
+=======
+<p>different change here</p>
+>>>>>>> Branch-Name (Incoming Change)
+```
+
+Where `HEAD` is your current branch, usually main/master I think. Once again, this would only be done by the owner of the repo, but what you would do is:
+
+1. Decide which change you want to keep,
+1. Delete EVERYTHING else -> the change you don't want and the equal, less than, and greater than signs along with the text like HEAD and Current Change. Everything other than the actual change that you want.
+
+> Last updated December 27th, 2021.
