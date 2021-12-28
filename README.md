@@ -12,6 +12,10 @@ git config --global user.email <email id>
 
 The git config command is used initially to configure the user.name and user.email. This specifies what email id and username will be used from a local repository. When git config is used with --global flag, it writes the settings to all repositories on the computer.
 
+## Table of contents
+
+1. [Commands after initial push](#commands-after-initial-push)
+
 ## Pushing your local files to an existing empty repo
 
 This works for me when pushing to a repo I created without a README file. If you hve a README file, then you will get an error when trying to push, so you'll have to do a git pull command. It's easier to have an empty repo:
@@ -37,7 +41,7 @@ git push -u origin main
 
 I know the first code block works, but I remember following the GitHub commands exactly and it worked as well - it's your choice.
 
-### Commands after you do the above commands
+### Commands after initial push
 
 after making some changes do:
 
@@ -54,7 +58,7 @@ git push -u origin master
 
 Why would you do this?
 
-## Clone an existing repo (cloning a repo that is not yours)
+## Clone an existing repo
 
 ```
 git clone https_url
