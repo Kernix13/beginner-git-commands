@@ -146,6 +146,8 @@ git push origin main --force
 git diff upstream/main
 ```
 
+> **MAJOR QUESTION**: Do you run those 4 commands EVERY time you work on the repo or just once in the beginning?
+
 Finally, create a branch matching your contribution, make your changes, and then commit and push:
 
 ```
