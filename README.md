@@ -88,7 +88,7 @@ git add . && git commit -m "initial commit"
 gh repo create project-name
 ```
 
-I get an error for the use of `&&` and `gh` so just create an empty repo.
+I get an error for the use of `&&` and `gh` so just create an empty repo. You need to install something called GitHub CLI (not interested).
 
 ## Branches and merging
 
@@ -114,64 +114,6 @@ git push --set-upstream origin branch-name
 To pull changes from GitHub to your machine use `git pull origin master`
 
 To delete a branch use `git branch -d branch_name`
-
-## Miscellaneous commands to know
-
-To remove git tracking from a folder use the following command in git bash or from the command prompt, it does not work in VS Code:
-
-`rm -rf .git`
-
-I (mostly) know what these commands do:
-
-```
-git init
-git commit -am
-git log
-git add -A
-git add *.ext
-git --version
-git remote -v
-git remote add upstream remote-url
-git push --set-upstream origin branch-name
-git rm –cached filename
-git merge --abort
-git branch -a
-```
-
-I am not sure what these commands do, mostly because I believe these are advanced git commands:
-
-```
-git reset
-git reset filename.ext
-git reset HEAD
-git revert id
-git config -l
-git diff filename.ext
-git fetch
-git fetch upstream
-gitreflog
-git log --graph --decorate –oneline
-git stash
-git stash pop
-git branch login
-git branch -vv
-git remote update --prune
-git rebase
-git bisect start
-git bisect bad
-git bisect good
-git config --list
-git config --global core.editor "code –wait"
-git config --global core.autocrlf true
-git rebase -i HEAD~n
-q, Q, ESC | :WQ | ENTER, exit, pwd
-```
-
-Is this how you add a description?
-
-```
-- git commit -m "Title" -m "Description ..........";
-```
 
 ## Forking, cloning and contributing commands
 
@@ -289,5 +231,63 @@ Where `HEAD` is your current branch, usually main/master I think. Once again, th
 
 1. Decide which change you want to keep,
 1. Delete EVERYTHING else -> the change you don't want and the equal, less than, and greater than signs along with the text like HEAD and Current Change. Everything other than the actual change that you want.
+
+## Miscellaneous commands to know
+
+To remove git tracking from a folder use the following command in git bash or from the command prompt, it does not work in VS Code:
+
+`rm -rf .git`
+
+I (mostly) know what these commands do:
+
+```
+git init
+git commit -am
+git log
+git add -A
+git add *.ext
+git --version
+git remote -v
+git remote add upstream remote-url
+git push --set-upstream origin branch-name
+git rm –cached filename
+git merge --abort
+git branch -a
+```
+
+I am not sure what these commands do, mostly because I believe these are advanced git commands:
+
+```
+git reset
+git reset filename.ext
+git reset HEAD
+git revert id
+git config -l
+git diff filename.ext
+git fetch
+git fetch upstream
+gitreflog
+git log --graph --decorate –oneline
+git stash
+git stash pop
+git branch login
+git branch -vv
+git remote update --prune
+git rebase
+git bisect start
+git bisect bad
+git bisect good
+git config --list
+git config --global core.editor "code –wait"
+git config --global core.autocrlf true
+git rebase -i HEAD~n
+q, Q, ESC | :WQ | ENTER, exit, pwd
+```
+
+Is this how you add a description?
+
+```
+- git commit -m "Title" -m "Description ..........";
+```
 
 > Last updated December 27th, 2021.
