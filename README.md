@@ -203,13 +203,13 @@ Check the values for the fields labeled `base repository` and `head repository`.
 
 Those fields should be correct but just be aware of the values. You will also see fields labeled just `base` which shows the branch of the original repo that you pushed to, and `compare` which shows the name of the branch you created and pushed.
 
-**Note**: Large repos like the one for freeCodeCamp will have fields created in the pull request text area that I reference in the steps below. A smaller repo that you are contributing to may not have that setup. In the latter case, be as descriptive but concise as possible - don't write a book!
+**Note**: Large repos like the one for freeCodeCamp will have fields created in the pull request text area that I reference in the steps above. A smaller repo that you are contributing to may not have that setup. In the latter case, be as descriptive but concise as possible - don't write a book!
 
 Also, if you scroll further down on the page you will see all the changes you made. And after clicking the "Create pull request" button you will be taken to the source repo showing your pull request, other pull requests, the conversations for each, etc.
 
 ### Replies to your pull request
 
-You will get a meesage when a reviewer for the source repo adds a comment about your pull request. Perhaps then wan you to make additional changes. Or they will just merge the changes into their code.
+You will get a meesage when a reviewer for the source repo adds a comment about your pull request; perhaps they want you to make additional changes. Or they will just merge the changes into their code.
 
 Regardless, your changes will either be accepted or rejected. When the owner of the repo accepts your changes they will do so by clicking the **Merge pull request** button.
 
@@ -217,7 +217,7 @@ Regardless, your changes will either be accepted or rejected. When the owner of 
 
 Here is where I'm a little fuzzy on the steps. I think you may have to do a pull request to get changes from other contributors. Make sure you are on the `master` or `main` branch then do `git pull`.
 
-A merge conflict when 2 or more people change the same code/content but with different values and you run the command `git merge branch-name`. However, I'm not sure a contributor would actually run that command.
+A merge conflict is when 2 or more people change the same code/content but with different values and you run the command `git merge branch-name`. However, I don't think a contributor would actually run that command.
 
 But if you did, in VS Code you will see something like:
 
