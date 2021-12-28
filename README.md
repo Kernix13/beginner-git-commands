@@ -21,6 +21,7 @@ The git config command is used initially to configure the user.name and user.ema
 1. [Branches and merging](#branches-and-merging)
 1. [Forking and cloning](#forking-and-cloning)
 1. [GitHub pull request process](#github-pull-request-process)
+   1. [Pull request title](#pull-request-title)
    1. [Pull requests page notes](#pull-requests-page-notes)
    1. [Replies to your pull request](#replies-to-your-pull-request)
 1. [Handling merge conflicts](#handling-merge-conflicts)
@@ -189,7 +190,9 @@ After you push your changes go to your cloned copy of the repo on GitHub and ref
 
 Click "Compare & pull request" button and notice the page title of **_Open a pull request_** and the paragraph in the section below the title saying **_Able to merge. These branches can be automatically merged._**
 
-You can then edit your commit message if need be. In the text area field:
+You can then edit your commit message if need be. In the body of your PR include a more detailed summary of the changes you made and why.
+
+In the text area field:
 
 1. Put an `x` in the checkboxes,
 1. Remove all the comment fields,
@@ -197,9 +200,34 @@ You can then edit your commit message if need be. In the text area field:
 1. Remove the phrase "Closes #XXXXX"
 1. Click the green button **_Create pull request_**.
 
+If the PR is meant to address an existing GitHub Issue then, at the end of your PR's description body, use the keyword Closes with the issue number: `Closes #123`
+
+Indicate if you have tested on a local copy of the site or not. This is very important when making changes that are not just edits to text content like documentation or a challenge description. Examples of changes that need local testing include JavaScript, CSS, or HTML which could change the functionality or layout of a page.
+
+### Pull request title
+
+The convention has the following format:
+
+`<type>([optional scope(s)]): <description>`
+
+For example:
+
+`fix(learn): tests for the do...while loop challenge`
+
+| Type  | When to select                                                                   |
+| :---- | :------------------------------------------------------------------------------- |
+| fix   | Changed or updated/improved functionality, tests, the verbiage of a lesson, etc. |
+| feat  | Only if you are adding new functionality, tests, etc.                            |
+| chore | Changes that are not related to code, tests, or verbiage of a lesson.            |
+| docs  | Changes to `/docs` directory or the contributing guidelines, etc.                |
+
+**Description:**
+
+Keep it short (less than 30 characters) and simple, you can add more information in the PR description box and comments. Example: `fix(api,client): prevent CORS errors on form submission`
+
 ### Pull requests page notes
 
-Check the values for the fields labeled `base repository` and `head repository`.
+Check the values for the fields labeled `base fork` and `head fork`.
 
 1. The base repository is the original source, the repo you forked and cloned, the public version.
 1. The head repository is your local copy of the base repo.
@@ -212,13 +240,15 @@ Also, if you scroll further down on the page you will see all the changes you ma
 
 ### Replies to your pull request
 
-You will get a meesage when a reviewer for the source repo adds a comment about your pull request; perhaps they want you to make additional changes. Or they will just merge the changes into their code.
+Our moderators will now take a look and leave you feedback. You will get a message when a reviewer for the source repo adds a comment about your pull request.
 
 Regardless, your changes will either be accepted or rejected. When the owner of the repo accepts your changes they will do so by clicking the **Merge pull request** button.
 
 ## Handling merge conflicts
 
 Here is where I'm a little fuzzy on the steps. I think you may have to do a pull request to get changes from other contributors. Make sure you are on the `master` or `main` branch then do `git pull`.
+
+Read more here: [Conflicts on a pull request](https://github.com/freeCodeCamp/freeCodeCamp/blob/main/docs/how-to-setup-freecodecamp-locally.md#making-changes-locally).
 
 A merge conflict is when 2 or more people change the same code/content but with different values and you run the command `git merge branch-name`. However, I don't think a contributor would actually run that command.
 
