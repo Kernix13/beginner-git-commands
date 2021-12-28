@@ -14,6 +14,7 @@ The git config command is used initially to configure the user.name and user.ema
 
 ## Table of contents
 
+1. [Pushing your local files to an empty repo](#pushing-your-local-files-to-an-empty-repo)
 1. [Commands after initial push](#commands-after-initial-push)
 1. [Clone an existing repo](#clone-an-existing-repo)
    1. [Push the cloned files up to your repo](#push-the-cloned-files-up-to-your-repo)
@@ -27,7 +28,7 @@ The git config command is used initially to configure the user.name and user.ema
 1. [Create a repo from the command line](#create-a-repo-from-the-command-line)
 1. [Final notes](#final-notes)
 
-## Pushing your local files to an existing empty repo
+## Pushing your local files to an empty repo
 
 This works for me when pushing to a repo I created without a README file. If you hve a README file, then you will get an error when trying to push, so you'll have to do a git pull command. It's easier to have an empty repo:
 
