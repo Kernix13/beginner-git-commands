@@ -15,6 +15,17 @@ The git config command is used initially to configure the user.name and user.ema
 ## Table of contents
 
 1. [Commands after initial push](#commands-after-initial-push)
+1. [Clone an existing repo](#clone-an-existing-repo)
+   1. [Push the cloned files up to your repo](#push-the-cloned-files-up-to-your-repo)
+1. [Branches and merging](#branches-and-merging)
+1. [Forking and cloning](#forking-and-cloning)
+1. [GitHub pull request process](#github-pull-request-process)
+   1. [Pull requests page notes](#pull-requests-page-notes)
+   1. [Replies to your pull request](#replies-to-your-pull-request)
+1. [Handling merge conflicts](#handling-merge-conflicts)
+1. [Miscellaneous git commands](#miscellaneous-git-commands)
+1. [Create a repo from the command line](#create-a-repo-from-the-command-line)
+1. [Final notes](#final-notes)
 
 ## Pushing your local files to an existing empty repo
 
@@ -41,7 +52,7 @@ git push -u origin main
 
 I know the first code block works, but I remember following the GitHub commands exactly and it worked as well - it's your choice.
 
-### Commands after initial push
+## Commands after initial push
 
 after making some changes do:
 
@@ -81,19 +92,6 @@ Now git knows that the origin is your repo. Using `git reomote -v` again is to c
 git push origin master
 ```
 
-## Create a repo from the command line and initialize the repo
-
-I don't think anyone does this. Everyone seems to just create an empty repo. But you can try using this link:
-[Adding an existing project to GitHub using the command line](https://docs.github.com/en/github/importing-your-projects-to-github/importing-source-code-to-github/adding-an-existing-project-to-github-using-the-command-line).
-
-```
-git init -b main
-git add . && git commit -m "initial commit"
-gh repo create project-name
-```
-
-I get an error for the use of `&&` and `gh` so just create an empty repo. You need to install something called GitHub CLI (not interested).
-
 ## Branches and merging
 
 Here are common commands:
@@ -119,7 +117,7 @@ To pull changes from GitHub to your machine use `git pull origin master`
 
 To delete a branch use `git branch -d branch_name`
 
-## Forking, cloning and contributing commands
+## Forking and cloning
 
 Here is a list of commands from [how-to-setup-freecodecamp-locally.md](https://github.com/freeCodeCamp/freeCodeCamp/blob/main/docs/how-to-setup-freecodecamp-locally.md). After you fork a repo:
 
@@ -184,7 +182,7 @@ If you realize that you need to edit a file or update the commit message after m
 
 This will open up a default text editor like `nano` or `vi` where you can edit the commit message title and add/edit the description.
 
-## Pull request process on GitHub
+## GitHub pull request process
 
 After you push your changes go to your cloned copy of the repo on GitHub and refresh the page if necessary. You should see a green button labeled **_Compare & pull request_**. If you do not see it then click the Pull requests link to go to that tab.
 
@@ -198,7 +196,7 @@ You can then edit your commit message if need be. In the text area field:
 1. Remove the phrase "Closes #XXXXX"
 1. Click the green button **_Create pull request_**.
 
-### Notes about the Pull requests page
+### Pull requests page notes
 
 Check the values for the fields labeled `base repository` and `head repository`.
 
@@ -238,7 +236,7 @@ Where `HEAD` is your current branch, usually main/master I think. Once again, th
 1. Decide which change you want to keep,
 1. Delete EVERYTHING else -> the change you don't want and the equal, less than, and greater than signs along with the text like HEAD and Current Change. Everything other than the actual change that you want.
 
-## Miscellaneous commands to know
+## Miscellaneous git commands
 
 To remove git tracking from a folder use the following command in git bash or from the command prompt, it does not work in VS Code:
 
@@ -295,5 +293,22 @@ Is this how you add a description?
 ```
 - git commit -m "Title" -m "Description ..........";
 ```
+
+## Create a repo from the command line
+
+I don't think anyone does this. Everyone seems to just create an empty repo. But you can try using this link:
+[Adding an existing project to GitHub using the command line](https://docs.github.com/en/github/importing-your-projects-to-github/importing-source-code-to-github/adding-an-existing-project-to-github-using-the-command-line).
+
+```
+git init -b main
+git add . && git commit -m "initial commit"
+gh repo create project-name
+```
+
+I get an error for the use of `&&` and `gh` so just create an empty repo. You need to install something called GitHub CLI (not interested).
+
+## Final notes
+
+I may have errors in here. I'll fix them as I find them.
 
 > Last updated December 27th, 2021.
