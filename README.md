@@ -198,7 +198,7 @@ git push origin main
 git checkout -b fix/branch-name
 git add.
 git commit -m "short description"
-git push --set-upstream origin fix/catphotoapp-typos
+git push --set-upstream origin fix/branch-name
 ```
 
 With that last `git push` only for the first time, then use `git push origin fix/catphotoapp-typos`. Also add `git remote -v` after the fetch command, and of course `git status` as needed.
