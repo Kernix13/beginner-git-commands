@@ -152,6 +152,8 @@ git diff upstream/main
 
 > **MAJOR QUESTION**: Do you run those 4 commands EVERY time you work on the repo or just once in the beginning?
 
+**ANSWER**: #1 is necessary for the clone to fetch the files. #4 is optional. Use #2 & #3 with caution - read up on them.
+
 Finally, create a branch matching your contribution, make your changes, and then commit and push:
 
 ```
@@ -177,6 +179,29 @@ git push --set-upstream origin fix/catphotoapp-typos
 ```
 
 Why the difference with the first way with `git push origin fix/catphotoapp-typos` and the second with `git push --set-upstream origin fix/catphotoapp-typos`?
+
+NOTES:
+
+> `git reset --hard upstream/main` erases any uncommitted changes. This is not a required command used everytime you need to push changes to the remote repo - use it wisely and when needed.
+
+> `git push origin main --force`, you don’t need to add the `--force`. Just doing a regular git push is fine.
+
+> You only use the `--set upstream` when you need to add your local branch to the remote branch. But once the new branch is added to the remote repo, then you don’t need to use `--set upstream` each time
+
+MY FINAL COMMANDS:
+
+```
+git clone --depth=1 https_url
+git remote add upstream https_url
+git fetch upstream
+git push origin main
+git checkout -b fix/branch-name
+git add.
+git commit -m "short description"
+git push --set-upstream origin fix/catphotoapp-typos
+```
+
+With that last `git push` only for the first time, then use `git push origin fix/catphotoapp-typos`. Also add `git remote -v` after the fetch command, and of course `git status` as needed.
 
 If you realize that you need to edit a file or update the commit message after making a commit you can do so after editing the files with:
 
