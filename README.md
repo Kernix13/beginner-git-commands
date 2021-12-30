@@ -313,6 +313,7 @@ git push --set-upstream origin branch-name
 git rm –cached filename
 git merge --abort
 git branch -a
+clear, q, Q, exit
 ```
 
 I am not sure what these commands do, mostly because I believe these are advanced git commands:
@@ -341,7 +342,7 @@ git config --list
 git config --global core.editor "code –wait"
 git config --global core.autocrlf true
 git rebase -i HEAD~n
-q, Q, ESC | :WQ | ENTER, exit, pwd
+ESC | :WQ | ENTER, pwd
 ```
 
 Is this how you add a description?
