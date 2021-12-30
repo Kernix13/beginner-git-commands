@@ -120,6 +120,19 @@ To pull changes from GitHub to your machine use `git pull origin master`
 
 To delete a branch use `git branch -d branch_name`
 
+If you get this error when trying to delete a branch:
+
+> error: The branch 'fix/branch-name' is not fully merged.
+> If you are sure you want to delete it, run 'git branch -D fix/branch-name'.
+
+It's probably because something in your local branch has not actually made it to the remote repository. To find out what commits have not been merged from your source branch to a target branch try:
+
+```
+git log fix/branch-name --not main
+```
+
+That will show you what has been changed that has not been pushed to main, or maybe has not been merged. If you are fine with the differences then replace `-d` with `-D`.
+
 ## Forking and cloning
 
 Here is a list of commands from [how-to-setup-freecodecamp-locally.md](https://github.com/freeCodeCamp/freeCodeCamp/blob/main/docs/how-to-setup-freecodecamp-locally.md). After you fork a repo:
@@ -374,6 +387,7 @@ I get an error for the use of `&&` and `gh` so just create an empty repo. You ne
 ## Reference links
 
 1. [Git reference docs](https://git-scm.com/docs)
+1. [GitHub for complete beginners MDN](https://developer.mozilla.org/en-US/docs/MDN/Contribute/GitHub_beginners)
 1. [Why Use Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0-beta.2/#why-use-conventional-commits)
 1. [how-to-contribute-to-open-source](https://github.com/freeCodeCamp/how-to-contribute-to-open-source)
 1. [Contribute to freeCodeCamp.org](https://contribute.freecodecamp.org/#/)
