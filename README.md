@@ -239,6 +239,8 @@ In the text area field:
 1. Remove the phrase "Closes #XXXXX"
 1. Click the green button **_Create pull request_**.
 
+DONE, DONE AND DONE - NOW WAIT. REMEMBER TO USE fix: what-you-fixed or fix(curriculum) in the PR Title!!!!!!!!!
+
 If the PR is meant to address an existing GitHub Issue then, at the end of your PR's description body, use the keyword Closes with the issue number: `Closes #123`
 
 Indicate if you have tested on a local copy of the site or not. This is very important when making changes that are not just edits to text content like documentation or a challenge description. Examples of changes that need local testing include JavaScript, CSS, or HTML which could change the functionality or layout of a page.
