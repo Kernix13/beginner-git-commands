@@ -27,6 +27,7 @@ The git config command is used initially to configure the user.name and user.ema
 1. [Handling merge conflicts](#handling-merge-conflicts)
 1. [Miscellaneous git commands](#miscellaneous-git-commands)
 1. [Create a repo from the command line](#create-a-repo-from-the-command-line)
+1. [Reference links](#reference-links)
 1. [Final notes](#final-notes)
 
 ## Pushing your local files to an empty repo
@@ -370,8 +371,22 @@ gh repo create project-name
 
 I get an error for the use of `&&` and `gh` so just create an empty repo. You need to install something called GitHub CLI (not interested).
 
+## Reference links
+
+1. [how-to-setup-freecodecamp-locally.md](https://github.com/freeCodeCamp/freeCodeCamp/blob/main/docs/how-to-setup-freecodecamp-locally.md)
+1. [Why Use Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0-beta.2/#why-use-conventional-commits)
+1. [Conflicts on a pull request](https://github.com/freeCodeCamp/freeCodeCamp/blob/main/docs/how-to-setup-freecodecamp-locally.md#making-changes-locally)
+1. [Contribute to freeCodeCamp.org](https://contribute.freecodecamp.org/#/)
+1. [freeCodeCamp Introduction](https://contribute.freecodecamp.org/#/index)
+1. [freeCodeCamp How to work on coding challenges](https://contribute.freecodecamp.org/#/how-to-work-on-coding-challenges)
+1. [freeCodeCamp FAQs](https://contribute.freecodecamp.org/#/FAQ)
+1. [how-to-contribute-to-open-source](https://github.com/freeCodeCamp/how-to-contribute-to-open-source)
+1. [freeCodeCamp How to open a Pull Request](https://github.com/freeCodeCamp/freeCodeCamp/blob/main/docs/how-to-open-a-pull-request.md)
+1. [how-to-setup-freecodecamp-locally.md](https://github.com/freeCodeCamp/freeCodeCamp/blob/main/docs/how-to-setup-freecodecamp-locally.md)
+1. [Git reference docs](https://git-scm.com/docs)
+
 ## Final notes
 
 I may have errors in here. I'll fix them as I find them.
 
-> Last updated December 27th, 2021.
+> Last updated December 30th, 2021.
