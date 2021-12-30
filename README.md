@@ -373,17 +373,16 @@ I get an error for the use of `&&` and `gh` so just create an empty repo. You ne
 
 ## Reference links
 
-1. [how-to-setup-freecodecamp-locally.md](https://github.com/freeCodeCamp/freeCodeCamp/blob/main/docs/how-to-setup-freecodecamp-locally.md)
+1. [Git reference docs](https://git-scm.com/docs)
 1. [Why Use Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0-beta.2/#why-use-conventional-commits)
-1. [Conflicts on a pull request](https://github.com/freeCodeCamp/freeCodeCamp/blob/main/docs/how-to-setup-freecodecamp-locally.md#making-changes-locally)
+1. [how-to-contribute-to-open-source](https://github.com/freeCodeCamp/how-to-contribute-to-open-source)
 1. [Contribute to freeCodeCamp.org](https://contribute.freecodecamp.org/#/)
+1. [how-to-setup-freecodecamp-locally.md](https://github.com/freeCodeCamp/freeCodeCamp/blob/main/docs/how-to-setup-freecodecamp-locally.md)
+1. [freeCodeCamp Conflicts on a pull request](https://github.com/freeCodeCamp/freeCodeCamp/blob/main/docs/how-to-setup-freecodecamp-locally.md#making-changes-locally)
 1. [freeCodeCamp Introduction](https://contribute.freecodecamp.org/#/index)
 1. [freeCodeCamp How to work on coding challenges](https://contribute.freecodecamp.org/#/how-to-work-on-coding-challenges)
 1. [freeCodeCamp FAQs](https://contribute.freecodecamp.org/#/FAQ)
-1. [how-to-contribute-to-open-source](https://github.com/freeCodeCamp/how-to-contribute-to-open-source)
 1. [freeCodeCamp How to open a Pull Request](https://github.com/freeCodeCamp/freeCodeCamp/blob/main/docs/how-to-open-a-pull-request.md)
-1. [how-to-setup-freecodecamp-locally.md](https://github.com/freeCodeCamp/freeCodeCamp/blob/main/docs/how-to-setup-freecodecamp-locally.md)
-1. [Git reference docs](https://git-scm.com/docs)
 
 ## Final notes
 
