@@ -248,7 +248,13 @@ For example:
 
 **Description:**
 
-Keep it short (less than 30 characters) and simple, you can add more information in the PR description box and comments. Example: `fix(api,client): prevent CORS errors on form submission`
+Keep it short (less than 30 characters) and simple, you can add more information in the PR description box and comments. Example: `fix(api,client): prevent CORS errors on form submission`.
+
+**QUESTION**: What creates CHANGELOGs? Is it the use of the colon `:`? Here is a quote from [Why Use Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0-beta.2/#why-use-conventional-commits):
+
+> Automatically generating CHANGELOGs.
+
+Will using `fix:`, `feat:`, `docs:`, etc. create CHANGELOGs where fix, feat, or docs without the colon not do that?
 
 ### Pull requests page notes
 
