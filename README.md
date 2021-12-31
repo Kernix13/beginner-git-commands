@@ -14,7 +14,7 @@ The git config command is used initially to configure the user.name and user.ema
 1. [Pushing your local files to an empty repo](#pushing-your-local-files-to-an-empty-repo)
 1. [Commands after initial push](#commands-after-initial-push)
 1. [Clone your own repo](#clone-your-own-repo)
-1. [Clone a repo](#clone-a-repo)
+1. [Clone an existing repo](#clone-an-existing-repo)
    1. [Push the cloned files up to your repo](#push-the-cloned-files-up-to-your-repo)
 1. [Branches and merging](#branches-and-merging)
 1. [Forking and cloning](#forking-and-cloning)
@@ -68,7 +68,7 @@ git push -u origin master
 
 ## Clone your own repo
 
-Why would you do this? Use this when you create a repo with a README.md file or some other file. Follow these steps:
+Why would you do this? Use this when you create a repo and add a file on GitHub like a README.md file or some other file. Follow these steps:
 
 ```
 git clone https_url
@@ -86,7 +86,9 @@ git push origin master
 
 Then go to GitHub and you should see the changes.
 
-## Clone a repo
+## Clone an existing repo
+
+For when you want to work on a repo that someone else created.
 
 ```
 git clone https_url
