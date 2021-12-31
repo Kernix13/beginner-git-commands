@@ -4,10 +4,7 @@
 
 ```
 git config --global user.name "any user name"
-
 git config --global user.email "someone@someone.com"
-or is it this:
-git config --global user.email <email id>
 ```
 
 The git config command is used initially to configure the user.name and user.email. This specifies what email id and username will be used from a local repository. When git config is used with --global flag, it writes the settings to all repositories on the computer.
@@ -16,7 +13,8 @@ The git config command is used initially to configure the user.name and user.ema
 
 1. [Pushing your local files to an empty repo](#pushing-your-local-files-to-an-empty-repo)
 1. [Commands after initial push](#commands-after-initial-push)
-1. [Clone an existing repo](#clone-an-existing-repo)
+1. [Clone your own repo](#clone-your-own-repo)
+1. [Clone a repo](#clone-a-repo)
    1. [Push the cloned files up to your repo](#push-the-cloned-files-up-to-your-repo)
 1. [Branches and merging](#branches-and-merging)
 1. [Forking and cloning](#forking-and-cloning)
@@ -53,7 +51,7 @@ git remote add origin https_url
 git push -u origin main
 ```
 
-I know the first code block works, but I remember following the GitHub commands exactly and it worked as well - it's your choice.
+I know the first code block works, but I remember following the GitHub commands exactly and it worked as well - it's your choice. The only different is `git branch -M main` and I do not know what that means except maybe changing the master branch to the name "main". I'm not sure why the `add README.md` is included.
 
 ## Commands after initial push
 
@@ -66,13 +64,29 @@ git commit -m "Reason for commit"
 git push -u origin master
 ```
 
-**Note**: You need to use `git push -u origin master` for the next commit only after the initial push (don't ask me why). After that just use `git push`, although I believe you could do `git push origin master` and it won't have a negative effect. Also, I'm adding `git status` as a habit to check the status of the files. That command is not necessary.
+**Note**: You need to use `git push -u origin master` for the next commit only after the initial push don't ask me why. I searched for what `-u` is and I couldn't find anything. Maybe it's for upstream. After that just use `git push`, although I believe you could do `git push origin master` and it won't have a negative effect. Also, I'm adding `git status` as a habit to check the status of the files, though that command is not required.
 
 ## Clone your own repo
 
-Why would you do this?
+Why would you do this? Use this when you create a repo with a README.md file or some other file. Follow these steps:
 
-## Clone an existing repo
+```
+git clone https_url
+cd folder_name
+```
+
+Then make whatever changes you need to then:
+
+```
+git status
+git add .
+git commit -m "First commit"
+git push origin master
+```
+
+Then go to GitHub and you should see the changes.
+
+## Clone a repo
 
 ```
 git clone https_url
@@ -80,7 +94,7 @@ git clone https_url
 
 ### Push the cloned files up to your repo
 
-Because you cloned this repo from an existing repo, git will try to push it to its original destination. For example, if you type `git remote -v` you will get their repo address where git thinks you want to push to.
+Because you cloned this repo from an existing repo, git will try to push it to its original destination. For example, if you type `git remote -v` you will get the address of the cloned repo where git thinks you want to push to.
 
 You need to update the address. Copy the address from the overview page for the repo you created for the clone, then use:
 
@@ -97,7 +111,7 @@ git push origin master
 
 ## Branches and merging
 
-Here are common commands:
+Here are common commands you'll use often:
 
 ```
 git branch
@@ -122,7 +136,7 @@ To delete a branch use `git branch -d branch_name`
 
 If you get this error when trying to delete a branch:
 
-> error: The branch 'fix/branch-name' is not fully merged.
+> error: The branch 'branch-name' is not fully merged.
 > If you are sure you want to delete it, run 'git branch -D fix/branch-name'.
 
 It's probably because something in your local branch has not actually made it to the remote repository. To find out what commits have not been merged from your source branch to a target branch try:
@@ -131,7 +145,7 @@ It's probably because something in your local branch has not actually made it to
 git log fix/branch-name --not main
 ```
 
-That will show you what has been changed that has not been pushed to main, or maybe has not been merged. If you are fine with the differences then replace `-d` with `-D`.
+That will show you what has been changed and that has not been pushed to main, or maybe has not been merged. If you are fine with the differences then replace `-d` with `-D`.
 
 ## Forking and cloning
 
