@@ -347,7 +347,7 @@ I (mostly) know what these commands do:
 
 ```
 git init
-git commit -am
+git commit -am "message"
 git log
 git add -A
 git add *.ext
