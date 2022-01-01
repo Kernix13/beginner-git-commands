@@ -141,7 +141,7 @@ git push --set-upstream origin branch_name
 
 **Note**: A PR from your branch to the master branch is to request to have your code merged with the master branch. When your code is merged delete your branch. To delete a branch use `git branch -d branch_name`.
 
-To pull changes from GitHub to your machine use `git pull origin master` but make sure you are on the master branch.
+To pull changes from GitHub to your machine use `git pull origin master` or just `git pull` if you set the upsteam. Make sure you are on the master branch.
 
 If you get this error when trying to delete a branch:
 
