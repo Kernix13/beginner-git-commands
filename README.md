@@ -37,8 +37,13 @@ git init
 git add .
 git commit -m "First commit"
 git remote add origin https_url
-git push origin master
+git remote -v
+git push -u origin master
 ```
+
+Use `git remote -v` to list any remote repositories that you have connected to this repo. That is to make sure all is well.
+
+But to just use git push in the future you have to set something called an upstream, meaning where you want to push it to by defaullt. That is why you use `-u` (see also below and Commands after initial push).
 
 But these are the commands GitHub shows you when you create an empty repo:
 
@@ -64,7 +69,7 @@ git commit -m "Reason for commit"
 git push -u origin master
 ```
 
-**Note**: You need to use `git push -u origin master` for the next commit only after the initial push don't ask me why. I searched for what `-u` is and I couldn't find anything. Maybe it's for upstream. After that just use `git push`, although I believe you could do `git push origin master` and it won't have a negative effect. Also, I'm adding `git status` as a habit to check the status of the files, though that command is not required.
+**Note**: You need to use `git push -u origin master` for the next commit only after the initial push. After that just use `git push` unless you used `-u` as mentioned above. Although I believe you could do `git push origin master` and it won't have a negative effect. Also, I'm adding `git status` as a habit to check the status of the files, though that command is not required.
 
 ## Clone your own repo
 
@@ -126,15 +131,17 @@ git diff branch_name
 
 The 1st command shows the branch you are working on. The 2nd one lists all the branch names in your repo. The next two switches to the branch and creates then switches to that branch, respectively. The merge command merges the branch into whatever branch you are currently in, most likely master.
 
-More commonly you will push the changes to github then make a PR (push request).. For a new branch, git push wont work because git doesn’t know what branch you are pushing to – so do:
+More commonly you will push the changes to github then make a PR (push request). So make sure you switch back from main/master to your branch. For a new branch, git push wont work because git doesn’t know what branch you are pushing to – so do:
 
 ```
-git push --set-upstream origin branch-name
+git push --set-upstream origin branch_name
 ```
 
-To pull changes from GitHub to your machine use `git pull origin master`
+**Note**: Using `--set-upstream` is the same thing as using `-u` in the sections above. Actually, `-u` is short-hand for `--set-upstream`.
 
-To delete a branch use `git branch -d branch_name`
+**Note**: A PR from your branch to the master branch is to request to have your code merged with the master branch. When your code is merged delete your branch. To delete a branch use `git branch -d branch_name`.
+
+To pull changes from GitHub to your machine use `git pull origin master` but make sure you are on the master branch.
 
 If you get this error when trying to delete a branch:
 
@@ -144,7 +151,7 @@ If you get this error when trying to delete a branch:
 It's probably because something in your local branch has not actually made it to the remote repository. To find out what commits have not been merged from your source branch to a target branch try:
 
 ```
-git log fix/branch-name --not main
+git log braanch_name --not main
 ```
 
 That will show you what has been changed and that has not been pushed to main, or maybe has not been merged. If you are fine with the differences then replace `-d` with `-D`.
@@ -351,6 +358,9 @@ git push --set-upstream origin branch-name
 git rm –cached filename
 git merge --abort
 git branch -a
+git diff filename.ext
+git fetch
+git fetch upstream
 clear, q, Q, exit
 ```
 
@@ -362,9 +372,6 @@ git reset filename.ext
 git reset HEAD
 git revert id
 git config -l
-git diff filename.ext
-git fetch
-git fetch upstream
 gitreflog
 git log --graph --decorate –oneline
 git stash
@@ -372,7 +379,7 @@ git stash pop
 git branch login
 git branch -vv
 git remote update --prune
-git rebase
+git rebase -I
 git bisect start
 git bisect bad
 git bisect good
@@ -391,16 +398,18 @@ Is this how you add a description?
 
 ## Create a repo from the command line
 
-I don't think anyone does this. Everyone seems to just create an empty repo. But you can try using this link:
-[Adding an existing project to GitHub using the command line](https://docs.github.com/en/github/importing-your-projects-to-github/importing-source-code-to-github/adding-an-existing-project-to-github-using-the-command-line).
+This is for when you have a project that you have been working on locally and want to then push it to GitHub. Create an empty repo on GitHub. Once you have the https_url the process is the same as the first section above "Pushing your local files to an empty repo". Make sure to give it the same name as your project folder just so there is no confusion.
+
+But here are the commands again:
 
 ```
-git init -b main
-git add . && git commit -m "initial commit"
-gh repo create project-name
+git init
+git add .
+git commit -m "First commit"
+git remote add origin https_url
+git remote -v
+git push -u origin master
 ```
-
-I get an error for the use of `&&` and `gh` so just create an empty repo. You need to install something called GitHub CLI (not interested).
 
 ## Reference links
 
