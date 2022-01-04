@@ -2,6 +2,8 @@
 
 > Some of the commands in this doc are basic beginner commands, some are intermediate level, especially when you get into cloning and contributing.
 
+**Note**: I either use `main` or `master` for some of these commands. They refer to the default branch of your repo or of a cloned/forked repo. Replace the default names in the commands below with your default branch name.
+
 ## Table of contents
 
 1. [Download and setup Git](#download-and-setup-git)
@@ -16,6 +18,7 @@
    1. [Pull request title](#pull-request-title)
    1. [Pull requests page notes](#pull-requests-page-notes)
    1. [Replies to your pull request](#replies-to-your-pull-request)
+   1. [Staying up to date](#staying-up-to-date)
 1. [Handling merge conflicts](#handling-merge-conflicts)
 1. [Miscellaneous git commands](#miscellaneous-git-commands)
 1. [Create a repo from the command line](#create-a-repo-from-the-command-line)
@@ -51,7 +54,7 @@ Run that commmand and scroll down and look for `user.name=“Yourname”` and `u
 
 ## Pushing your local files to an empty repo
 
-This works for me when pushing to a repo I created without a README file. If you hve a README file, then you will get an error when trying to push, so you'll have to do a git pull command. It's easier to have an empty repo:
+This works for me when pushing to a repo I created without a README file. If you hve a README file, then you will get an error when trying to push, so you'll have to do a `git pull` command. It's easier to have an empty repo:
 
 ```
 git init
@@ -62,7 +65,7 @@ git remote -v
 git push -u origin master
 ```
 
-Use `git remote -v` to list any remote repositories that you have connected to this repo. That is to make sure all is well.
+Use `git remote -v` to list any remote repositories that you have connected to this repo, or to show the URLs that Git has stored as a short name. That is to make sure all is well.
 
 But to just use git push in the future you have to set something called an upstream, meaning where you want to push it to by defaullt. That is why you use `-u` (see also below and Commands after initial push).
 
@@ -124,7 +127,7 @@ git clone https_url
 
 Because you cloned this repo from an existing repo, git will try to push it to its original destination. For example, if you type `git remote -v` you will get the address of the cloned repo where git thinks you want to push to.
 
-You need to update the address. Copy the address from the overview page for the repo you created for the clone, then use:
+You need to update the address. Copy the https address (the **https_url** field velow) from the overview page for the repo you created for the clone, then use:
 
 ```
 git remote set-url origin https_url
@@ -183,6 +186,7 @@ Here is a list of commands from [how-to-setup-freecodecamp-locally.md](https://g
 
 ```
 git clone --depth=1 https://github.com/User_Name/freeCodeCamp
+cd folder-name
 ```
 
 **Note**: `--depth=1` creates a shallow clone of your fork, with only the most recent history/commit.
@@ -212,15 +216,16 @@ git diff upstream/main
 
 **ANSWER**: #1 is necessary for the clone to fetch the files. #4 is optional. Use #2 & #3 with caution - read up on them.
 
-Finally, create a branch matching your contribution, make your changes, and then commit and push:
+Finally, check the branch you are on, create a new branch matching your contribution, make your changes then check the status, add the changes, commit the changes, and finally push:
 
 ```
-git checkout -b fix/catphotoapp-typos
+git branch
+git checkout -b fix/something-here
 git status
 git add .
 git status
 git commit -m "short description"
-git push origin fix/catphotoapp-typos
+git push origin fix/something-here
 ```
 
 **Note**: The link above mentions keeping commit messages to 50 or less characters. My first commit message was about 74 characters. On the freeCodeCamp repo it looks like it cut off my message at either 69 or 70 characters, so I think keeping to a max of 69 or 70 characters will work but don't quote me on that.
@@ -233,7 +238,7 @@ git checkout -b fix/catphotoapp-typos
 git status
 git add .
 git commit -m "write some commit message here"
-git push --set-upstream origin fix/catphotoapp-typos
+git push --set-upstream origin fix/something-here
 ```
 
 Why the difference with the first way with `git push origin fix/catphotoapp-typos` and the second with `git push --set-upstream origin fix/catphotoapp-typos`?
@@ -244,7 +249,7 @@ NOTES:
 
 > `git push origin main --force`, you don’t need to add the `--force`. Just doing a regular git push is fine.
 
-> You only use the `--set upstream` when you need to add your local branch to the remote branch. But once the new branch is added to the remote repo, then you don’t need to use `--set upstream` each time
+> You only use the `--set upstream` when you need to add **your LOCAL** branch to the **your REMOTE** branch. But once the new branch is added to the remote repo, then you don’t need to use `--set upstream` each time
 
 MY FINAL COMMANDS:
 
@@ -271,19 +276,19 @@ This will open up a default text editor like `nano` or `vi` where you can edit t
 
 After you push your changes go to your cloned copy of the repo on GitHub and refresh the page if necessary. You should see a green button labeled **_Compare & pull request_**. If you do not see it then click the Pull requests link to go to that tab.
 
-Click "Compare & pull request" button and notice the page title of **_Open a pull request_** and the paragraph in the section below the title saying **_Able to merge. These branches can be automatically merged._**
+Click the "Compare & pull request" button and notice the page title of **_Open a pull request_** and the paragraph in the section below the title saying **_Able to merge. These branches can be automatically merged._**
 
 You can then edit your commit message if need be. In the body of your PR include a more detailed summary of the changes you made and why.
 
-In the text area field:
+Large repos with have various form fields to fill out, here is an example from freeCodeCamp:
 
 1. Put an `x` in the checkboxes,
 1. Remove all the comment fields,
 1. You can preview the message if you like,
 1. Remove the phrase "Closes #XXXXX"
-1. Click the green button **_Create pull request_**.
+1. When done, click the green button **_Create pull request_**.
 
-DONE, DONE AND DONE - NOW WAIT. REMEMBER TO USE fix: what-you-fixed or fix(curriculum) in the PR Title!!!!!!!!!
+DONE, DONE AND DONE - NOW WAIT. REMEMBER TO USE fix: what-you-fixed or fix(curriculum) in the PR Title or other prefixes like `feat`, `bug`, etc.
 
 If the PR is meant to address an existing GitHub Issue then, at the end of your PR's description body, use the keyword Closes with the issue number: `Closes #123`
 
@@ -327,13 +332,24 @@ Those fields should be correct but just be aware of the values. You will also se
 
 **Note**: Large repos like the one for freeCodeCamp will have fields created in the pull request text area that I reference in the steps above. A smaller repo that you are contributing to may not have that setup. In the latter case, be as descriptive but concise as possible - don't write a book!
 
-Also, if you scroll further down on the page you will see all the changes you made. And after clicking the "Create pull request" button you will be taken to the source repo showing your pull request, other pull requests, the conversations for each, etc.
+Also, if you scroll further down on the page you will see all the changes you made. And after clicking the "Create pull request" button you will be taken to the source repo showing your pull request, other pull requests, the conversations for each, etc. Also check the tabs like **Files** and **Commits**.
 
 ### Replies to your pull request
 
-Our moderators will now take a look and leave you feedback. You will get a message when a reviewer for the source repo adds a comment about your pull request.
+> Our moderators will now take a look and leave you feedback. You will get a message when a reviewer for the source repo adds a comment about your pull request...
 
 Regardless, your changes will either be accepted or rejected. When the owner of the repo accepts your changes they will do so by clicking the **Merge pull request** button.
+
+### Staying up to date
+
+Once you are done with your PR an start to work on something else, the repo has most had chnages by other contributors so your copy is behind. You need then to update your local copy of the repo before making new changes:
+
+```
+git checkout master
+git pull upstream master
+```
+
+I actually use `git fetch upstream` to update my local clone. I'm not sure if `git pull upstream master` is better or not.
 
 ## Handling merge conflicts
 
@@ -364,7 +380,7 @@ To remove git tracking from a folder use the following command in git bash or fr
 
 `rm -rf .git`
 
-I (mostly) know what these commands do:
+Here are variations of some of the commands above or common ones you may see:
 
 ```
 git init
@@ -382,10 +398,10 @@ git branch -a
 git diff filename.ext
 git fetch
 git fetch upstream
-clear, q, Q, exit
+clear, q, Q, exit, ESC, :WQ, ENTER, pwd (command-line commands)
 ```
 
-I am not sure what these commands do, mostly because I believe these are advanced git commands:
+I am not sure what these commands do, mostly because I believe these are advanced git commands but I have either used them with help from other people, or they are from my many pages of git notes:
 
 ```
 git reset
@@ -400,15 +416,14 @@ git stash pop
 git branch login
 git branch -vv
 git remote update --prune
-git rebase -I
+git rebase -i
+git rebase -i HEAD~n
 git bisect start
 git bisect bad
 git bisect good
 git config --list
 git config --global core.editor "code –wait"
 git config --global core.autocrlf true
-git rebase -i HEAD~n
-ESC | :WQ | ENTER, pwd
 ```
 
 Is this how you add a description?
@@ -416,10 +431,6 @@ Is this how you add a description?
 ```
 - git commit -m "Title" -m "Description ..........";
 ```
-
-### Comments
-
-How do you make comments in git? Don't think it's done, but just use the comment symbols like `#` yo add comments in the cde blocks.
 
 ## Create a repo from the command line
 
