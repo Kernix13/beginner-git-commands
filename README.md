@@ -1,16 +1,10 @@
 # Beginner Git commands
 
-**Note**: On your first push ever to GitHub, you may need to provide a user name and email address, I assume the ones used when you created your GitHub account. I think the commands are something like this:
-
-```
-git config --global user.name "any user name"
-git config --global user.email "someone@someone.com"
-```
-
-The git config command is used initially to configure the user.name and user.email. This specifies what email id and username will be used from a local repository. When git config is used with --global flag, it writes the settings to all repositories on the computer.
+> Some of the commands in this doc are baic beginner commands, some are intermediate level, especially when you get into cloning and contributing.
 
 ## Table of contents
 
+1. [Download and setup Git](#download-and-setup-git)
 1. [Pushing your local files to an empty repo](#pushing-your-local-files-to-an-empty-repo)
 1. [Commands after initial push](#commands-after-initial-push)
 1. [Clone your own repo](#clone-your-own-repo)
@@ -27,6 +21,33 @@ The git config command is used initially to configure the user.name and user.ema
 1. [Create a repo from the command line](#create-a-repo-from-the-command-line)
 1. [Reference links](#reference-links)
 1. [Final notes](#final-notes)
+
+## Download and setup Git
+
+It's been well over a year since I did this so I can't remember all the steps. But first you need to [download Git](https://git-scm.com/downloads 'Git download page').
+
+Check out this video from the YouTube channel LearnWebCode: [Git Tutorial Part 3: Installation, Command-line & Clone](https://youtu.be/UFEby2zo-9E 'Git Tutorial'). I did not take great notes on that video but I used his steps to run the `config` commands below. Follow his instructions using Git Bash. Eventually, you will use VS Code for 99% of the commands in this guide.
+
+**Note**: On your first push ever to GitHub, you will need to provide a user name and email address to git, I assume the ones used when you created your GitHub account. This is so git knows that you are who you say you are. I think the commands are something like this:
+
+```
+git config --global user.name "any user name"
+git config --global user.email "youremail@somewhere.com"
+```
+
+The git config command is used initially to configure the user.name and user.email. This specifies what email id and username will be used from a local repository. When git config is used with --global flag, it writes the settings to all repositories on the computer.
+
+The `--global` flag tells GIT that you’re going to use your email for all repos. Replace that with `--local` to use different emails for different repos.
+
+Some people will mention using an SSH key. I found that a little confusing.
+
+Also, try the following command to see all the configutarion settings:
+
+```
+git config --list
+```
+
+Scroll down and look for `user.name=“Yourname”` and `user.email=“your-email@whatevs.com”`, though until you set those values you either will not see those fields or they will be set to empty strings.
 
 ## Pushing your local files to an empty repo
 
@@ -158,7 +179,7 @@ That will show you what has been changed and that has not been pushed to main, o
 
 ## Forking and cloning
 
-Here is a list of commands from [how-to-setup-freecodecamp-locally.md](https://github.com/freeCodeCamp/freeCodeCamp/blob/main/docs/how-to-setup-freecodecamp-locally.md). After you fork a repo:
+Here is a list of commands from [how-to-setup-freecodecamp-locally.md](https://github.com/freeCodeCamp/freeCodeCamp/blob/main/docs/how-to-setup-freecodecamp-locally.md 'How to set up freeCodeCamp locally'). After you fork a repo:
 
 ```
 git clone --depth=1 https://github.com/User_Name/freeCodeCamp
@@ -289,7 +310,7 @@ For example:
 
 Keep it short (less than 30 characters) and simple, you can add more information in the PR description box and comments. Example: `fix(api,client): prevent CORS errors on form submission`.
 
-**QUESTION**: What creates CHANGELOGs? Is it the use of the colon `:`? Here is a quote from [Why Use Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0-beta.2/#why-use-conventional-commits):
+**QUESTION**: What creates CHANGELOGs? Is it the use of the colon `:`? Here is a quote from [Why Use Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0-beta.2/#why-use-conventional-commits 'Conventional Commits'):
 
 > Automatically generating CHANGELOGs.
 
@@ -318,7 +339,7 @@ Regardless, your changes will either be accepted or rejected. When the owner of 
 
 Here is where I'm a little fuzzy on the steps. I think you may have to do a pull request to get changes from other contributors. Make sure you are on the `master` or `main` branch then do `git pull`.
 
-Read more here: [Conflicts on a pull request](https://github.com/freeCodeCamp/freeCodeCamp/blob/main/docs/how-to-setup-freecodecamp-locally.md#making-changes-locally).
+Read more here: [Conflicts on a pull request](https://github.com/freeCodeCamp/freeCodeCamp/blob/main/docs/how-to-setup-freecodecamp-locally.md#making-changes-locally 'Making chanes locally').
 
 A merge conflict is when 2 or more people change the same code/content but with different values and you run the command `git merge branch-name`. However, I don't think a contributor would actually run that command.
 
@@ -396,6 +417,10 @@ Is this how you add a description?
 - git commit -m "Title" -m "Description ..........";
 ```
 
+### Comments
+
+How do you make comments in git? Don't think it's done, but just use the comment symbols like `#` yo add comments in the cde blocks.
+
 ## Create a repo from the command line
 
 This is for when you have a project that you have been working on locally and want to then push it to GitHub. Create an empty repo on GitHub. Once you have the https_url the process is the same as the first section above "Pushing your local files to an empty repo". Make sure to give it the same name as your project folder just so there is no confusion.
@@ -413,17 +438,17 @@ git push -u origin master
 
 ## Reference links
 
-1. [Git reference docs](https://git-scm.com/docs)
-1. [GitHub for complete beginners MDN](https://developer.mozilla.org/en-US/docs/MDN/Contribute/GitHub_beginners)
-1. [Why Use Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0-beta.2/#why-use-conventional-commits)
-1. [how-to-contribute-to-open-source](https://github.com/freeCodeCamp/how-to-contribute-to-open-source)
-1. [Contribute to freeCodeCamp.org](https://contribute.freecodecamp.org/#/)
-1. [how-to-setup-freecodecamp-locally.md](https://github.com/freeCodeCamp/freeCodeCamp/blob/main/docs/how-to-setup-freecodecamp-locally.md)
-1. [freeCodeCamp Conflicts on a pull request](https://github.com/freeCodeCamp/freeCodeCamp/blob/main/docs/how-to-setup-freecodecamp-locally.md#making-changes-locally)
-1. [freeCodeCamp Introduction](https://contribute.freecodecamp.org/#/index)
-1. [freeCodeCamp How to work on coding challenges](https://contribute.freecodecamp.org/#/how-to-work-on-coding-challenges)
-1. [freeCodeCamp FAQs](https://contribute.freecodecamp.org/#/FAQ)
-1. [freeCodeCamp How to open a Pull Request](https://github.com/freeCodeCamp/freeCodeCamp/blob/main/docs/how-to-open-a-pull-request.md)
+1. [Git reference docs](https://git-scm.com/docs 'Git documentation')
+1. [GitHub for complete beginners MDN](https://developer.mozilla.org/en-US/docs/MDN/Contribute/GitHub_beginners 'MDN GitHub docs')
+1. [Why Use Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0-beta.2/#why-use-conventional-commits 'Conventional Commits')
+1. [how-to-contribute-to-open-source "freeCodeCamp How to contribute article"](https://github.com/freeCodeCamp/how-to-contribute-to-open-source)
+1. [Contribute to freeCodeCamp.org](https://contribute.freecodecamp.org/#/ 'freeCpdeCamp contribution docs')
+1. [how-to-setup-freecodecamp-locally.md](https://github.com/freeCodeCamp/freeCodeCamp/blob/main/docs/how-to-setup-freecodecamp-locally.md 'How to setup freeCodeCamp locally')
+1. [freeCodeCamp Conflicts on a pull request](https://github.com/freeCodeCamp/freeCodeCamp/blob/main/docs/how-to-setup-freecodecamp-locally.md#making-changes-locally 'freeCodeCamp PR Conflicts')
+1. [freeCodeCamp Introduction](https://contribute.freecodecamp.org/#/index 'freeCodeCamp contribution intro')
+1. [freeCodeCamp How to work on coding challenges](https://contribute.freecodecamp.org/#/how-to-work-on-coding-challenges 'freeCodeCamp: Working on coding challenges')
+1. [freeCodeCamp FAQs](https://contribute.freecodecamp.org/#/FAQ 'freeCodeCamp FAQs')
+1. [freeCodeCamp How to open a Pull Request](https://github.com/freeCodeCamp/freeCodeCamp/blob/main/docs/how-to-open-a-pull-request.md 'How to open a PR freeCodeCamp')
 
 ## Final notes
 
