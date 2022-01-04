@@ -1,6 +1,6 @@
 # Beginner Git commands
 
-> Some of the commands in this doc are baic beginner commands, some are intermediate level, especially when you get into cloning and contributing.
+> Some of the commands in this doc are basic beginner commands, some are intermediate level, especially when you get into cloning and contributing.
 
 ## Table of contents
 
@@ -28,18 +28,18 @@ It's been well over a year since I did this so I can't remember all the steps. B
 
 Check out this video from the YouTube channel LearnWebCode: [Git Tutorial Part 3: Installation, Command-line & Clone](https://youtu.be/UFEby2zo-9E 'Git Tutorial'). I did not take great notes on that video but I used his steps to run the `config` commands below. Follow his instructions using Git Bash. Eventually, you will use VS Code for 99% of the commands in this guide.
 
-**Note**: On your first push ever to GitHub, you will need to provide a user name and email address to git, I assume the ones used when you created your GitHub account. This is so git knows that you are who you say you are. I think the commands are something like this:
+**Note**: On your first push ever to GitHub, you will need to provide a user name and email address to git, I assume the ones used when you created your GitHub account. This is so git knows that you are who you say you are. The commands look like this:
 
 ```
 git config --global user.name "any user name"
 git config --global user.email "youremail@somewhere.com"
 ```
 
-The git config command is used initially to configure the user.name and user.email. This specifies what email id and username will be used from a local repository. When git config is used with --global flag, it writes the settings to all repositories on the computer.
+The git config command is used initially to configure the user.name and user.email fields. This specifies what email id and username will be used from a local repository. When git config is used with the `--global` flag, it writes the settings to all repositories on the computer.
 
-The `--global` flag tells GIT that you’re going to use your email for all repos. Replace that with `--local` to use different emails for different repos.
+The `--global` flag tells GIT that you’re going to use the email above for all repos. Replace that with `--local` to use different emails for different repos.
 
-Some people will mention using an SSH key. I found that a little confusing.
+Some people will mention using an SSH key to validate your identity. I found that a little confusing so I prefer the method above.
 
 Also, try the following command to see all the configutarion settings:
 
@@ -47,7 +47,7 @@ Also, try the following command to see all the configutarion settings:
 git config --list
 ```
 
-Scroll down and look for `user.name=“Yourname”` and `user.email=“your-email@whatevs.com”`, though until you set those values you either will not see those fields or they will be set to empty strings.
+Run that commmand and scroll down and look for `user.name=“Yourname”` and `user.email=“your-email@whatevs.com”`, though until you set those values you either will not see those fields or they will be set to empty strings.
 
 ## Pushing your local files to an empty repo
 
