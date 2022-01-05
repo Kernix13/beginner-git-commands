@@ -458,7 +458,7 @@ Reference logs record everything you do with your local branch. Use `git reflog`
 Is this how you add a description?
 
 ```
-- git commit -m "Title" -m "Description ..........";
+git commit -m "Title" -m "Description ..........";
 ```
 
 ## Create a repo from the command line
