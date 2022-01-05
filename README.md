@@ -7,6 +7,7 @@
 ## Table of contents
 
 1. [Download and setup Git](#download-and-setup-git)
+   1. [Terminology](#terminology)
 1. [Pushing your local files to an empty repo](#pushing-your-local-files-to-an-empty-repo)
 1. [Commands after initial push](#commands-after-initial-push)
 1. [Clone your own repo](#clone-your-own-repo)
@@ -53,6 +54,14 @@ git config --list
 ```
 
 Run that command and scroll down and look for `user.name=“Yourname”` and `user.email=“your-email@whatevs.com”`, though until you set those values you either will not see those fields or they will be set to empty strings.
+
+### Terminology
+
+Here are some terms that I had a problem with. Some are quoted from MDN and some from a forum reply to my post:
+
+1. **upstream**: forked-or-cloned-user-id/cloned-or-forked-repo-name
+1. **origin**: your-user-id/cloned-or-forked-repo-name
+1. **remote-name** (from MDN): a name you choose and used to refer to the remote later on, e.g. the repo that you forked is often called the "upstream repo", therefore people often use "upstream" as the name of the remote upstream location
 
 ## Pushing your local files to an empty repo
 
