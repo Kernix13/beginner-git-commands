@@ -469,6 +469,6 @@ FYI, it's difficult keeping this list up-to-date. I'll do my best to provide the
 
 I may have errors or incorrect usage of commands in this file. I'll fix them as I find them. Or contact me and let me know what needs to be changed at [Kernix Web Design](https://kernixwebdesign.com/contact/ 'Contact page').
 
-> Last updated December 30th, 2021.
+I am also looking to find 3-4 entry level designers and developers to start a project or two. I have some ideas how we could help each other land a job!
 
 <!-- Ignore this line, experimenting with markdown comments -->
