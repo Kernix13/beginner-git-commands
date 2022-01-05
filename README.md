@@ -480,4 +480,10 @@ I may have errors or incorrect usage of commands in this file. I'll fix them as 
 
 I am also looking to find 3-4 entry level designers and developers to start a project or two. I have some ideas how we could help each other land a job!
 
+### Git keywords
+
+I'm wondering if putting in the following keywords will help beginners searching on GitHub to find this repo:
+
+**Keywords**: git for beginners, basic git commands, basic git commands cheat sheet, basic git commands github, basic git commands for beginners, basic git commands list, basic commands for git, github basic commands, basic commands in git, basic git command, basic git commands to know, what are basic git commands, git guide command line, most basic git commands, basic commands of git, basic git workflow commands, basic git cheat sheet, git commands cheat sheet github, ...
+
 <!-- Ignore this line, experimenting with markdown comments -->
