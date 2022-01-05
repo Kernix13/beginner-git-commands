@@ -27,6 +27,8 @@
 
 ## Download and setup Git
 
+This section IMO is unnecessary if you found this repo because you should already have GIT installed. But it's notes for me for my next laptop.
+
 It's been well over a year since I did this so I can't remember all the steps. But first you need to [download Git](https://git-scm.com/downloads 'Git download page').
 
 Check out this video from the YouTube channel LearnWebCode: [Git Tutorial Part 3: Installation, Command-line & Clone](https://youtu.be/UFEby2zo-9E 'Git Tutorial'). I did not take great notes on that video but I used his steps to run the `config` commands below. Follow his instructions using Git Bash. Eventually, you will use VS Code for 99% of the commands in this guide.
@@ -463,6 +465,8 @@ git push -u origin master
 
 ## Final notes
 
-I may have errors in here. I'll fix them as I find them.
+I may have errors or incorrect usage of commands in here. I'll fix them as I find them.
 
 > Last updated December 30th, 2021.
+
+<!-- Ignore this line, experimenting with markdown comments -->
