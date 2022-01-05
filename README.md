@@ -451,6 +451,8 @@ git push -u origin master
 
 ## Reference links
 
+FYI, it's difficult keeping this list up-to-date. I'll do my best to provide the best resoures that I find and that work for me.
+
 1. [Git reference docs](https://git-scm.com/docs 'Git documentation')
 1. [GitHub for complete beginners MDN](https://developer.mozilla.org/en-US/docs/MDN/Contribute/GitHub_beginners 'MDN GitHub docs')
 1. [Why Use Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0-beta.2/#why-use-conventional-commits 'Conventional Commits')
