@@ -27,9 +27,9 @@
 
 ## Download and setup Git
 
-This section IMO is unnecessary if you found this repo because you should already have GIT installed. But it's notes for me for my next laptop.
+This section IMO is unnecessary if you found this repo because you should already have GIT installed ad know the basics (_add, commit, push, pull, branch_). This section is more for me when I get my next laptop.
 
-It's been well over a year since I did this so I can't remember all the steps. But first you need to [download Git](https://git-scm.com/downloads 'Git download page').
+It's been well over a year since I did this so I can't remember all the steps. But first, you need to [download Git](https://git-scm.com/downloads 'Git download page').
 
 Check out this video from the YouTube channel LearnWebCode: [Git Tutorial Part 3: Installation, Command-line & Clone](https://youtu.be/UFEby2zo-9E 'Git Tutorial'). I did not take great notes on that video but I used his steps to run the `config` commands below. Follow his instructions using Git Bash. Eventually, you will use VS Code for 99% of the commands in this guide.
 
@@ -46,17 +46,17 @@ The `--global` flag tells GIT that you’re going to use the email above for all
 
 Some people will mention using an SSH key to validate your identity. I found that a little confusing so I prefer the method above.
 
-Also, try the following command to see all the configutarion settings:
+Also, try the following command to see all the configuration settings:
 
 ```
 git config --list
 ```
 
-Run that commmand and scroll down and look for `user.name=“Yourname”` and `user.email=“your-email@whatevs.com”`, though until you set those values you either will not see those fields or they will be set to empty strings.
+Run that command and scroll down and look for `user.name=“Yourname”` and `user.email=“your-email@whatevs.com”`, though until you set those values you either will not see those fields or they will be set to empty strings.
 
 ## Pushing your local files to an empty repo
 
-This works for me when pushing to a repo I created without a README file. If you hve a README file, then you will get an error when trying to push, so you'll have to do a `git pull` command. It's easier to have an empty repo:
+This works for me when pushing to a repo I created without a README file. If you have a README file, then you will get an error when trying to push, so you'll have to do a `git pull` command. It's easier to have an empty repo:
 
 ```
 git init
@@ -69,7 +69,7 @@ git push -u origin master
 
 Use `git remote -v` to list any remote repositories that you have connected to this repo, or to show the URLs that Git has stored as a short name. That is to make sure all is well.
 
-But to just use git push in the future you have to set something called an upstream, meaning where you want to push it to by defaullt. That is why you use `-u` (see also below and Commands after initial push).
+But to just use git push in the future you have to set something called an upstream, meaning where you want to push it to by default. That is why you use `-u` (see also below and Commands after initial push).
 
 But these are the commands GitHub shows you when you create an empty repo:
 
@@ -82,7 +82,7 @@ git remote add origin https_url
 git push -u origin main
 ```
 
-I know the first code block works, but I remember following the GitHub commands exactly and it worked as well - it's your choice. The only different is `git branch -M main` and I do not know what that means except maybe changing the master branch to the name "main". I'm not sure why the `add README.md` is included.
+I know the first code block works, but I remember following the GitHub commands exactly and it worked as well - it's your choice. The only difference is `git branch -M main` and I do not know what that means except maybe changing the master branch to the name "main". I'm not sure why the `add README.md` is included.
 
 ## Commands after initial push
 
@@ -129,14 +129,14 @@ git clone https_url
 
 Because you cloned this repo from an existing repo, git will try to push it to its original destination. For example, if you type `git remote -v` you will get the address of the cloned repo where git thinks you want to push to.
 
-You need to update the address. Copy the https address (the **https_url** field velow) from the overview page for the repo you created for the clone, then use:
+You need to update the address. Copy the https address (the **https_url** field below) from the overview page for the repo you created for the clone, then use:
 
 ```
 git remote set-url origin https_url
 git remote -v
 ```
 
-Now git knows that the origin is your repo. Using `git reomote -v` again is to check that git is pointing to your repo adddress. Then to push the cloned repo files to your repo use:
+Now git knows that the origin is your repo. Using `git remote -v` again is to check that git is pointing to your repo address. Then to push the cloned repo files to your repo use:
 
 ```
 git push origin master
@@ -155,9 +155,9 @@ git merge branch_name
 git diff branch_name
 ```
 
-The 1st command shows the branch you are working on. The 2nd one lists all the branch names in your repo. The next two switches to the branch and creates then switches to that branch, respectively. The merge command merges the branch into whatever branch you are currently in, most likely master.
+The 1st command shows the branch you are working on. The 2nd one lists all the branch names in your repo. The next two switch to the branch and creates then switches to that branch, respectively. The merge command merges the branch into whatever branch you are currently in, most likely master.
 
-More commonly you will push the changes to github then make a PR (push request). So make sure you switch back from main/master to your branch. For a new branch, git push wont work because git doesn’t know what branch you are pushing to – so do:
+More commonly you will push the changes to github then make a PR (push request). So make sure you switch back from main/master to your branch. For a new branch, git push won't work because git doesn’t know what branch you are pushing to – so do:
 
 ```
 git push --set-upstream origin branch_name
@@ -167,7 +167,7 @@ git push --set-upstream origin branch_name
 
 **Note**: A PR from your branch to the master branch is to request to have your code merged with the master branch. When your code is merged delete your branch. To delete a branch use `git branch -d branch_name`.
 
-To pull changes from GitHub to your machine use `git pull origin master` or just `git pull` if you set the upsteam. Make sure you are on the master branch.
+To pull changes from GitHub to your machine use `git pull origin master` or just `git pull` if you set the upstream already. Make sure you are on the master branch.
 
 If you get this error when trying to delete a branch:
 
@@ -230,7 +230,7 @@ git commit -m "short description"
 git push origin fix/something-here
 ```
 
-**Note**: The link above mentions keeping commit messages to 50 or less characters. My first commit message was about 74 characters. On the freeCodeCamp repo it looks like it cut off my message at either 69 or 70 characters, so I think keeping to a max of 69 or 70 characters will work but don't quote me on that.
+**Note**: The link above mentions keeping commit messages to 50 or fewer characters. My first commit message was about 74 characters. On the freeCodeCamp repo it looks like it cut off my message at either 69 or 70 characters, so I think keeping to a max of 69 or 70 characters will work but don't quote me on that.
 
 Before covering the Pull Request back on GitHub, here is a reply from the freeCodeCamp forum about the process:
 
@@ -243,15 +243,15 @@ git commit -m "write some commit message here"
 git push --set-upstream origin fix/something-here
 ```
 
-Why the difference with the first way with `git push origin fix/catphotoapp-typos` and the second with `git push --set-upstream origin fix/catphotoapp-typos`?
+What is the difference between the first way with `git push origin fix/catphotoapp-typos` and the second with `git push --set-upstream origin fix/catphotoapp-typos`?
 
 NOTES:
 
-> `git reset --hard upstream/main` erases any uncommitted changes. This is not a required command used everytime you need to push changes to the remote repo - use it wisely and when needed.
+> `git reset --hard upstream/main` erases any uncommitted changes. This is not a required command used every time you need to push changes to the remote repo - use it wisely and when needed.
 
 > `git push origin main --force`, you don’t need to add the `--force`. Just doing a regular git push is fine.
 
-> You only use the `--set upstream` when you need to add **your LOCAL** branch to the **your REMOTE** branch. But once the new branch is added to the remote repo, then you don’t need to use `--set upstream` each time
+> You only use the `--set upstream` when you need to add **your LOCAL** branch to **your REMOTE** branch. But once the new branch is added to the remote repo, then you don’t need to use `--set upstream` each time
 
 MY FINAL COMMANDS:
 
@@ -290,7 +290,7 @@ Large repos with have various form fields to fill out, here is an example from f
 1. Remove the phrase "Closes #XXXXX"
 1. When done, click the green button **_Create pull request_**.
 
-DONE, DONE AND DONE - NOW WAIT. REMEMBER TO USE fix: what-you-fixed or fix(curriculum) in the PR Title or other prefixes like `feat`, `bug`, etc.
+DONE, DONE, AND DONE - NOW WAIT. REMEMBER TO USE fix: what-you-fixed or fix(curriculum) in the PR Title or other prefixes like `feat`, `bug`, etc.
 
 If the PR is meant to address an existing GitHub Issue then, at the end of your PR's description body, use the keyword Closes with the issue number: `Closes #123`
 
@@ -321,7 +321,7 @@ Keep it short (less than 30 characters) and simple, you can add more information
 
 > Automatically generating CHANGELOGs.
 
-Will using `fix:`, `feat:`, `docs:`, etc. create CHANGELOGs where fix, feat, or docs without the colon not do that?
+Will using `fix:`, `feat:`, `docs:`, etc. create CHANGELOGs where fix, feat, or docs without the colon do not do?
 
 ### Pull requests page notes
 
@@ -334,7 +334,7 @@ Those fields should be correct but just be aware of the values. You will also se
 
 **Note**: Large repos like the one for freeCodeCamp will have fields created in the pull request text area that I reference in the steps above. A smaller repo that you are contributing to may not have that setup. In the latter case, be as descriptive but concise as possible - don't write a book!
 
-Also, if you scroll further down on the page you will see all the changes you made. And after clicking the "Create pull request" button you will be taken to the source repo showing your pull request, other pull requests, the conversations for each, etc. Also check the tabs like **Files** and **Commits**.
+Also, if you scroll further down on the page you will see all the changes you made. And after clicking the "Create pull request" button you will be taken to the source repo showing your pull request, other pull requests, the conversations for each, etc. Also, check the tabs **Checks**, **Files changed** and **Commits**.
 
 ### Replies to your pull request
 
@@ -344,7 +344,7 @@ Regardless, your changes will either be accepted or rejected. When the owner of 
 
 ### Staying up to date
 
-Once you are done with your PR an start to work on something else, the repo has most had chnages by other contributors so your copy is behind. You need then to update your local copy of the repo before making new changes:
+Once you are done with your PR and start to work on something else, the repo has most had changes by other contributors so your copy is behind. You need then to update your local copy of the repo before making new changes:
 
 ```
 git checkout master
@@ -465,7 +465,7 @@ git push -u origin master
 
 ## Final notes
 
-I may have errors or incorrect usage of commands in here. I'll fix them as I find them.
+I may have errors or incorrect usage of commands in this file. I'll fix them as I find them. Or contact me and let me know what needs to be changed at [Kernix Web Design](https://kernixwebdesign.com/contact/ "Contact page).
 
 > Last updated December 30th, 2021.
 
