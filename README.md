@@ -65,7 +65,7 @@ Here are some terms that I had a problem with. Some are quoted from MDN and some
 
 ## Pushing your local files to an empty repo
 
-This works for me when pushing to a repo I created without a README file. If you have a README file, then you will get an error when trying to push, so you'll have to do a `git pull` command. It's easier to have an empty repo:
+This works for me when pushing to a repo I created without a README file. If you have a README file, then you will get an error when trying to push, so you'll have to do a `git pull` command. It's easier to start with an empty repo:
 
 ```
 git init
@@ -75,10 +75,6 @@ git remote add origin https_url
 git remote -v
 git push -u origin master
 ```
-
-Use `git remote -v` to list any remote repositories that you have connected to this repo, or to show the URLs that Git has stored as a short name. That is to make sure all is well.
-
-But to just use git push in the future you have to set something called an upstream, meaning where you want to push it to by default. That is why you use `-u` (see also below and Commands after initial push).
 
 But these are the commands GitHub shows you when you create an empty repo:
 
@@ -92,6 +88,16 @@ git push -u origin main
 ```
 
 I know the first code block works, but I remember following the GitHub commands exactly and it worked as well - it's your choice. The only difference is `git branch -M main` and I do not know what that means except maybe changing the master branch to the name "main". I'm not sure why the `add README.md` is included.
+
+The `git init` command new local GIT repository in the directory you ran that command. The command `git clone` also initiates a git repo for a repo you want to clone, but git is installed in the folder that is created in the directory you ran that command. But both initiate git tracking.
+
+The `git push` command is used to send local commits to the master branch of the remote repository
+
+Use `git remote -v` to list any remote repositories that you have connected to this repo, or to show the URLs that Git has stored as a short name. That is to make sure all is well. The command `git remote add origin https_url` connects the local repository to a remote server (GitHub repo).
+
+But to just use `git push` in the future you have to set something called an upstream, meaning where you want to push it to by default. That is why you use `-u` (see also below and Commands after initial push).
+
+Replace **master** with the branch where you want to push your changes when you’re not intending to push to the master branch
 
 ## Commands after initial push
 
@@ -166,7 +172,7 @@ git diff branch_name
 
 The 1st command shows the branch you are working on. The 2nd one lists all the branch names in your repo. The next two switch to the branch and creates then switches to that branch, respectively. The merge command merges the branch into whatever branch you are currently in, most likely master.
 
-More commonly you will push the changes to github then make a PR (push request). So make sure you switch back from main/master to your branch. For a new branch, git push won't work because git doesn’t know what branch you are pushing to – so do:
+More commonly you will push the changes to GitHub then make a PR (push request). So make sure you switch back from main/master to your branch. For a new branch, git push won't work because git doesn’t know what branch you are pushing to so run:
 
 ```
 git push --set-upstream origin branch_name
@@ -176,7 +182,7 @@ git push --set-upstream origin branch_name
 
 **Note**: A PR from your branch to the master branch is to request to have your code merged with the master branch. When your code is merged delete your branch. To delete a branch use `git branch -d branch_name`.
 
-To pull changes from GitHub to your machine use `git pull origin master` or just `git pull` if you set the upstream already. Make sure you are on the master branch.
+To pull changes from GitHub to your machine use `git pull origin master` or just `git pull` if you set the upstream already. Make sure you are on the master branch. What `git pull` does is merge all the changes present in the remote repository to the local working directory.
 
 If you get this error when trying to delete a branch:
 
@@ -227,6 +233,8 @@ git diff upstream/main
 
 **ANSWER**: #1 is necessary for the clone to fetch the files. #4 is optional. Use #2 & #3 with caution - read up on them.
 
+**Note**: 'git fetch`is used to fetch all objects from the remote repo that don’t currently reside in the local working directory. You'll also often see`git fetch origin`.
+
 Finally, check the branch you are on, create a new branch matching your contribution, make your changes then check the status, add the changes, commit the changes, and finally push:
 
 ```
@@ -245,14 +253,14 @@ Before covering the Pull Request back on GitHub, here is a reply from the freeCo
 
 ```
 git clone https://github.com/User_Name/freeCodeCamp
-git checkout -b fix/catphotoapp-typos
+git checkout -b fix/something-typos
 git status
 git add .
 git commit -m "write some commit message here"
 git push --set-upstream origin fix/something-here
 ```
 
-What is the difference between the first way with `git push origin fix/catphotoapp-typos` and the second with `git push --set-upstream origin fix/catphotoapp-typos`?
+What is the difference between the first way with `git push origin fix/something-typos` and the second with `git push --set-upstream origin fix/something-typos`?
 
 NOTES:
 
@@ -275,7 +283,7 @@ git commit -m "short description"
 git push --set-upstream origin fix/branch-name
 ```
 
-With that last `git push` only for the first time, then use `git push origin fix/catphotoapp-typos`. Also add `git remote -v` after the fetch command, and of course `git status` as needed.
+With that last `git push` only for the first time, then use `git push origin fix/something-typos`. Also add `git remote -v` after the fetch command, and of course `git status` as needed.
 
 If you realize that you need to edit a file or update the commit message after making a commit you can do so after editing the files with:
 
@@ -391,6 +399,8 @@ To remove git tracking from a folder use the following command in git bash or fr
 
 `rm -rf .git`
 
+Here is an interesting one: `gitk` shows the graphical interface for a local repository
+
 Here are variations of some of the commands above or common ones you may see:
 
 ```
@@ -406,6 +416,7 @@ git push --set-upstream origin branch-name
 git rm –cached filename
 git merge --abort
 git branch -a
+git diff
 git diff filename.ext
 git fetch
 git fetch upstream
@@ -415,6 +426,9 @@ clear, q, Q, exit, ESC, :WQ, ENTER, pwd (command-line commands)
 I am not sure what these commands do, mostly because I believe these are advanced git commands but I have either used them with help from other people, or they are from my many pages of git notes:
 
 ```
+git reflog
+git archive
+git prune
 git reset
 git reset filename.ext
 git reset HEAD
@@ -424,6 +438,8 @@ gitreflog
 git log --graph --decorate –oneline
 git stash
 git stash pop
+git tag
+git show
 git branch login
 git branch -vv
 git remote update --prune
@@ -435,7 +451,10 @@ git bisect good
 git config --list
 git config --global core.editor "code –wait"
 git config --global core.autocrlf true
+git command --help
 ```
+
+Reference logs record everything you do with your local branch. Use `git reflog` to show everything you did in previous steps - find the entry where you think you want to go back to. Then use `git checkout HEAD@{12}` or`git reset HEAD@{3}` to get back to that state, where `HEAD@{12}` and `HEAD@{3}` are just using example numbers. Just run it and you'll see what I mean.
 
 Is this how you add a description?
 
@@ -460,7 +479,7 @@ git push -u origin master
 
 ## Reference links
 
-FYI, it's difficult keeping this list up-to-date. I'll do my best to provide the best resoures that I find and that work for me.
+FYI, it's difficult keeping this list up-to-date. I'll do my best to provide the best resources that I find and that work for me.
 
 1. [Git reference docs](https://git-scm.com/docs 'Git documentation')
 1. [GitHub for complete beginners MDN](https://developer.mozilla.org/en-US/docs/MDN/Contribute/GitHub_beginners 'MDN GitHub docs')
@@ -478,7 +497,7 @@ FYI, it's difficult keeping this list up-to-date. I'll do my best to provide the
 
 I may have errors or incorrect usage of commands in this file. I'll fix them as I find them. Or contact me and let me know what needs to be changed at [Kernix Web Design](https://kernixwebdesign.com/contact/ 'Contact page').
 
-I am also looking to find 3-4 entry level designers and developers to start a project or two. I have some ideas how we could help each other land a job!
+I am also looking to find 3-4 entry-level designers and developers to start a project or two. I have some ideas about how we can help each other land a job!
 
 ### Git keywords
 
