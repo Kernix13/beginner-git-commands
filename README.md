@@ -27,7 +27,7 @@
 
 ## Download and setup Git
 
-This section IMO is unnecessary if you found this repo because you should already have GIT installed ad know the basics (_add, commit, push, pull, branch_). This section is more for me when I get my next laptop.
+This section IMO is unnecessary if you found this repo because you should already have GIT installed and know the basics (_add, commit, push, pull, branch_). This section is more for me when I get my next laptop and I need a reminder of how to install GIT and connect to GitHub.
 
 It's been well over a year since I did this so I can't remember all the steps. But first, you need to [download Git](https://git-scm.com/downloads 'Git download page').
 
