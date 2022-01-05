@@ -434,7 +434,6 @@ git reset filename.ext
 git reset HEAD
 git revert id
 git config -l
-gitreflog
 git log --graph --decorate –oneline
 git stash
 git stash pop
