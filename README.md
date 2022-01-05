@@ -465,7 +465,7 @@ git push -u origin master
 
 ## Final notes
 
-I may have errors or incorrect usage of commands in this file. I'll fix them as I find them. Or contact me and let me know what needs to be changed at [Kernix Web Design](https://kernixwebdesign.com/contact/ "Contact page).
+I may have errors or incorrect usage of commands in this file. I'll fix them as I find them. Or contact me and let me know what needs to be changed at [Kernix Web Design](https://kernixwebdesign.com/contact/ 'Contact page').
 
 > Last updated December 30th, 2021.
 
