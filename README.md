@@ -120,7 +120,7 @@ git commit -m "Reason for commit"
 git push -u origin master
 ```
 
-**Note**: You need to use `git push -u origin master` for the next commit only after the initial push. After that just use `git push` unless you used `-u` as mentioned above. Although I believe you could do `git push origin master` and it won't have a negative effect. Also, I'm adding `git status` as a habit to check the status of the files, though that command is not required.
+**Note**: You need to use `git push -u origin master` for the next commit only after the initial push. After that just use `git push` unless you used `-u` as mentioned above. Although I believe you can run `git push origin master` and it won't have a negative effect. Also, I'm adding `git status` as a habit to check the status of the files, though that command is not required.
 
 ## Clone your own repo
 
@@ -131,7 +131,7 @@ git clone https_url
 cd folder_name
 ```
 
-Then make whatever changes you need to then:
+Then make your changes and run standard commands:
 
 ```
 git status
@@ -144,22 +144,27 @@ Then go to GitHub and you should see the changes.
 
 ## Clone an existing repo
 
-For when you want to work on a repo that someone else created.
+For when you want to work on a repo that someone else created. Same commands as above. You can also clone a specific branch with:
 
 ```
-git clone https_url
+git clone -branch https_url
 ```
 
 ### Push the cloned files up to your repo
 
 Because you cloned this repo from an existing repo, git will try to push it to its original destination. For example, if you type `git remote -v` you will get the address of the cloned repo where git thinks you want to push to.
 
-You need to update the address. Copy the https address (the **https_url** field below) from the overview page for the repo you created for the clone, then use:
+That is fine if you are contributing, otherwise you need to update the address. Copy the **https_url** from the overview page for the repo you created for the clone, then use:
 
 ```
 git remote set-url origin https_url
 git remote -v
 ```
+
+The `git remote set-url` command changes an existing remote repository URL and it takes two arguments:
+
+- An existing remote name. For example, origin or upstream are two common choices
+- A new URL for the remote (yours)
 
 Now git knows that the origin is your repo. Using `git remote -v` again is to check that git is pointing to your repo address. Then to push the cloned repo files to your repo use:
 
@@ -169,7 +174,7 @@ git push origin master
 
 ## Branches and merging
 
-Here are common commands you'll use often:
+Here are common commands you'll often use:
 
 ```
 git branch
@@ -180,9 +185,9 @@ git merge branch_name
 git diff branch_name
 ```
 
-The 1st command shows the branch you are working on. The 2nd one lists all the branch names in your repo. The next two switch to the branch and creates then switches to that branch, respectively. The merge command merges the branch into whatever branch you are currently in, most likely master.
+The 1st command shows the branch you are working on. The 2nd one lists all the branch names in your repo. The next two 1) switch to the branch and 2) creates then switches to that branch, respectively. The merge command merges the branch into whatever branch you are currently in, most likely master.
 
-More commonly you will push the changes to GitHub then make a PR (push request). So make sure you switch back from main/master to your branch. For a new branch, git push won't work because git doesn’t know what branch you are pushing to so run:
+More commonly you will push the changes to GitHub then make a PR (pull request). So make sure you switch back from main/master to your branch. For a new branch, git push won't work because git doesn’t know what branch you are pushing to so run:
 
 ```
 git push --set-upstream origin branch_name
@@ -213,7 +218,7 @@ Here is where I'm a little fuzzy on the steps. I think you may have to do a pull
 
 Read more here: [Conflicts on a pull request](https://github.com/freeCodeCamp/freeCodeCamp/blob/main/docs/how-to-setup-freecodecamp-locally.md#making-changes-locally 'Making chanes locally').
 
-A merge conflict is when 2 or more people change the same code/content but with different values and you run the command `git merge branch-name`. However, I don't think a contributor would actually run that command.
+A merge conflict is when 2 or more people change the same code/content but with different values and you run the command `git merge branch-name`. However, I don't think a beginner contributor would actually run that command.
 
 But if you did, in VS Code you will see something like:
 
@@ -248,7 +253,7 @@ git remote add upstream https://github.com/freeCodeCamp/freeCodeCamp.git
 git remote -v
 ```
 
-Then use `git status` and `git checkout main` if not on main. Then:
+Then use `git status` and `git checkout main` if not on main. Next:
 
 1. Update your local copy of the freeCodeCamp upstream repository,
 1. Hard reset your main branch with the freeCodeCamp main,
@@ -266,7 +271,7 @@ git diff upstream/main
 
 **ANSWER**: #1 is necessary for the clone to fetch the files. #4 is optional. Use #2 & #3 with caution - read up on them.
 
-**Note**: 'git fetch`is used to fetch all objects from the remote repo that don’t currently reside in the local working directory. You'll also often see`git fetch origin`.
+**Note**: `git fetch` is used to fetch all objects from the remote repo that don’t currently reside in the local working directory. You'll also often see`git fetch origin`.
 
 Finally, check the branch you are on, create a new branch matching your contribution, make your changes then check the status, add the changes, commit the changes, and finally push:
 
@@ -279,8 +284,6 @@ git status
 git commit -m "short description"
 git push origin fix/something-here
 ```
-
-**Note**: The link above mentions keeping commit messages to 50 or fewer characters. My first commit message was about 74 characters. On the freeCodeCamp repo it looks like it cut off my message at either 69 or 70 characters, so I think keeping to a max of 69 or 70 characters will work but don't quote me on that.
 
 Before covering the Pull Request back on GitHub, here is a reply from the freeCodeCamp forum about the process:
 
