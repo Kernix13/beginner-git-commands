@@ -312,6 +312,7 @@ MY FINAL COMMANDS:
 git clone --depth=1 https_url
 git remote add upstream https_url
 git fetch upstream
+git remote -v
 git push origin main
 git checkout -b fix/branch-name
 git add.
@@ -319,7 +320,7 @@ git commit -m "short description"
 git push --set-upstream origin fix/branch-name
 ```
 
-Use that last `git push` only for the first time, then use `git push origin fix/something-typos`. Also add `git remote -v` after the fetch command, and of course `git status` as needed. Here is the last command AFTER you set the upstream:
+Use that last `git push` only for the first time, then use `git push origin fix/something-typos`. Here is the last command AFTER you set the upstream:
 
 ```
 git push origin fix/branch-name
@@ -339,7 +340,7 @@ Click the "Compare & pull request" button and notice the page title of **_Open a
 
 You can then edit your commit message if need be. In the body of your PR include a more detailed summary of the changes you made and why.
 
-Large repos with have various form fields to fill out, here is an example from freeCodeCamp:
+Large repos with have various form fields to fill out. Here is an example from freeCodeCamp:
 
 1. Put an `x` in the checkboxes,
 1. Remove all the comment fields,
@@ -347,7 +348,7 @@ Large repos with have various form fields to fill out, here is an example from f
 1. Remove the phrase "Closes #XXXXX"
 1. When done, click the green button **_Create pull request_**.
 
-DONE, DONE, AND DONE - NOW WAIT. REMEMBER TO USE fix: what-you-fixed or fix(curriculum) in the PR Title or other prefixes like `feat`, `bug`, etc.
+DONE, DONE, AND DONE - NOW WAIT. REMEMBER TO USE fix: what-you-fixed or fix(curriculum) in the PR Title or other prefixes like `feat`, `bug`, `chore`, `revert`, etc. And you can add to those, e.g. `fix(tools)` or `chore(deps)`.
 
 If the PR is meant to address an existing GitHub Issue then, at the end of your PR's description body, use the keyword Closes with the issue number: `Closes #123`
 
@@ -439,7 +440,7 @@ To remove git tracking from a folder use the following command in git bash or fr
 
 `rm -rf .git`
 
-Here is an interesting one: `gitk` shows the graphical interface for a local repository
+Here is an interesting one: `gitk` shows the graphical interface for a local repository.
 
 Here are variations of some of the commands above or common ones you may see:
 
