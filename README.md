@@ -192,7 +192,7 @@ If you get this error when trying to delete a branch:
 It's probably because something in your local branch has not actually made it to the remote repository. To find out what commits have not been merged from your source branch to a target branch try:
 
 ```
-git log braanch_name --not main
+git log branch_name --not main
 ```
 
 That will show you what has been changed and that has not been pushed to main, or maybe has not been merged. If you are fine with the differences then replace `-d` with `-D`.
