@@ -268,7 +268,7 @@ NOTES:
 
 > `git push origin main --force`, you don’t need to add the `--force`. Just doing a regular git push is fine.
 
-> You only use the `--set upstream` when you need to add **your LOCAL** branch to **your REMOTE** branch. But once the new branch is added to the remote repo, then you don’t need to use `--set upstream` each time
+> You only use the `--set-upstream` when you need to add **your LOCAL** branch to **your REMOTE** branch. But once the new branch is added to the remote repo, then you don’t need to use `--set-upstream` each time.
 
 MY FINAL COMMANDS:
 
@@ -283,7 +283,7 @@ git commit -m "short description"
 git push --set-upstream origin fix/branch-name
 ```
 
-With that last `git push` only for the first time, then use `git push origin fix/something-typos`. Also add `git remote -v` after the fetch command, and of course `git status` as needed.
+Use that last `git push` only for the first time, then use `git push origin fix/something-typos`. Also add `git remote -v` after the fetch command, and of course `git status` as needed.
 
 If you realize that you need to edit a file or update the commit message after making a commit you can do so after editing the files with:
 
