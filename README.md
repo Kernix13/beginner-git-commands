@@ -283,7 +283,11 @@ git commit -m "short description"
 git push --set-upstream origin fix/branch-name
 ```
 
-Use that last `git push` only for the first time, then use `git push origin fix/something-typos`. Also add `git remote -v` after the fetch command, and of course `git status` as needed.
+Use that last `git push` only for the first time, then use `git push origin fix/something-typos`. Also add `git remote -v` after the fetch command, and of course `git status` as needed. Here is the last command AFTER you set the upstream:
+
+```
+git push origin fix/branch-name
+```
 
 If you realize that you need to edit a file or update the commit message after making a commit you can do so after editing the files with:
 
