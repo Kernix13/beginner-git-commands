@@ -73,7 +73,7 @@ Here are some basic/common terms that I had a problem with in the beginning. The
 
 ## Pushing your local files to an empty repo
 
-This works for me when pushing to a repo I created without a README file. If you have a README file, then you will get an error when trying to push, so you'll have to do a `git pull` command. It's easier to start with an empty repo:
+These commands work for me when pushing to a repo I created without a README file. If you have a README file, then you will get an error when trying to push, so you'll have to do a `git pull` command to pull the README to your local repo:
 
 ```
 git init
@@ -95,17 +95,19 @@ git remote add origin https_url
 git push -u origin main
 ```
 
-I know the first code block works, but I remember following the GitHub commands exactly and it worked as well - it's your choice. The only difference is `git branch -M main` and I do not know what that means except maybe changing the master branch to the name "main". I'm not sure why the `add README.md` is included.
+I know the first code block works, but I remember following the GitHub commands exactly and it worked as well - it's your choice. The only difference is `git branch -M main` and I do not know what that means except maybe changing the master branch to the name "main". IMO the `add README.md` is not necessary.
 
-The `git init` command new local GIT repository in the directory you ran that command. The command `git clone` also initiates a git repo for a repo you want to clone, but git is installed in the folder that is created in the directory you ran that command. But both initiate git tracking.
+The `git init` command creates a new local GIT repository in the directory you ran that command. The command `git clone` also initiates a git repo for a repo you want to clone, but git is installed in the downloaded/cloned folder, NOT in the directory where you ran that command. But both initiate git tracking.
 
 The `git push` command is used to send local commits to the master branch of the remote repository
 
-Use `git remote -v` to list any remote repositories that you have connected to this repo, or to show the URLs that Git has stored as a short name. That is to make sure all is well. The command `git remote add origin https_url` connects the local repository to a remote server (GitHub repo).
+Use `git remote -v` to list any remote repositories that you have connected to this repo, or to show the URLs that Git has stored as a short name. That is to check if you are pointing to the clond URL or your account. Did you clone to contribute or to work on your own version of the repo?
 
-But to just use `git push` in the future you have to set something called an upstream, meaning where you want to push it to by default. That is why you use `-u` (see also below and Commands after initial push).
+The command `git remote add origin https_url` connects the local repository to a remote server (GitHub repo).
 
-Replace **master** with the branch where you want to push your changes when you’re not intending to push to the master branch
+But to just use `git push` in the future you have to set something called an upstream, meaning where you want to push it to by default. That is why you use `-u` (see also below).
+
+Replace **master** with the branch where you want to push your changes when you’re not intending to push to the master branch.
 
 ## Commands after initial push
 
