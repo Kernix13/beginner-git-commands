@@ -468,6 +468,15 @@ git command --help
 
 Reference logs record everything you do with your local branch. Use `git reflog` to show everything you did in previous steps - find the entry where you think you want to go back to. Then use `git checkout HEAD@{12}` or`git reset HEAD@{3}` to get back to that state, where `HEAD@{12}` and `HEAD@{3}` are just using example numbers. Just run it and you'll see what I mean.
 
+I had to run the following to fix one of my mistakes:
+
+```
+git checkout fix/some-branch-name
+git fetch upstream
+git rebase -i upstream/main
+git push -f
+```
+
 Is this how you add a description?
 
 ```
