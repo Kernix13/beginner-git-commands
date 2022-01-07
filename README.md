@@ -372,7 +372,15 @@ git checkout master
 git pull upstream master
 ```
 
-I actually use `git fetch upstream` to update my local clone. I'm not sure if `git pull upstream master` is better or not.
+I actually use `git fetch upstream` to update my local clone. I'm not sure if `git pull upstream master` is better or not. However, I had a PR fail because I was missing a command. `git fetch upstream` will only fetch the git data. To update your main fully, you should:
+
+```
+git checkout main
+git fetch upstream
+git merge upstream/main
+```
+
+So run `git merge upstream/main` (or `master` instead of `main` if that is your default) every time before making your changes and doing a push. That will ensure you always have the latest state of `main` locally.
 
 ## Handling merge conflicts
 
@@ -430,6 +438,7 @@ clear, q, Q, exit, ESC, :WQ, ENTER, pwd (command-line commands)
 I am not sure what these commands do, mostly because I believe these are advanced git commands but I have either used them with help from other people, or they are from my many pages of git notes:
 
 ```
+git push -f
 git reflog
 git archive
 git prune
