@@ -14,15 +14,15 @@
 1. [Clone an existing repo](#clone-an-existing-repo)
    1. [Push the cloned files up to your repo](#push-the-cloned-files-up-to-your-repo)
 1. [Branches and merging](#branches-and-merging)
+   1. [Handling merge conflicts](#handling-merge-conflicts)
 1. [Forking and cloning](#forking-and-cloning)
 1. [GitHub pull request process](#github-pull-request-process)
    1. [Pull request title](#pull-request-title)
    1. [Pull requests page notes](#pull-requests-page-notes)
    1. [Replies to your pull request](#replies-to-your-pull-request)
    1. [Staying up to date](#staying-up-to-date)
-1. [Handling merge conflicts](#handling-merge-conflicts)
-1. [Miscellaneous git commands](#miscellaneous-git-commands)
 1. [Create a repo from the command line](#create-a-repo-from-the-command-line)
+1. [Miscellaneous git commands](#miscellaneous-git-commands)
 1. [Reference links](#reference-links)
 1. [Final notes](#final-notes)
 
@@ -41,9 +41,9 @@ git config --global user.name "any user name"
 git config --global user.email "youremail@somewhere.com"
 ```
 
-The git config command is used initially to configure the user.name and user.email fields. This specifies what email id and username will be used from a local repository. When git config is used with the `--global` flag, it writes the settings to all repositories on the computer.
+The git config command is used initially to configure the user.name and user.email fields. This specifies what email id and username will be used from a local repository.
 
-The `--global` flag tells GIT that you’re going to use the email above for all repos. Replace that with `--local` to use different emails for different repos.
+The `--global` flag tells GIT that you’re going to use the email above for all repos on your computer. Replace that with `--local` to use different emails for different repos.
 
 Some people will mention using an SSH key to validate your identity. I found that a little confusing so I prefer the method above.
 
@@ -57,11 +57,19 @@ Run that command and scroll down and look for `user.name=“Yourname”` and `us
 
 ### Terminology
 
-Here are some terms that I had a problem with. Some are quoted from MDN and some from a forum reply to my post:
+Here are some basic/common terms that I had a problem with in the beginning. These notes are from git, MDN, and other various sources:
 
-1. **upstream**: forked-or-cloned-user-id/cloned-or-forked-repo-name
-1. **origin**: your-user-id/cloned-or-forked-repo-name
-1. **remote-name** (from MDN): a name you choose and used to refer to the remote later on, e.g. the repo that you forked is often called the "upstream repo", therefore people often use "upstream" as the name of the remote upstream location
+1. **upstream**: the primary branch on the original repository, is where you cloned the repo from
+1. **origin**: The default upstream repository - a reference to the remote repository from a project was initially cloned
+1. **remote / remote repository**: the version of a repository or branch that is hosted on a server (like GitHub), a shared repository that all team members use to exchange their changes
+1. **fetch**: adding changes from the remote repository to your local working branch without committing them
+1. **pull**: Pulling a branch means to fetch it and merge it, fetches and merges changes on the remote server to your working directory
+1. **push**: to send your committed changes to a remote repo, to upload local repo content to a remote repo
+1. **clone**: used to make a copy of the target repository - a copy of a repo that lives on your computer
+1. **merge**: bring the contents of another branch into the current branch - to take the data created by git branch and integrate them into a single branch
+1. **head**: A named reference to the commit at the tip of a branch
+1. **HEAD**: your current branch, or a defined commit of a branch, usually the most recent commit at the tip of the branch, or refers to the current commit you are viewing. HEAD is a reference to one of the heads in your repository.
+1. **blob**: (Binary Large OBject) Untyped object, e.g. the contents of a file, is the object type used to store the contents of each file in a repository
 
 ## Pushing your local files to an empty repo
 
@@ -196,6 +204,29 @@ git log branch_name --not main
 ```
 
 That will show you what has been changed and that has not been pushed to main, or maybe has not been merged. If you are fine with the differences then replace `-d` with `-D`.
+
+### Handling merge conflicts
+
+Here is where I'm a little fuzzy on the steps. I think you may have to do a pull request to get changes from other contributors. Make sure you are on the `master` or `main` branch then do `git pull`.
+
+Read more here: [Conflicts on a pull request](https://github.com/freeCodeCamp/freeCodeCamp/blob/main/docs/how-to-setup-freecodecamp-locally.md#making-changes-locally 'Making chanes locally').
+
+A merge conflict is when 2 or more people change the same code/content but with different values and you run the command `git merge branch-name`. However, I don't think a contributor would actually run that command.
+
+But if you did, in VS Code you will see something like:
+
+```
+<<<<<<< HEAD (Current Change)
+<p>some change here</p>
+=======
+<p>different change here</p>
+>>>>>>> Branch-Name (Incoming Change)
+```
+
+Where `HEAD` is your current branch, usually main/master I think. Once again, this would only be done by the owner of the repo, but what you would do is:
+
+1. Decide which change you want to keep,
+1. Delete EVERYTHING else -> the change you don't want and the equal, less than, and greater than signs along with the text like HEAD and Current Change. Everything other than the actual change that you want.
 
 ## Forking and cloning
 
@@ -382,28 +413,20 @@ git merge upstream/main
 
 So run `git merge upstream/main` (or `master` instead of `main` if that is your default) every time before making your changes and doing a push. That will ensure you always have the latest state of `main` locally.
 
-## Handling merge conflicts
+## Create a repo from the command line
 
-Here is where I'm a little fuzzy on the steps. I think you may have to do a pull request to get changes from other contributors. Make sure you are on the `master` or `main` branch then do `git pull`.
+This is for when you have a project that you have been working on locally and want to then push it to GitHub. Create an empty repo on GitHub. Once you have the https_url the process is the same as the first section above "Pushing your local files to an empty repo". Make sure to give it the same name as your project folder just so there is no confusion.
 
-Read more here: [Conflicts on a pull request](https://github.com/freeCodeCamp/freeCodeCamp/blob/main/docs/how-to-setup-freecodecamp-locally.md#making-changes-locally 'Making chanes locally').
-
-A merge conflict is when 2 or more people change the same code/content but with different values and you run the command `git merge branch-name`. However, I don't think a contributor would actually run that command.
-
-But if you did, in VS Code you will see something like:
+But here are the commands again:
 
 ```
-<<<<<<< HEAD (Current Change)
-<p>some change here</p>
-=======
-<p>different change here</p>
->>>>>>> Branch-Name (Incoming Change)
+git init
+git add .
+git commit -m "First commit"
+git remote add origin https_url
+git remote -v
+git push -u origin master
 ```
-
-Where `HEAD` is your current branch, usually main/master I think. Once again, this would only be done by the owner of the repo, but what you would do is:
-
-1. Decide which change you want to keep,
-1. Delete EVERYTHING else -> the change you don't want and the equal, less than, and greater than signs along with the text like HEAD and Current Change. Everything other than the actual change that you want.
 
 ## Miscellaneous git commands
 
@@ -481,21 +504,6 @@ Is this how you add a description?
 
 ```
 git commit -m "Title" -m "Description ..........";
-```
-
-## Create a repo from the command line
-
-This is for when you have a project that you have been working on locally and want to then push it to GitHub. Create an empty repo on GitHub. Once you have the https_url the process is the same as the first section above "Pushing your local files to an empty repo". Make sure to give it the same name as your project folder just so there is no confusion.
-
-But here are the commands again:
-
-```
-git init
-git add .
-git commit -m "First commit"
-git remote add origin https_url
-git remote -v
-git push -u origin master
 ```
 
 ## Reference links
