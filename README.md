@@ -512,6 +512,8 @@ Is this how you add a description?
 git commit -m "Title" -m "Description ..........";
 ```
 
+To search for a gist: `https://gist.github.com/username/`
+
 ## Reference links
 
 FYI, it's difficult keeping this list up-to-date. I'll do my best to provide the best resources that I find and that work for me.
@@ -538,6 +540,19 @@ FYI, it's difficult keeping this list up-to-date. I'll do my best to provide the
 I may have errors or incorrect usage of commands in this file. I'll fix them as I find them. Or contact me and let me know what needs to be changed at [Kernix Web Design](https://kernixwebdesign.com/contact/ 'Contact page').
 
 I am also looking to find 3-4 entry-level designers and developers to start a project or two. I have some ideas about how we can help each other land a job!
+
+To-Do List:
+
+- What are **Actions**?
+- What are **Packages**? NPM packages?
+- What are **Environments**?
+- What is a **Releases** exactly?
+- What exactly do you put on the **Projects** tab?
+- Go into your Repo settings and add:
+  - Description
+  - Website link
+  - Topic tags
+  - Deselect Releases and Packages if you do not have any
 
 ### Git keywords
 
