@@ -370,7 +370,7 @@ For example:
 | feat     | Introduction of a new functionality, feature, test, etc.                   |
 | chore    | Not fix or feat, & don't modify src or test files (e.g. dependency update) |
 | docs     | Changes to docs directory, README's, contributing guidelines, etc.         |
-| refactor | refactored code that neither fixes a bug nor adds a feature                |
+| refactor | Refactored code that neither fixes a bug nor adds a feature                |
 | ci       | Continuous integration related                                             |
 | perf     | Performance improvements                                                   |
 | test     | Including new or correcting previous tests                                 |
