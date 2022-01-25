@@ -364,12 +364,19 @@ For example:
 
 `fix(learn): tests for the do...while loop challenge`
 
-| Type  | When to select                                                                   |
-| :---- | :------------------------------------------------------------------------------- |
-| fix   | Changed or updated/improved functionality, tests, the verbiage of a lesson, etc. |
-| feat  | Only if you are adding new functionality, tests, etc.                            |
-| chore | Changes that are not related to code, tests, or verbiage of a lesson.            |
-| docs  | Changes to `/docs` directory or the contributing guidelines, etc.                |
+| Type     | When to select                                                             |
+| :------- | :------------------------------------------------------------------------- |
+| fix      | Bug fix, changed/updated/improved functionality, tests, verbiage, etc.     |
+| feat     | Introduction of a new functionality, feature, test, etc.                   |
+| chore    | Not fix or feat, & don't modify src or test files (e.g. dependency update) |
+| docs     | Changes to docs directory, README's, contributing guidelines, etc.         |
+| refactor | refactored code that neither fixes a bug nor adds a feature                |
+| ci       | Continuous integration related                                             |
+| perf     | Performance improvements                                                   |
+| test     | Including new or correcting previous tests                                 |
+| build    | Changes that affect the build system or external dependencies              |
+| revert   | Reverts a previous commit                                                  |
+| style    | Code formatting such as white-space, missing semi-colons, etc.             |
 
 **Description:**
 
