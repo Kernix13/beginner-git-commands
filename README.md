@@ -1,5 +1,7 @@
 # Beginner Git commands
 
+TESTING NEW FOLDER LOCATION
+
 > Some of the commands in this doc are basic beginner commands, some are intermediate level, especially when you get into cloning and contributing.
 
 **Note**: I either use `main` or `master` for some of these commands. They refer to the default branch of your repo or of a cloned/forked repo. Replace the default names in the commands below with your default branch name.
