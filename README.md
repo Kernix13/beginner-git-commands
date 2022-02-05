@@ -1,7 +1,5 @@
 # Beginner Git commands
 
-TESTING NEW FOLDER LOCATION
-
 > Some of the commands in this doc are basic beginner commands, some are intermediate level, especially when you get into cloning and contributing.
 
 **Note**: I either use `main` or `master` for some of these commands. They refer to the default branch of your repo or of a cloned/forked repo. Replace the default names in the commands below with your default branch name.
@@ -239,16 +237,24 @@ Where `HEAD` is your current branch, usually main/master I think. Once again, th
 
 ## Forking and cloning
 
-Here is a list of commands from [how-to-setup-freecodecamp-locally.md](https://github.com/freeCodeCamp/freeCodeCamp/blob/main/docs/how-to-setup-freecodecamp-locally.md 'How to set up freeCodeCamp locally'). After you fork a repo:
+Here is a list of commands from [how-to-setup-freecodecamp-locally.md](https://github.com/freeCodeCamp/freeCodeCamp/blob/main/docs/how-to-setup-freecodecamp-locally.md 'How to set up freeCodeCamp locally'). 
+
+After you fork a repo, open up a terminal and navigate to the folder where you want the cloned repo. Then enter the following commands:
 
 ```
 git clone --depth=1 https://github.com/User_Name/freeCodeCamp
 cd folder-name
 ```
 
-**Note**: `--depth=1` creates a shallow clone of your fork, with only the most recent history/commit.
+**Note**: `--depth=1` creates a shallow clone of your fork, with only the most recent history/commit. Definitely include that parameter bcause you do not need an entire history on your local machine. 
 
-Next, add a remote reference to the main freeCodeCamp repo, or whatever repo you are cloning after forking, then check the configuration:
+If you did not include that parameter and want to remove the full cloned repo and start over use:
+
+```
+rm -rf https://github.com/User_Name/clonedRepo.git
+```
+
+Use `CTRL+C` to stop the full clone (it takes a long time). Next, add a remote reference to the main freeCodeCamp repo, or whatever repo you are cloning after forking, then check the configuration:
 
 ```
 git remote add upstream https://github.com/freeCodeCamp/freeCodeCamp.git
