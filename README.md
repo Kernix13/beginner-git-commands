@@ -28,11 +28,11 @@
 
 ## Download and setup Git
 
-This section IMO is unnecessary if you found this repo because you should already have GIT installed and know the basics (_add, commit, push, pull, branch_). This section is more for me when I get my next laptop and I need a reminder of how to install GIT and connect to GitHub.
+This section IMO is unnecessary if you found this repo because you should already have GIT installed and know the basics (_add, commit, push, pull, status_).
 
 It's been well over a year since I did this so I can't remember all the steps. But first, you need to [download Git](https://git-scm.com/downloads 'Git download page').
 
-Check out this video from the YouTube channel LearnWebCode: [Git Tutorial Part 3: Installation, Command-line & Clone](https://youtu.be/UFEby2zo-9E 'Git Tutorial'). I did not take great notes on that video but I used his steps to run the `config` commands below. Follow his instructions using Git Bash. Eventually, you will use VS Code for 99% of the commands in this guide.
+Check out this video from the YouTube channel LearnWebCode: [Git Tutorial Part 3: Installation, Command-line & Clone](https://youtu.be/UFEby2zo-9E 'Git Tutorial'). I followed his steps to run the `config` commands below. Follow his instructions using Git Bash. Eventually, you will use VS Code for 99% of the commands in this guide.
 
 **Note**: On your first push ever to GitHub, you will need to provide a user name and email address to git, I assume the ones used when you created your GitHub account. This is so git knows that you are who you say you are. The commands look like this:
 
@@ -57,18 +57,18 @@ Run that command and scroll down and look for `user.name=“Yourname”` and `us
 
 ### Terminology
 
-Here are some basic/common terms that I had a problem with in the beginning. These notes are from git, MDN, and other various sources:
+Here are some basic/common terms. These notes are from git, MDN, and other various sources:
 
 1. **upstream**: the primary branch on the original repository, is where you cloned the repo from
-1. **origin**: The default upstream repository - a reference to the remote repository from a project was initially cloned
+1. **origin**: The default upstream repository - a reference to the remote repository from where a project was initially cloned
 1. **remote / remote repository**: the version of a repository or branch that is hosted on a server (like GitHub), a shared repository that all team members use to exchange their changes
 1. **fetch**: adding changes from the remote repository to your local working branch without committing them
 1. **pull**: Pulling a branch means to fetch it and merge it, fetches and merges changes on the remote server to your working directory
 1. **push**: to send your committed changes to a remote repo, to upload local repo content to a remote repo
 1. **clone**: used to make a copy of the target repository - a copy of a repo that lives on your computer
-1. **merge**: bring the contents of another branch into the current branch - to take the data created by git branch and integrate them into a single branch
+1. **merge**: bring the contents of another branch into the current branch - to take the data created on a separate branch and integrate them into a single branch
 1. **head**: A named reference to the commit at the tip of a branch
-1. **HEAD**: your current branch, or a defined commit of a branch, usually the most recent commit at the tip of the branch, or refers to the current commit you are viewing. HEAD is a reference to one of the heads in your repository.
+1. **HEAD**: your current branch, or a defined commit of a branch, usually the most recent commit at the tip of the branch, or refers to the current commit you are viewing. `HEAD` is a reference to one of the heads in your repository.
 1. **blob**: (Binary Large OBject) Untyped object, e.g. the contents of a file, is the object type used to store the contents of each file in a repository
 
 ## Pushing your local files to an empty repo
@@ -95,17 +95,17 @@ git remote add origin https_url
 git push -u origin main
 ```
 
-I know the first code block works, but I remember following the GitHub commands exactly and it worked as well - it's your choice. The only difference is `git branch -M main` and I do not know what that means except maybe changing the master branch to the name "main". IMO the `add README.md` is not necessary.
+I know the first code block works, but I remember following the GitHub commands exactly and it worked as well - it's your choice. The only difference is `git branch -M main` and I think the flag `-M` means changing the master branch to the name **main**. IMO the `add README.md` command is not necessary. Just create and edit your README in VS Code and push it to your repo.
 
-The `git init` command creates a new local GIT repository in the directory you ran that command. The command `git clone` also initiates a git repo for a repo you want to clone, but git is installed in the downloaded/cloned folder, NOT in the directory where you ran that command. But both initiate git tracking.
+The `git init` command creates a new local GIT repository in the directory you ran that command. The command `git clone` also initiates a git repo for a repo you want to clone, but git is installed in the downloaded/cloned folder, *NOT* in the directory where you ran that command. But both initiate git tracking.
 
 The `git push` command is used to send local commits to the master branch of the remote repository
 
-Use `git remote -v` to list any remote repositories that you have connected to this repo, or to show the URLs that Git has stored as a short name. That is to check if you are pointing to the clond URL or your account. Did you clone to contribute or to work on your own version of the repo?
+Use `git remote -v` to list any remote repositories that you have connected to this repo, or to show the URLs that Git has stored as a short name. That is to check if you are pointing to the clond URL or the repo in your account. Did you clone to contribute or to work on your own version of the repo?
 
 The command `git remote add origin https_url` connects the local repository to a remote server (GitHub repo).
 
-But to just use `git push` in the future you have to set something called an upstream, meaning where you want to push it to by default. That is why you use `-u` (see also below).
+But to just use `git push` in the future you have to set something called an upstream, meaning where you want to push it to by default. That is why you use `-u` (see additional notes below).
 
 Replace **master** with the branch where you want to push your changes when you’re not intending to push to the master branch.
 
@@ -130,8 +130,7 @@ Why would you do this? Use this when you create a repo and add a file on GitHub 
 git clone https_url
 cd folder_name
 ```
-
-Then make your changes and run standard commands:
+Use `cd` to switch to that folder. Then make your changes and run standard commands:
 
 ```
 git status
@@ -144,7 +143,7 @@ Then go to GitHub and you should see the changes.
 
 ## Clone an existing repo
 
-For when you want to work on a repo that someone else created. Same commands as above. You can also clone a specific branch with:
+For when you want to work on a repo that someone else created. Use the same commands as above. You can also clone a specific branch with:
 
 ```
 git clone -branch https_url
@@ -152,7 +151,7 @@ git clone -branch https_url
 
 ### Push the cloned files up to your repo
 
-Because you cloned this repo from an existing repo, git will try to push it to its original destination. For example, if you type `git remote -v` you will get the address of the cloned repo where git thinks you want to push to.
+Because you cloned this repo from an existing repo, git will try to push it to its original destination. For example, if you type `git remote -v` you will get the address of the cloned repo where Git thinks you want to push to.
 
 That is fine if you are contributing, otherwise you need to update the address. Copy the **https_url** from the overview page for the repo you created for the clone, then use:
 
@@ -185,9 +184,9 @@ git merge branch_name
 git diff branch_name
 ```
 
-The 1st command shows the branch you are working on. The 2nd one lists all the branch names in your repo. The next two 1) switch to the branch and 2) creates then switches to that branch, respectively. The merge command merges the branch into whatever branch you are currently in, most likely master.
+The 1st command shows the branch you are working on. The 2nd one lists all the branch names in your repo. The next two: 1) switches to the branch, and 2) creates then switches to that branch. The merge command merges the branch into whatever branch you are currently in, most likely `master` or `main`.
 
-More commonly you will push the changes to GitHub then make a PR (pull request). So make sure you switch back from main/master to your branch. For a new branch, git push won't work because git doesn’t know what branch you are pushing to so run:
+More commonly you will push the changes to GitHub then make a PR (pull request) if you are contributing. **So make sure you switch back from main/master to your branch**. For a new branch, git push won't work because git doesn’t know what branch you are pushing to, so run:
 
 ```
 git push --set-upstream origin branch_name
@@ -195,11 +194,9 @@ git push --set-upstream origin branch_name
 
 **Note**: Using `--set-upstream` is the same thing as using `-u` in the sections above. Actually, `-u` is short-hand for `--set-upstream`.
 
-**Note**: A PR from your branch to the master branch is to request to have your code merged with the master branch. When your code is merged delete your branch. To delete a branch use `git branch -d branch_name`.
+**Note**: A PR from your branch to the master branch is a request to have your code merged with the master branch. When your code is merged delete your branch.
 
-To pull changes from GitHub to your machine use `git pull origin master` or just `git pull` if you set the upstream already. Make sure you are on the master branch. What `git pull` does is merge all the changes present in the remote repository to the local working directory.
-
-If you get this error when trying to delete a branch:
+To delete a branch use `git branch -d branch_name`. If you get this error when trying to delete a branch:
 
 > error: The branch 'branch-name' is not fully merged.
 > If you are sure you want to delete it, run 'git branch -D fix/branch-name'.
@@ -210,13 +207,15 @@ It's probably because something in your local branch has not actually made it to
 git log branch_name --not main
 ```
 
-That will show you what has been changed and that has not been pushed to main, or maybe has not been merged. If you are fine with the differences then replace `-d` with `-D`.
+That will show you what has been changed and what has not been pushed to main, or maybe has not been merged. If you are fine with the differences then replace `-d` with `-D`.
+
+To pull changes from GitHub to your machine use `git pull origin master` or just `git pull` if you set the upstream already. Make sure you are on the master branch. What `git pull` does is merge all the changes present in the remote repository to the local working directory.
 
 ### Handling merge conflicts
 
 Here is where I'm a little fuzzy on the steps. I think you may have to do a pull request to get changes from other contributors. Make sure you are on the `master` or `main` branch then do `git pull`.
 
-Read more here: [Conflicts on a pull request](https://github.com/freeCodeCamp/freeCodeCamp/blob/main/docs/how-to-setup-freecodecamp-locally.md#making-changes-locally 'Making chanes locally').
+Read more here: [Conflicts on a pull request](https://github.com/freeCodeCamp/freeCodeCamp/blob/main/docs/how-to-setup-freecodecamp-locally.md#making-changes-locally 'Making changes locally').
 
 A merge conflict is when 2 or more people change the same code/content but with different values and you run the command `git merge branch-name`. However, I don't think a beginner contributor would actually run that command.
 
@@ -230,10 +229,10 @@ But if you did, in VS Code you will see something like:
 >>>>>>> Branch-Name (Incoming Change)
 ```
 
-Where `HEAD` is your current branch, usually main/master I think. Once again, this would only be done by the owner of the repo, but what you would do is:
+Where `HEAD` is your current branch, usually main/master. Once again, this would only be done by the owner of the repo, but what you would do is:
 
 1. Decide which change you want to keep,
-1. Delete EVERYTHING else -> the change you don't want and the equal, less than, and greater than signs along with the text like HEAD and Current Change. Everything other than the actual change that you want.
+1. Delete EVERYTHING else -> the change you don't want and the equal, less than, and greater than signs along with the text like `HEAD` and `Current Change`. Everything other than the actual change that you want.
 
 ## Forking and cloning
 
@@ -281,7 +280,7 @@ git diff upstream/main
 
 **Note**: `git fetch` is used to fetch all objects from the remote repo that don’t currently reside in the local working directory. You'll also often see`git fetch origin`.
 
-Finally, check the branch you are on, create a new branch matching your contribution, make your changes then check the status, add the changes, commit the changes, and finally push:
+Finally, check the branch you are on, switch to main/master if not on that branch, create a new branch for your contributions, make your changes then check the status, add the changes, commit the changes, and finally push:
 
 ```
 git branch
@@ -312,7 +311,7 @@ NOTES:
 
 > `git push origin main --force`, you don’t need to add the `--force`. Just doing a regular git push is fine.
 
-> You only use the `--set-upstream` when you need to add **your LOCAL** branch to **your REMOTE** branch. But once the new branch is added to the remote repo, then you don’t need to use `--set-upstream` each time.
+> You only use the `--set-upstream` parameter when you need to add **your LOCAL** branch to **your REMOTE** branch. But once the new branch is added to the remote repo, then you don’t need to use `--set-upstream` each time.
 
 MY FINAL COMMANDS:
 
@@ -323,7 +322,7 @@ git fetch upstream
 git remote -v
 git push origin main
 git checkout -b fix/branch-name
-git add.
+git add .
 git commit -m "short description"
 git push --set-upstream origin fix/branch-name
 ```
@@ -342,13 +341,13 @@ This will open up a default text editor like `nano` or `vi` where you can edit t
 
 ## GitHub pull request process
 
-After you push your changes go to your cloned copy of the repo on GitHub and refresh the page if necessary. You should see a green button labeled **_Compare & pull request_**. If you do not see it then click the Pull requests link to go to that tab.
+After you push your changes go to your cloned copy of the repo on GitHub, and refresh the page if necessary, you should see a green button labeled **_Compare & pull request_**. If you do not see it then click the Pull requests link to go to that tab.
 
 Click the "Compare & pull request" button and notice the page title of **_Open a pull request_** and the paragraph in the section below the title saying **_Able to merge. These branches can be automatically merged._**
 
 You can then edit your commit message if need be. In the body of your PR include a more detailed summary of the changes you made and why.
 
-Large repos with have various form fields to fill out. Here is an example from freeCodeCamp:
+Large repos will have various form fields to fill out. Here is an example from freeCodeCamp:
 
 1. Put an `x` in the checkboxes,
 1. Remove all the comment fields,
@@ -356,9 +355,9 @@ Large repos with have various form fields to fill out. Here is an example from f
 1. Remove the phrase "Closes #XXXXX"
 1. When done, click the green button **_Create pull request_**.
 
-DONE, DONE, AND DONE - NOW WAIT. REMEMBER TO USE fix: what-you-fixed or fix(curriculum) in the PR Title or other prefixes like `feat`, `bug`, `chore`, `revert`, etc. And you can add to those, e.g. `fix(tools)` or `chore(deps)`.
+DONE, DONE, AND DONE -> NOW WAIT. REMEMBER TO USE `fix: what-you-fixed` or `fix(curriculum)` in the PR Title or other prefixes like `feat`, `bug`, `chore`, `revert`, etc. And you can add to those, e.g. `fix(tools)` or `chore(deps)`.
 
-If the PR is meant to address an existing GitHub Issue then, at the end of your PR's description body, use the keyword Closes with the issue number: `Closes #123`
+If the PR is meant to address an existing GitHub Issue then, at the end of your PR's description body, use the keyword `Closes` with the issue number: `Closes #123`
 
 Indicate if you have tested on a local copy of the site or not. This is very important when making changes that are not just edits to text content like documentation or a challenge description. Examples of changes that need local testing include JavaScript, CSS, or HTML which could change the functionality or layout of a page.
 
@@ -394,7 +393,7 @@ Keep it short (less than 30 characters) and simple, you can add more information
 
 > Automatically generating CHANGELOGs.
 
-Will using `fix:`, `feat:`, `docs:`, etc. create CHANGELOGs where fix, feat, or docs without the colon do not do?
+Will using `fix:`, `feat:`, `docs:`, etc. create CHANGELOGs where fix, feat, or docs without the colon do not?
 
 ### Pull requests page notes
 
@@ -413,11 +412,13 @@ Also, if you scroll further down on the page you will see all the changes you ma
 
 > Our moderators will now take a look and leave you feedback. You will get a message when a reviewer for the source repo adds a comment about your pull request...
 
-Regardless, your changes will either be accepted or rejected. When the owner of the repo accepts your changes they will do so by clicking the **Merge pull request** button.
+Regardless, your changes will either be accepted or rejected. When the owner of the repo accepts your changes they will do so by clicking the **Merge pull request** button. 
+
+Then you will get a message that you can delete your local branch - do that.
 
 ### Staying up to date
 
-Once you are done with your PR and start to work on something else, the repo has most had changes by other contributors so your copy is behind. You need then to update your local copy of the repo before making new changes:
+Once you are done with your PR and start to work on something else, the repo has most likely had changes by other contributors so your copy is behind. You need to update your local copy of the repo before making new changes:
 
 ```
 git checkout master
@@ -527,7 +528,7 @@ Is this how you add a description?
 git commit -m "Title" -m "Description ..........";
 ```
 
-To search for a gist: `https://gist.github.com/username/`
+To search for a gist on GitHub: `https://gist.github.com/username/`
 
 ## Reference links
 
@@ -536,7 +537,6 @@ FYI, it's difficult keeping this list up-to-date. I'll do my best to provide the
 1. [Git reference docs](https://git-scm.com/docs 'Git documentation')
 1. [GitHub for complete beginners MDN](https://developer.mozilla.org/en-US/docs/MDN/Contribute/GitHub_beginners 'MDN GitHub docs')
 1. [Why Use Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0-beta.2/#why-use-conventional-commits 'Conventional Commits')
-1. [how-to-contribute-to-open-source "freeCodeCamp How to contribute article"](https://github.com/freeCodeCamp/how-to-contribute-to-open-source)
 1. [Contribute to freeCodeCamp.org](https://contribute.freecodecamp.org/#/ 'freeCpdeCamp contribution docs')
 1. [how-to-setup-freecodecamp-locally.md](https://github.com/freeCodeCamp/freeCodeCamp/blob/main/docs/how-to-setup-freecodecamp-locally.md 'How to setup freeCodeCamp locally')
 1. [freeCodeCamp Conflicts on a pull request](https://github.com/freeCodeCamp/freeCodeCamp/blob/main/docs/how-to-setup-freecodecamp-locally.md#making-changes-locally 'freeCodeCamp PR Conflicts')
