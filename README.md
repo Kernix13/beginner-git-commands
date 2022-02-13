@@ -452,6 +452,14 @@ git push -u origin master
 
 ## Miscellaneous git commands
 
+To have git ignore any files that you do not want to push create a file called `.gitignore` and add the paths and file names for those files:
+
+```
+index.html
+js/test.js
+notes.txt
+```
+
 To remove git tracking from a folder use the following command in git bash or from the command prompt, it does not work in VS Code:
 
 `rm -rf .git`
