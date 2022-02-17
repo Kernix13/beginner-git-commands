@@ -220,6 +220,8 @@ That will show you what has been changed and what has not been pushed to main, o
 
 To pull changes from GitHub to your machine use `git pull origin master` or just `git pull` if you set the upstream already. Make sure you are on the master branch. What `git pull` does is merge all the changes present in the remote repository to the local working directory.
 
+NOTE: Something is wrong when making changes from a branch I created for my repo.
+
 ## Forking and cloning
 
 Here is a list of commands from [how-to-setup-freecodecamp-locally.md](https://github.com/freeCodeCamp/freeCodeCamp/blob/main/docs/how-to-setup-freecodecamp-locally.md 'How to set up freeCodeCamp locally'). 
