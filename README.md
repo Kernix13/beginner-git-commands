@@ -404,9 +404,9 @@ Also, if you scroll further down on the page you will see all the changes you ma
 
 > Our moderators will now take a look and leave you feedback. You will get a message when a reviewer for the source repo adds a comment about your pull request...
 
-Regardless, your changes will either be accepted or rejected. When the owner of the repo accepts your changes they will do so by clicking the **Merge pull request** button. If it is your repo you will then see a gren button **Confirm merge**".
+Regardless, your changes will either be accepted or rejected. When the owner of the repo accepts your changes they will do so by clicking the **Merge pull request** button. If it is your repo you will then see a green button **Confirm merge**".
 
-Then you will get a message that you can delete your local branch - do that. Or you can make more changes and push again. 
+Then you will get a message that you can delete your local branch - do that.
 
 ### Staying up to date
 
