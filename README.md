@@ -13,14 +13,14 @@ Some of the commands in this doc are basic beginner commands, some are intermedi
 1. [Clone your own repo](#clone-your-own-repo)
 1. [Clone an existing repo](#clone-an-existing-repo)
    1. [Push the cloned files up to your repo](#push-the-cloned-files-up-to-your-repo)
-1. [Branches and merging](#branches-and-merging)
-   1. [Handling merge conflicts](#handling-merge-conflicts)
+1. [Branches](#branches)
 1. [Forking and cloning](#forking-and-cloning)
 1. [GitHub pull request process](#github-pull-request-process)
    1. [Pull request title](#pull-request-title)
    1. [Pull requests page notes](#pull-requests-page-notes)
    1. [Replies to your pull request](#replies-to-your-pull-request)
    1. [Staying up to date](#staying-up-to-date)
+   1. [Handling merge conflicts](#handling-merge-conflicts)
 1. [Create a repo from the command line](#create-a-repo-from-the-command-line)
 1. [Miscellaneous git commands](#miscellaneous-git-commands)
 1. [Reference links](#reference-links)
@@ -173,7 +173,7 @@ Now git knows that the origin is your repo. Using `git remote -v` again is to ch
 git push origin master
 ```
 
-## Branches and merging
+## Branches
 
 Here are common commands you'll often use when working with braches:
 
@@ -182,13 +182,20 @@ git branch
 git branch -a
 git checkout branch_name
 git checkout -b new_branch
-git merge branch_name
-git diff branch_name
+git merge new_branch
+git diff new_branch
 ```
 
-The 1st command shows the branch you are working on. The 2nd one lists all the branch names in your repo. The next two: 1) switches to the branch, and 2) creates then switches to that branch. The merge command merges the branch into whatever branch you are currently in, most likely `master` or `main`.
+What those commands do is:
 
-More commonly you will push the changes to GitHub then make a PR (pull request) if you are contributing. **So make sure you switch back from main/master to your branch** (double check that – I think it is the reverse). For a new branch, git push won't work because git doesn’t know what branch you are pushing to, so run:
+- 1st one shows the branch you are working on
+- The 2nd one lists all the branch names in your repo (`-a`)
+- The 3rd line switches to the branch `branch_name`
+- The 4th command creates a new branch and then switches to that branch
+- The 5th line merges the branch into whatever branch you are currently in, most likely `master` or `main`
+
+
+More commonly you will push the changes to GitHub then make a PR (pull request) if you are contributing. **So make sure you switch from main/master to your branch**. For a new branch, git push won't work because git doesn’t know what branch you are pushing to, so run:
 
 ```
 git push --set-upstream origin branch_name
@@ -212,29 +219,6 @@ git log branch_name --not main
 That will show you what has been changed and what has not been pushed to main, or maybe has not been merged. If you are fine with the differences then replace `-d` with `-D`.
 
 To pull changes from GitHub to your machine use `git pull origin master` or just `git pull` if you set the upstream already. Make sure you are on the master branch. What `git pull` does is merge all the changes present in the remote repository to the local working directory.
-
-### Handling merge conflicts
-
-Here is where I'm a little fuzzy on the steps. I think you may have to do a pull request to get changes from other contributors. Make sure you are on the `master` or `main` branch then do `git pull`.
-
-Read more here: [Conflicts on a pull request](https://github.com/freeCodeCamp/freeCodeCamp/blob/main/docs/how-to-setup-freecodecamp-locally.md#making-changes-locally 'Making changes locally').
-
-A merge conflict is when 2 or more people change the same code/content but with different values and you run the command `git merge branch-name`. However, I don't think a beginner contributor would actually run that command.
-
-But if you did, in VS Code you will see something like:
-
-```
-<<<<<<< HEAD (Current Change)
-<p>some change here</p>
-=======
-<p>different change here</p>
->>>>>>> Branch-Name (Incoming Change)
-```
-
-Where `HEAD` is your current branch, usually main/master. Once again, this would only be done by the owner of the repo, but what you would do is:
-
-1. Decide which change you want to keep,
-1. Delete EVERYTHING else -> the change you don't want and the equal, less than, and greater than signs along with the text like `HEAD` and `Current Change`. Everything other than the actual change that you want.
 
 ## Forking and cloning
 
@@ -282,7 +266,11 @@ git diff upstream/main
 
 **Note**: `git fetch` is used to fetch all objects from the remote repo that don’t currently reside in the local working directory. You'll also often see`git fetch origin`.
 
-Finally, check the branch you are on, switch to main/master if not on that branch, create a new branch for your contributions, make your changes then check the status, add the changes, commit the changes, and finally push:
+Finally:
+
+1. Check the branch you are on, switch to main/master if not on that branch, 
+1. Create a new branch for your contributions and make your changes then 
+1. Check the status, add your changes and check status again, commit the changes, and then push the changes:
 
 ```
 git branch
@@ -315,14 +303,16 @@ NOTES:
 
 > You only use the `--set-upstream` parameter when you need to add **your LOCAL** branch to **your REMOTE** branch. But once the new branch is added to the remote repo, then you don’t need to use `--set-upstream` each time.
 
-MY FINAL COMMANDS:
-
+MY FINAL COMMANDS (clone, ftch, push):
 ```
 git clone --depth=1 https_url
 git remote add upstream https_url
 git fetch upstream
 git remote -v
 git push origin main
+```
+THEN: create branch, make changes, and push them
+```
 git checkout -b fix/branch-name
 git add .
 git commit -m "short description"
@@ -437,6 +427,29 @@ git merge upstream/master
 
 So run `git merge upstream/master` (or `mqin` instead of `master` if that is your default) every time before making your changes and doing a push. That will ensure you always have the latest state of `master` locally.
 
+### Handling merge conflicts
+
+Here is where I'm a little fuzzy on the steps. I think you may have to do a pull request to get changes from other contributors. Make sure you are on the `master` or `main` branch then do `git pull`.
+
+Read more here: [Conflicts on a pull request](https://github.com/freeCodeCamp/freeCodeCamp/blob/main/docs/how-to-setup-freecodecamp-locally.md#making-changes-locally 'Making changes locally').
+
+A merge conflict is when 2 or more people change the same code/content but with different values and you run the command `git merge branch-name`. However, I don't think a beginner contributor would actually run that command.
+
+But if you did, in VS Code you will see something like:
+
+```
+<<<<<<< HEAD (Current Change)
+<p>some change here</p>
+=======
+<p>different change here</p>
+>>>>>>> Branch-Name (Incoming Change)
+```
+
+Where `HEAD` is your current branch, usually main/master. Once again, this would only be done by the owner of the repo, but what you would do is:
+
+1. Decide which change you want to keep,
+1. Delete EVERYTHING else -> the change you don't want and the equal, less than, and greater than signs along with the text like `HEAD` and `Current Change`. Everything other than the actual change that you want.
+
 ## Create a repo from the command line
 
 This is for when you have a project that you have been working on locally and want to then push it to GitHub. Create an empty repo on GitHub. Once you have the https_url the process is the same as the first section above "Pushing your local files to an empty repo". Make sure to give it the same name as your project folder just so there is no confusion.
@@ -480,7 +493,6 @@ git remote add upstream remote-url
 git push --set-upstream origin branch-name
 git rm –cached filename
 git merge --abort
-git diff
 git diff filename.ext
 git fetch
 clear, q, Q, exit, ESC, :WQ, ENTER, pwd (command-line commands)
