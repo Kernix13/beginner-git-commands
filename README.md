@@ -192,8 +192,7 @@ What those commands do is:
 - The 2nd one lists all the branch names in your repo (`-a`)
 - The 3rd line switches to the branch `branch_name`
 - The 4th command creates a new branch and then switches to that branch
-- The 5th line merges the branch into whatever branch you are currently in, most likely `master` or `main`
-
+- The 5th line merges the branch into whatever branch you are currently in, most likely `master` or `main` - you may also use `git diff new_branch`.
 
 More commonly you will push the changes to GitHub then make a PR (pull request) if you are contributing. **So make sure you switch from main/master to your branch**. For a new branch, git push won't work because git doesn’t know what branch you are pushing to, so run:
 
@@ -225,6 +224,8 @@ NOTE: Something is wrong when making changes from a branch I created for my repo
 ## Forking and cloning
 
 Here is a list of commands from [how-to-setup-freecodecamp-locally.md](https://github.com/freeCodeCamp/freeCodeCamp/blob/main/docs/how-to-setup-freecodecamp-locally.md 'How to set up freeCodeCamp locally'). 
+
+To fork a repo, go to the repository main main, and click the `Fork` button to the left of the `Star` button (upper right).
 
 After you fork a repo, open up a terminal and navigate to the folder where you want the cloned repo. Then enter the following commands:
 
@@ -427,7 +428,7 @@ git fetch upstream
 git merge upstream/master
 ```
 
-So run `git merge upstream/master` (or `mqin` instead of `master` if that is your default) every time before making your changes and doing a push. That will ensure you always have the latest state of `master` locally.
+So run `git merge upstream/master` (or `main` instead of `master` if that is your default) every time before making your changes and doing a push. That will ensure you always have the latest state of `master` locally.
 
 ### Handling merge conflicts
 
