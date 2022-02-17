@@ -1,8 +1,8 @@
 # Beginner Git commands
 
-> Some of the commands in this doc are basic beginner commands, some are intermediate level, especially when you get into cloning and contributing.
+Some of the commands in this doc are basic beginner commands, some are intermediate level, especially when you get into cloning and contributing.
 
-**Note**: I either use `main` or `master` for some of these commands. They refer to the default branch of your repo or of a cloned/forked repo. Replace the default names in the commands below with your default branch name.
+**Note**: I switch between using `main` or `master` for these commands. They refer to the default branch of your repo or of a cloned/forked repo. Replace the default names in the commands below with your default branch name.
 
 ## Table of contents
 
@@ -28,24 +28,26 @@
 
 ## Download and setup Git
 
-This section IMO is unnecessary if you found this repo because you should already have GIT installed and know the basics (_add, commit, push, pull, status_).
+This section IMO is unnecessary if you found this repo because you should already have GIT installed and know the basics (_add, commit, push, pull, status_). However, I don't want to assume that and it's always best to start at the beginning.
 
 It's been well over a year since I did this so I can't remember all the steps. But first, you need to [download Git](https://git-scm.com/downloads 'Git download page').
 
 Check out this video from the YouTube channel LearnWebCode: [Git Tutorial Part 3: Installation, Command-line & Clone](https://youtu.be/UFEby2zo-9E 'Git Tutorial'). I followed his steps to run the `config` commands below. Follow his instructions using Git Bash. Eventually, you will use VS Code for 99% of the commands in this guide.
 
-**Note**: On your first push ever to GitHub, you will need to provide a user name and email address to git, I assume the ones used when you created your GitHub account. This is so git knows that you are who you say you are. The commands look like this:
+**Note**: On your first push ever to GitHub, you will need to provide a user name and email address to git, I assume the ones used when you created your GitHub account. This is so git knows that you are who you say you are. 
+
+Check your GitHub profile to see what name you entered. Click your thumbnail image in the top right and select Settings. It will be the first field.The commands look like this:
 
 ```
 git config --global user.name "any user name"
 git config --global user.email "youremail@somewhere.com"
 ```
 
-The git config command is used initially to configure the user.name and user.email fields. This specifies what email id and username will be used from a local repository.
+The git config command is used initially to configure the user.name and user.email fields. This specifies what email and username will be used from a local repository.
 
-The `--global` flag tells GIT that you’re going to use the email above for all repos on your computer. Replace that with `--local` to use different emails for different repos.
+The `--global` flag tells Git that you're going to use the email above for all repos on your computer. Replace that with `--local` to use different emails for different repos.
 
-Some people will mention using an SSH key to validate your identity. I found that a little confusing so I prefer the method above.
+Some people mention using an SSH key to validate your identity. I found that a little confusing so I prefer the method above.
 
 Also, try the following command to see all the configuration settings:
 
@@ -53,23 +55,23 @@ Also, try the following command to see all the configuration settings:
 git config --list
 ```
 
-Run that command and scroll down and look for `user.name=“Yourname”` and `user.email=“your-email@whatevs.com”`, though until you set those values you either will not see those fields or they will be set to empty strings.
+Run that command and scroll down and look for `user.name="Yourname"` and `user.email="your-email@whatevs.com"`, though until you set those values you either will not see those fields or they will be set to empty strings.
 
 ### Terminology
 
-Here are some basic/common terms. These notes are from git, MDN, and other various sources:
+Here are some common terms. These notes are from git, MDN, and other sources:
 
-1. **upstream**: the primary branch on the original repository, is where you cloned the repo from
-1. **origin**: The default upstream repository - a reference to the remote repository from where a project was initially cloned
-1. **remote / remote repository**: the version of a repository or branch that is hosted on a server (like GitHub), a shared repository that all team members use to exchange their changes
-1. **fetch**: adding changes from the remote repository to your local working branch without committing them
-1. **pull**: Pulling a branch means to fetch it and merge it, fetches and merges changes on the remote server to your working directory
-1. **push**: to send your committed changes to a remote repo, to upload local repo content to a remote repo
-1. **clone**: used to make a copy of the target repository - a copy of a repo that lives on your computer
-1. **merge**: bring the contents of another branch into the current branch - to take the data created on a separate branch and integrate them into a single branch
-1. **head**: A named reference to the commit at the tip of a branch
+1. **upstream**: the primary *branch* on the original repository; where you cloned the repo from.
+1. **origin**: The default upstream repository - a reference to the remote repository from where a project was initially cloned.
+1. **remote / remote repository**: the version of a repository or branch that is hosted on a server (like GitHub), a shared repository that all team members use to exchange their changes.
+1. **fetch**: adding changes from the remote repository to your local working branch without committing them.
+1. **pull**: Pulling a branch means to fetch it and merge it; fetches and merges changes on the remote server to your working directory.
+1. **push**: To send your committed changes to a remote repo, to upload local repo content to a remote repo.
+1. **clone**: used to make a copy of the target repository; a copy of a repo that lives on your computer.
+1. **merge**: bring the contents of another branch into the current branch; to take the data created on a separate branch and integrate them into a single branch.
+1. **head**: A named reference to the commit at the tip of a branch.
 1. **HEAD**: your current branch, or a defined commit of a branch, usually the most recent commit at the tip of the branch, or refers to the current commit you are viewing. `HEAD` is a reference to one of the heads in your repository.
-1. **blob**: (Binary Large OBject) Untyped object, e.g. the contents of a file, is the object type used to store the contents of each file in a repository
+1. **blob**: (Binary Large OBject) Untyped object, e.g. the contents of a file, is the object type used to store the contents of each file in a repository.
 
 ## Pushing your local files to an empty repo
 
@@ -95,32 +97,32 @@ git remote add origin https_url
 git push -u origin main
 ```
 
-I know the first code block works, but I remember following the GitHub commands exactly and it worked as well - it's your choice. The only difference is `git branch -M main` and I think the flag `-M` means changing the master branch to the name **main**. IMO the `add README.md` command is not necessary. Just create and edit your README in VS Code and push it to your repo.
+I know the first code block works, but I remember following the GitHub commands exactly and it worked as well - it's your choice. The only difference is `git branch -M main` and I think the flag `-M` means changing the master branch to the name **main**. The `add README.md` command is not necessary. Just create and edit your README in VS Code and push it to your repo.
 
 The `git init` command creates a new local GIT repository in the directory you ran that command. The command `git clone` also initiates a git repo for a repo you want to clone, but git is installed in the downloaded/cloned folder, *NOT* in the directory where you ran that command. But both initiate git tracking.
 
-The `git push` command is used to send local commits to the master branch of the remote repository
+The `git push` command is used to send local commits to the master branch of the remote repository.
 
 Use `git remote -v` to list any remote repositories that you have connected to this repo, or to show the URLs that Git has stored as a short name. That is to check if you are pointing to the clond URL or the repo in your account. Did you clone to contribute or to work on your own version of the repo?
 
-The command `git remote add origin https_url` connects the local repository to a remote server (GitHub repo).
+The command `git remote add origin https_url` connects the local repository to a remote server (GitHub repo). `https_url` is the URL that is on the page when you create a new repo. It is also shown whn you click the `Code` button.
 
-But to just use `git push` in the future you have to set something called an upstream, meaning where you want to push it to by default. That is why you use `-u` (see additional notes below).
+But to use `git push` in the future you have to set something called an *upstream*, meaning where you want to push it to by default. That is why you use `-u` (see additional notes below).
 
-Replace **master** with the branch where you want to push your changes when you’re not intending to push to the master branch.
+Replace **master** with the branch where you want to push your changes when you’re not intending to push to the master branch. (Where else would you push?)
 
 ## Commands after initial push
 
-after making some changes do:
+after making some changes use:
 
 ```
 git add .
 git status
-git commit -m "Reason for commit"
+git commit -m "Created README file"
 git push -u origin master
 ```
 
-**Note**: You need to use `git push -u origin master` for the next commit only after the initial push. After that just use `git push` unless you used `-u` as mentioned above. Although I believe you can run `git push origin master` and it won't have a negative effect. Also, I'm adding `git status` as a habit to check the status of the files, though that command is not required.
+**Note**: You need to use `git push -u origin master` for the next commit only after the initial push. After that just use `git push` unless you used `-u` as mentioned above. Although I believe you can run `git push origin master` and it won't have a negative effect. Also, I use `git status` as a habit to check the status of the files, though that command is not required.
 
 ## Clone your own repo
 
@@ -130,7 +132,7 @@ Why would you do this? Use this when you create a repo and add a file on GitHub 
 git clone https_url
 cd folder_name
 ```
-Use `cd` to switch to that folder. Then make your changes and run standard commands:
+Use `cd` to switch to that folder (Change Directory). Then make your changes and run standard commands:
 
 ```
 git status
@@ -146,7 +148,7 @@ Then go to GitHub and you should see the changes.
 For when you want to work on a repo that someone else created. Use the same commands as above. You can also clone a specific branch with:
 
 ```
-git clone -branch https_url
+git clone -branch_name https_url
 ```
 
 ### Push the cloned files up to your repo
@@ -162,10 +164,10 @@ git remote -v
 
 The `git remote set-url` command changes an existing remote repository URL and it takes two arguments:
 
-- An existing remote name. For example, origin or upstream are two common choices
+- An existing remote name. For example, `origin` or `upstream` are two common choices
 - A new URL for the remote (yours)
 
-Now git knows that the origin is your repo. Using `git remote -v` again is to check that git is pointing to your repo address. Then to push the cloned repo files to your repo use:
+Now git knows that the origin is your repo. Using `git remote -v` again is to check that git is pointing to the desired repo address. Then to push the cloned repo files to *your* repo use:
 
 ```
 git push origin master
@@ -173,7 +175,7 @@ git push origin master
 
 ## Branches and merging
 
-Here are common commands you'll often use:
+Here are common commands you'll often use when working with braches:
 
 ```
 git branch
@@ -186,7 +188,7 @@ git diff branch_name
 
 The 1st command shows the branch you are working on. The 2nd one lists all the branch names in your repo. The next two: 1) switches to the branch, and 2) creates then switches to that branch. The merge command merges the branch into whatever branch you are currently in, most likely `master` or `main`.
 
-More commonly you will push the changes to GitHub then make a PR (pull request) if you are contributing. **So make sure you switch back from main/master to your branch**. For a new branch, git push won't work because git doesn’t know what branch you are pushing to, so run:
+More commonly you will push the changes to GitHub then make a PR (pull request) if you are contributing. **So make sure you switch back from main/master to your branch** (double check that – I think it is the reverse). For a new branch, git push won't work because git doesn’t know what branch you are pushing to, so run:
 
 ```
 git push --set-upstream origin branch_name
@@ -199,7 +201,7 @@ git push --set-upstream origin branch_name
 To delete a branch use `git branch -d branch_name`. If you get this error when trying to delete a branch:
 
 > error: The branch 'branch-name' is not fully merged.
-> If you are sure you want to delete it, run 'git branch -D fix/branch-name'.
+> If you are sure you want to delete it, run 'git branch -D branch-name'.
 
 It's probably because something in your local branch has not actually made it to the remote repository. To find out what commits have not been merged from your source branch to a target branch try:
 
@@ -341,7 +343,7 @@ This will open up a default text editor like `nano` or `vi` where you can edit t
 
 ## GitHub pull request process
 
-After you push your changes go to your cloned copy of the repo on GitHub, and refresh the page if necessary, you should see a green button labeled **_Compare & pull request_**. If you do not see it then click the Pull requests link to go to that tab.
+After you push your changes, go to your cloned copy of the repo on GitHub. You should see a green button labeled **_Compare & pull request_**. If you do not see it then click the Pull requests link to go to that tab.
 
 Click the "Compare & pull request" button and notice the page title of **_Open a pull request_** and the paragraph in the section below the title saying **_Able to merge. These branches can be automatically merged._**
 
@@ -393,7 +395,7 @@ Keep it short (less than 30 characters) and simple, you can add more information
 
 > Automatically generating CHANGELOGs.
 
-Will using `fix:`, `feat:`, `docs:`, etc. create CHANGELOGs where fix, feat, or docs without the colon do not?
+Will using `fix:`, `feat:`, `docs:`, etc. create CHANGELOGs where fix, feat, or docs without the colon will not?
 
 ### Pull requests page notes
 
@@ -428,12 +430,12 @@ git pull upstream master
 I actually use `git fetch upstream` to update my local clone. I'm not sure if `git pull upstream master` is better or not. However, I had a PR fail because I was missing a command. `git fetch upstream` will only fetch the git data. To update your main fully, you should:
 
 ```
-git checkout main
+git checkout master
 git fetch upstream
-git merge upstream/main
+git merge upstream/master
 ```
 
-So run `git merge upstream/main` (or `master` instead of `main` if that is your default) every time before making your changes and doing a push. That will ensure you always have the latest state of `main` locally.
+So run `git merge upstream/master` (or `mqin` instead of `master` if that is your default) every time before making your changes and doing a push. That will ensure you always have the latest state of `master` locally.
 
 ## Create a repo from the command line
 
@@ -460,7 +462,7 @@ js/test.js
 notes.txt
 ```
 
-To remove git tracking from a folder use the following command in git bash or from the command prompt, it does not work in VS Code:
+To remove git tracking from a folder use the following command in `git bash` or from the command prompt, it does not work in VS Code:
 
 `rm -rf .git`
 
@@ -469,22 +471,18 @@ Here is an interesting one: `gitk` shows the graphical interface for a local rep
 Here are variations of some of the commands above or common ones you may see:
 
 ```
-git init
 git commit -am "message"
 git log
 git add -A
 git add *.ext
 git --version
-git remote -v
 git remote add upstream remote-url
 git push --set-upstream origin branch-name
 git rm –cached filename
 git merge --abort
-git branch -a
 git diff
 git diff filename.ext
 git fetch
-git fetch upstream
 clear, q, Q, exit, ESC, :WQ, ENTER, pwd (command-line commands)
 ```
 
@@ -513,7 +511,6 @@ git rebase -i HEAD~n
 git bisect start
 git bisect bad
 git bisect good
-git config --list
 git config --global core.editor "code –wait"
 git config --global core.autocrlf true
 git command --help
