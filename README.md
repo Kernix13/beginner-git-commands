@@ -583,6 +583,86 @@ Where `HEAD` is your current branch, usually main/master. Once again, this would
 
 ## Miscellaneous git commands
 
+To have git ignore any files that you do not want to push create a file called `.gitignore` and add the paths and file names for those files:
+
+```
+index.html
+js/test.js
+notes.txt
+```
+
+To remove git tracking from a folder use the following command in `git bash` or from the command prompt (it does not work in VS Code):
+
+`rm -rf .git`
+
+Here is an interesting one: `gitk` shows the graphical interface for a local repository.
+
+Here are variations of some of the commands above or common ones you may see:
+
+```
+git commit -am "message"
+git log
+git add -A
+git add *.ext
+git add filename
+git --version
+git rm –cached filename
+git merge --abort
+git diff filename.ext
+git fetch
+clear, q, Q, exit, ESC, :WQ, ENTER, pwd (command-line commands)
+```
+
+Here are some command prompt commands you may need: `clear`, `q`, `Q`, `exit`, `ESC`, `:WQ`, `ENTER`, `pwd`, <kbd>CTRL</kbd>+<kbd>C</kbd>.
+
+I am not sure what these commands do, mostly because I believe these are advanced git commands but I have either used them with help from other people, or they are from my many pages of git notes:
+
+```
+git push -f
+git reflog
+git archive
+git prune
+git reset
+git reset filename.ext
+git reset HEAD
+git revert id
+git config -l
+git log --graph --decorate –oneline
+git stash
+git stash pop
+git tag
+git show
+git branch login
+git branch -vv
+git remote update --prune
+git rebase -i
+git rebase -i HEAD~n
+git bisect start
+git bisect bad
+git bisect good
+git config --global core.editor "code –wait"
+git config --global core.autocrlf true
+git command --help
+```
+
+Reference logs record everything you do with your local branch. Use `git reflog` to show everything you did in previous steps - find the entry where you think you want to go back to. Then use `git checkout HEAD@{12}` or`git reset HEAD@{3}` to get back to that state, where `HEAD@{12}` and `HEAD@{3}` are just using example numbers. Just run it and you'll see what I mean.
+
+I had to run the following to fix one of my mistakes:
+
+```
+git checkout fix/some-branch-name
+git fetch upstream
+git rebase -i upstream/main
+git push -f
+```
+
+Is this how you add a description?
+
+```
+git commit -m "Title" -m "Description ..........";
+```
+
+[Back to Top](#back-to-top "Table of contents")
 
 <p>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _</p>
 
@@ -607,6 +687,8 @@ FYI, it's difficult keeping this list up-to-date. I'll do my best to provide the
 1. [Frequently used Git Commands](https://codeburst.io/git-tutorial-a-beginners-guide-to-most-frequently-used-git-commands-2ab92bd22787 'Frequently used Git Commands')
 1. [Atlassian Git Tutorial](https://www.atlassian.com/git/tutorials)
 
+[Back to Top](#back-to-top "Table of contents")
+
 <p>_ _ _ _ _ _ _ _ _ _ _</p>
 
 ## Final notes
@@ -628,6 +710,8 @@ To-Do List:
   - Topic tags
   - Deselect Releases and Packages if you do not have any
 
+[Back to Top](#back-to-top "Table of contents")
+
 <h3 id="terminology">&#10551; Terminology</h3>
 
 Here are some common terms. These notes are from git, MDN, and other sources:
@@ -644,10 +728,14 @@ Here are some common terms. These notes are from git, MDN, and other sources:
 1. **HEAD**: your current branch, or a defined commit of a branch, usually the most recent commit at the tip of the branch, or refers to the current commit you are viewing. `HEAD` is a reference to one of the heads in your repository.
 1. **blob**: (Binary Large OBject) Untyped object, e.g. the contents of a file, is the object type used to store the contents of each file in a repository.
 
+[Back to Top](#back-to-top "Table of contents")
+
 ### Git keywords
 
 I'm wondering if putting in the following keywords will help beginners searching on GitHub to find this repo:
 
 **Keywords**: git for beginners, basic git commands, basic git commands cheat sheet, basic git commands github, basic git commands for beginners, basic git commands list, basic commands for git, github basic commands, basic commands in git, basic git command, basic git commands to know, what are basic git commands, git guide command line, most basic git commands, basic commands of git, basic git workflow commands, basic git cheat sheet, git commands cheat sheet github, ...
+
+[Back to Top](#back-to-top "Table of contents")
 
 <!-- Ignore this line, experimenting with markdown comments -->
