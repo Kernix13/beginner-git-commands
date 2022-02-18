@@ -37,7 +37,6 @@ If you created any files on Github, then you will have to use `git pull` before 
 1. [Reference links](#reference-links)
 1. [Final notes](#final-notes)
    1. [Terminology](#terminology)
-   1. [Git keywords](#git-keywords)
 
 <p>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</p>
 
@@ -128,10 +127,7 @@ Replace `master` with the branch where you want to push your changes when you’
 
 [Back to Top](#back-to-top "Table of contents")
 
-&#10559; 
-
-<!-- ### Commands after initial push -->
-<h3 id="commands-after-initial-push">&#10559; Commands after initial push</h2>
+<h3 id="commands-after-initial-push">&#10551; Commands after initial push</h2>
 
 Now your local repo is connected to your remote repo on Github. After making some changes or creating files use:
 
@@ -282,9 +278,9 @@ git clone -branch_name https_url
 
 The next part is important. Since you did not fork this repo, but instead you want a copy of it to work on for yourself, you need to first push it up to your empty GitHub repo. See the next section for the details on that...
 
-<!-- [Back to Top](#back-to-top "Table of contents") -->
+[Back to Top](#back-to-top "Table of contents")
 
-### Push the cloned files up to your repo
+<h3 id="push-the-cloned-files-up-to-your-repo"> &#10551; Push the cloned files up to your repo</h3>
 
 Because you cloned this repo from an existing repo, git will try to push it to its original destination. For example, if you type `git remote -v` you will get the address of the cloned repo where Git thinks you want to push to.
 
@@ -359,9 +355,9 @@ git push origin main --force
 git diff upstream/main
 ```
 
-The 1st command is necessary for the clone to fetch the files, the 4th is optional. Use #2 & #3 with caution - read up on them.
+The 1st command is necessary for the clone to fetch the files, the 4th is optional. Use #2 & #3 with caution - read up on them. The commands above are from freeCodeCamp docs.
 
-**NOTE**: `git fetch upstream` is used to fetch all objects from the remote repo that don’t currently reside in the local working directory. You'll also often see`git fetch origin`.
+**NOTE**: `git fetch upstream` is used to fetch all objects from the remote repo that don’t currently reside in the local working directory. You'll also often see`git fetch origin`. `git diff upstream` checks for a difference between a branch and its upstream source.
 
 Finally:
 
@@ -382,7 +378,7 @@ New commands in detail:
 
 | *Fork* Commands             | Definition                              |
 | :-------------------------- | :-------------------------------------- |
-| --depth=1                   | Creates a shallow copy of the repo      |
+| `--depth=1   `                | Creates a shallow copy of the repo      |
 | remote add upstream         | Pull changes from the original repo...  |
 | ...                         | &#10551; into the local clone of your fork    |
 | fetch upstream              | Update local repo with source repo objects |
@@ -393,9 +389,9 @@ New commands in detail:
 
 **NOTES**:
 
-> `git reset --hard upstream/main` erases any uncommitted changes. This is not a required command used every time you need to push changes to the remote repo - use it wisely and when needed.
+> `git reset --hard upstream/main` erases any uncommitted changes. This is not a required command used every time you need to push changes to the remote repo - use it wisely and when needed. Or **ONLY** run as part of the original fetch process.
 
-> `git push origin main --force`, you don’t need to add the `--force`. Just doing a regular git push is fine.
+> `git push origin main --force`, you don’t need to add the `--force`. Just doing a regular git push is fine. Or **ONLY** do it on the first push.
 
 > You only use the `--set-upstream` parameter when you need to add **your LOCAL** branch to **your REMOTE** branch. But once the new branch is added to the remote repo, then you don’t need to use `--set-upstream` each time.
 
@@ -427,7 +423,7 @@ If you realize that you need to edit a file or update the commit message after m
 
 This will open up a default text editor like `nano` or `vi` where you can edit the commit message title and add/edit the description.
 
-Here is a comparison of  cloning your repo vs. cloning another repo and forking then cloning:
+Here is a comparison of  cloning your repo vs. cloning someone else's repo vs. forking then cloning:
 
 | Command Description     | Clone (Yours)    | Clone (Not Yours) | Fork then Clone |
 | :---------------------- | :--------------: | :---------------: | :-------------: |
@@ -442,13 +438,13 @@ Here is a comparison of  cloning your repo vs. cloning another repo and forking 
 | Change your remote's URL | remote add origin https_url | remote add origin https_url | - |
 | Verify repo url         | remote -v    | remote -v    | remote -v    |
 | Fetch source            | -                | -                | fetch upstream |
-| Reset ???               | -                | -                | reset --hard upstream/main |
+| Reset                   | -                | -                | reset --hard upstream/main |
 | Push changes to remote  | push -u origin master | push -u origin master | push origin main --force | 
 | Check for differences   | -                | -                | diff upstream/main |
 | Create branch           | -                | -                | checkout -b fix/branch-name |
 | Make changes            | -                | -                | -                  |
 | Add changes to staging  | add .            | add .            | add .              | 
-| Save changes to local   | commit -m "Next commit" | -         | -                  |
+| Save changes to local   | commit -m "msg"  | commit -m "msg"  | commit -m "msg"    |
 | Push changes to remote  | push -u origin master | push -u origin master | - | 
 | Initial branch push     | -                | -                | push --set-upstream origin fix/branch-name |
 | Recurring pushes        | -                | -                | push origin fix/branch-name | 
@@ -463,23 +459,23 @@ Here is a comparison of  cloning your repo vs. cloning another repo and forking 
 
 [Back to Top](#back-to-top "Table of contents")
 
-### &#10551; Pull request title
+<h3 id="pull-request-title">&#10551; Pull request title</h3>
 
 
 
-### &#10559; Pull requests page notes
+<h3 id="pull-requests-page-notes">&#10551; Pull request title</h3>
 
 
 
-### &#10551; Replies to your pull request
+<h3 id="replies-to-your-pull-request">&#10551; Pull request title</h3>
 
 
 
-### &#10559; Staying up to date
+<h3 id="staying-up-to-date">&#10551; Pull request title</h3>
 
 
 
-### &#10551; Handling merge conflicts
+<h3 id="handling-merge-conflicts">&#10551; Pull request title</h3>
 
 
 <p>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</p>
@@ -536,7 +532,7 @@ To-Do List:
   - Topic tags
   - Deselect Releases and Packages if you do not have any
 
-### Terminology
+<h3 id="terminology">&#10551; Terminology</h3>
 
 Here are some common terms. These notes are from git, MDN, and other sources:
 
