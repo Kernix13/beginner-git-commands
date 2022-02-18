@@ -25,6 +25,7 @@ If you created any files on Github, then you will have to use `git pull` before 
 1. [Clone your own repo](#clone-your-own-repo)
 1. [Clone an existing repo](#clone-an-existing-repo)
    1. [Push the cloned files up to your repo](#push-the-cloned-files-up-to-your-repo)
+1. [Intermediate Git Commands](#intermediate-git-commands)
 1. [Forking and cloning](#forking-and-cloning)
 1. [GitHub pull request process](#github-pull-request-process)
    1. [Pull request title](#pull-request-title)
@@ -670,6 +671,8 @@ git commit -m "Title" -m "Description ..........";
 
 FYI, it's difficult keeping this list up-to-date. I'll do my best to provide the best resources that I find and that work for me.
 
+To search for a gist on GitHub: `https://gist.github.com/username/`
+
 1. [Git reference docs](https://git-scm.com/docs 'Git documentation')
 1. [GitHub for complete beginners MDN](https://developer.mozilla.org/en-US/docs/MDN/Contribute/GitHub_beginners 'MDN GitHub docs')
 1. [Why Use Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0-beta.2/#why-use-conventional-commits 'Conventional Commits')
@@ -716,17 +719,17 @@ To-Do List:
 
 Here are some common terms. These notes are from git, MDN, and other sources:
 
-1. **upstream**: the primary *branch* on the original repository; where you cloned the repo from.
-1. **origin**: The default upstream repository - a reference to the remote repository from where a project was initially cloned.
-1. **remote / remote repository**: the version of a repository or branch that is hosted on a server (like GitHub), a shared repository that all team members use to exchange their changes.
-1. **fetch**: adding changes from the remote repository to your local working branch without committing them.
-1. **pull**: Pulling a branch means to fetch it and merge it; fetches and merges changes on the remote server to your working directory.
-1. **push**: To send your committed changes to a remote repo, to upload local repo content to a remote repo.
-1. **clone**: used to make a copy of the target repository; a copy of a repo that lives on your computer.
-1. **merge**: bring the contents of another branch into the current branch; to take the data created on a separate branch and integrate them into a single branch.
-1. **head**: A named reference to the commit at the tip of a branch.
-1. **HEAD**: your current branch, or a defined commit of a branch, usually the most recent commit at the tip of the branch, or refers to the current commit you are viewing. `HEAD` is a reference to one of the heads in your repository.
-1. **blob**: (Binary Large OBject) Untyped object, e.g. the contents of a file, is the object type used to store the contents of each file in a repository.
+1. **`upstream`**: the primary *branch* on the original repository; where you cloned the repo from.
+1. **`origin`**: The default upstream repository - a reference to the remote repository from where a project was initially cloned.
+1. **`remote` / `remote repository`**: the version of a repository or branch that is hosted on a server (like GitHub), a shared repository that all team members use to exchange their changes.
+1. **`fetch`**: adding changes from the remote repository to your local working branch without committing them.
+1. **`pull`**: Pulling a branch means to fetch it and merge it; fetches and merges changes on the remote server to your working directory.
+1. **`push`**: To send your committed changes to a remote repo, to upload local repo content to a remote repo.
+1. **`clone`**: used to make a copy of the target repository; a copy of a repo that lives on your computer.
+1. **`merge`**: bring the contents of another branch into the current branch; to take the data created on a separate branch and integrate them into a single branch.
+1. **`head`**: A named reference to the commit at the tip of a branch.
+1. **`HEAD`**: your current branch, or a defined commit of a branch, usually the most recent commit at the tip of the branch, or refers to the current commit you are viewing. `HEAD` is a reference to one of the heads in your repository.
+1. **`blob`**: (Binary Large OBject) Untyped object, e.g. the contents of a file, is the object type used to store the contents of each file in a repository.
 
 [Back to Top](#back-to-top "Table of contents")
 
