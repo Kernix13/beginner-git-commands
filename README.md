@@ -2,19 +2,19 @@
 
 The basic steps you need in the beginning are:
 
-- Download and setup (one time ony)
+- Download and setup Git (one time ony)
 - Create an empty repo on GitHub
 - Initialize Git in a project folder
 - Make changes or create a file
-- Add the changes to stagingm then commit the changes
-- Push your changes ( or/and project files) to your empty repo
+- Add the changes to staging then commit the changes
+- Push your changes or project files to your empty repo
 
 
 If you created any files on Github, then you will have to use `git clone` and `git pull` before you can do a `git push`. So don't create any files on GitHub in the beginning.
 
 <a id="back-to-top"></a>
 
-<div>----------------------------</div>
+<p>----------------------------</p>
 
 ## Table of contents
 
@@ -43,7 +43,7 @@ If you created any files on Github, then you will have to use `git clone` and `g
 
 ## Download and setup Git
 
-It's been well over a year since I did this so I can't remember all the steps. But first, you need to [download Git](https://git-scm.com/downloads 'Git download page').
+It's been well over a year since I did this so I can't remember all the steps. But first, you need to first [download Git](https://git-scm.com/downloads 'Git download page').
 
 Check out this video from the YouTube channel LearnWebCode: [Git Tutorial Part 3: Installation, Command-line & Clone](https://youtu.be/UFEby2zo-9E 'Git Tutorial'). I followed his steps to run the `config` commands below. Follow his instructions using Git Bash. Eventually, you will use VS Code for 99% of the commands in this guide.
 
@@ -73,8 +73,7 @@ git config --list
 Run that command and scroll down and look for `user.name="Yourname"` and `user.email="your-email@whatevs.com"`, though until you set those values you either will not see those fields or they will be set to empty strings.
 
 [Back to Top](#back-to-top "Table of contents")
-
-<div>-------------------------------------------------------------------</div>
+<p>-------------------------------------------------------------------</p>
 
 ## Pushing your local files to an empty repo
 
@@ -86,45 +85,48 @@ git add .
 git commit -m "First commit"
 git branch -M main (optional)
 git remote add origin https_url
-git remote -v
 git push -u origin master
 ```
 **NOTE**: I removed 'git' from the commands in the definition tables to make the table smaller. You should know to add `git` before the main commands (not for the parameters).
 
 **Definitions**:
 
-| *Basic* Commands | Definition |
+| *Basic* Git Commands | Definition |
 | :--------------- | :---------- |
 | init             | Initiates git tracking |
 | status           | Check the status of your changes/state |
 | add .            | Adds ***ALL*** (.) changes to staging |
 | commit           | Saves changes to local copy |
-| remote add origin | Adds url as remote repo location |
-| remote -v        | A check to make sure the URL is correct |
-| branch -M main   | Changes default branch to 'main' |
+| remote add origin | Adds URL as remote repo location |x`
+| `branch -M main`   | Changes default branch to 'main' (this is optional) |
 | push -u origin main | Push changes to remote |
 | push             | Push changes after upstream is set | 
 | push origin main | Used for 1st push if `-u` not used |
 | -u               | Parameter short for `upstream` |
 | upstream         | the primary *branch* on the original repository; where you cloned the repo from |
 
-The `git push` command is used to send local commits to the master branch of the remote repository.
-
-Use `git remote -v` to list any remote repositories that you have connected to this repo, or to show the URLs that Git has stored as a short name. That is to check if you are pointing to the clond URL or the repo in your account. Did you clone to contribute or to work on your own version of the repo?
-
 The command `git remote add origin https_url` connects the local repository to a remote server (GitHub repo). `https_url` is the URL that is on the page when you create a new repo. It is also shown whn you click the `Code` button.
 
-But to use `git push` in the future you have to set something called an *upstream*, meaning where you want to push it to by default. That is why you use `-u` (see additional notes below).
+The `git push` command is used to send local commits to the master (or main) branch of the remote repository. But to use `git push` in the future you have to set something called an *upstream*, meaning where you want to push it to by default. That is why you use `-u`.
 
-Replace **master** with the branch where you want to push your changes when you’re not intending to push to the master branch. 
+Replace **master** with the branch where you want to push your changes when you’re *not* intending to push to the master branch. 
 
 [Back to Top](#back-to-top "Table of contents")
 
 ## Commands for initial push
 
-These commands work for me when pushing to a repo I created without a README file. If you have a README file, then you will get an error when trying to push, so you'll have to do a `git pull` command to pull the README to your local repo:
+after making some changes use:
 
-If you created any files on Github, then you will have to use `git clone` and `git pull` before you can do a `git push`.
+```
+git add .
+git status
+git commit -m "Created README file"
+git push -u origin master
+```
+
+**Note**: You need to use `git push -u origin master` for the next commit only after the initial push. After that just use `git push` unless you used `-u` as mentioned above (DOUBLE CHECK THAT). Although I believe you can run `git push origin master` and it won't have a negative effect. Also, I use `git status` as a habit to check the status of the files, though that command is not required.
+
+These commands work for me when pushing to a repo I created without a README file. If you have a README file, then you will get an error when trying to push, so you'll have to do a `git pull` command to pull the README to your local repo then you can use `git push`.
 
 The only difference is `git branch -M main` and I think the flag `-M` means changing the master branch to the name **main**. The `add README.md` command is not necessary. Just create and edit your README in VS Code and push it to your repo.
 
@@ -153,7 +155,7 @@ That all works for your repos, but eventually you will want to clone, or fork an
 
 ## Clone an existing repo
 
-
+Use `git remote -v` to list any remote repositories that you have connected to this repo. That is to check if you are pointing to the cloned URL or the repo in your account. Did you clone to contribute, or to work on your own version of the repo?
 
 [Back to Top](#back-to-top "Table of contents")
 
@@ -190,6 +192,7 @@ That all works for your repos, but eventually you will want to clone, or fork an
 | *Fork* Commands | Definition |
 | :-------------- | :--------- |
 | --depth=1             | Creates a shallow copy of the repo |
+| remote -v        | A check to make sure the URL is correct |
 | remote add upstream   | Pull changes from the original repo...  |
 | -                     | ...into the local clone of your fork |
 | fetch upstream        | ... |
