@@ -14,7 +14,7 @@ If you created any files on Github, then you will have to use `git clone` and `g
 
 <a id="back-to-top"></a>
 
-<p>----------------------------</p>
+<p>____________________________</p>
 
 ## Table of contents
 
