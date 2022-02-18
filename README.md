@@ -303,6 +303,7 @@ git push -u origin master
 From here the commands are a little more involved and aee for when you start to contribute.
 
 <p>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ </p>
+
 ## Forking and cloning (NEXT)
 
 <dl>
