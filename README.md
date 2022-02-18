@@ -477,7 +477,7 @@ Indicate if you have tested on a local copy of the site or not. This is very imp
 
 [Back to Top](#back-to-top "Table of contents")
 
-<h3 id="pull-request-title">&#10551; Pull request title</h3>
+<h3 id="pull-request-title">&#10551;    Pull request title</h3>
 
 The convention has the following format:
 
@@ -507,13 +507,9 @@ Keep it short (less than 30 characters) and simple, you can add more information
 
 **QUESTION**: What creates CHANGELOGs? Is it the use of the colon `:`? Here is a quote from [Why Use Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0-beta.2/#why-use-conventional-commits 'Conventional Commits'):
 
-> Automatically generating CHANGELOGs.
-
-Will using `fix:`, `feat:`, `docs:`, etc. create CHANGELOGs where fix, feat, or docs without the colon will not?
-
 [Back to Top](#back-to-top "Table of contents")
 
-<h3 id="pull-requests-page-notes">&#10551; Pull request Page Notes</h3>
+<h3 id="pull-requests-page-notes">&#10551;  Pull request Page Notes</h3>
 
 Check the values for the fields labeled `base fork` and `head fork`.
 
