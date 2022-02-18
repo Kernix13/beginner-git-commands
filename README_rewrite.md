@@ -478,7 +478,7 @@ js/test.js
 notes.txt
 ```
 
-To remove git tracking from a folder use the following command in `git bash` or from the command prompt, it does not work in VS Code:
+To remove git tracking from a folder use the following command in `git bash` or from the command prompt (it does not work in VS Code):
 
 `rm -rf .git`
 
@@ -491,15 +491,16 @@ git commit -am "message"
 git log
 git add -A
 git add *.ext
+git add filename
 git --version
-git remote add upstream remote-url
-git push --set-upstream origin branch-name
 git rm –cached filename
 git merge --abort
 git diff filename.ext
 git fetch
 clear, q, Q, exit, ESC, :WQ, ENTER, pwd (command-line commands)
 ```
+
+Here are some command prompt commands you may need: `clear`, `q`, `Q`, `exit`, `ESC`, `:WQ`, `ENTER`, `pwd`, <kbd>CTRL</kbd>+<kbd>C</kbd>.
 
 I am not sure what these commands do, mostly because I believe these are advanced git commands but I have either used them with help from other people, or they are from my many pages of git notes:
 
@@ -548,11 +549,11 @@ Is this how you add a description?
 git commit -m "Title" -m "Description ..........";
 ```
 
-To search for a gist on GitHub: `https://gist.github.com/username/`
-
 ## Reference links
 
 FYI, it's difficult keeping this list up-to-date. I'll do my best to provide the best resources that I find and that work for me.
+
+To search for a gist on GitHub: `https://gist.github.com/username/`
 
 1. [Git reference docs](https://git-scm.com/docs 'Git documentation')
 1. [GitHub for complete beginners MDN](https://developer.mozilla.org/en-US/docs/MDN/Contribute/GitHub_beginners 'MDN GitHub docs')
