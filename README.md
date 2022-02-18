@@ -10,7 +10,7 @@ The basic steps you need in the beginning are:
 - Push your changes or project files to your empty repo
 
 
-If you created any files on Github, then you will have to use `git clone` and `git pull` before you can do a `git push`. So don't create any files on GitHub in the beginning.
+If you created any files on Github, then you will have to use `git pull` before you can do a `git push`. So in the beginning, don't create any files on GitHub.
 
 <a id="back-to-top"></a>
 
@@ -47,11 +47,9 @@ It's been well over a year since I did this so I can't remember all the steps. B
 
 Check out this video from the YouTube channel LearnWebCode: [Git Tutorial Part 3: Installation, Command-line & Clone](https://youtu.be/UFEby2zo-9E 'Git Tutorial'). I followed his steps to run the `config` commands below. Follow his instructions using Git Bash. Eventually, you will use VS Code for 99% of the commands in this guide.
 
-**Note**: On your first push ever to GitHub, you will need to provide a `user name` and `email address` to git, I assume the ones used when you created your GitHub account. This is so git knows that you are who you say you are. 
+**Note**: On your first push ever to GitHub, you will need to provide a `user name` and `email address` to git, the ones used when you created your GitHub account. This is so git knows that you are who you say you are. 
 
-Check your GitHub profile to see what name you entered. Click your thumbnail image in the top right and select Settings. It will be the first field.
-
-Ater downloading Git, open the `.exe` file in your downloads folder. Then find Git Bash and open it. For me on Windows, there was a Git folder in my Start ment and Git bash was in there. Open it and in the commpand prompt that opens enter the following commands:
+Ater downloading Git, open the `.exe` file in your downloads folder. Then find Git Bash and open it. For me on Windows, there was a Git folder in my Start ment and Git bash was in there. Open it and in the command prompt that opens enter the following commands:
 
 ```
 git config --global user.name "Github user name"
@@ -76,51 +74,47 @@ Run that command and scroll down and look for `user.name="Yourname"` and `user.e
 
 <p>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</p>
 
-## Pushing your local files to an empty repo (DONE)
+## Pushing your local files to an empty repo
 
-Here are the commands followed by a brief definition. Make sure to know these because they are used for other sections in this file. By the way, You need to make changes to your files or create a file before running `git add .`:
+Here are the commands followed by a brief definition. Make sure to know these because they are used for other sections in this file. By the way, you need to make changes to your files or create a file before running `git add .` unless you already have files  in your project folder:
 
 ```
 git init
 git add .
 git commit -m "First commit"
-git branch -M main (optional)
+git branch -M main
 git remote add origin https_url
 git push -u origin master
 ```
-**NOTE**: I removed `git` from the commands in the definition tables to make the table smaller. You should know to add `git` before the main commands (not for the parameters).
+**NOTE**: I removed `git` from the commands in all the definition tables to make the table smaller. You should know to add `git` before the main commands (not for the parameters).
 
-**Definitions**:
-
-| *Basic* Commands | Definition |
+| *Basic* Git Commands | Definition |
 | :--------------- | :---------- |
 | init             | Initiates git tracking |
-| status           | Check the status of your changes/state |
+| status           | Checks the status of your changes/state |
 | add .            | Adds ***ALL*** (.) changes to staging |
 | commit           | Saves changes to local copy |
 | remote add origin | Adds URL as remote repo location |x`
 | `branch -M main`   | Changes default branch to 'main' (this is optional) |
 | push -u origin main | Push changes to remote |
 | push             | Push changes after upstream is set | 
-| push origin main | Used for 1st push if `-u` not used |
-| -u               | Parameter short for `upstream` |
-| upstream         | the primary *branch* on the original repository; where you cloned the repo from |
+| push origin main | Used for 1st push if `-u` flad was not used |
+| `-u`             | Parameter short for `upstream` |
+| `upstream`       | the primary *branch* on the original repository; where you cloned the repo from |
 
 The `git init` command creates a new local GIT repository in the directory you ran that command. 
 
+The command `git branch -M main` is optional and I think the flag `-M` means changing the default branch name from master to the name **main**. I trid searching for it and I found that Git has changed the default from `master` to `main` though GitHub still uses `master` by default. It's your choice but if you are just starting out I would say skip that command.
+
 The command `git remote add origin https_url` connects the local repository to a remote server (GitHub repo). `https_url` is the URL that is on the page when you create a new repo. It is also shown whn you click the `Code` button.
 
-The command `git branch -M main` is optional and I think the flag `-M` means changing the master branch to the name **main**. I trid searching for it and I found that Git has changed the default from `master' to `main` though GitHub still uses `master` by default.
+The `git push` command is used to send local commits to the master (or main) branch of the remote repository. But to use `git push` in the future you have to set something called an *upstream*, meaning where you want to push it to by default. That is why you use `-u`. The whole command `git push -u origin master` pushes your commits and sets the branch `master` as the origin for the location of `git push` in the future. 
 
-The `git push` command is used to send local commits to the master (or main) branch of the remote repository. But to use `git push` in the future you have to set something called an *upstream*, meaning where you want to push it to by default. That is why you use `-u`.
-
-Replace **master** with the branch where you want to push your changes when you’re *not* intending to push to the master branch. 
+Replace `master` with the branch where you want to push your changes when you’re *not* intending to push to the master branch. 
 
 [Back to Top](#back-to-top "Table of contents")
 
-<p>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</p>
-
-### Commands for initial push (DONE)
+### Commands after initial push
 
 Now your local repo is connected to your remote repo on Github. After making some changes or creating files use:
 
@@ -137,7 +131,7 @@ Also, I use `git status` as a habit to check the status of the files, though tha
 
 These commands work for me when pushing to a repo I created without a README file. If you have a README file, then you will get an error when trying to push, so you'll have to do a `git pull` command to pull the README to your local repo then you can use `git push`.
 
-Here is a comparison of my commands vs. the commands you see on GitHub when you create an empty repo (there is only 1 difference). I am also tacking on the standard `add`, `commit`, `push` commands:
+Here is a comparison of my commands vs. the commands you see on GitHub when you create an empty repo (there is only 1 difference). I am also tacking on the standard `add`, `commit`, and `push` commands:
 
 | Command Description     | My Git commands | GitHub commands| 
 | :---------------------- | --------------: | :------------- |
@@ -172,21 +166,23 @@ For my Git journey, I did not create branches until I started contributing for f
 | checkout -b new_branch | Creates then switches to new_branch |
 | merge new_branch      | Merges the branch into whatever branch you are currently in |
 
-More commonly you will push the changes to GitHub then make a PR (pull request) if you are contributing. **So make sure you switch from main/master to your branch**. For a new branch, git push won't work because git doesn't know what branch you are pushing to, so run:
+More commonly you will push the changes to GitHub then make a PR (pull request) if you are contributing. **So make sure you switch from main/master to your branch before doing that!**. 
+
+For a new branch, `git push` won't work because git doesn't know what branch you are pushing to, so run:
 
 ```
 git push --set-upstream origin branch_name
 ```
 **Note**: Using `--set-upstream` is the same thing as using `-u` in the sections above. Actually, `-u` is short-hand for `--set-upstream`.
 
-**Note**: A PR from your branch to the master branch is a request to have your code merged with the master branch. When your code is merged delete your branch.
+**Note**: A PR from your branch to the master branch is a request to have your code merged with the master branch. You can delete your branch when your code/changes are merged.
 
 To delete a branch use `git branch -d branch_name`. If you get this error when trying to delete a branch:
 
-> error: The branch 'branch-name' is not fully merged.
-> If you are sure you want to delete it, run 'git branch -D branch-name'.
+> error: The branch `branch-name` is not fully merged.
+> If you are sure you want to delete it, run `git branch -D branch-name`.
 
-It's probably because something in your local branch has not actually made it to the remote repository. To find out what commits have not been merged from your source branch to a target branch try:
+It's probably because something in your local branch has not actually made it to the remote repository. To find out what commits have not been merged from your source branch to a target branch run:
 
 ```
 git log branch_name --not main
@@ -194,15 +190,15 @@ git log branch_name --not main
 
 That will show you what has been changed and what has not been pushed to main, or maybe has not been merged. If you are fine with the differences then replace `-d` with `-D`.
 
-To pull changes from GitHub to your machine use `git pull origin master` or just `git pull` if you set the upstream already. **Make sure you are on the master branch**. What `git pull` does is merge all the changes present in the remote repository to the local working directory.
+To pull changes from GitHub to your machine use `git pull origin master` or just `git pull` if you set the upstream already. **Make sure you are on the master branch**. What `git pull` does is merge all the changes present in the remote repository to the local working directory (See the section [Staying up to date](#staying-up-to-date)).
 
 [Back to Top](#back-to-top "Table of contents")
 
 <p>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</p>
 
-## Clone your own repo (DONE)
+## Clone your own repo
 
-Why would you do this? Use this when you created a repo and added a file on GitHub like a README.md file. 
+Why would you do this? Use this when you created a repo and added a file on GitHub like a README.md file. Or if for some reason you have a commit and issues history that you want to copy, though who would have that? Regardless, the process is almost identical to cloning a repo that is not yours: 
 
 ```
 git clone https_url
@@ -219,11 +215,13 @@ git push -u origin master
 | remote -v             | A check to make sure the URL is correct |
 | remote set-url origin | Change your remote's URL (See below) |
 
-Like `git init`, the command `git clone` also initiates a git repo for a repo you want to clone, but git is installed in the downloaded/cloned folder, *NOT* in the directory where you ran that command. But both initiate git tracking.
+Like `git init`, the command `git clone` also initiates a git repo for a repo you want to clone, but git is installed in the downloaded/cloned folder, *NOT* in the directory where you ran that command. But both initiate git tracking. 
 
-`git clone` is used on its own or when you Fork a repo and it's best to use this with Git Bash.
+`git clone` is used on its own or when you Fork a repo and it's best to use this with Git Bash (I think). Use `cd` to switch to that folder (Change Directory). 
 
-Use `cd` to switch to that folder (Change Directory). Then make your changes and run standard commands:
+Use `git remote -v` to list any remote repositories that you have connected to this repo. That is to check if you are pointing to the cloned URL or the copy of the repo in your account. Did you clone to contribute, or to work on your own version of the repo?
+
+Then make some changes and run the standard commands:
 
 ```
 git status
@@ -231,9 +229,9 @@ git add .
 git commit -m "First commit"
 git push
 ```
-Use `git remote -v` to list any remote repositories that you have connected to this repo. That is to check if you are pointing to the cloned URL or the repo in your account. Did you clone to contribute, or to work on your own version of the repo?
+> Is it `git push` or `git push origin master` or `git push -u origin master`?
 
-That all works for your repos, but eventually you will want to clone, or fork and clone a repo so that you can contribute to it. You will then need to use the `git clone` again, and various `branch` git commands. You will also need to add additional parameters to your git commands:
+That all works for your repos, but eventually you will want to clone, or fork and clone a repo so that you can contribute to it. You will then need to use the `git clone` again, and various `branch` git commands. You will also need to add additional parameters to your git commands (see [Forking and cloning](#forking-and-cloning) section)
 
 [Back to Top](#back-to-top "Table of contents")
 
@@ -287,7 +285,7 @@ git commit -m "First commit"
 git push -u origin master
 ```
 
-> Is this coorect? Is it `git push origin master` or `git push -u origin master`?
+> Is it `git push` or `git push origin master` or `git push -u origin master`?
 
 [Back to Top](#back-to-top "Table of contents")
 
