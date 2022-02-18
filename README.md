@@ -32,7 +32,6 @@ If you created any files on Github, then you will have to use `git pull` before 
    1. [Replies to your pull request](#replies-to-your-pull-request)
    1. [Staying up to date](#staying-up-to-date)
    1. [Handling merge conflicts](#handling-merge-conflicts)
-1. [Create a repo from the command line](#create-a-repo-from-the-command-line)
 1. [Miscellaneous git commands](#miscellaneous-git-commands)
 1. [Reference links](#reference-links)
 1. [Final notes](#final-notes)
@@ -461,7 +460,7 @@ Click the "Compare & pull request" button and notice the page title of **_Open a
 
 You can then edit your commit message if need be. In the body of your PR include a more detailed summary of the changes you made and why.
 
-Large repos will have various form fields to fill out. Here is an example from freeCodeCamp:
+Large repos will have various form fields to fill out. Here is an example of the steps you need to do from freeCodeCamp:
 
 1. Put an `x` in the checkboxes,
 1. Remove all the comment fields,
@@ -469,11 +468,13 @@ Large repos will have various form fields to fill out. Here is an example from f
 1. Remove the phrase "Closes #XXXXX"
 1. When done, click the green button **_Create pull request_**.
 
-DONE, DONE, AND DONE -> NOW WAIT. REMEMBER TO USE `fix: what-you-fixed` or `fix(curriculum)` in the PR Title or other prefixes like `feat`, `bug`, `chore`, `revert`, etc. And you can add to those, e.g. `fix(tools)` or `chore(deps)`.
+REMEMBER TO USE `fix: what-you-fixed` or `fix(curriculum)` in the PR Title or other prefixes like `feat`, `bug`, `chore`, `revert`, etc. And you can add to those, e.g. `fix(tools)` or `chore(deps)`.
 
 If the PR is meant to address an existing GitHub Issue then, at the end of your PR's description body, use the keyword `Closes` with the issue number: `Closes #123`
 
-Indicate if you have tested on a local copy of the site or not. This is very important when making changes that are not just edits to text content like documentation or a challenge description. Examples of changes that need local testing include JavaScript, CSS, or HTML which could change the functionality or layout of a page.
+Indicate if you have tested on a local copy of the site or not. Here are some of the notes from their PR page:
+
+> This is very important when making changes that are not just edits to text content like documentation or a challenge description. Examples of changes that need local testing include JavaScript, CSS, or HTML which could change the functionality or layout of a page.
 
 [Back to Top](#back-to-top "Table of contents")
 
@@ -505,20 +506,20 @@ For example:
 
 Keep it short (less than 30 characters) and simple, you can add more information in the PR description box and comments. Example: `fix(api,client): prevent CORS errors on form submission`.
 
-**QUESTION**: What creates CHANGELOGs? Is it the use of the colon `:`? Here is a quote from [Why Use Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0-beta.2/#why-use-conventional-commits 'Conventional Commits'):
+**QUESTION**: What creates CHANGELOGs? Is it the use of the colon `:`? Learn more:  [Why Use Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0-beta.2/#why-use-conventional-commits 'Conventional Commits').
 
 [Back to Top](#back-to-top "Table of contents")
 
-<h3 id="pull-requests-page-notes">&#10551;  Pull request Page Notes</h3>
+<h3 id="pull-requests-page-notes">&#10551;  Pull request page notes</h3>
 
 Check the values for the fields labeled `base fork` and `head fork`.
 
-1. The base repository is the original source, the repo you forked and cloned, the public version.
-1. The head repository is your local copy of the base repo.
+1. The `base repository` is the original source, the repo you forked and cloned, the public version.
+1. The `head repository` is your local copy of the base repo.
 
 Those fields should be correct but just be aware of the values. You will also see fields labeled just `base` which shows the branch of the original repo that you pushed to, and `compare` which shows the name of the branch you created and pushed.
 
-**Note**: Large repos like the one for freeCodeCamp will have fields created in the pull request text area that I reference in the steps above. A smaller repo that you are contributing to may not have that setup. In the latter case, be as descriptive but concise as possible - don't write a book!
+**Note**: Large repos like the one for freeCodeCamp will have fields created in the pull request text area that I reference in the steps above. A smaller repo that you are contributing to may not have that setup. In the latter case, be as descriptive but concise as possible.
 
 Also, if you scroll further down on the page you will see all the changes you made. And after clicking the "Create pull request" button you will be taken to the source repo showing your pull request, other pull requests, the conversations for each, etc. Also, check the tabs **Checks**, **Files changed** and **Commits**.
 
@@ -528,7 +529,7 @@ Also, if you scroll further down on the page you will see all the changes you ma
 
 > Our moderators will now take a look and leave you feedback. You will get a message when a reviewer for the source repo adds a comment about your pull request...
 
-Regardless, your changes will either be accepted or rejected. When the owner of the repo accepts your changes they will do so by clicking the **Merge pull request** button. If it is your repo you will then see a green button **Confirm merge**".
+Regardless, your changes will either be accepted or rejected. When the owner of the repo accepts your changes they will do so by clicking the **Merge pull request** button. If it is your repo you will then see a green button **Confirm merge**.
 
 Then you will get a message that you can delete your local branch - do that.
 
@@ -549,21 +550,21 @@ git fetch upstream
 git merge upstream/master
 ```
 
-So run `git merge upstream/master` (or `main` instead of `master` if that is your default) every time before making your changes and doing a push. That will ensure you always have the latest state of `master` locally.
+So run `git merge upstream/master` every time before making your changes and doing a push. That will ensure you always have the latest state of `master` locally.
 
 [Back to Top](#back-to-top "Table of contents")
 
 <h3 id="handling-merge-conflicts">&#10551; Handling merge conflicts</h3>
 
-Here is where I'm a little fuzzy on the steps. I think you may have to do a pull request to get changes from other contributors. Make sure you are on the `master` or `main` branch then do `git pull`.
+I'm a little fuzzy on this process.
 
 Read more here: [Conflicts on a pull request](https://github.com/freeCodeCamp/freeCodeCamp/blob/main/docs/how-to-setup-freecodecamp-locally.md#making-changes-locally 'Making changes locally').
 
-A merge conflict is when 2 or more people change the same code/content but with different values and you run the command `git merge branch-name`. However, I don't think a beginner contributor would actually run that command.
+A merge conflict is when 2 or more people change the same code/content but with different values. However, I don't think a beginner contributor would actually run `git merge branch_name`.
 
-But if you did, in VS Code you will see something like:
+But if you did ad there was a conflict, in VS Code you will see something like:
 
-```
+```git
 <<<<<<< HEAD (Current Change)
 <p>some change here</p>
 =======
@@ -577,11 +578,6 @@ Where `HEAD` is your current branch, usually main/master. Once again, this would
 1. Delete EVERYTHING else -> the change you don't want and the equal, less than, and greater than signs along with the text like `HEAD` and `Current Change`. Everything other than the actual change that you want.
 
 [Back to Top](#back-to-top "Table of contents")
-
-<p>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</p>
-
-## Create a repo from the command line
-
 
 <p>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</p>
 
