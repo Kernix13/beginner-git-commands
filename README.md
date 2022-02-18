@@ -39,10 +39,9 @@ If you created any files on Github, then you will have to use `git pull` before 
    1. [Terminology](#terminology)
    1. [Git keywords](#git-keywords)
 
-<p style="text-align:center;">_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</p>
+<p>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</p>
 
-<!-- ## Download and setup Git -->
-<h2 id="download-and-setup-git" style="text-align:center;">Download and setup Git</h2>
+## Download and setup Git
 
 It's been well over a year since I did this so I can't remember all the steps. But first, you need to [download Git](https://git-scm.com/downloads 'Git download page').
 
@@ -73,10 +72,9 @@ Run that command and scroll down and look for `user.name="Yourname"` and `user.e
 
 [Back to Top](#back-to-top "Table of contents")
 
-<p style="text-align:center;">_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</p>
+<p>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</p>
 
-<!-- ## Pushing your local files to an empty repo -->
-<h2 id="pushing-local-files" style="text-align:center;">Pushing your local files to an empty repo</h2>
+## Pushing your local files to an empty repo
 
 Here are the commands followed by a brief definition. Make sure to know these because they are used for other sections in this file. By the way, you need to make changes to your files or create a file before running `git add .` unless you already have files  in your project folder.
 
@@ -158,10 +156,9 @@ Here is a comparison of my commands vs. the commands you see on GitHub when you 
 
 [Back to Top](#back-to-top "Table of contents")
 
-<p style="text-align:center;">_ _ _ _ _ _ _ _ _ _</p>
+<p>_ _ _ _ _ _ _ _ _ _</p>
 
-<!-- ## Branches -->
-<h2 id="branches" style="text-align:center;">Branches</h2>
+## Branches
 
 For my Git journey, I did not create branches until I started contributing for freeCodeCamp. But if you are going to contrinute then you will have to learn about branches. Eventually you will want to create branches for your own projects, but that is not what you will do as a beginner.
 
@@ -201,10 +198,8 @@ To pull changes from GitHub to your machine use `git pull origin master` or just
 
 [Back to Top](#back-to-top "Table of contents")
 
-<!-- <p>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</p> -->
-<!-- <a id="#clone-your-own-repo"></a> -->
-
-<h2 id="clone-your-own-repo" style="text-align:center;">Clone your own repo</h2>
+<p>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</p>
+## Clone your own repo
 
 Why would you do this? Use this when you created a repo and added a file on GitHub like a README.md file. Or if for some reason you have a commit and issues history that you want to copy, though who would have that? Regardless, the process is almost identical to cloning a repo that is not yours: 
 
@@ -247,10 +242,9 @@ That all works for your repos, but eventually you will want to clone, or fork an
 
 [Back to Top](#back-to-top "Table of contents")
 
-<p style="text-align:center;">_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</p>
+<p>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</p>
 
-<!-- ## Clone an existing repo -->
-<h2 id="clone-an-existing-repo" style="text-align:center;">Clone an existing repo</h2>
+## Clone an existing repo
 
 For when you want to work on a repo that someone else created. Got to GitHub and create an empty repo, meaning don't initialize it by adding a README file. Then back in Git Bash or VS Code run:
 
@@ -302,14 +296,14 @@ git push -u origin master
 
 [Back to Top](#back-to-top "Table of contents")
 
-<p>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</p>
+<p>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</p>
 
 # Intermediate Git Commands
 
 From here the commands are a little more involved and aee for when you start to contribute.
 
-<!-- ## Forking and cloning (NEXT) -->
-<h2 id="forking-and-cloning" style="text-align:center;">Forking and cloning</h2>
+<p>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ </p>
+## Forking and cloning (NEXT)
 
 <dl>
   <dt><strong>Fork</strong>:</dt>
