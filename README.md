@@ -20,7 +20,7 @@ If you created any files on Github, then you will have to use `git pull` before 
 
 1. [Download and setup Git](#download-and-setup-git)
 1. [Pushing your local files to an empty repo](#pushing-your-local-files-to-an-empty-repo)
-   1. [Commands after initial push](#commands-after-initial-push)
+   1. [Commands after initial push](#&#10559;-commands-after-initial-push)
 1. [Branches](#branches)
 1. [Clone your own repo](#clone-your-own-repo)
 1. [Clone an existing repo](#clone-an-existing-repo)
