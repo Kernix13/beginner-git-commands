@@ -43,7 +43,7 @@ If you created any files on Github, then you will have to use `git clone` and `g
 
 ## Download and setup Git
 
-It's been well over a year since I did this so I can't remember all the steps. But first, you need to first [download Git](https://git-scm.com/downloads 'Git download page').
+It's been well over a year since I did this so I can't remember all the steps. But first, you need to [download Git](https://git-scm.com/downloads 'Git download page').
 
 Check out this video from the YouTube channel LearnWebCode: [Git Tutorial Part 3: Installation, Command-line & Clone](https://youtu.be/UFEby2zo-9E 'Git Tutorial'). I followed his steps to run the `config` commands below. Follow his instructions using Git Bash. Eventually, you will use VS Code for 99% of the commands in this guide.
 
@@ -51,7 +51,7 @@ Check out this video from the YouTube channel LearnWebCode: [Git Tutorial Part 3
 
 Check your GitHub profile to see what name you entered. Click your thumbnail image in the top right and select Settings. It will be the first field.
 
-Ater downloading Git, open the `.exe` file in your downloads folder. Then find Git Bash and open it. For me on Windows there was a Git folder in my Start ment and Git bash was in there. Open in and in the commpand prompt that opens enter the following commands:
+Ater downloading Git, open the `.exe` file in your downloads folder. Then find Git Bash and open it. For me on Windows, there was a Git folder in my Start ment and Git bash was in there. Open it and in the commpand prompt that opens enter the following commands:
 
 ```
 git config --global user.name "Github user name"
@@ -74,11 +74,11 @@ Run that command and scroll down and look for `user.name="Yourname"` and `user.e
 
 [Back to Top](#back-to-top "Table of contents")
 
-<p>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</p>
+<p>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</p>
 
 ## Pushing your local files to an empty repo (DONE)
 
-Here are the commands followed by a brief definition. Make sure to know these because they are used for other sections in this file:
+Here are the commands followed by a brief definition. Make sure to know these because they are used for other sections in this file. By the way, You need to make changes to your files or create a file before running `git add .`:
 
 ```
 git init
@@ -92,7 +92,7 @@ git push -u origin master
 
 **Definitions**:
 
-| *Basic* Git Commands | Definition |
+| *Basic* Commands | Definition |
 | :--------------- | :---------- |
 | init             | Initiates git tracking |
 | status           | Check the status of your changes/state |
@@ -232,20 +232,43 @@ git push -u origin master
 
 [Back to Top](#back-to-top "Table of contents")
 
-<p>_ _ _ _ _ _ _ _ _</p>
+<p>_ _ _ _ _ _ _ _ _ _</p>
 
 ## Branches
 
-For my Git journey, I did not create branches until I started contributing for freeCodeCamp. But if you are going to contrinute then you will have to learn about branches. Eventually you will want to create branches for your own projects, but that is not what you will do as a beginner...
-
+For my Git journey, I did not create branches until I started contributing for freeCodeCamp. But if you are going to contrinute then you will have to learn about branches. Eventually you will want to create branches for your own projects, but that is not what you will do as a beginner.
 
 | *Branch* Git Commands | Definition |
 | :-------------------- | :--------- |
-| branch -a             | ... |
-| checkout branch_name  | |
-| checkout -b new_branch | |
-| merge new_branch      | |
-| diff new_branch       | |
+| branch | Shows the branch you are working on |
+| branch -a             | Lists all the branch names in your repo |
+| checkout branch_name  | Switches to branch_name |
+| checkout -b new_branch | Creates then switches to new_branch |
+| merge new_branch      | Merges the branch into whatever branch you are currently in |
+
+More commonly you will push the changes to GitHub then make a PR (pull request) if you are contributing. **So make sure you switch from main/master to your branch**. For a new branch, git push won't work because git doesn't know what branch you are pushing to, so run:
+
+```
+git push --set-upstream origin branch_name
+```
+**Note**: Using `--set-upstream` is the same thing as using `-u` in the sections above. Actually, `-u` is short-hand for `--set-upstream`.
+
+**Note**: A PR from your branch to the master branch is a request to have your code merged with the master branch. When your code is merged delete your branch.
+
+To delete a branch use `git branch -d branch_name`. If you get this error when trying to delete a branch:
+
+> error: The branch 'branch-name' is not fully merged.
+> If you are sure you want to delete it, run 'git branch -D branch-name'.
+
+It's probably because something in your local branch has not actually made it to the remote repository. To find out what commits have not been merged from your source branch to a target branch try:
+
+```
+git log branch_name --not main
+```
+
+That will show you what has been changed and what has not been pushed to main, or maybe has not been merged. If you are fine with the differences then replace `-d` with `-D`.
+
+To pull changes from GitHub to your machine use `git pull origin master` or just `git pull` if you set the upstream already. **Make sure you are on the master branch**. What `git pull` does is merge all the changes present in the remote repository to the local working directory.
 
 [Back to Top](#back-to-top "Table of contents")
 
@@ -258,6 +281,58 @@ For my Git journey, I did not create branches until I started contributing for f
   <dd>Copies the forked repo into your account</dd>
 </dl>
 
+To fork a repo, go to the repository main page, then click the `Fork` button to the left of the `Star` button (upper right).
+
+After you fork a repo, open up a terminal with Git Bash and navigate to the folder where you want the cloned repo. Then enter the following commands:
+
+```
+git clone --depth=1 https://github.com/User_Name/freeCodeCamp
+cd folder-name
+```
+
+Next, add a remote reference to the main freeCodeCamp repo, or whatever repo you are cloning after forking, then check the configuration:
+
+```
+git remote add upstream https://github.com/freeCodeCamp/freeCodeCamp.git
+git remote -v
+```
+
+Then use `git status` and `git checkout main` if not on main. Next:
+
+1. Update your local copy of the freeCodeCamp upstream repository,
+1. Hard reset your main branch with the freeCodeCamp main,
+1. Push your main branch to your origin to have a clean history on your fork on GitHub,
+1. And validate your current main matches the upstream/main by performing a diff:
+
+```
+git fetch upstream
+git reset --hard upstream/main
+git push origin main --force
+git diff upstream/main
+```
+
+> **MAJOR QUESTION**: Do you run those 4 commands EVERY time you work on the repo or just once in the beginning?
+
+**ANSWER**: #1 is necessary for the clone to fetch the files. #4 is optional. Use #2 & #3 with caution - read up on them.
+
+**Note**: `git fetch` is used to fetch all objects from the remote repo that don’t currently reside in the local working directory. You'll also often see`git fetch origin`.
+
+Finally:
+
+1. Check the branch you are on, switch to main/master if not on that branch, 
+1. Create a new branch for your contributions and make your changes then 
+1. Check the status, add your changes and check status again, commit the changes, and then push the changes:
+
+```
+git branch
+git checkout -b fix/something-here
+git status
+git add .
+git status
+git commit -m "short description"
+git push origin fix/something-here
+```
+
 | *Fork* Commands | Definition |
 | :-------------- | :--------- |
 | --depth=1             | Creates a shallow copy of the repo |
@@ -269,11 +344,63 @@ For my Git journey, I did not create branches until I started contributing for f
 | push origin main --force | |
 | --force               | |
 
+
+Before covering the Pull Request back on GitHub, here is a reply from the freeCodeCamp forum about the process:
+
+```
+git clone https://github.com/User_Name/freeCodeCamp
+git checkout -b fix/something-typos
+git status
+git add .
+git commit -m "write some commit message here"
+git push --set-upstream origin fix/something-here
+```
+
+What is the difference between the first way with `git push origin fix/something-typos` and the second with `git push --set-upstream origin fix/something-typos`?
+
+NOTES:
+
+> `git reset --hard upstream/main` erases any uncommitted changes. This is not a required command used every time you need to push changes to the remote repo - use it wisely and when needed.
+
+> `git push origin main --force`, you don’t need to add the `--force`. Just doing a regular git push is fine.
+
+> You only use the `--set-upstream` parameter when you need to add **your LOCAL** branch to **your REMOTE** branch. But once the new branch is added to the remote repo, then you don’t need to use `--set-upstream` each time.
+
+MY FINAL COMMANDS (clone, fetch, push):
+```
+git clone --depth=1 https_url
+git remote add upstream https_url
+git fetch upstream
+git remote -v
+git push origin main
+```
+THEN: create branch, make changes, and push them
+```
+git checkout -b fix/branch-name
+git add .
+git commit -m "short description"
+git push --set-upstream origin fix/branch-name
+```
+
+Use that last `git push` only for the first time, then use `git push origin fix/something-typos`. Here is the last command AFTER you set the upstream:
+
+```
+git push origin fix/branch-name
+```
+
+If you realize that you need to edit a file or update the commit message after making a commit you can do so after editing the files with:
+
+`git commit --amend`
+
+This will open up a default text editor like `nano` or `vi` where you can edit the commit message title and add/edit the description.
+
 [Back to Top](#back-to-top "Table of contents")
 
 <p>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ </p>
 
 ## GitHub pull request process
+
+
 
 [Back to Top](#back-to-top "Table of contents")
 
