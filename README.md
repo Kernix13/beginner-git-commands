@@ -455,28 +455,132 @@ Here is a comparison of  cloning your repo vs. cloning someone else's repo vs. f
 
 ## GitHub pull request process
 
+After you push your changes, go to your cloned copy of the repo on GitHub. You should see a green button labeled **_Compare & pull request_**. If you do not see it then click the Pull requests link to go to that tab.
 
+Click the "Compare & pull request" button and notice the page title of **_Open a pull request_** and the paragraph in the section below the title saying **_Able to merge. These branches can be automatically merged._**
+
+You can then edit your commit message if need be. In the body of your PR include a more detailed summary of the changes you made and why.
+
+Large repos will have various form fields to fill out. Here is an example from freeCodeCamp:
+
+1. Put an `x` in the checkboxes,
+1. Remove all the comment fields,
+1. You can preview the message if you like,
+1. Remove the phrase "Closes #XXXXX"
+1. When done, click the green button **_Create pull request_**.
+
+DONE, DONE, AND DONE -> NOW WAIT. REMEMBER TO USE `fix: what-you-fixed` or `fix(curriculum)` in the PR Title or other prefixes like `feat`, `bug`, `chore`, `revert`, etc. And you can add to those, e.g. `fix(tools)` or `chore(deps)`.
+
+If the PR is meant to address an existing GitHub Issue then, at the end of your PR's description body, use the keyword `Closes` with the issue number: `Closes #123`
+
+Indicate if you have tested on a local copy of the site or not. This is very important when making changes that are not just edits to text content like documentation or a challenge description. Examples of changes that need local testing include JavaScript, CSS, or HTML which could change the functionality or layout of a page.
 
 [Back to Top](#back-to-top "Table of contents")
 
 <h3 id="pull-request-title">&#10551; Pull request title</h3>
 
+The convention has the following format:
 
+`<type>([optional scope(s)]): <description>`
 
-<h3 id="pull-requests-page-notes">&#10551; Pull request title</h3>
+For example:
 
+`fix(learn): tests for the do...while loop challenge`
 
+| Type     | When to select                                                             |
+| :------- | :------------------------------------------------------------------------- |
+| fix      | Bug fix, changed/updated/improved functionality, tests, verbiage, etc.     |
+| feat     | Introduction of a new functionality, feature, test, etc.                   |
+| chore    | Not fix or feat, & don't modify src or test files (e.g. dependency update) |
+| docs     | Changes to docs directory, README's, contributing guidelines, etc.         |
+| refactor | Refactored code that neither fixes a bug nor adds a feature                |
+| ci       | Continuous integration related                                             |
+| perf     | Performance improvements                                                   |
+| test     | Including new or correcting previous tests                                 |
+| build    | Changes that affect the build system or external dependencies              |
+| revert   | Reverts a previous commit                                                  |
+| style    | Code formatting such as white-space, missing semi-colons, etc.             |
 
-<h3 id="replies-to-your-pull-request">&#10551; Pull request title</h3>
+**Description:**
 
+Keep it short (less than 30 characters) and simple, you can add more information in the PR description box and comments. Example: `fix(api,client): prevent CORS errors on form submission`.
 
+**QUESTION**: What creates CHANGELOGs? Is it the use of the colon `:`? Here is a quote from [Why Use Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0-beta.2/#why-use-conventional-commits 'Conventional Commits'):
 
-<h3 id="staying-up-to-date">&#10551; Pull request title</h3>
+> Automatically generating CHANGELOGs.
 
+Will using `fix:`, `feat:`, `docs:`, etc. create CHANGELOGs where fix, feat, or docs without the colon will not?
 
+[Back to Top](#back-to-top "Table of contents")
 
-<h3 id="handling-merge-conflicts">&#10551; Pull request title</h3>
+<h3 id="pull-requests-page-notes">&#10551; Pull request Page Notes</h3>
 
+Check the values for the fields labeled `base fork` and `head fork`.
+
+1. The base repository is the original source, the repo you forked and cloned, the public version.
+1. The head repository is your local copy of the base repo.
+
+Those fields should be correct but just be aware of the values. You will also see fields labeled just `base` which shows the branch of the original repo that you pushed to, and `compare` which shows the name of the branch you created and pushed.
+
+**Note**: Large repos like the one for freeCodeCamp will have fields created in the pull request text area that I reference in the steps above. A smaller repo that you are contributing to may not have that setup. In the latter case, be as descriptive but concise as possible - don't write a book!
+
+Also, if you scroll further down on the page you will see all the changes you made. And after clicking the "Create pull request" button you will be taken to the source repo showing your pull request, other pull requests, the conversations for each, etc. Also, check the tabs **Checks**, **Files changed** and **Commits**.
+
+[Back to Top](#back-to-top "Table of contents")
+
+<h3 id="replies-to-your-pull-request">&#10551; Replies to your pull request</h3>
+
+> Our moderators will now take a look and leave you feedback. You will get a message when a reviewer for the source repo adds a comment about your pull request...
+
+Regardless, your changes will either be accepted or rejected. When the owner of the repo accepts your changes they will do so by clicking the **Merge pull request** button. If it is your repo you will then see a green button **Confirm merge**".
+
+Then you will get a message that you can delete your local branch - do that.
+
+<h3 id="staying-up-to-date">&#10551; Staying up to date</h3>
+
+Once you are done with your PR and start to work on something else, the repo has most likely had changes by other contributors so your copy is behind. You need to update your local copy of the repo before making new changes:
+
+```
+git checkout master
+git pull upstream master
+```
+
+I actually use `git fetch upstream` to update my local clone. I'm not sure if `git pull upstream master` is better or not. However, I had a PR fail because I was missing a command. `git fetch upstream` will only fetch the git data. To update your main fully, you should:
+
+```
+git checkout master
+git fetch upstream
+git merge upstream/master
+```
+
+So run `git merge upstream/master` (or `main` instead of `master` if that is your default) every time before making your changes and doing a push. That will ensure you always have the latest state of `master` locally.
+
+[Back to Top](#back-to-top "Table of contents")
+
+<h3 id="handling-merge-conflicts">&#10551; Handling merge conflicts</h3>
+
+Here is where I'm a little fuzzy on the steps. I think you may have to do a pull request to get changes from other contributors. Make sure you are on the `master` or `main` branch then do `git pull`.
+
+Read more here: [Conflicts on a pull request](https://github.com/freeCodeCamp/freeCodeCamp/blob/main/docs/how-to-setup-freecodecamp-locally.md#making-changes-locally 'Making changes locally').
+
+A merge conflict is when 2 or more people change the same code/content but with different values and you run the command `git merge branch-name`. However, I don't think a beginner contributor would actually run that command.
+
+But if you did, in VS Code you will see something like:
+
+```
+<<<<<<< HEAD (Current Change)
+<p>some change here</p>
+=======
+<p>different change here</p>
+>>>>>>> Branch-Name (Incoming Change)
+```
+
+Where `HEAD` is your current branch, usually main/master. Once again, this would only be done by the owner of the repo, but what you would do is:
+
+1. Decide which change you want to keep,
+1. Delete EVERYTHING else -> the change you don't want and the equal, less than, and greater than signs along with the text like `HEAD` and `Current Change`. Everything other than the actual change that you want.
+
+[Back to Top](#back-to-top "Table of contents")
 
 <p>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</p>
 
