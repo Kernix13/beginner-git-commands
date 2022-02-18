@@ -284,7 +284,7 @@ The next part is important. Since you did not fork this repo, but instead you wa
 
 <!-- [Back to Top](#back-to-top "Table of contents") -->
 
-### &#10551; Push the cloned files up to your repo
+### Push the cloned files up to your repo
 
 Because you cloned this repo from an existing repo, git will try to push it to its original destination. For example, if you type `git remote -v` you will get the address of the cloned repo where Git thinks you want to push to.
 
@@ -385,27 +385,13 @@ New commands in detail:
 | --depth=1                   | Creates a shallow copy of the repo      |
 | remote add upstream         | Pull changes from the original repo...  |
 | ...                         | &#10551; into the local clone of your fork    |
-| fetch upstream              | ... |
-| reset --hard upstream/main  | |
-| --hard                      | |
-| push origin main --force    | |
-| --force                     | |
+| fetch upstream              | Update local repo with source repo objects |
+| reset --hard upstream/main  | Erases uncommitted changes |
+| `--hard`                    | Resets the index and working tree |
+| `--force`                   | reserved for a case where you do mean to lose history |
+| ...                         | &#10551; use with caution |
 
-
-Before covering the Pull Request back on GitHub, here is a reply from the freeCodeCamp forum about the process:
-
-```
-git clone https://github.com/User_Name/freeCodeCamp
-git checkout -b fix/something-typos
-git status
-git add .
-git commit -m "write some commit message here"
-git push --set-upstream origin fix/something-here
-```
-
-What is the difference between the first way with `git push origin fix/something-typos` and the second with `git push --set-upstream origin fix/something-typos`?
-
-NOTES:
+**NOTES**:
 
 > `git reset --hard upstream/main` erases any uncommitted changes. This is not a required command used every time you need to push changes to the remote repo - use it wisely and when needed.
 
@@ -527,7 +513,7 @@ FYI, it's difficult keeping this list up-to-date. I'll do my best to provide the
 1. [Contributing to MDN](https://developer.mozilla.org/en-US/docs/MDN/Contribute 'Contributing to MDN')
 1. [Hostinger: Basic GIT Commands](https://www.hostinger.com/tutorials/basic-git-commands 'Basic GIT Commands')
 1. [Frequently used Git Commands](https://codeburst.io/git-tutorial-a-beginners-guide-to-most-frequently-used-git-commands-2ab92bd22787 'Frequently used Git Commands')
-add attassian link
+1. [Atlassian Git Tutorial](https://www.atlassian.com/git/tutorials)
 
 <p>_ _ _ _ _ _ _ _ _ _ _</p>
 
