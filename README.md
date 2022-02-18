@@ -148,12 +148,17 @@ Why would you do this? Use this when you create a repo and add a file on GitHub 
 ```
 git clone https_url
 cd folder_name
+git remote -v
+git remote add origin https_url
+git remote -v
+git push -u origin master
 ```
 
-| *Clone* Commands | Definition |
-| :--------------- | :--------- |
-| clone            | Copies repo at the URL to your machine |
-| remote set-url origin | Change your remote's URL |
+| *Clone* Git Commands | Definition |
+| :------------------- | :--------- |
+| clone                 | Copies repo at the URL to your machine |
+| remote -v             | A check to make sure the URL is correct |
+| remote set-url origin | Change your remote's URL (See below) |
 
 Like `git init`, the command `git clone` also initiates a git repo for a repo you want to clone, but git is installed in the downloaded/cloned folder, *NOT* in the directory where you ran that command. But both initiate git tracking.
 
@@ -167,6 +172,7 @@ git add .
 git commit -m "First commit"
 git push
 ```
+Use `git remote -v` to list any remote repositories that you have connected to this repo. That is to check if you are pointing to the cloned URL or the repo in your account. Did you clone to contribute, or to work on your own version of the repo?
 
 That all works for your repos, but eventually you will want to clone, or fork and clone a repo so that you can contribute to it. You will then need to use the `git clone` again, and various `branch` git commands. You will also need to add additional parameters to your git commands:
 
@@ -176,12 +182,53 @@ That all works for your repos, but eventually you will want to clone, or fork an
 
 ## Clone an existing repo
 
-Use `git remote -v` to list any remote repositories that you have connected to this repo. That is to check if you are pointing to the cloned URL or the repo in your account. Did you clone to contribute, or to work on your own version of the repo?
+For when you want to work on a repo that someone else created:
+
+```
+git clone https_url
+cd folder_name
+git remote -v
+```
+
+You can also clone a specific branch with:
+
+```
+git clone -branch_name https_url
+```
 
 [Back to Top](#back-to-top "Table of contents")
 
 ### Push the cloned files up to your repo
 
+Because you cloned this repo from an existing repo, git will try to push it to its original destination. For example, if you type `git remote -v` you will get the address of the cloned repo where Git thinks you want to push to.
+
+That is fine if you are contributing, otherwise you need to update the address. Copy the **https_url** from the overview page for the repo you created for the clone, then use:
+
+```
+git remote set-url origin https_url
+git remote -v
+```
+
+The `git remote set-url` command changes an existing remote repository URL and it takes two arguments:
+
+- An existing remote name. For example, `origin` or `upstream` are two common choices
+- A new URL for the remote (yours)
+
+Now git knows that the origin is your repo. Using `git remote -v` again is to check that git is pointing to the desired repo address. Then to push the cloned repo files to *your* repo use:
+
+```
+git push origin master
+```
+
+Then after making changes use:
+
+```
+git add .
+git commit -m "First commit"
+git push -u origin master
+```
+
+> Is this coorect? Is it `git push origin master` or `git push -u origin master`?
 
 [Back to Top](#back-to-top "Table of contents")
 
@@ -189,19 +236,16 @@ Use `git remote -v` to list any remote repositories that you have connected to t
 
 ## Branches
 
-<dl>
-  <dt><strong>Branch</strong>:</dt>
-  <dd>...</dd>
-</dl>
+For my Git journey, I did not create branches until I started contributing for freeCodeCamp. But if you are going to contrinute then you will have to learn about branches. Eventually you will want to create branches for your own projects, but that is not what you will do as a beginner...
 
-| *Branch* Commands | Definition |
-| :--- | :--- |
-| branch -a | ... |
-| checkout branch_name | |
+
+| *Branch* Git Commands | Definition |
+| :-------------------- | :--------- |
+| branch -a             | ... |
+| checkout branch_name  | |
 | checkout -b new_branch | |
-| merge new_branch | |
-| diff new_branch | |
-| | |
+| merge new_branch      | |
+| diff new_branch       | |
 
 [Back to Top](#back-to-top "Table of contents")
 
@@ -217,7 +261,6 @@ Use `git remote -v` to list any remote repositories that you have connected to t
 | *Fork* Commands | Definition |
 | :-------------- | :--------- |
 | --depth=1             | Creates a shallow copy of the repo |
-| remote -v        | A check to make sure the URL is correct |
 | remote add upstream   | Pull changes from the original repo...  |
 | -                     | ...into the local clone of your fork |
 | fetch upstream        | ... |
@@ -225,7 +268,6 @@ Use `git remote -v` to list any remote repositories that you have connected to t
 | --hard                | |
 | push origin main --force | |
 | --force               | |
-|                       | |
 
 [Back to Top](#back-to-top "Table of contents")
 
