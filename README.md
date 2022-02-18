@@ -39,7 +39,7 @@ If you created any files on Github, then you will have to use `git clone` and `g
    1. [Terminology](#terminology)
    1. [Git keywords](#git-keywords)
 
-<div>----------------------------------------</div>
+<p>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</p>
 
 ## Download and setup Git
 
@@ -73,9 +73,10 @@ git config --list
 Run that command and scroll down and look for `user.name="Yourname"` and `user.email="your-email@whatevs.com"`, though until you set those values you either will not see those fields or they will be set to empty strings.
 
 [Back to Top](#back-to-top "Table of contents")
-<p>-------------------------------------------------------------------</p>
 
-## Pushing your local files to an empty repo
+<p>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</p>
+
+## Pushing your local files to an empty repo (DONE)
 
 Here are the commands followed by a brief definition. Make sure to know these because they are used for other sections in this file:
 
@@ -87,7 +88,7 @@ git branch -M main (optional)
 git remote add origin https_url
 git push -u origin master
 ```
-**NOTE**: I removed 'git' from the commands in the definition tables to make the table smaller. You should know to add `git` before the main commands (not for the parameters).
+**NOTE**: I removed `git` from the commands in the definition tables to make the table smaller. You should know to add `git` before the main commands (not for the parameters).
 
 **Definitions**:
 
@@ -105,7 +106,11 @@ git push -u origin master
 | -u               | Parameter short for `upstream` |
 | upstream         | the primary *branch* on the original repository; where you cloned the repo from |
 
+The `git init` command creates a new local GIT repository in the directory you ran that command. 
+
 The command `git remote add origin https_url` connects the local repository to a remote server (GitHub repo). `https_url` is the URL that is on the page when you create a new repo. It is also shown whn you click the `Code` button.
+
+The command `git branch -M main` is optional and I think the flag `-M` means changing the master branch to the name **main**. I trid searching for it and I found that Git has changed the default from `master' to `main` though GitHub still uses `master` by default.
 
 The `git push` command is used to send local commits to the master (or main) branch of the remote repository. But to use `git push` in the future you have to set something called an *upstream*, meaning where you want to push it to by default. That is why you use `-u`.
 
@@ -113,9 +118,11 @@ Replace **master** with the branch where you want to push your changes when youâ
 
 [Back to Top](#back-to-top "Table of contents")
 
-## Commands for initial push
+<p>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</p>
 
-after making some changes use:
+## Commands for initial push (DONE)
+
+Now your local repo is connected to your remote repo on Github. After making some changes or creating files use:
 
 ```
 git add .
@@ -124,34 +131,48 @@ git commit -m "Created README file"
 git push -u origin master
 ```
 
-**Note**: You need to use `git push -u origin master` for the next commit only after the initial push. After that just use `git push` unless you used `-u` as mentioned above (DOUBLE CHECK THAT). Although I believe you can run `git push origin master` and it won't have a negative effect. Also, I use `git status` as a habit to check the status of the files, though that command is not required.
+**Note**: You need to use `git push -u origin master` for the next commit only after the initial push. After that just use `git push` unless you used `-u` as mentioned above (DOUBLE CHECK THAT). Although I believe you can run `git push origin master` and it won't have a negative effect. 
+
+Also, I use `git status` as a habit to check the status of the files, though that command is not required.
 
 These commands work for me when pushing to a repo I created without a README file. If you have a README file, then you will get an error when trying to push, so you'll have to do a `git pull` command to pull the README to your local repo then you can use `git push`.
 
-The only difference is `git branch -M main` and I think the flag `-M` means changing the master branch to the name **main**. The `add README.md` command is not necessary. Just create and edit your README in VS Code and push it to your repo.
-
 [Back to Top](#back-to-top "Table of contents")
 
-## Clone your own repo
+<p>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</p>
 
-Like `git init`, the command `git clone` also initiates a git repo for a repo you want to clone, but git is installed in the downloaded/cloned folder, *NOT* in the directory where you ran that command. But both initiate git tracking.
+## Clone your own repo (DONE)
 
-That all works for your repos, but eventually you will want to clone, or fork and clone a repo so that you can contribute to it. You will then need to use the `git clone` again, and various `branch` git commands. You will also need to add additional parameters to your git commands:
+Why would you do this? Use this when you create a repo and add a file on GitHub like a README.md file or some other file. 
 
-<dl>
-  <dt>Clone</dt>
-  <dd>Copies repo at the URL to your machine</dd>
-  <dd>Used on its own or with Fork</dd>
-  <dd>It's best to use this with Git Bash</dd>
-</dl>
+```
+git clone https_url
+cd folder_name
+```
 
 | *Clone* Commands | Definition |
 | :--------------- | :--------- |
 | clone            | Copies repo at the URL to your machine |
 | remote set-url origin | Change your remote's URL |
-| | |
+
+Like `git init`, the command `git clone` also initiates a git repo for a repo you want to clone, but git is installed in the downloaded/cloned folder, *NOT* in the directory where you ran that command. But both initiate git tracking.
+
+`git clone` is used on its own or when you Fork a repo and it's best to use this with Git Bash.
+
+Use `cd` to switch to that folder (Change Directory). Then make your changes and run standard commands:
+
+```
+git status
+git add .
+git commit -m "First commit"
+git push
+```
+
+That all works for your repos, but eventually you will want to clone, or fork and clone a repo so that you can contribute to it. You will then need to use the `git clone` again, and various `branch` git commands. You will also need to add additional parameters to your git commands:
 
 [Back to Top](#back-to-top "Table of contents")
+
+<p>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</p>
 
 ## Clone an existing repo
 
@@ -163,6 +184,8 @@ Use `git remote -v` to list any remote repositories that you have connected to t
 
 
 [Back to Top](#back-to-top "Table of contents")
+
+<p>_ _ _ _ _ _ _ _ _</p>
 
 ## Branches
 
@@ -181,6 +204,8 @@ Use `git remote -v` to list any remote repositories that you have connected to t
 | | |
 
 [Back to Top](#back-to-top "Table of contents")
+
+<p>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</p>
 
 ## Forking and cloning
 
@@ -204,8 +229,9 @@ Use `git remote -v` to list any remote repositories that you have connected to t
 
 [Back to Top](#back-to-top "Table of contents")
 
-## GitHub pull request process
+<p>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ </p>
 
+## GitHub pull request process
 
 [Back to Top](#back-to-top "Table of contents")
 
@@ -228,14 +254,17 @@ Use `git remote -v` to list any remote repositories that you have connected to t
 ### Handling merge conflicts
 
 
+<p>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</p>
 
 ## Create a repo from the command line
 
 
+<p>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</p>
 
 ## Miscellaneous git commands
 
 
+<p>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _</p>
 
 ## Reference links
 
@@ -256,6 +285,8 @@ FYI, it's difficult keeping this list up-to-date. I'll do my best to provide the
 1. [Contributing to MDN](https://developer.mozilla.org/en-US/docs/MDN/Contribute 'Contributing to MDN')
 1. [Hostinger: Basic GIT Commands](https://www.hostinger.com/tutorials/basic-git-commands 'Basic GIT Commands')
 1. [Frequently used Git Commands](https://codeburst.io/git-tutorial-a-beginners-guide-to-most-frequently-used-git-commands-2ab92bd22787 'Frequently used Git Commands')
+
+<p>_ _ _ _ _ _ _ _ _ _ _</p>
 
 ## Final notes
 
