@@ -76,7 +76,9 @@ Run that command and scroll down and look for `user.name="Yourname"` and `user.e
 
 ## Pushing your local files to an empty repo
 
-Here are the commands followed by a brief definition. Make sure to know these because they are used for other sections in this file. By the way, you need to make changes to your files or create a file before running `git add .` unless you already have files  in your project folder:
+Here are the commands followed by a brief definition. Make sure to know these because they are used for other sections in this file. By the way, you need to make changes to your files or create a file before running `git add .` unless you already have files  in your project folder.
+
+Got to GitHub and create an empty repo, meaning don't initialize it by adding a README file. Then back in Git Bash or VS Code run:
 
 ```
 git init
@@ -111,6 +113,8 @@ The command `git remote add origin https_url` connects the local repository to a
 The `git push` command is used to send local commits to the master (or main) branch of the remote repository. But to use `git push` in the future you have to set something called an *upstream*, meaning where you want to push it to by default. That is why you use `-u`. The whole command `git push -u origin master` pushes your commits and sets the branch `master` as the origin for the location of `git push` in the future. 
 
 Replace `master` with the branch where you want to push your changes when you’re *not* intending to push to the master branch. 
+
+**NOTE**: When you create an empty repo on GitHub, I believe it's best practice to use the same name on GitHub for the folder of your local copy. 
 
 [Back to Top](#back-to-top "Table of contents")
 
@@ -233,13 +237,15 @@ git push
 
 That all works for your repos, but eventually you will want to clone, or fork and clone a repo so that you can contribute to it. You will then need to use the `git clone` again, and various `branch` git commands. You will also need to add additional parameters to your git commands (see [Forking and cloning](#forking-and-cloning) section)
 
+**NOTE**: I believe this is an alterate way of initializing a local git repo than what is in the section [Pushing your local files to an empty repo](#pushing-your-local-files-to-an-empty-repo), but I am not certain about that. The differece though is that this method installs git in the cloned file folder and not in the directory where you run `git clone url`, whereas in the section linked above it installs git in that folder.
+
 [Back to Top](#back-to-top "Table of contents")
 
 <p>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</p>
 
-## Clone an existing repo (STOPPED)
+## Clone an existing repo
 
-For when you want to work on a repo that someone else created:
+For when you want to work on a repo that someone else created. Got to GitHub and create an empty repo, meaning don't initialize it by adding a README file. Then back in Git Bash or VS Code run:
 
 ```
 git clone https_url
@@ -253,7 +259,9 @@ You can also clone a specific branch with:
 git clone -branch_name https_url
 ```
 
-[Back to Top](#back-to-top "Table of contents")
+The next part is important. Since you did not fork this repo, but instead you want a copy of it to work on for yourself, you need to first push it up to your empty GitHub repo. See the next section for the details on that...
+
+<!-- [Back to Top](#back-to-top "Table of contents") -->
 
 ### Push the cloned files up to your repo
 
@@ -266,10 +274,7 @@ git remote set-url origin https_url
 git remote -v
 ```
 
-The `git remote set-url` command changes an existing remote repository URL and it takes two arguments:
-
-- An existing remote name. For example, `origin` or `upstream` are two common choices
-- A new URL for the remote (yours)
+The `git remote set-url` command changes an existing remote repository URL from it's original source to whatever you used for `https_url`, which should be your empty repo.
 
 Now git knows that the origin is your repo. Using `git remote -v` again is to check that git is pointing to the desired repo address. Then to push the cloned repo files to *your* repo use:
 
@@ -277,7 +282,7 @@ Now git knows that the origin is your repo. Using `git remote -v` again is to ch
 git push origin master
 ```
 
-Then after making changes use:
+Where `origin` stands for the address of your repo. You may get prompted for your GitHub username and password (only for your first push). Then after making changes use:
 
 ```
 git add .
@@ -291,7 +296,11 @@ git push -u origin master
 
 <p>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</p>
 
-## Forking and cloning
+# Intermediate Git Commands
+
+From here the commands are a little more invoolved and aee for when you start to contribute.
+
+## Forking and cloning (NEXT)
 
 <dl>
   <dt><strong>Fork</strong>:</dt>
