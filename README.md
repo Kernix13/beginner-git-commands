@@ -20,7 +20,7 @@ If you created any files on Github, then you will have to use `git pull` before 
 
 1. [Download and setup Git](#download-and-setup-git)
 1. [Pushing your local files to an empty repo](#pushing-your-local-files-to-an-empty-repo)
-   1. [Commands after initial push](#&#10559;-commands-after-initial-push)
+   1. [Commands after initial push](#commands-after-initial-push)
 1. [Branches](#branches)
 1. [Clone your own repo](#clone-your-own-repo)
 1. [Clone an existing repo](#clone-an-existing-repo)
@@ -128,7 +128,10 @@ Replace `master` with the branch where you want to push your changes when you’
 
 [Back to Top](#back-to-top "Table of contents")
 
-### &#10559; Commands after initial push
+&#10559; 
+
+<!-- ### Commands after initial push -->
+<h3 id="commands-after-initial-push">&#10559; Commands after initial push</h2>
 
 Now your local repo is connected to your remote repo on Github. After making some changes or creating files use:
 
@@ -145,7 +148,9 @@ Also, I use `git status` as a habit to check the status of the files, though tha
 
 These commands work for me when pushing to a repo I created without a README file. If you have a README file, then you will get an error when trying to push, so you'll have to do a `git pull` command to pull the README to your local repo then you can use `git push`.
 
-Here is a comparison of my commands vs. the commands you see on GitHub when you create an empty repo (there is only 1 difference). I am also tacking on the standard `add`, `commit`, and `push` commands:
+Here is a comparison of my commands vs. the commands you see on GitHub when you create an empty repo (there is only 1 difference). I am also tacking on the standard `add`, `commit`, and `push` commands.
+
+Commands in detail:
 
 | Command Description     | My Git commands | GitHub commands | 
 | :---------------------- | --------------: | :------------- |
@@ -171,6 +176,8 @@ Here is a comparison of my commands vs. the commands you see on GitHub when you 
 ## Branches
 
 For my Git journey, I did not create branches until I started contributing for freeCodeCamp. But if you are going to contrinute then you will have to learn about branches. Eventually you will want to create branches for your own projects, but that is not what you will do as a beginner.
+
+New commands in detail:
 
 | *Branch* Git Commands | Definition |
 | :-------------------- | :--------- |
@@ -209,6 +216,7 @@ To pull changes from GitHub to your machine use `git pull origin master` or just
 [Back to Top](#back-to-top "Table of contents")
 
 <p>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</p>
+
 ## Clone your own repo
 
 Why would you do this? Use this when you created a repo and added a file on GitHub like a README.md file. Or if for some reason you have a commit and issues history that you want to copy, though who would have that? Regardless, the process is almost identical to cloning a repo that is not yours: 
@@ -221,6 +229,8 @@ git remote add origin https_url
 git remote -v
 git push -u origin master
 ```
+
+New commands in detail:
 
 | *Clone* Git Commands | Definition |
 | :------------------- | :--------- |
@@ -306,22 +316,20 @@ git push -u origin master
 
 [Back to Top](#back-to-top "Table of contents")
 
-<p>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</p>
-
 # Intermediate Git Commands
 
-From here the commands are a little more involved and aee for when you start to contribute.
+From here the commands are a little more involved and are for when you start to contribute to open source projects. 
 
 <p>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ </p>
 
-## Forking and cloning (NEXT)
+## Forking and cloning
 
 <dl>
   <dt><strong>Fork</strong>:</dt>
   <dd>Copies the forked repo into your account</dd>
 </dl>
 
-To fork a repo, go to the repository main page, then click the `Fork` button to the left of the `Star` button (upper right).
+To fork a repo, go to the repository main page, then click the `Fork` button to the left of the `Star` button (upper right). I'm going to use the <a href="https://github.com/freeCodeCamp/freeCodeCamp" target="_blank">freeCodeCamp repo</a> as an example. 
 
 After you fork a repo, open up a terminal with Git Bash and navigate to the folder where you want the cloned repo. Then enter the following commands:
 
@@ -351,17 +359,15 @@ git push origin main --force
 git diff upstream/main
 ```
 
-> **MAJOR QUESTION**: Do you run those 4 commands EVERY time you work on the repo or just once in the beginning?
+The 1st command is necessary for the clone to fetch the files, the 4th is optional. Use #2 & #3 with caution - read up on them.
 
-**ANSWER**: #1 is necessary for the clone to fetch the files. #4 is optional. Use #2 & #3 with caution - read up on them.
-
-**Note**: `git fetch` is used to fetch all objects from the remote repo that don’t currently reside in the local working directory. You'll also often see`git fetch origin`.
+**NOTE**: `git fetch upstream` is used to fetch all objects from the remote repo that don’t currently reside in the local working directory. You'll also often see`git fetch origin`.
 
 Finally:
 
-1. Check the branch you are on, switch to main/master if not on that branch, 
-1. Create a new branch for your contributions and make your changes then 
-1. Check the status, add your changes and check status again, commit the changes, and then push the changes:
+1. Check the branch you are on and switch to main/master if not on that branch, 
+1. Create a new branch for your contributions, make your changes then 
+1. Check the status, add your changes, check status again, commit the changes, and then push the changes:
 
 ```
 git branch
@@ -372,17 +378,18 @@ git status
 git commit -m "short description"
 git push origin fix/something-here
 ```
+New commands in detail:
 
-| *Fork* Commands | Definition |
-| :-------------- | :--------- |
-| --depth=1             | Creates a shallow copy of the repo |
-| remote add upstream   | Pull changes from the original repo...  |
-| -                     | ...into the local clone of your fork |
-| fetch upstream        | ... |
-| reset --hard upstream/main | |
-| --hard                | |
-| push origin main --force | |
-| --force               | |
+| *Fork* Commands             | Definition                              |
+| :-------------------------- | :-------------------------------------- |
+| --depth=1                   | Creates a shallow copy of the repo      |
+| remote add upstream         | Pull changes from the original repo...  |
+| ...                         | &#10551; into the local clone of your fork    |
+| fetch upstream              | ... |
+| reset --hard upstream/main  | |
+| --hard                      | |
+| push origin main --force    | |
+| --force                     | |
 
 
 Before covering the Pull Request back on GitHub, here is a reply from the freeCodeCamp forum about the process:
@@ -470,38 +477,23 @@ Here is a comparison of  cloning your repo vs. cloning another repo and forking 
 
 [Back to Top](#back-to-top "Table of contents")
 
-### Pull request title
-
-
-&#8627;
-
-&#8640;
-
-&#8674;
-
-&#8702;
-
-&#10230;
-
-&#10511;
-
-&#10551;
-
-&#10559;
-
-### &#10551; Pull requests page notes
+### &#10551; Pull request title
 
 
 
-### &#10559; Replies to your pull request
+### &#10559; Pull requests page notes
 
 
 
-### &#10511; Staying up to date
+### &#10551; Replies to your pull request
 
 
 
-### &#8627; Handling merge conflicts
+### &#10559; Staying up to date
+
+
+
+### &#10551; Handling merge conflicts
 
 
 <p>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</p>
