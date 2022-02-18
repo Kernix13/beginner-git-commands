@@ -19,7 +19,7 @@ If you created any files on Github, then you will have to use `git pull` before 
 ## Table of contents
 
 1. [Download and setup Git](#download-and-setup-git)
-1. [Pushing your local files to an empty repo](#pushing-local-files)
+1. [Pushing your local files to an empty repo](#pushing-your-local-files-to-an-empty-repo)
    1. [Commands after initial push](#commands-after-initial-push)
 1. [Branches](#branches)
 1. [Clone your own repo](#clone-your-own-repo)
@@ -114,11 +114,21 @@ The `git push` command is used to send local commits to the master (or main) bra
 
 Replace `master` with the branch where you want to push your changes when you’re *not* intending to push to the master branch. 
 
-**NOTE**: When you create an empty repo on GitHub, I believe it's best practice to use the same name on GitHub for the folder of your local copy. 
+**NOTE**: When you create an empty repo on GitHub, I believe it's best practice to use the same name on GitHub for the folder of your local copy.
+
+<!-- &#8627; -->
+<!-- &#8640; -->
+<!-- &#8674; -->
+<!-- &#8702; -->
+<!-- &#10230; -->
+<!-- &#10511; -->
+
+<!-- &#10551; -->
+<!-- &#10559; -->
 
 [Back to Top](#back-to-top "Table of contents")
 
-### Commands after initial push
+### &#10559; Commands after initial push
 
 Now your local repo is connected to your remote repo on Github. After making some changes or creating files use:
 
@@ -264,7 +274,7 @@ The next part is important. Since you did not fork this repo, but instead you wa
 
 <!-- [Back to Top](#back-to-top "Table of contents") -->
 
-### Push the cloned files up to your repo
+### &#10551; Push the cloned files up to your repo
 
 Because you cloned this repo from an existing repo, git will try to push it to its original destination. For example, if you type `git remote -v` you will get the address of the cloned repo where Git thinks you want to push to.
 
@@ -296,7 +306,7 @@ git push -u origin master
 
 [Back to Top](#back-to-top "Table of contents")
 
-<p>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</p>
+<p>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</p>
 
 # Intermediate Git Commands
 
@@ -463,20 +473,35 @@ Here is a comparison of  cloning your repo vs. cloning another repo and forking 
 ### Pull request title
 
 
+&#8627;
 
-### Pull requests page notes
+&#8640;
+
+&#8674;
+
+&#8702;
+
+&#10230;
+
+&#10511;
+
+&#10551;
+
+&#10559;
+
+### &#10551; Pull requests page notes
 
 
 
-### Replies to your pull request
+### &#10559; Replies to your pull request
 
 
 
-### Staying up to date
+### &#10511; Staying up to date
 
 
 
-### Handling merge conflicts
+### &#8627; Handling merge conflicts
 
 
 <p>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</p>
