@@ -278,6 +278,8 @@ git push -u origin master
 
 [Back to Top](#back-to-top "Table of contents")
 
+<img align="center" src="https://github.com/Kernix13/Kernix13/blob/main/assets/divider-github.png" alt="divider" />
+
 # Intermediate Git Commands
 
 From here the commands are a little more involved and are for when you start creating your own branches and/or contributing to open source projects. 
@@ -411,9 +413,7 @@ From freeCodeCamp, here is what the `-p` flag does:
 
 [Back to Top](#back-to-top "Table of contents")
 
-<!-- <p>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ </p> -->
-
-<img align="center" src="https://github.com/Kernix13/Kernix13/blob/main/assets/divider-github.png" alt="divider" />
+<p>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ </p>
 
 ## Forking and cloning
 
