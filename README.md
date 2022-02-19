@@ -278,7 +278,7 @@ git push -u origin master
 
 [Back to Top](#back-to-top "Table of contents")
 
-<img align="center" src="https://github.com/Kernix13/Kernix13/blob/main/assets/divider-github.png" alt="divider" title="Testing a 16px high gradient PNG image, should be 8px maybe and change the gradient colors" />
+<img align="center" src="https://github.com/Kernix13/Kernix13/blob/main/assets/divider-github.png" alt="divider" title="Testing a 16px high gradient PNG image as a divider and spacer, should be 8px maybe and change the gradient colors" />
 
 # Intermediate Git Commands
 
