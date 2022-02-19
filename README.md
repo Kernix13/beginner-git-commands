@@ -187,7 +187,7 @@ git merge new_branch
 git diff new_branch
 ```
 
-For my Git journey, I did not create branches until I started contributing for freeCodeCamp. But if you are going to contrinute then you will have to learn about branches. Eventually you will want to create branches for your own projects, but that is not what you will do as a beginner.
+For my Git journey, I did not create branches until I started contributing for freeCodeCamp. But if you are going to contrinute then you will have to learn about branches. Eventually you will want to create branches for your own projects.
 
 New commands in detail:
 
@@ -209,8 +209,6 @@ git push --set-upstream origin branch_name
 ```
 **Note**: Using `--set-upstream` is the same thing as using `-u` in the sections above. Actually, `-u` is short-hand for `--set-upstream`.
 
-**Note**: A PR from your branch to the master branch is a request to have your code merged with the master branch. You can delete your branch when your code/changes are merged.
-
 Then after setting the upstream for your new branch you can do the usual:
 
 ```
@@ -219,16 +217,20 @@ git commit -m "fixes on new_branch"
 git push
 ```
 
-Then back on your main page on GitHub you should see the **Compare & Pull Requet** button. Clicking it takes you to a page titled "*Open a pull request*" where you can add a description. Then click the "*Create pull request*" button. That takes you to the "*Pull requests*" tab where you can click the *Merge pull request* button and click *Confirm* if you are done, or you can continue to push changes from your branch. 
+Then back on your main page on GitHub you should see the **Compare & Pull Requet** button. Clicking it takes you to a page titled "*Open a pull request*" where you can add a description. Then click the "*Create pull request*" button. That takes you to the "*Pull requests*" tab where you can click the *Merge pull request* button and click *Confirm merge* if you are done, or you can continue to push changes from your branch.
 
-If you continue working on your branch, you can't just checkout to `master`. Thankfully, Git will warn you that checkout out to a new branch will result in the loss of your changes:
+**Note**: A PR from your branch to the master branch is a request to have your code merged with the master branch. You can delete your branch when your code/changes are merged.
+
+If you continue working on your branch, you can't just checkout to `master`. Thankfully, Git will warn you that checkout to a new branch will result in the loss of your changes:
 
 > error: Your local changes to the following files would be overwritten by checkout: <br>
 >        README.md <br>
 > Please commit your changes or stash them before you switch branches. <br>
 > Aborting
 
-The `stash` command is an advanced command IMO, so run `git add .` and `git commit -m "message"` before switching to a different branch. I did that, switched back, then ran `git push` and there was nothing on my Github page??? I forgot to switch back to master to push!!!
+The `stash` command is an advanced command IMO, so run `git add .` and `git commit -m "message"` before switching to a different branch. I did that, switched back, then ran `git push` and there was nothing on my Github page??? 
+
+Remember, you push the changes for your branch *from* your branch, not from `master`. But because I already pushed and continued working, I had to go to the conversation tab and click *Merge pull request* (I was 5 commits behind). An that is why this repo begins with the word **Beginner**!
 
 Once the PR is merged, you generally delete your branch and switch back to the master branch. To delete a branch use `git branch -d branch_name`. If you get this error when trying to delete a branch:
 
