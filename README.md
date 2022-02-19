@@ -228,7 +228,7 @@ If you continue working on your branch, you can't just checkout to `master`. Tha
 > Please commit your changes or stash them before you switch branches. <br>
 > Aborting
 
-The `stash` command is an advanced command IMO, so run `git add .` and `git commit -m "message"` before switching to a different branch.
+The `stash` command is an advanced command IMO, so run `git add .` and `git commit -m "message"` before switching to a different branch. I did that, switched back, then ran `git push` and there was nothing on my Github page??? 
 
 Once the PR is merged, you generally delete your branch and switch back to the master branch. To delete a branch use `git branch -d branch_name`. If you get this error when trying to delete a branch:
 
