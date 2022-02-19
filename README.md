@@ -351,7 +351,7 @@ Or just `git pull` if you set the upstream already. **Make sure you are on the m
 
 You may run into issues when you start working with branches. Here are some that I encountered.
 
-**Checkout to other branches before pushing**:
+**--> Checkout to other branches before pushing**:
 
 If you continue working on your branch, you can't just checkout to `master` or some other branch. Thankfully, Git will warn you that switching to a different branch will result in the loss of your changes:
 
@@ -364,13 +364,13 @@ The `stash` command is an advanced command IMO, so run `git add .` and `git comm
 
 **NOTE**: I did that, switched back to my branch, then ran `git push` and there was nothing on my Github page? I'm not sure why, but you do not get a message for pull requests after you click the "*Create pull request*" button... 
 
-**Continuing working after pushing changes**:
+**--> Continuing working after pushing changes**:
 
 ...but because I already pushed and continued working, I had to go to the *Conversation* tab and click *Merge pull request* (I was 5 commits behind).
 
 So don't merge until you are done making changes and push the changes. Or don't push until you are done with the branch!
 
-**Deleting branches**:
+**--> Deleting branches**:
 
 Once the PR is merged, you generally delete your branch and switch back to the master branch. To delete a branch use:
 
