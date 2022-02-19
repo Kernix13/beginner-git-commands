@@ -245,6 +245,15 @@ git log branch_name --not main
 
 That will show you what has been changed and what has not been pushed to main, or maybe has not been merged. If you are fine with the differences then replace `-d` with `-D`.
 
+It appears after PR from your branch has been merged and you do not delete it, there is not a way to delete it from GitHub. When that happens run:
+
+```
+// delete branch remotely
+git push origin --delete branch_name
+```
+
+So don't merge until you are done making changes and pushing the changes. Or don't push until you are done. 
+
 When you create a branch, push the changes, merge it into master, then delete it from GitHub, locally the branch will show when you run `git branch -a` even after you deleted it. To get rid of the local branch use:
 
 ```
