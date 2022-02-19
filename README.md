@@ -221,6 +221,15 @@ git push
 
 Then back on your main page on GitHub you should see the **Compare & Pull Requet** button. Clicking it takes you to a page titled "*Open a pull request*" where you can add a description. Then click the "*Create pull request*" button. That takes you to the "*Pull requests*" tab where you can click the *Merge pull request* button and click *Confirm* if you are done, or you can continue to push changes from your branch. 
 
+If you continue working on your branch, you can't just checkout to `master`. Thankfully, Git will warn you that checkout out to a new branch will result in the loss of your changes:
+
+> error: Your local changes to the following files would be overwritten by checkout: <br>
+>        README.md <br>
+> Please commit your changes or stash them before you switch branches. <br>
+> Aborting
+
+The `stash` command is an advanced command IMO, so run `git add .` and `git commit -m "message"` before switching to a different branch.
+
 Once the PR is merged, you generally delete your branch and switch back to the master branch. To delete a branch use `git branch -d branch_name`. If you get this error when trying to delete a branch:
 
 > error: The branch `branch-name` is not fully merged.
