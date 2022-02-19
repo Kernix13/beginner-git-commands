@@ -200,7 +200,7 @@ New commands in detail:
 | merge new_branch      | Merges 2 branches locally |
 | diff new_branch       | To check the differences between the two before merging |
 
-You can merge branches locally, but bore commonly you will push the changes to GitHub then make a PR (pull request) if you are contributing. **So make sure you switch from main/master to your branch before doing that!**. 
+You can merge branches locally, but more commonly you will push the changes to GitHub then make a PR (pull request) if you are contributing. **So make sure you switch from main/master to your branch before doing that!**. 
 
 For a new branch, `git push` won't work because git doesn't know what branch you are pushing to, so run:
 
@@ -228,7 +228,7 @@ If you continue working on your branch, you can't just checkout to `master`. Tha
 > Please commit your changes or stash them before you switch branches. <br>
 > Aborting
 
-The `stash` command is an advanced command IMO, so run `git add .` and `git commit -m "message"` before switching to a different branch. I did that, switched back, then ran `git push` and there was nothing on my Github page??? 
+The `stash` command is an advanced command IMO, so run `git add .` and `git commit -m "message"` before switching to a different branch. I did that, switched back, then ran `git push` and there was nothing on my Github page??? I forgot to switch back to master to push!!!
 
 Once the PR is merged, you generally delete your branch and switch back to the master branch. To delete a branch use `git branch -d branch_name`. If you get this error when trying to delete a branch:
 
