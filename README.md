@@ -219,6 +219,16 @@ git log branch_name --not main
 
 That will show you what has been changed and what has not been pushed to main, or maybe has not been merged. If you are fine with the differences then replace `-d` with `-D`.
 
+When you create a branch, push the changes, merge it into master, then delete it from GitHub, locally the branch will show when you run `git branch -a` even after you deleted it. To get rid of the local branch use:
+
+```
+git fetch -p
+```
+
+From freeCodeCamp, here is what the `-p` flag does:
+
+> The `-p` flag means "prune". After fetching, branches which no longer exist on the remote will be deleted.
+
 To pull changes from GitHub to your machine use `git pull origin master` or just `git pull` if you set the upstream already. **Make sure you are on the master branch**. What `git pull` does is merge all the changes present in the remote repository to the local working directory (See the section [Staying up to date](#staying-up-to-date)).
 
 [Back to Top](#back-to-top "Table of contents")
