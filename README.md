@@ -200,7 +200,7 @@ New commands in detail:
 | merge new_branch      | Merges 2 branches locally |
 | diff new_branch       | To check the differences between the two before merging |
 
-You can merge branches locally, but more commonly you will push the changes to GitHub then make a PR (pull request) if you are contributing. **So make sure you switch from main/master to your branch before doing that!**. 
+You can merge branches locally, but more commonly you will push the changes to GitHub then make a PR (pull request) whether you are contributing or working on your own project. **So make sure you switch from main/master to your branch before doing that!**. 
 
 For a new branch, `git push` won't work because git doesn't know what branch you are pushing to, so run:
 
@@ -230,7 +230,7 @@ If you continue working on your branch, you can't just checkout to `master`. Tha
 
 The `stash` command is an advanced command IMO, so run `git add .` and `git commit -m "message"` before switching to a different branch. I did that, switched back, then ran `git push` and there was nothing on my Github page??? 
 
-Remember, you push the changes for your branch *from* your branch, not from `master`. But because I already pushed and continued working, I had to go to the conversation tab and click *Merge pull request* (I was 5 commits behind). An that is why this repo begins with the word **Beginner**!
+Remember, you push the changes for your branch *from* your branch, not from `master`. But because I already pushed and continued working, I had to go to the conversation tab and click *Merge pull request* (I was 5 commits behind).
 
 Once the PR is merged, you generally delete your branch and switch back to the master branch. To delete a branch use `git branch -d branch_name`. If you get this error when trying to delete a branch:
 
@@ -245,7 +245,7 @@ git log branch_name --not main
 
 That will show you what has been changed and what has not been pushed to main, or maybe has not been merged. If you are fine with the differences then replace `-d` with `-D`.
 
-It appears after PR from your branch has been merged and you do not delete it, there is not a way to delete it from GitHub. When that happens run:
+It appears after the PR from your branch has been merged and you *do not* delete it, there is not a way to delete it from GitHub. When that happens run:
 
 ```
 // delete branch remotely
