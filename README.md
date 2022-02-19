@@ -282,7 +282,8 @@ git push -u origin master
 
 From here the commands are a little more involved and are for when you start creating your own branches and/or contributing to open source projects. 
 
-<p>_ _ _ _ _ _ _ _ _ _</p>
+<!-- <p>_ _ _ _ _ _ _ _ _ _</p> -->
+<br>
 
 ## Branches
 
