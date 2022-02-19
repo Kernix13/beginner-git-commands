@@ -171,17 +171,29 @@ Commands in detail:
 
 ## Branches
 
+Here are common commands you'll often use when working with braches:
+
+```
+git branch
+git branch -a
+git checkout branch_name
+git checkout -b new_branch
+git merge new_branch
+git diff new_branch
+```
+
 For my Git journey, I did not create branches until I started contributing for freeCodeCamp. But if you are going to contrinute then you will have to learn about branches. Eventually you will want to create branches for your own projects, but that is not what you will do as a beginner.
 
 New commands in detail:
 
 | *Branch* Git Commands | Definition |
 | :-------------------- | :--------- |
-| branch | Shows the branch you are working on |
+| branch                | Shows the branch you are working on |
 | branch -a             | Lists all the branch names in your repo |
 | checkout branch_name  | Switches to branch_name |
 | checkout -b new_branch | Creates then switches to new_branch |
-| merge new_branch      | Merges the branch into whatever branch you are currently in |
+| merge new_branch      | Merges 2 branches locally |
+| diff new_branch       | to check the differences between the two before merging |
 
 More commonly you will push the changes to GitHub then make a PR (pull request) if you are contributing. **So make sure you switch from main/master to your branch before doing that!**. 
 
