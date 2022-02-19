@@ -164,6 +164,11 @@ Commands in detail:
 | Push changes to remote  | push -u origin master | push -u origin master |
 | Recurring pushes        | push            | push           |
 
+NOTE: You can add your files to staging and commit them in one command with the `-am` flag with the `commit` command, skipping the `add` command:
+
+```
+git commit -am "Commit message"
+```
 
 [Back to Top](#back-to-top "Table of contents")
 
@@ -193,9 +198,9 @@ New commands in detail:
 | checkout branch_name  | Switches to branch_name |
 | checkout -b new_branch | Creates then switches to new_branch |
 | merge new_branch      | Merges 2 branches locally |
-| diff new_branch       | to check the differences between the two before merging |
+| diff new_branch       | To check the differences between the two before merging |
 
-More commonly you will push the changes to GitHub then make a PR (pull request) if you are contributing. **So make sure you switch from main/master to your branch before doing that!**. 
+You can merge branches locally, but more commonly you will push the changes to GitHub then make a PR (pull request) if you are contributing. **So make sure you switch from main/master to your branch before doing that!**. 
 
 For a new branch, `git push` won't work because git doesn't know what branch you are pushing to, so run:
 
@@ -206,7 +211,26 @@ git push --set-upstream origin branch_name
 
 **Note**: A PR from your branch to the master branch is a request to have your code merged with the master branch. You can delete your branch when your code/changes are merged.
 
-To delete a branch use `git branch -d branch_name`. If you get this error when trying to delete a branch:
+Then after setting the upstream for your new branch you can do the usual:
+
+```
+git add .
+git commit -m "fixes on new_branch"
+git push
+```
+
+Then back on your main page on GitHub you should see the **Compare & Pull Requet** button. Clicking it takes you to a page titled "*Open a pull request*" where you can add a description. Then click the "*Create pull request*" button. That takes you to the "*Pull requests*" tab where you can click the *Merge pull request* button and click *Confirm* if you are done, or you can continue to push changes from your branch. 
+
+If you continue working on your branch, you can't just checkout to `master`. Thankfully, Git will warn you that checkout out to a new branch will result in the loss of your changes:
+
+> error: Your local changes to the following files would be overwritten by checkout: <br>
+>        README.md <br>
+> Please commit your changes or stash them before you switch branches. <br>
+> Aborting
+
+The `stash` command is an advanced command IMO, so run `git add .` and `git commit -m "message"` before switching to a different branch. I did that, switched back, then ran `git push` and there was nothing on my Github page??? I forgot to switch back to master to push!!!
+
+Once the PR is merged, you generally delete your branch and switch back to the master branch. To delete a branch use `git branch -d branch_name`. If you get this error when trying to delete a branch:
 
 > error: The branch `branch-name` is not fully merged.
 > If you are sure you want to delete it, run `git branch -D branch-name`.
@@ -218,6 +242,18 @@ git log branch_name --not main
 ```
 
 That will show you what has been changed and what has not been pushed to main, or maybe has not been merged. If you are fine with the differences then replace `-d` with `-D`.
+
+When you create a branch, push the changes, merge it into master, then delete it from GitHub, locally the branch will show when you run `git branch -a` even after you deleted it. To get rid of the local branch use:
+
+```
+git fetch -p
+```
+
+From freeCodeCamp, here is what the `-p` flag does:
+
+> The `-p` flag means "prune". After fetching, branches which no longer exist on the remote will be deleted.
+
+If you go back to you machine and switch to master, the changes won’t be there because they are only on GitHub and you need to pull them down to your local machine.
 
 To pull changes from GitHub to your machine use `git pull origin master` or just `git pull` if you set the upstream already. **Make sure you are on the master branch**. What `git pull` does is merge all the changes present in the remote repository to the local working directory (See the section [Staying up to date](#staying-up-to-date)).
 
