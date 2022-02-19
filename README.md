@@ -22,6 +22,8 @@ If you created any files on Github, then you will have to use `git pull` before 
 1. [Pushing your local files to an empty repo](#pushing-your-local-files-to-an-empty-repo)
    1. [Commands after initial push](#commands-after-initial-push)
 1. [Branches](#branches)
+   1. [Pushing branches to your repository](#pushing-branches-to-your-repository)
+   1. [Common issues with branches](#common-issues-with-branches)
 1. [Clone your own repo](#clone-your-own-repo)
 1. [Clone an existing repo](#clone-an-existing-repo)
    1. [Push the cloned files up to your repo](#push-the-cloned-files-up-to-your-repo)
@@ -127,7 +129,7 @@ Replace `master` with the branch where you want to push your changes when you’
 
 [Back to Top](#back-to-top "Table of contents")
 
-<h3 id="commands-after-initial-push">&#10551; Commands after initial push</h2>
+<h3 id="commands-after-initial-push">&#10551; Commands after initial push</h3>
 
 Now your local repo is connected to your remote repo on Github. After making some changes or creating files use:
 
@@ -200,6 +202,8 @@ New commands in detail:
 | merge new_branch      | Merges 2 branches locally |
 | diff new_branch       | To check the differences between the two before merging |
 
+<h3 id="pushing-branches-to-your-repository">&#10551; Pushing branches to your repository</h3>
+
 You can merge branches locally, but more commonly you will push the changes to GitHub then make a PR (pull request) whether you are contributing or working on your own project. **So make sure you switch from main/master to your branch before doing that!**. 
 
 For a new branch, `git push` won't work because git doesn't know what branch you are pushing to, so run:
@@ -221,6 +225,20 @@ Then back on your main page on GitHub you should see the **Compare & Pull Requet
 
 **Note**: A PR from your branch to the master branch is a request to have your code merged with the master branch. You can delete your branch when your code/changes are merged.
 
+If you go back to you machine and switch to master, the changes won’t be there because they are only on GitHub and you need to pull them down to your local machine. To pull changes from GitHub to your machine use:
+
+```
+git pull origin master
+``` 
+
+Or just `git pull` if you set the upstream already. **Make sure you are on the master branch**. What `git pull` does is merge all the changes present in the remote repository to the local working directory (See the section [Staying up to date](#staying-up-to-date)).
+
+<h3 id="common-issues-with-branches">&#10551; Common issues with branches</h3>
+
+You may run into issues when you start working with branches. Here are the most common.
+
+**&#10551; &#10551; Checkout to other branches before pushing**:
+
 If you continue working on your branch, you can't just checkout to `master`. Thankfully, Git will warn you that checkout to a new branch will result in the loss of your changes:
 
 > error: Your local changes to the following files would be overwritten by checkout: <br>
@@ -230,7 +248,7 @@ If you continue working on your branch, you can't just checkout to `master`. Tha
 
 The `stash` command is an advanced command IMO, so run `git add .` and `git commit -m "message"` before switching to a different branch. I did that, switched back, then ran `git push` and there was nothing on my Github page??? 
 
-Remember, you push the changes for your branch *from* your branch, not from `master`. But because I already pushed and continued working, I had to go to the conversation tab and click *Merge pull request* (I was 5 commits behind).
+**&#10551; &#10551; Deleting branches**:
 
 Once the PR is merged, you generally delete your branch and switch back to the master branch. To delete a branch use `git branch -d branch_name`. If you get this error when trying to delete a branch:
 
@@ -245,16 +263,7 @@ git log branch_name --not main
 
 That will show you what has been changed and what has not been pushed to main, or maybe has not been merged. If you are fine with the differences then replace `-d` with `-D`.
 
-It appears after the PR from your branch has been merged and you *do not* delete it, there is not a way to delete it from GitHub. When that happens run:
-
-```
-// delete branch remotely
-git push origin --delete branch_name
-```
-
-So don't merge until you are done making changes and pushing the changes. Or don't push until you are done. 
-
-When you create a branch, push the changes, merge it into master, then delete it from GitHub, locally the branch will show when you run `git branch -a` even after you deleted it. To get rid of the local branch use:
+When you create a branch, push the changes, merge it into master, then delete it from GitHub, locally the branch will show when you run `git branch -a` even after you delete it. To get rid of the local branch use:
 
 ```
 git fetch -p
@@ -264,9 +273,18 @@ From freeCodeCamp, here is what the `-p` flag does:
 
 > The `-p` flag means "prune". After fetching, branches which no longer exist on the remote will be deleted.
 
-If you go back to you machine and switch to master, the changes won’t be there because they are only on GitHub and you need to pull them down to your local machine.
+**Continuing working after pushing changes**:
 
-To pull changes from GitHub to your machine use `git pull origin master` or just `git pull` if you set the upstream already. **Make sure you are on the master branch**. What `git pull` does is merge all the changes present in the remote repository to the local working directory (See the section [Staying up to date](#staying-up-to-date)).
+Remember, you push the changes for your branch *from* your branch, not from `master`. But because I already pushed and continued working, I had to go to the *Conversation* tab and click *Merge pull request* (I was 5 commits behind).
+
+So don't merge until you are done making changes and pushing the changes. Or don't push until you are done with the branch. 
+
+It appears after the PR from your branch has been merged and you *do not* delete it, there is not a way to delete it from GitHub. When that happens run:
+
+```
+// delete branch remotely
+git push origin --delete branch_name
+```
 
 [Back to Top](#back-to-top "Table of contents")
 
