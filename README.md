@@ -74,7 +74,7 @@ git config --list
 
 Run that command and scroll down and look for `user.name="Yourname"` and `user.email="your-email@whatevs.com"`, though until you set those values you either will not see those fields or they will be set to empty strings.
 
-[Back to Top](#back-to-top "Table of contents")
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
 <p>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</p>
 
@@ -130,7 +130,7 @@ Replace `master` with the branch where you want to push your changes when you’
 <!-- &#10551; -->
 <!-- &#10559; -->
 
-[Back to Top](#back-to-top "Table of contents")
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
 <h3 id="commands-after-initial-push">&#10551; Commands after initial push</h3>
 
@@ -175,7 +175,7 @@ NOTE: You can add your files to staging and commit them in one command with the 
 git commit -am "Commit message"
 ```
 
-[Back to Top](#back-to-top "Table of contents")
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
 <p>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</p>
 
@@ -222,7 +222,7 @@ That all works for your repos, but eventually you will want to clone, or fork an
 
 **NOTE**: I believe this is an alterate way of initializing a local git repo than what is in the section [Pushing your local files to an empty repo](#pushing-your-local-files-to-an-empty-repo), but I am not certain about that. The differece though is that this method installs git in the cloned file folder and not in the directory where you run `git clone url`, whereas in the section linked above it installs git in that folder.
 
-[Back to Top](#back-to-top "Table of contents")
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
 <p>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</p>
 
@@ -244,7 +244,7 @@ git clone -branch_name https_url
 
 The next part is important. Since you did not fork this repo, but instead you want a copy of it to work on for yourself, you need to first push it up to your empty GitHub repo. See the next section for the details on that...
 
-[Back to Top](#back-to-top "Table of contents")
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
 <h3 id="push-the-cloned-files-up-to-your-repo"> &#10551; Push the cloned files up to your repo</h3>
 
@@ -276,7 +276,7 @@ git push -u origin master
 
 > Is it `git push` or `git push origin master` or `git push -u origin master`?
 
-[Back to Top](#back-to-top "Table of contents")
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
 <img align="center" src="https://github.com/Kernix13/Kernix13/blob/main/assets/divider-github.png" alt="divider" title="Testing a 16px high gradient PNG image as a divider and spacer, should be 8px maybe and change the gradient colors" />
 
@@ -313,7 +313,7 @@ New commands in detail:
 | merge new_branch      | Merges 2 branches locally |
 | diff new_branch       | To check the differences between the two before merging |
 
-[Back to Top](#back-to-top "Table of contents")
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
 <h3 id="pushing-branches-to-your-repository">&#10551; Pushing branches to your repository</h3>
 
@@ -348,8 +348,6 @@ git pull origin master
 
 Or just `git pull` if you set the upstream already. **Make sure you are on the master branch**. What `git pull` does is merge all the changes present in the remote repository to the local working directory (See the section [Staying up to date](#staying-up-to-date)).
 
-<!-- [Back to Top](#back-to-top "Table of contents") -->
-
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
 <h3 id="common-issues-with-branches">&#10551; Common issues with branches</h3>
@@ -371,11 +369,15 @@ The `stash` command is an advanced command IMO, so run `git add .` and `git comm
 
 **NOTE**: I did that, switched back to my branch, then ran `git push` and there was nothing on my Github page? I'm not sure why, but you do not get a message for pull requests after you click the "*Create pull request*" button... 
 
+<br>
+
 **--> Continue to work after pushing changes**:
 
 ...but because I already pushed and continued working, I had to go to the *Conversation* tab and click *Merge pull request* (I was 5 commits behind).
 
 So don't merge until you are done making changes and push the changes. Or don't push until you are done with the branch!
+
+<br>
 
 **--> Deleting branches**:
 
@@ -415,7 +417,7 @@ From freeCodeCamp, here is what the `-p` flag does:
 
 > The `-p` flag means "prune". After fetching, branches which no longer exist on the remote will be deleted.
 
-[Back to Top](#back-to-top "Table of contents")
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
 <p>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ </p>
 
@@ -550,7 +552,7 @@ Here is a comparison of  cloning your repo vs. cloning someone else's repo vs. f
 | Initial branch push     | -                | -                | push --set-upstream origin fix/branch-name |
 | Recurring pushes        | -                | -                | push origin fix/branch-name | 
 
-[Back to Top](#back-to-top "Table of contents")
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
 <p>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ </p>
 
@@ -578,7 +580,7 @@ Indicate if you have tested on a local copy of the site or not. Here are some of
 
 > This is very important when making changes that are not just edits to text content like documentation or a challenge description. Examples of changes that need local testing include JavaScript, CSS, or HTML which could change the functionality or layout of a page.
 
-[Back to Top](#back-to-top "Table of contents")
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
 <h3 id="pull-request-title">&#10551;    Pull request title</h3>
 
@@ -610,7 +612,7 @@ Keep it short (less than 30 characters) and simple, you can add more information
 
 **QUESTION**: What creates CHANGELOGs? Is it the use of the colon `:`? Learn more:  [Why Use Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0-beta.2/#why-use-conventional-commits 'Conventional Commits').
 
-[Back to Top](#back-to-top "Table of contents")
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
 <h3 id="pull-requests-page-notes">&#10551;  Pull request page notes</h3>
 
@@ -625,7 +627,7 @@ Those fields should be correct but just be aware of the values. You will also se
 
 Also, if you scroll further down on the page you will see all the changes you made. And after clicking the "Create pull request" button you will be taken to the source repo showing your pull request, other pull requests, the conversations for each, etc. Also, check the tabs **Checks**, **Files changed** and **Commits**.
 
-[Back to Top](#back-to-top "Table of contents")
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
 <h3 id="replies-to-your-pull-request">&#10551; Replies to your pull request</h3>
 
@@ -654,7 +656,7 @@ git merge upstream/master
 
 So run `git merge upstream/master` every time before making your changes and doing a push. That will ensure you always have the latest state of `master` locally.
 
-[Back to Top](#back-to-top "Table of contents")
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
 <h3 id="handling-merge-conflicts">&#10551; Handling merge conflicts</h3>
 
@@ -679,7 +681,7 @@ Where `HEAD` is your current branch, usually main/master. Once again, this would
 1. Decide which change you want to keep,
 1. Delete EVERYTHING else -> the change you don't want and the equal, less than, and greater than signs along with the text like `HEAD` and `Current Change`. Everything other than the actual change that you want.
 
-[Back to Top](#back-to-top "Table of contents")
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
 <p>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</p>
 
@@ -764,7 +766,7 @@ Is this how you add a description?
 git commit -m "Title" -m "Description ..........";
 ```
 
-[Back to Top](#back-to-top "Table of contents")
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
 <p>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _</p>
 
@@ -791,7 +793,7 @@ To search for a gist on GitHub: `https://gist.github.com/username/`
 1. [Frequently used Git Commands](https://codeburst.io/git-tutorial-a-beginners-guide-to-most-frequently-used-git-commands-2ab92bd22787 'Frequently used Git Commands')
 1. [Atlassian Git Tutorial](https://www.atlassian.com/git/tutorials)
 
-[Back to Top](#back-to-top "Table of contents")
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
 <p>_ _ _ _ _ _ _ _ _ _ _</p>
 
@@ -814,7 +816,7 @@ To-Do List:
   - Topic tags
   - Deselect Releases and Packages if you do not have any
 
-[Back to Top](#back-to-top "Table of contents")
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
 <h3 id="terminology">&#10551; Terminology</h3>
 
@@ -832,7 +834,7 @@ Here are some common terms. These notes are from git, MDN, and other sources:
 1. **`HEAD`**: your current branch, or a defined commit of a branch, usually the most recent commit at the tip of the branch, or refers to the current commit you are viewing. `HEAD` is a reference to one of the heads in your repository.
 1. **`blob`**: (Binary Large OBject) Untyped object, e.g. the contents of a file, is the object type used to store the contents of each file in a repository.
 
-[Back to Top](#back-to-top "Table of contents")
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
 ### Git keywords
 
@@ -840,6 +842,8 @@ I'm wondering if putting in the following keywords will help beginners searching
 
 **Keywords**: git for beginners, basic git commands, basic git commands cheat sheet, basic git commands github, basic git commands for beginners, basic git commands list, basic commands for git, github basic commands, basic commands in git, basic git command, basic git commands to know, what are basic git commands, git guide command line, most basic git commands, basic commands of git, basic git workflow commands, basic git cheat sheet, git commands cheat sheet github, ...
 
-[Back to Top](#back-to-top "Table of contents")
+<!-- [Back to Top](#back-to-top "Table of contents") -->
+
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
 <!-- Ignore this line, experimenting with markdown comments -->
