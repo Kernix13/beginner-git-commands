@@ -348,7 +348,9 @@ git pull origin master
 
 Or just `git pull` if you set the upstream already. **Make sure you are on the master branch**. What `git pull` does is merge all the changes present in the remote repository to the local working directory (See the section [Staying up to date](#staying-up-to-date)).
 
-[Back to Top](#back-to-top "Table of contents")
+<!-- [Back to Top](#back-to-top "Table of contents") -->
+
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
 <h3 id="common-issues-with-branches">&#10551; Common issues with branches</h3>
 
