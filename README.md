@@ -96,12 +96,12 @@ git push -u origin master
 **NOTE**: I removed `git` from the commands in all the definition tables to make the table smaller. You should know to add `git` before the main commands (not for the parameters).
 
 | _Basic_ Git Commands | Definition                                                                      |
-| :------------------- | :------------------------------------------------------------------------------ | --- |
+| :------------------- | :------------------------------------------------------------------------------ |
 | init                 | Initiates git tracking                                                          |
 | status               | Checks the status of your changes/state                                         |
 | add .                | Adds **_ALL_** (.) changes to staging                                           |
 | commit               | Saves changes to local copy                                                     |
-| remote add origin    | Adds URL as remote repo location                                                | x`  |
+| remote add origin    | Adds URL as remote repo location                                                |
 | `branch -M main`     | Changes default branch to 'main' (this is optional)                             |
 | push -u origin main  | Push changes to remote                                                          |
 | push                 | Push changes after upstream is set                                              |
