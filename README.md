@@ -9,7 +9,6 @@ The basic steps you need in the beginning are:
 - Add the changes to staging then commit the changes
 - Push your changes or project files to your empty repo
 
-
 If you created any files on Github, then you will have to use `git pull` before you can do a `git push`. So in the beginning, don't create any files on GitHub.
 
 <a id="back-to-top"></a>
@@ -28,6 +27,7 @@ If you created any files on Github, then you will have to use `git pull` before 
 Section B:
 
 [Intermediate Git Commands](#intermediate-git-commands)
+
 1. [Branches](#branches)
    1. [Pushing branches to your repository](#pushing-branches-to-your-repository)
    1. [Common issues with branches](#common-issues-with-branches)
@@ -47,11 +47,11 @@ Section B:
 
 ## Download and setup Git
 
-It's been well over a year since I did this so I can't remember all the steps. But first, you need to [download Git](https://git-scm.com/downloads 'Git download page').
+It's been well over a year since I did this so I can't remember all the steps. But first, you need to [download Git](https://git-scm.com/downloads "Git download page").
 
-Check out this video from the YouTube channel LearnWebCode: [Git Tutorial Part 3: Installation, Command-line & Clone](https://youtu.be/UFEby2zo-9E 'Git Tutorial'). I followed his steps to run the `config` commands below. Follow his instructions using Git Bash. Eventually, you will use VS Code for 99% of the commands in this guide.
+Check out this video from the YouTube channel LearnWebCode: [Git Tutorial Part 3: Installation, Command-line & Clone](https://youtu.be/UFEby2zo-9E "Git Tutorial"). I followed his steps to run the `config` commands below. Follow his instructions using Git Bash. Eventually, you will use VS Code for 99% of the commands in this guide.
 
-**Note**: On your first push ever to GitHub, you will need to provide a `user name` and `email address` to git, the ones used when you created your GitHub account. This is so git knows that you are who you say you are. 
+**Note**: On your first push ever to GitHub, you will need to provide a `user name` and `email address` to git, the ones used when you created your GitHub account. This is so git knows that you are who you say you are.
 
 Ater downloading Git, open the `.exe` file in your downloads folder. Then find Git Bash and open it. For me on Windows, there was a Git folder in my Start ment and Git bash was in there. Open it and in the command prompt that opens enter the following commands:
 
@@ -80,9 +80,9 @@ Run that command and scroll down and look for `user.name="Yourname"` and `user.e
 
 ## Pushing your local files to an empty repo
 
-Here are the commands followed by a brief definition. Make sure to know these because they are used for other sections in this file. By the way, you need to make changes to your files or create a file before running `git add .` unless you already have files  in your project folder.
+Here are the commands followed by a brief definition. Make sure to know these because they are used for other sections in this file. By the way, you need to make changes to your files or create a file before running `git add .` unless you already have files in your project folder.
 
-Got to GitHub and create an empty repo, meaning don't initialize it by adding a README file. Then back in Git Bash or VS Code run:
+Go to GitHub and create an empty repo, meaning don't initialize it by adding a README file. Then back in Git Bash or VS Code run:
 
 ```
 git init
@@ -92,31 +92,32 @@ git branch -M main
 git remote add origin https_url
 git push -u origin master
 ```
+
 **NOTE**: I removed `git` from the commands in all the definition tables to make the table smaller. You should know to add `git` before the main commands (not for the parameters).
 
-| *Basic* Git Commands | Definition |
-| :--------------- | :---------- |
-| init             | Initiates git tracking |
-| status           | Checks the status of your changes/state |
-| add .            | Adds ***ALL*** (.) changes to staging |
-| commit           | Saves changes to local copy |
-| remote add origin | Adds URL as remote repo location |x`
-| `branch -M main`   | Changes default branch to 'main' (this is optional) |
-| push -u origin main | Push changes to remote |
-| push             | Push changes after upstream is set | 
-| push origin main | Used for 1st push if `-u` flad was not used |
-| `-u`             | Parameter short for `upstream` |
-| `upstream`       | the primary *branch* on the original repository; where you cloned the repo from |
+| _Basic_ Git Commands | Definition                                                                      |
+| :------------------- | :------------------------------------------------------------------------------ | --- |
+| init                 | Initiates git tracking                                                          |
+| status               | Checks the status of your changes/state                                         |
+| add .                | Adds **_ALL_** (.) changes to staging                                           |
+| commit               | Saves changes to local copy                                                     |
+| remote add origin    | Adds URL as remote repo location                                                | x`  |
+| `branch -M main`     | Changes default branch to 'main' (this is optional)                             |
+| push -u origin main  | Push changes to remote                                                          |
+| push                 | Push changes after upstream is set                                              |
+| push origin main     | Used for 1st push if `-u` flad was not used                                     |
+| `-u`                 | Parameter short for `upstream`                                                  |
+| `upstream`           | the primary _branch_ on the original repository; where you cloned the repo from |
 
-The `git init` command creates a new local GIT repository in the directory you ran that command. 
+The `git init` command creates a new local GIT repository in the directory you ran that command.
 
 The command `git branch -M main` is optional and I think the flag `-M` means changing the default branch name from master to the name **main**. I trid searching for it and I found that Git has changed the default from `master` to `main` though GitHub still uses `master` by default. It's your choice but if you are just starting out I would say skip that command.
 
 The command `git remote add origin https_url` connects the local repository to a remote server (GitHub repo). `https_url` is the URL that is on the page when you create a new repo. It is also shown whn you click the `Code` button.
 
-The `git push` command is used to send local commits to the master (or main) branch of the remote repository. But to use `git push` in the future you have to set something called an *upstream*, meaning where you want to push it to by default. That is why you use `-u`. The whole command `git push -u origin master` pushes your commits and sets the branch `master` as the origin for the location of `git push` in the future. 
+The `git push` command is used to send local commits to the master (or main) branch of the remote repository. But to use `git push` in the future you have to set something called an _upstream_, meaning where you want to push it to by default. That is why you use `-u`. The whole command `git push -u origin master` pushes your commits and sets the branch `master` as the origin for the location of `git push` in the future.
 
-Replace `master` with the branch where you want to push your changes when you’re *not* intending to push to the master branch. 
+Replace `master` with the branch where you want to push your changes when you’re _not_ intending to push to the master branch.
 
 **NOTE**: When you create an empty repo on GitHub, I believe it's best practice to use the same name on GitHub for the folder of your local copy.
 
@@ -143,7 +144,7 @@ git commit -m "Created README file"
 git push -u origin master
 ```
 
-**Note**: You need to use `git push -u origin master` for the next commit only after the initial push. After that just use `git push` unless you used `-u` as mentioned above (DOUBLE CHECK THAT). Although I believe you can run `git push origin master` and it won't have a negative effect. 
+**Note**: You need to use `git push -u origin master` for the next commit only after the initial push. After that just use `git push` unless you used `-u` as mentioned above (DOUBLE CHECK THAT). Although I believe you can run `git push origin master` and it won't have a negative effect.
 
 Also, I use `git status` as a habit to check the status of the files, though that command is not required.
 
@@ -153,21 +154,21 @@ Here is a comparison of my commands vs. the commands you see on GitHub when you 
 
 Commands in detail:
 
-| Command Description     | My Git commands | GitHub commands | 
-| :---------------------- | --------------: | :------------- |
-| Initiate tracking       | init            | init           |
-| Make changes            | -               | -              |
-| Add changes to staging  | add .           | add README.md  |
-| Save changes to local   | commit -m "First commit" | commit -m "First commit" |
-| Change default branch to main    | -      | branch -M main | 
-| Adds url as remote repo | remote add origin https_url | remote add origin https_url |
-| Verify repo url         | remote -v       | remote -v      |
-| Push changes to remote  | push -u origin master | push -u origin master |
-| Make changes            | -               | -              |
-| Add changes to staging  | add .           | add .          |
-| Saves changes to local  | commit -m "Next commit" | commit -m "Next commit" |
-| Push changes to remote  | push -u origin master | push -u origin master |
-| Recurring pushes        | push            | push           |
+| Command Description           |             My Git commands | GitHub commands             |
+| :---------------------------- | --------------------------: | :-------------------------- |
+| Initiate tracking             |                        init | init                        |
+| Make changes                  |                           - | -                           |
+| Add changes to staging        |                       add . | add README.md               |
+| Save changes to local         |    commit -m "First commit" | commit -m "First commit"    |
+| Change default branch to main |                           - | branch -M main              |
+| Adds url as remote repo       | remote add origin https_url | remote add origin https_url |
+| Verify repo url               |                   remote -v | remote -v                   |
+| Push changes to remote        |       push -u origin master | push -u origin master       |
+| Make changes                  |                           - | -                           |
+| Add changes to staging        |                       add . | add .                       |
+| Saves changes to local        |     commit -m "Next commit" | commit -m "Next commit"     |
+| Push changes to remote        |       push -u origin master | push -u origin master       |
+| Recurring pushes              |                        push | push                        |
 
 NOTE: You can add your files to staging and commit them in one command with the `-am` flag with the `commit` command, skipping the `add` command:
 
@@ -181,7 +182,7 @@ git commit -am "Commit message"
 
 ## Clone your own repo
 
-Why would you do this? Use this when you created a repo and added a file on GitHub like a README.md file. Or if for some reason you have a commit and issues history that you want to copy, though who would have that? Regardless, the process is almost identical to cloning a repo that is not yours: 
+Why would you do this? Use this when you created a repo and added a file on GitHub like a README.md file. Or if for some reason you have a commit and issues history that you want to copy, though who would have that? Regardless, the process is almost identical to cloning a repo that is not yours:
 
 ```
 git clone https_url
@@ -194,15 +195,15 @@ git push -u origin master
 
 New commands in detail:
 
-| *Clone* Git Commands | Definition |
-| :------------------- | :--------- |
-| clone                 | Copies repo at the URL to your machine |
+| _Clone_ Git Commands  | Definition                              |
+| :-------------------- | :-------------------------------------- |
+| clone                 | Copies repo at the URL to your machine  |
 | remote -v             | A check to make sure the URL is correct |
 | remote set-url origin | Sets the URL to point towards your Repo |
 
-Like `git init`, the command `git clone` also initiates a git repo for a repo you want to clone, but git is installed in the downloaded/cloned folder, *NOT* in the directory where you ran that command. But both initiate git tracking. 
+Like `git init`, the command `git clone` also initiates a git repo for a repo you want to clone, but git is installed in the downloaded/cloned folder, _NOT_ in the directory where you ran that command. But both initiate git tracking.
 
-`git clone` is used on its own or when you Fork a repo and it's best to use this with Git Bash (I think). Use `cd` to switch to that folder (Change Directory). 
+`git clone` is used on its own or when you Fork a repo and it's best to use this with Git Bash (I think). Use `cd` to switch to that folder (Change Directory).
 
 Use `git remote -v` to list any remote repositories that you have connected to this repo. That is to check if you are pointing to the cloned URL or the copy of the repo in your account. Did you clone to contribute, or to work on your own version of the repo?
 
@@ -216,6 +217,7 @@ git add .
 git commit -m "First commit"
 git push
 ```
+
 > Is it `git push` or `git push origin master` or `git push -u origin master`?
 
 That all works for your repos, but eventually you will want to clone, or fork and clone a repo so that you can contribute to it. You will then need to use the `git clone` again, and various `branch` git commands. You will also need to add additional parameters to your git commands (see [Forking and cloning](#forking-and-cloning) section)
@@ -256,11 +258,12 @@ That is fine if you are contributing, otherwise you need to update the address. 
 git remote set-url origin https_url
 git remote -v
 ```
+
 The `git remote set-url` command here changes an existing remote repository URL from it's original source to whatever you used for `https_url`, which should be your empty repo.
 
-Now git knows that the origin is your repo. Using `git remote -v` again is to check that git is pointing to the desired repo address. 
+Now git knows that the origin is your repo. Using `git remote -v` again is to check that git is pointing to the desired repo address.
 
-Then to push the cloned repo files to *your* repo use:
+Then to push the cloned repo files to _your_ repo use:
 
 ```
 git push origin master
@@ -282,7 +285,7 @@ git push -u origin master
 
 # Intermediate Git Commands
 
-From here the commands are a little more involved and are for when you start creating your own branches and/or contributing to open source projects. 
+From here the commands are a little more involved and are for when you start creating your own branches and/or contributing to open source projects.
 
 <!-- <p>_ _ _ _ _ _ _ _ _ _</p> -->
 <br>
@@ -304,26 +307,27 @@ For my Git journey, I did not create branches until I started contributing for f
 
 New commands in detail:
 
-| *Branch* Git Commands | Definition |
-| :-------------------- | :--------- |
-| branch                | Shows the branch you are working on |
-| branch -a             | Lists all the branch names in your repo |
-| checkout branch_name  | Switches to branch_name |
-| checkout -b new_branch | Creates then switches to new_branch |
-| merge new_branch      | Merges 2 branches locally |
-| diff new_branch       | To check the differences between the two before merging |
+| _Branch_ Git Commands  | Definition                                              |
+| :--------------------- | :------------------------------------------------------ |
+| branch                 | Shows the branch you are working on                     |
+| branch -a              | Lists all the branch names in your repo                 |
+| checkout branch_name   | Switches to branch_name                                 |
+| checkout -b new_branch | Creates then switches to new_branch                     |
+| merge new_branch       | Merges 2 branches locally                               |
+| diff new_branch        | To check the differences between the two before merging |
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
 <h3 id="pushing-branches-to-your-repository">&#10551; Pushing branches to your repository</h3>
 
-You can merge branches locally, but more commonly you will push the changes to GitHub then make a PR (pull request) whether you are contributing or working on your own project. Make sure you **switch from main/master back to your branch** before doing that!. 
+You can merge branches locally, but more commonly you will push the changes to GitHub then make a PR (pull request) whether you are contributing or working on your own project. Make sure you **switch from main/master back to your branch** before doing that!.
 
 For a new branch, `git push` won't work because git doesn't know what branch you are pushing to, so run:
 
 ```
 git push --set-upstream origin branch_name
 ```
+
 **Note**: Using `--set-upstream` is the same thing as using `-u` in the sections above. Actually, `-u` is short-hand for `--set-upstream`.
 
 Then after setting the upstream for your new branch you can do the usual:
@@ -334,9 +338,9 @@ git commit -m "fixes on new_branch"
 git push
 ```
 
-Remember, you push the changes for your branch *from* your branch, not from `master`. 
+Remember, you push the changes for your branch _from_ your branch, not from `master`.
 
-Then back on your repo main page you should see the **Compare & Pull Request** button. Clicking it takes you to a page titled "*Open a pull request*" where you can add a description. Then click the "*Create pull request*" button. That takes you to the "*Pull requests*" tab where you can click the *Merge pull request* button and click *Confirm merge* if you are done, or you can continue to push changes from your branch.
+Then back on your repo main page you should see the **Compare & Pull Request** button. Clicking it takes you to a page titled "_Open a pull request_" where you can add a description. Then click the "_Create pull request_" button. That takes you to the "_Pull requests_" tab where you can click the _Merge pull request_ button and click _Confirm merge_ if you are done, or you can continue to push changes from your branch.
 
 **Note**: A PR from your branch to the master branch is a request to have your code merged with the master branch. You can, and should (see below), delete your branch when your code/changes are merged.
 
@@ -344,7 +348,7 @@ If you go back to your local project and switch to master, the changes won’t b
 
 ```
 git pull origin master
-``` 
+```
 
 Or just `git pull` if you set the upstream already. **Make sure you are on the master branch**. What `git pull` does is merge all the changes present in the remote repository to the local working directory (See the section [Staying up to date](#staying-up-to-date)).
 
@@ -361,19 +365,19 @@ You may run into issues when you start working with branches. Here are some that
 If you continue working on your branch, you can't just checkout to `master` or some other branch. Thankfully, Git will warn you that switching to a different branch will result in the loss of your changes:
 
 > error: Your local changes to the following files would be overwritten by checkout: <br>
->        README.md <br>
+> README.md <br>
 > Please commit your changes or stash them before you switch branches. <br>
 > Aborting
 
-The `stash` command is an advanced command IMO, so run `git add .` and `git commit -m "message"` before switching to a different branch. 
+The `stash` command is an advanced command IMO, so run `git add .` and `git commit -m "message"` before switching to a different branch.
 
-**NOTE**: I did that, switched back to my branch, then ran `git push` and there was nothing on my Github page? I'm not sure why, but you do not get a message for pull requests after you click the "*Create pull request*" button... 
+**NOTE**: I did that, switched back to my branch, then ran `git push` and there was nothing on my Github page? I'm not sure why, but you do not get a message for pull requests after you click the "_Create pull request_" button...
 
 <br>
 
 **--> Continue to work after pushing changes**:
 
-...but because I already pushed and continued working, I had to go to the *Conversation* tab and click *Merge pull request* (I was 5 commits behind).
+...but because I already pushed and continued working, I had to go to the _Conversation_ tab and click _Merge pull request_ (I was 5 commits behind).
 
 So don't merge until you are done making changes and push the changes. Or don't push until you are done with the branch!
 
@@ -383,9 +387,9 @@ So don't merge until you are done making changes and push the changes. Or don't 
 
 Once the PR is merged, you generally delete your branch and switch back to the master branch. To delete a branch use:
 
-``` 
+```
 git branch -d branch_name
-``` 
+```
 
 If you get this error when trying to delete a branch:
 
@@ -400,7 +404,7 @@ git log branch_name --not main
 
 That will show you what has been changed and what has not been pushed to main (or maybe has not been merged). If you are fine with the differences then replace `-d` with `-D`.
 
-It appears that after the PR from your branch has been merged and you *do not* delete it, there is not a way to delete it from GitHub. When that happens run:
+It appears that after the PR from your branch has been merged and you _do not_ delete it, there is not a way to delete it from GitHub. When that happens run:
 
 ```
 // delete branch remotely
@@ -428,7 +432,7 @@ From freeCodeCamp, here is what the `-p` flag does:
   <dd>Copies the forked repo into your account</dd>
 </dl>
 
-To fork a repo, go to the repository main page, then click the `Fork` button to the left of the `Star` button (upper right). I'm going to use the <a href="https://github.com/freeCodeCamp/freeCodeCamp" target="_blank">freeCodeCamp repo</a> as an example. 
+To fork a repo, go to the repository main page, then click the `Fork` button to the left of the `Star` button (upper right). I'm going to use the <a href="https://github.com/freeCodeCamp/freeCodeCamp" target="_blank">freeCodeCamp repo</a> as an example.
 
 After you fork a repo, open up a terminal with Git Bash and navigate to the folder where you want the cloned repo. Then enter the following commands:
 
@@ -464,8 +468,8 @@ The 1st command is necessary for the clone to fetch the files, the 4th is option
 
 Finally:
 
-1. Check the branch you are on and switch to main/master if not on that branch, 
-1. Create a new branch for your contributions, make your changes then 
+1. Check the branch you are on and switch to main/master if not on that branch,
+1. Create a new branch for your contributions, make your changes then
 1. Check the status, add your changes, check status again, commit the changes, and then push the changes:
 
 ```
@@ -477,18 +481,19 @@ git status
 git commit -m "short description"
 git push origin fix/something-here
 ```
+
 New commands in detail:
 
-| *Fork* Commands             | Definition                              |
-| :-------------------------- | :-------------------------------------- |
-| `--depth=1   `                | Creates a shallow copy of the repo      |
-| remote add upstream         | Pull changes from the original repo...  |
-| ...                         | &#10551; into the local clone of your fork    |
-| fetch upstream              | Update local repo with source repo objects |
-| reset --hard upstream/main  | Erases uncommitted changes |
-| `--hard`                    | Resets the index and working tree |
-| `--force`                   | reserved for a case where you do mean to lose history |
-| ...                         | &#10551; use with caution |
+| _Fork_ Commands            | Definition                                            |
+| :------------------------- | :---------------------------------------------------- |
+| `--depth=1 `               | Creates a shallow copy of the repo                    |
+| remote add upstream        | Pull changes from the original repo...                |
+| ...                        | &#10551; into the local clone of your fork            |
+| fetch upstream             | Update local repo with source repo objects            |
+| reset --hard upstream/main | Erases uncommitted changes                            |
+| `--hard`                   | Resets the index and working tree                     |
+| `--force`                  | reserved for a case where you do mean to lose history |
+| ...                        | &#10551; use with caution                             |
 
 **NOTES**:
 
@@ -499,6 +504,7 @@ New commands in detail:
 > You only use the `--set-upstream` parameter when you need to add **your LOCAL** branch to **your REMOTE** branch. But once the new branch is added to the remote repo, then you don’t need to use `--set-upstream` each time.
 
 MY FINAL COMMANDS (clone, fetch, push):
+
 ```
 git clone --depth=1 https_url
 git remote add upstream https_url
@@ -506,7 +512,9 @@ git fetch upstream
 git remote -v
 git push origin main
 ```
+
 THEN: create branch, make changes, and push them
+
 ```
 git checkout -b fix/branch-name
 git add .
@@ -526,31 +534,31 @@ If you realize that you need to edit a file or update the commit message after m
 
 This will open up a default text editor like `nano` or `vi` where you can edit the commit message title and add/edit the description.
 
-Here is a comparison of  cloning your repo vs. cloning someone else's repo vs. forking then cloning:
+Here is a comparison of cloning your repo vs. cloning someone else's repo vs. forking then cloning:
 
-| Command Description     | Clone (Yours)    | Clone (Not Yours) | Fork then Clone |
-| :---------------------- | :--------------: | :---------------: | :-------------: |
-| Fork                    | -                | -                | Click Fork button|
-| Copy forked repo        | -                | -                | clone --depth=1 https_url |
-| Copy repo at the URL    | clone https_url | clone https_url | -          |
-| Switch into cloned folder | cd folder_name | cd folder_name   | cd folder_name
-| Verify repo url         | -                | remote -v    | remote -v    |
-| Pull changes from the original | -         | -                | remote add upstream https_url |
-| Add changes to staging  | add .            | add .            | -                |
-| Save changes to local   | commit -m "First commit" | commit -m "First commit"  | -                |
-| Change your remote's URL | remote add origin https_url | remote add origin https_url | - |
-| Verify repo url         | remote -v    | remote -v    | remote -v    |
-| Fetch source            | -                | -                | fetch upstream |
-| Reset                   | -                | -                | reset --hard upstream/main |
-| Push changes to remote  | push -u origin master | push -u origin master | push origin main --force | 
-| Check for differences   | -                | -                | diff upstream/main |
-| Create branch           | -                | -                | checkout -b fix/branch-name |
-| Make changes            | -                | -                | -                  |
-| Add changes to staging  | add .            | add .            | add .              | 
-| Save changes to local   | commit -m "msg"  | commit -m "msg"  | commit -m "msg"    |
-| Push changes to remote  | push -u origin master | push -u origin master | - | 
-| Initial branch push     | -                | -                | push --set-upstream origin fix/branch-name |
-| Recurring pushes        | -                | -                | push origin fix/branch-name | 
+| Command Description            |        Clone (Yours)        |      Clone (Not Yours)      |              Fork then Clone               |
+| :----------------------------- | :-------------------------: | :-------------------------: | :----------------------------------------: |
+| Fork                           |              -              |              -              |             Click Fork button              |
+| Copy forked repo               |              -              |              -              |         clone --depth=1 https_url          |
+| Copy repo at the URL           |       clone https_url       |       clone https_url       |                     -                      |
+| Switch into cloned folder      |       cd folder_name        |       cd folder_name        |               cd folder_name               |
+| Verify repo url                |              -              |          remote -v          |                 remote -v                  |
+| Pull changes from the original |              -              |              -              |       remote add upstream https_url        |
+| Add changes to staging         |            add .            |            add .            |                     -                      |
+| Save changes to local          |  commit -m "First commit"   |  commit -m "First commit"   |                     -                      |
+| Change your remote's URL       | remote add origin https_url | remote add origin https_url |                     -                      |
+| Verify repo url                |          remote -v          |          remote -v          |                 remote -v                  |
+| Fetch source                   |              -              |              -              |               fetch upstream               |
+| Reset                          |              -              |              -              |         reset --hard upstream/main         |
+| Push changes to remote         |    push -u origin master    |    push -u origin master    |          push origin main --force          |
+| Check for differences          |              -              |              -              |             diff upstream/main             |
+| Create branch                  |              -              |              -              |        checkout -b fix/branch-name         |
+| Make changes                   |              -              |              -              |                     -                      |
+| Add changes to staging         |            add .            |            add .            |                   add .                    |
+| Save changes to local          |       commit -m "msg"       |       commit -m "msg"       |              commit -m "msg"               |
+| Push changes to remote         |    push -u origin master    |    push -u origin master    |                     -                      |
+| Initial branch push            |              -              |              -              | push --set-upstream origin fix/branch-name |
+| Recurring pushes               |              -              |              -              |        push origin fix/branch-name         |
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
@@ -610,7 +618,7 @@ For example:
 
 Keep it short (less than 30 characters) and simple, you can add more information in the PR description box and comments. Example: `fix(api,client): prevent CORS errors on form submission`.
 
-**QUESTION**: What creates CHANGELOGs? Is it the use of the colon `:`? Learn more:  [Why Use Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0-beta.2/#why-use-conventional-commits 'Conventional Commits').
+**QUESTION**: What creates CHANGELOGs? Is it the use of the colon `:`? Learn more: [Why Use Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0-beta.2/#why-use-conventional-commits "Conventional Commits").
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
@@ -662,7 +670,7 @@ So run `git merge upstream/master` every time before making your changes and doi
 
 I'm a little fuzzy on this process.
 
-Read more here: [Conflicts on a pull request](https://github.com/freeCodeCamp/freeCodeCamp/blob/main/docs/how-to-setup-freecodecamp-locally.md#making-changes-locally 'Making changes locally').
+Read more here: [Conflicts on a pull request](https://github.com/freeCodeCamp/freeCodeCamp/blob/main/docs/how-to-setup-freecodecamp-locally.md#making-changes-locally "Making changes locally").
 
 A merge conflict is when 2 or more people change the same code/content but with different values. However, I don't think a beginner contributor would actually run `git merge branch_name`.
 
@@ -776,21 +784,21 @@ FYI, it's difficult keeping this list up-to-date. I'll do my best to provide the
 
 To search for a gist on GitHub: `https://gist.github.com/username/`
 
-1. [Git reference docs](https://git-scm.com/docs 'Git documentation')
-1. [GitHub for complete beginners MDN](https://developer.mozilla.org/en-US/docs/MDN/Contribute/GitHub_beginners 'MDN GitHub docs')
-1. [Why Use Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0-beta.2/#why-use-conventional-commits 'Conventional Commits')
-1. [Contribute to freeCodeCamp.org](https://contribute.freecodecamp.org/#/ 'freeCpdeCamp contribution docs')
-1. [how-to-setup-freecodecamp-locally.md](https://github.com/freeCodeCamp/freeCodeCamp/blob/main/docs/how-to-setup-freecodecamp-locally.md 'How to setup freeCodeCamp locally')
-1. [freeCodeCamp Conflicts on a pull request](https://github.com/freeCodeCamp/freeCodeCamp/blob/main/docs/how-to-setup-freecodecamp-locally.md#making-changes-locally 'freeCodeCamp PR Conflicts')
-1. [freeCodeCamp Introduction](https://contribute.freecodecamp.org/#/index 'freeCodeCamp contribution intro')
-1. [freeCodeCamp How to work on coding challenges](https://contribute.freecodecamp.org/#/how-to-work-on-coding-challenges 'freeCodeCamp: Working on coding challenges')
-1. [freeCodeCamp FAQs](https://contribute.freecodecamp.org/#/FAQ 'freeCodeCamp FAQs')
-1. [freeCodeCamp How to open a Pull Request](https://github.com/freeCodeCamp/freeCodeCamp/blob/main/docs/how-to-open-a-pull-request.md 'How to open a PR freeCodeCamp')
-1. [freeCodeCamp How to contribute to open source](https://github.com/freeCodeCamp/how-to-contribute-to-open-source 'How to contribute to open source')
-1. [How to contribute on GitHub](https://www.dataschool.io/how-to-contribute-on-github/ 'Step-by-step guide to contributing on GitHub')
-1. [Contributing to MDN](https://developer.mozilla.org/en-US/docs/MDN/Contribute 'Contributing to MDN')
-1. [Hostinger: Basic GIT Commands](https://www.hostinger.com/tutorials/basic-git-commands 'Basic GIT Commands')
-1. [Frequently used Git Commands](https://codeburst.io/git-tutorial-a-beginners-guide-to-most-frequently-used-git-commands-2ab92bd22787 'Frequently used Git Commands')
+1. [Git reference docs](https://git-scm.com/docs "Git documentation")
+1. [GitHub for complete beginners MDN](https://developer.mozilla.org/en-US/docs/MDN/Contribute/GitHub_beginners "MDN GitHub docs")
+1. [Why Use Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0-beta.2/#why-use-conventional-commits "Conventional Commits")
+1. [Contribute to freeCodeCamp.org](https://contribute.freecodecamp.org/#/ "freeCpdeCamp contribution docs")
+1. [how-to-setup-freecodecamp-locally.md](https://github.com/freeCodeCamp/freeCodeCamp/blob/main/docs/how-to-setup-freecodecamp-locally.md "How to setup freeCodeCamp locally")
+1. [freeCodeCamp Conflicts on a pull request](https://github.com/freeCodeCamp/freeCodeCamp/blob/main/docs/how-to-setup-freecodecamp-locally.md#making-changes-locally "freeCodeCamp PR Conflicts")
+1. [freeCodeCamp Introduction](https://contribute.freecodecamp.org/#/index "freeCodeCamp contribution intro")
+1. [freeCodeCamp How to work on coding challenges](https://contribute.freecodecamp.org/#/how-to-work-on-coding-challenges "freeCodeCamp: Working on coding challenges")
+1. [freeCodeCamp FAQs](https://contribute.freecodecamp.org/#/FAQ "freeCodeCamp FAQs")
+1. [freeCodeCamp How to open a Pull Request](https://github.com/freeCodeCamp/freeCodeCamp/blob/main/docs/how-to-open-a-pull-request.md "How to open a PR freeCodeCamp")
+1. [freeCodeCamp How to contribute to open source](https://github.com/freeCodeCamp/how-to-contribute-to-open-source "How to contribute to open source")
+1. [How to contribute on GitHub](https://www.dataschool.io/how-to-contribute-on-github/ "Step-by-step guide to contributing on GitHub")
+1. [Contributing to MDN](https://developer.mozilla.org/en-US/docs/MDN/Contribute "Contributing to MDN")
+1. [Hostinger: Basic GIT Commands](https://www.hostinger.com/tutorials/basic-git-commands "Basic GIT Commands")
+1. [Frequently used Git Commands](https://codeburst.io/git-tutorial-a-beginners-guide-to-most-frequently-used-git-commands-2ab92bd22787 "Frequently used Git Commands")
 1. [Atlassian Git Tutorial](https://www.atlassian.com/git/tutorials)
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
@@ -799,7 +807,7 @@ To search for a gist on GitHub: `https://gist.github.com/username/`
 
 ## Final notes
 
-I may have errors or incorrect usage of commands in this file. I'll fix them as I find them. Or contact me and let me know what needs to be changed at [Kernix Web Design](https://kernixwebdesign.com/contact/ 'Contact page').
+I may have errors or incorrect usage of commands in this file. I'll fix them as I find them. Or contact me and let me know what needs to be changed at [Kernix Web Design](https://kernixwebdesign.com/contact/ "Contact page").
 
 I am also looking to find 3-4 entry-level designers and developers to start a project or two. I have some ideas about how we can help each other land a job!
 
@@ -822,7 +830,7 @@ To-Do List:
 
 Here are some common terms. These notes are from git, MDN, and other sources:
 
-1. **`upstream`**: the primary *branch* on the original repository; where you cloned the repo from.
+1. **`upstream`**: the primary _branch_ on the original repository; where you cloned the repo from.
 1. **`origin`**: The default upstream repository - a reference to the remote repository from where a project was initially cloned.
 1. **`remote` / `remote repository`**: the version of a repository or branch that is hosted on a server (like GitHub), a shared repository that all team members use to exchange their changes.
 1. **`fetch`**: adding changes from the remote repository to your local working branch without committing them.
