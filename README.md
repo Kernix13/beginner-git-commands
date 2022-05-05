@@ -722,7 +722,6 @@ git rm –cached filename
 git merge --abort
 git diff filename.ext
 git fetch
-clear, q, Q, exit, ESC, :WQ, ENTER, pwd (command-line commands)
 ```
 
 Here are some command prompt commands you may need: `clear`, `q`, `Q`, `exit`, `ESC`, `:WQ`, `ENTER`, `pwd`, <kbd>CTRL</kbd>+<kbd>C</kbd>.
