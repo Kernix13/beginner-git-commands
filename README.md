@@ -322,8 +322,11 @@ New commands in detail (`git` removed for brevity):
 | checkout -b new_branch | Creates then switches to new_branch                     |
 | merge new_branch       | Merges 2 branches locally                               |
 | diff new_branch        | To check the differences between the two before merging |
+| push origin new_branch | push just the branch with the changes                   |
 
 After you merge your branck into main/master, push the master branch up to github as you normally would: `git pus` or `git push origin master`.
+
+If you push the branch with `git push origin new_branch`, back in your repo on GitHub you will see something like "...`new_branch` had recent pushes 2 minutes ago" and a button labeled _Compare and pull request_.
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
