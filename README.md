@@ -292,6 +292,12 @@ From here the commands are a little more involved and are for when you start cre
 
 ## Branches
 
+A branch is a version of your project. `master` is the primary or live or production version of your project `main` is the preferred default name for your production branch.
+
+You usually do not want to commit work-in-process (WIP) code to the master/main branch. Instead, create a new branch for each new feature of your project.
+
+Before you create `new_branch`, you want to make sure that you have a clean working directory (no uncommitted changes). So do `git status` and your other basic push commands before creating a new branch.
+
 Here are common commands you'll often use when working with braches:
 
 ```
@@ -305,16 +311,19 @@ git diff new_branch
 
 For my Git journey, I did not create branches until I started contributing for freeCodeCamp. But if you are going to contrinute then you will have to learn about branches. Eventually you will want to create branches for your own projects.
 
-New commands in detail:
+New commands in detail (`git` removed for brevity):
 
 | _Branch_ Git Commands  | Definition                                              |
 | :--------------------- | :------------------------------------------------------ |
 | branch                 | Shows the branch you are working on                     |
+| branch branch_name     | create a branch_name                                    |
 | branch -a              | Lists all the branch names in your repo                 |
 | checkout branch_name   | Switches to branch_name                                 |
 | checkout -b new_branch | Creates then switches to new_branch                     |
 | merge new_branch       | Merges 2 branches locally                               |
 | diff new_branch        | To check the differences between the two before merging |
+
+After you merge your branck into main/master, push the master branch up to github as you normally would: `git pus` or `git push origin master`.
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
@@ -701,6 +710,12 @@ To have git ignore any files that you do not want to push create a file called `
 index.html
 js/test.js
 notes.txt
+```
+
+If you have a file in that list that you don’t want to commit after `git add .`, to remove a file from the staging area, use:
+
+```git
+git reset path/filename.ext
 ```
 
 To remove git tracking from a folder use the following command in `git bash` or from the command prompt (it does not work in VS Code):
