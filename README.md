@@ -230,7 +230,7 @@ That all works for your repos, but eventually you will want to clone, or fork an
 
 ## Clone an existing repo
 
-For when you want to work on a repo that someone else created. Got to GitHub and create an empty repo, meaning don't initialize it by adding a README file. Then back in Git Bash or VS Code run:
+For when you want to work on a repo that someone else created. Go to GitHub and create an empty repo, meaning don't initialize it by adding a README file. Then back in Git Bash or VS Code run:
 
 ```
 git clone https_url
@@ -242,6 +242,12 @@ You can also clone a specific branch with:
 
 ```
 git clone -branch_name https_url
+```
+
+You can also clone the repo into a folder name that you want to use by adding that parameter to the end of the command:
+
+```
+git clone -branch_name https_url app_folder_name
 ```
 
 The next part is important. Since you did not fork this repo, but instead you want a copy of it to work on for yourself, you need to first push it up to your empty GitHub repo. See the next section for the details on that...
