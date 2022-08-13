@@ -285,9 +285,9 @@ git push -u origin master
 
 > Trying an image divider for visual reasons below the back to top link
 
-<br />
-
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
+
+<br />
 
 <img align="center" src="https://github.com/Kernix13/Kernix13/blob/main/assets/divider-github.png" alt="divider" title="Testing a 16px high gradient PNG image as a divider and spacer, should be 8px maybe and change the gradient colors" />
 
