@@ -109,7 +109,7 @@ git push -u origin master
 | `branch -M main`     | Changes default branch to 'main' (optional)                                     |
 | push -u origin main  | Push changes to and sets remote                                                 |
 | push                 | Push changes after upstream is set                                              |
-| push origin main     | Used for 1st push if `-u` flad was not used                                     |
+| push origin main     | Used for 1st push if `-u` flag was not used                                     |
 | `-u`                 | Parameter short for `upstream`                                                  |
 | `upstream`           | the primary _branch_ on the original repository; where you cloned the repo from |
 
@@ -121,7 +121,7 @@ The command `git remote add origin https_url` connects the local repository to a
 
 The `git push` command is used to send local commits to the master (or main) branch of the remote repository. But to use `git push` in the future you have to set something called an _upstream_, meaning where you want to push it to by default. That is why you use `-u`. The whole command `git push -u origin master` pushes your commits and sets the branch `master` as the origin for the location of `git push` in the future.
 
-Replace `master` with the branch where you want to push your changes when you’re _not_ intending to push to the master branch (See the Branch section).
+The keyword `origin` means the branch you want to push to. Replace `master` with the branch where you want to push your changes when you’re _not_ intending to push to the master branch (See the Branch section).
 
 **NOTE**: You can add a second `-m` flag to your commit command to add a description:
 
@@ -155,6 +155,8 @@ git push
 ```
 
 **Note**: I'll repeat this again: You need to use `git push -u origin master` for the first commit. After that just use `git push`. Although I believe you can still use `git push origin master` and it won't have a negative effect it's just unnecessary.
+
+Also, the flag `-u` is not needed if you are pushing to the default branch. And `-u` is short for `--set-upstream` which is what you would use when you are pushing a branch you created locally for the first time. By using that flag you set that as the default when you push the main or other branch to GitHub.
 
 Also, I use `git status` as a habit to check the status of the files, though that command is not required. But it's good practice if you created a new file and decide to use `git commit -am "msg"` which combines add (`a`) amd message (`m`).
 
@@ -386,6 +388,8 @@ Remember, you push the changes for your branch _from_ your branch, not from `mas
 
 Then back on your repo main page you should see the **Compare & Pull Request** button. Clicking it takes you to a page titled "_Open a pull request_" where you can add a description. Then click the "_Create pull request_" button. That takes you to the "_Pull requests_" tab where you can click the _Merge pull request_ button and click _Confirm merge_ if you are done, or you can continue to push changes from your branch.
 
+If you have multiple commits for that branch, select _Squash and merge_ option from the dropdown list under _Compare and merge_. You can also click on the Files changed tab, and click the `+` button that appears when you hover over the code, and make a comment on a line of code. You can add a description for the comment and also click the "Resolve conversation" button. Or click Merge pull request.
+
 **Note**: A PR from your branch to the master branch is a request to have your code merged with the master branch. You can, and should (see below), delete your branch when your code/changes are merged.
 
 If you go back to your local project and switch to master, the changes won’t be there because they are only on GitHub and you need to pull them down to your local machine. To pull changes from GitHub to your machine use:
@@ -395,6 +399,8 @@ git pull origin master
 ```
 
 Or just `git pull` if you set the upstream already. **Make sure you are on the master branch**. What `git pull` does is merge all the changes present in the remote repository to the local working directory (See the section [Staying up to date](#staying-up-to-date)).
+
+**NOTE**: Do `git status` to check the status of your local repo but it should also show a message of `Your branch is up to date with 'origin/master'` if you have the default set as the origin.
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
@@ -434,6 +440,11 @@ So don't merge until you are done making changes and push the changes. Or don't 
 Once the PR is merged, you generally delete your branch and switch back to the master branch. To delete a branch use:
 
 ```sh
+# check the branch you are on:
+git branch
+# checkout to master if not on master
+git checkout master
+# delete the new branch that you pushed and merged
 git branch -d branch_name
 ```
 
@@ -466,6 +477,8 @@ git fetch -p
 From freeCodeCamp, here is what the `-p` flag does:
 
 > The `-p` flag means "prune". After fetching, branches which no longer exist on the remote will be deleted.
+
+Double-check that the branch is gone with `git branch`.
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 

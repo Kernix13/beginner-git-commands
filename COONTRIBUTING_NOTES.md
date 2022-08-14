@@ -6,23 +6,25 @@ Notes for the [contrast-ratio-repo](https://github.com/DBenMoshe/contrast-ratio-
 
 Summary of most important points:
 
-General and Workflow:
+**<ins>General and Workflow</ins>**:
 
-- Assign yourself to open issues
-- Reviews: you should see a dropdown list of everyone
-- Update your local main branch with `git pull`
-- Resolve conversation button (?)
+1. New features will be added on the discussions tab
+1. Then it will be broken into issues for people to pick up and work on
+1. Assign yourself to open issues
+1. Once you pick up an issue, make sure to create a new branch
+1. Request a review so changes can be requested, followed by approval to merge with main/master.
+1. Reviews: you should see a dropdown list of everyone
+1. Then you will need to push your changes to github and create a new PR.
+1. Make sure to link the issue you are working on to that PR
+1. Once you PR is merged, you are free to delete the branch from both the remote and local repos.
+1. Resolve conversation button (?)
+
+Git specific:
+
 - `--set-upstream` adds the local branch you were working on to the remote repo. Setting that up will allow git to track those changes and allow you to push commits to that branch
 - You only need to use that command the first time you create a new branch and push it up to github. After that, you can just use `git push`
-- New features will be added on the discussions tab
-- Then it will be broken into issues for people to pick up and work on
-- Once you pick up an issue, make sure to create a new branch
-- Then you will need to push your changes to github and create a new PR.
-- Then request a review so we can requests changes and approve it so it can be merged into main.
-- Also make sure to link the issue you are working on to that PR
-- Once you PR is merged, you are free to delete the branch from both the remote and local repos.
 - Then make sure to update your main branch locally by using `git pull`.
-- You can also update your main branch using `git fetch` && `git rebase`.
+- You can also update your main branch using `git fetch` or `git rebase`.
 
 Branching, PR's and Issues
 
