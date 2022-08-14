@@ -11,9 +11,10 @@ Summary of most important points:
 1. New features will be added on the discussions tab
 1. Then it will be broken into issues for people to pick up and work on
 1. Assign yourself to open issues
-1. Once you pick up an issue, make sure to create a new branch
-1. Request a review so changes can be requested, followed by approval to merge with main/master.
 1. Reviews: you should see a dropdown list of everyone
+1. Request a reviewer(s) so changes can be requested, followed by approval to merge with main/master.
+1. Add a `label` to the issue to give more information about the issue
+1. Once you pick up an issue, make sure to create a new branch
 1. Then you will need to push your changes to github and create a new PR.
 1. Make sure to link the issue you are working on to that PR
 1. Once you PR is merged, you are free to delete the branch from both the remote and local repos.

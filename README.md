@@ -41,6 +41,8 @@ Section B:
    1. [Staying up to date](#staying-up-to-date)
    1. [Handling merge conflicts](#handling-merge-conflicts)
 1. [Miscellaneous git commands](#miscellaneous-git-commands)
+   1. [gitignore](#gitignore)
+   1. [Mistakes](#mistakes)
 1. [Reference links](#reference-links)
 1. [Final notes](#final-notes)
    1. [Terminology](#terminology)
@@ -158,7 +160,7 @@ git push
 
 Also, the flag `-u` is not needed if you are pushing to the default branch. And `-u` is short for `--set-upstream` which is what you would use when you are pushing a branch you created locally for the first time. By using that flag you set that as the default when you push the main or other branch to GitHub.
 
-Also, I use `git status` as a habit to check the status of the files, though that command is not required. But it's good practice if you created a new file and decide to use `git commit -am "msg"` which combines add (`a`) amd message (`m`).
+Also, I use `git status` as a habit to check the status of the files, though that command is not required. If you modified an existing file you can use `git commit -am "msg"` which combines **_add_** (`a`) amd **_message_** (`m`).
 
 These commands work for me when pushing to a repo I created without a README file. If you have a README file, then you will get an error when trying to push, so you'll have to do a `git pull` command to pull the README to your local repo then you can use `git push`.
 
@@ -182,7 +184,7 @@ Commands in detail:
 | Push changes to remote        |       push -u origin master | push -u origin master       |
 | Recurring pushes              |                        push | push                        |
 
-NOTE: You can add your files to staging and commit them in one command with the `-am` flag with the `commit` command, skipping the `add` command:
+NOTE: You can add your files to staging and commit them in one command with the `-am` flag with the `commit` command:
 
 ```bash
 git commit -am "Commit message"
@@ -725,11 +727,13 @@ git merge upstream/master
 
 So run `git merge upstream/master` every time before making your changes and doing a push. That will ensure you always have the latest state of `master` locally.
 
+The main thing to know is that the master branch will most likely updated regularly as you are working on your branch. You will want to pull those changes down to your local master branch. Then you will want to checkout to your branch and use `git merge master` to keep your branch up to date with what is going on with master. This is where you may get a merge conflict.
+
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
 <h3 id="handling-merge-conflicts">&#10551; Handling merge conflicts</h3>
 
-I'm a little fuzzy on this process.
+I'm a little fuzzy on this process. There are a few of ways to handle merge conflicts: 1) on Github, 2) in your terminal, or 3) the easiest is directly in your code.
 
 Read more here: [Conflicts on a pull request](https://github.com/freeCodeCamp/freeCodeCamp/blob/main/docs/how-to-setup-freecodecamp-locally.md#making-changes-locally "Making changes locally").
 
@@ -737,7 +741,7 @@ A merge conflict is when 2 or more people change the same code/content but with 
 
 But if you did ad there was a conflict, in VS Code you will see something like:
 
-```
+```sh
 <<<<<<< HEAD (Current Change)
 <p>some change here</p>
 =======
@@ -756,6 +760,8 @@ Where `HEAD` is your current branch, usually main/master. Once again, this would
 
 ## Miscellaneous git commands
 
+### gitignore
+
 To have git ignore any files that you do not want to push create a file called `.gitignore` and add the paths and file names for those files:
 
 ```git
@@ -764,13 +770,26 @@ js/test.js
 notes.txt
 ```
 
-If you have a file in that list that you don’t want to commit after `git add .`, to remove a file from the staging area, use:
+For large repositories, this file will have a lot of entries. And for some npm commands like `npx create-react-app` this file will be created for you.
+
+### Mistakes
+
+**Undo Staging**: If you accidentally added a file with `git add .`, to remove it from the staging area, use:
 
 ```sh
+# without arguments
+git reset
+# with filename and optional path
 git reset path/filename.ext
 ```
 
-To remove git tracking from a folder use the following command in `git bash`, the command prompt or in VS Code:
+**Undo a Commit**: Use use `git reset` again but include `HEAD` which means the last commit. But to undo the last coomit add `~1` to go back 1 commit past the last commit which will undo the last commit:
+
+```sh
+git reset HEAD~1
+```
+
+**Remove Git**: To remove git tracking from a folder use the following command in `git bash`, the command prompt or in VS Code:
 
 `rm -rf .git`
 
@@ -779,7 +798,6 @@ Here is an interesting one: `gitk` shows the graphical interface for a local rep
 Here are variations of some of the commands above or common ones you may see:
 
 ```sh
-git commit -am "message"
 git log
 git add -A
 git add *.ext
@@ -800,8 +818,6 @@ git push -f
 git reflog
 git archive
 git prune
-git reset
-git reset filename.ext
 git reset HEAD
 git revert id
 git config -l
