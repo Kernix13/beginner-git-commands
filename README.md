@@ -409,7 +409,7 @@ If you continue working on your branch, you can't just checkout to `master` or s
 
 The `stash` command is an advanced command IMO, so run `git add .` and `git commit -m "message"` before switching to a different branch.
 
-**NOTE**: I did that, switched back to my branch, then ran `git push` and there was nothing on my Github page? I'm not sure why, but you do not get a message for pull requests after you click the "_Create pull request_" button...
+**NOTE**: I did that, switched back to my branch, then ran `git push` and there was nothing on my Github page? I'm not sure why, but you do not get a message for pull requests after you click the "_Create pull request_" button...(Double check that)
 
 <br>
 
@@ -419,7 +419,7 @@ The `stash` command is an advanced command IMO, so run `git add .` and `git comm
 
 So don't merge until you are done making changes and push the changes. Or don't push until you are done with the branch!
 
-> These notes are questionable. There is a drop-down list with the option of **Squash and merge** so you can keep working on your branch after pushing.
+> These notes are questionable. There is a drop-down list with the option of **Squash and merge** so you can keep working on your branch after pushing. Keep pushing on the same branch until you are done.
 
 <br>
 
@@ -476,7 +476,7 @@ To fork a repo, go to the repository main page, then click the `Fork` button to 
 
 After you fork a repo, open up a terminal with Git Bash and navigate to the folder where you want the cloned repo. Then enter the following commands:
 
-```sh
+```bash
 git clone --depth=1 https://github.com/User_Name/freeCodeCamp
 cd folder-name
 ```
