@@ -2,20 +2,22 @@
 
 The basic steps you need in the beginning are:
 
-- Download and setup Git (one time ony)
-- Create an empty repo on GitHub
-- Initialize Git in a project folder
-- Make changes or create a file
-- Add the changes to staging then commit the changes
-- Push your changes or project files to your empty repo
+1. Download and install Git (one time ony)
+1. Create an empty repo on GitHub
+1. Initialize Git in a project folder
+1. Make changes or create a file
+1. Add the changes to staging then commit the changes
+1. Push your changes or project files to your empty repo
 
-If you created any files on Github, then you will have to use `git pull` before you can do a `git push`. So in the beginning, don't create any files or make changes to existing files on GitHub.
+If you created any files on Github, then you will have to use `git pull` before you can do a `git push`. So in the beginning, don't create any files on GitHub.
 
 <a id="back-to-top"></a>
 
 <p>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</p>
 
 ## Table of contents
+
+Section A:
 
 1. [Download and setup Git](#download-and-setup-git)
 1. [Pushing your local files to an empty repo](#pushing-your-local-files-to-an-empty-repo)
@@ -55,7 +57,7 @@ Check out this video from the YouTube channel LearnWebCode: [Git Tutorial Part 3
 
 Ater downloading Git, open the `.exe` file in your downloads folder. Then find Git Bash and open it. For me on Windows, there was a Git folder in my Start ment and Git bash was in there. Open it and in the command prompt that opens enter the following commands:
 
-```
+```bash
 git config --global user.name "Github user name"
 git config --global user.email "youremail@somewhere.com"
 ```
@@ -68,13 +70,13 @@ Some people mention using an SSH key to validate your identity. An SSH key is an
 
 Also, try the following command to see all the configuration settings:
 
-```
+```bash
 git config --list
 ```
 
 Run that command and scroll down and look for `user.name="Yourname"` and `user.email="your-email@whatevs.com"`, though until you set those values you either will not see those fields or they will be set to empty strings.
 
-> As of August 12th, 2022 I do not see the values with that command (?)
+> As of August 12th, 2022 I do not see the values with that command (?). Not in VS Code, Git Bash or the Windows Command Prompt.
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
@@ -84,9 +86,9 @@ Run that command and scroll down and look for `user.name="Yourname"` and `user.e
 
 Here are the commands followed by a brief definition. Make sure to know these because they are used for other sections in this file. By the way, you need to make changes to your files or create a file before running `git add .` unless you already have files in your project folder.
 
-Go to GitHub and create an empty repo, meaning don't initialize it by adding a README file. Then back in Git Bash or VS Code run:
+Go to GitHub and create an empty repo, meaning no README file. Then back in Git Bash or VS Code run:
 
-```
+```bash
 git init
 git add .
 git commit -m "First commit"
@@ -139,7 +141,7 @@ Replace `master` with the branch where you want to push your changes when you’
 
 Now your local repo is connected to your remote repo on Github. After making some changes or creating new files use:
 
-```
+```bash
 git add .
 git status
 git commit -m "Created README file"
@@ -174,7 +176,7 @@ Commands in detail:
 
 NOTE: You can add your files to staging and commit them in one command with the `-am` flag with the `commit` command, skipping the `add` command:
 
-```
+```bash
 git commit -am "Commit message"
 ```
 
@@ -186,7 +188,7 @@ git commit -am "Commit message"
 
 Why would you do this? Use this when you created a repo and added a file on GitHub like a README.md file. Or if for some reason you have a commit and issues history that you want to copy, though who would have that? Regardless, the process is almost identical to cloning a repo that is not yours:
 
-```
+```sh
 git clone https_url
 cd folder_name
 git remote -v
@@ -213,7 +215,7 @@ Use `git remote -v` to list the remote repository that is connected to this proj
 
 Then make some changes and run the standard commands:
 
-```
+```sh
 git status
 git add .
 git commit -m "First commit"
@@ -232,7 +234,7 @@ That all works for your repos, but eventually you will want to clone, or fork an
 
 For when you want to work on a repo that someone else created. Go to GitHub and create an empty repo. Then back in Git Bash or VS Code run:
 
-```
+```sh
 git clone https_url
 cd folder_name
 git remote -v
@@ -240,13 +242,13 @@ git remote -v
 
 You can also clone a specific branch with:
 
-```
+```sh
 git clone -branch_name https_url
 ```
 
 You can also clone the repo into a folder name that you want to use by adding that parameter to the end of the command:
 
-```
+```sh
 git clone https_url app_folder_name
 ```
 
@@ -260,7 +262,7 @@ Because you cloned this repo from an existing repo, git will try to push it to i
 
 That is fine if you are contributing, otherwise you need to update the address. Copy the **https_url** from the overview page for the repo you created for the clone, then use:
 
-```
+```sh
 git remote set-url origin https_url
 git remote -v
 ```
@@ -271,13 +273,13 @@ Now git knows that the origin is your repo. Using `git remote -v` again is to ch
 
 Then to push the cloned repo files to _your_ repo use:
 
-```
+```sh
 git push origin master
 ```
 
 Where `origin` stands for the default branch of your repo.. Then after making changes use:
 
-```
+```sh
 git add .
 git commit -m "First commit"
 git push -u origin master
@@ -298,7 +300,7 @@ From here the commands are a little more involved and are for when you start cre
 
 ## Branches
 
-A branch is a version of your project. `master` is the primary or live or production version of your project `main` is the preferred default name for your production branch.
+A branch is a version of your project. `master` or `main` is the primary or live or production version of your project. `main` is the preferred default name for your production branch.
 
 You usually do not want to commit work-in-process (WIP) code to the master/main branch. Instead, create a new branch for each new feature of your project.
 
@@ -306,7 +308,7 @@ Before you create `new_branch`, you want to make sure that you have a clean work
 
 Here are common commands you'll often use when working with braches:
 
-```
+```sh
 git branch
 git branch -a
 git checkout branch_name
@@ -315,7 +317,7 @@ git merge new_branch
 git diff new_branch
 ```
 
-For my Git journey, I did not create branches until I started contributing for freeCodeCamp. But if you are going to contrinute then you will have to learn about branches. Eventually you will want to create branches for your own projects.
+I did not create branches until I started contributing for _freeCodeCamp_. If you are going to contrinute then you will have to learn about branches. Eventually you will want to create branches for your own projects.
 
 New commands in detail (`git` removed for brevity):
 
@@ -344,7 +346,7 @@ You can merge branches locally, but more commonly you will push the changes to G
 
 For a new branch, `git push` won't work because git doesn't know what branch you are pushing to, so run:
 
-```
+```sh
 git push --set-upstream origin branch_name
 ```
 
@@ -352,7 +354,7 @@ git push --set-upstream origin branch_name
 
 Then after setting the upstream for your new branch you can do the usual:
 
-```
+```sh
 git add .
 git commit -m "fixes on new_branch"
 git push
@@ -366,7 +368,7 @@ Then back on your repo main page you should see the **Compare & Pull Request** b
 
 If you go back to your local project and switch to master, the changes won’t be there because they are only on GitHub and you need to pull them down to your local machine. To pull changes from GitHub to your machine use:
 
-```
+```sh
 git pull origin master
 ```
 
@@ -401,7 +403,7 @@ The `stash` command is an advanced command IMO, so run `git add .` and `git comm
 
 So don't merge until you are done making changes and push the changes. Or don't push until you are done with the branch!
 
-> These notes are questionable. There is a drop-down list with the option of Squash and merge so you can keep working on your branch after pushing.
+> These notes are questionable. There is a drop-down list with the option of **Squash and merge** so you can keep working on your branch after pushing.
 
 <br>
 
@@ -409,7 +411,7 @@ So don't merge until you are done making changes and push the changes. Or don't 
 
 Once the PR is merged, you generally delete your branch and switch back to the master branch. To delete a branch use:
 
-```
+```sh
 git branch -d branch_name
 ```
 
@@ -420,7 +422,7 @@ If you get this error when trying to delete a branch:
 
 It's probably because something in your local branch has not actually made it to the remote repository. To find out what commits have not been merged from your source branch to a target branch run:
 
-```
+```sh
 git log branch_name --not main
 ```
 
