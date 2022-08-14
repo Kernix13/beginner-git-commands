@@ -789,9 +789,26 @@ git reset path/filename.ext
 git reset HEAD~1
 ```
 
+But what if you want to go back a number of commits or to a specific commit. First use `git log` which gives you a list of your commits in reverse chronological order. You can scroll down the log with SPACEBAR.
+
+You will see the commit hash and the commit message along with other information. To go back to a specific commit, use the hash for it:
+
+```sh
+# use git reset HASH:
+git reset e220bfb1e34b8c6b6fce1deb7884244239284716
+```
+
+That will unstage any changes made to the file(s) AFTER that commit. The changes will be in your files but they will not be saved into git any more. But how do you get rid of all the changes after a certain point? USe the same command but add the flag `--hard`:
+
+```sh
+git reset --hard e220bfb1e34b8c6b6fce1deb7884244239284716
+```
+
 **Remove Git**: To remove git tracking from a folder use the following command in `git bash`, the command prompt or in VS Code:
 
-`rm -rf .git`
+```sh
+rm -rf .git
+```
 
 Here is an interesting one: `gitk` shows the graphical interface for a local repository.
 
