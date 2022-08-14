@@ -324,7 +324,7 @@ New commands in detail (`git` removed for brevity):
 | _Branch_ Git Commands  | Definition                                              |
 | :--------------------- | :------------------------------------------------------ |
 | branch                 | Shows the branch you are working on                     |
-| branch branch_name     | create a branch_name                                    |
+| branch branch_name     | create branch_name                                      |
 | branch -a              | Lists all the branch names in your repo                 |
 | checkout branch_name   | Switches to branch_name                                 |
 | checkout -b new_branch | Creates then switches to new_branch                     |
@@ -332,11 +332,27 @@ New commands in detail (`git` removed for brevity):
 | diff new_branch        | To check the differences between the two before merging |
 | push origin new_branch | push just the branch with the changes                   |
 
-After you merge your branck into main/master, push the master branch up to github as you normally would: `git pus` or `git push origin master`.
+After you merge your branck into main/master, push the master branch up to github as you normally would: `git push origin master` or `git push`.
+
+> I think that is wrong. Merging into master is a local merge. I had problems doing that.
 
 If you push the branch with `git push origin new_branch`, back in your repo on GitHub you will see something like "...`new_branch` had recent pushes 2 minutes ago" and a button labeled _Compare and pull request_.
 
-Miscellaneous (not sure what this is): `git branch --sort=-committerdate # DESC` and `git branch -r --sort=-committerdate # DESC` where the flag `-r` is for just remotes
+Miscellaneous (not sure what this is): `git branch --sort=-committerdate # DESC` and `git branch -r --sort=-committerdate # DESC` where the flag `-r` is for just remotes.
+
+Recap:
+
+```sh
+# check what branch you are on
+git branch
+# create new branch
+git checkout -b new_branch
+# make changes, add, commit, push
+git status
+git add .
+git commit -m "commit msg"
+git push --set-upstream origin new_branch
+```
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
@@ -430,14 +446,14 @@ That will show you what has been changed and what has not been pushed to main (o
 
 It appears that after the PR from your branch has been merged and you _do not_ delete it, there is not a way to delete it from GitHub. When that happens run:
 
-```
-// delete branch remotely
+```sh
+#  delete branch remotely
 git push origin --delete branch_name
 ```
 
 When you create a branch, push the changes, merge it into master, then delete it from GitHub, locally the branch will show when you run `git branch -a` even after you delete it. To get rid of the local branch use:
 
-```
+```sh
 git fetch -p
 ```
 
@@ -460,14 +476,14 @@ To fork a repo, go to the repository main page, then click the `Fork` button to 
 
 After you fork a repo, open up a terminal with Git Bash and navigate to the folder where you want the cloned repo. Then enter the following commands:
 
-```
+```sh
 git clone --depth=1 https://github.com/User_Name/freeCodeCamp
 cd folder-name
 ```
 
 Next, add a remote reference to the main freeCodeCamp repo, or whatever repo you are cloning after forking, then check the configuration:
 
-```
+```sh
 git remote add upstream https://github.com/freeCodeCamp/freeCodeCamp.git
 git remote -v
 ```
@@ -479,7 +495,7 @@ Then use `git status` and `git checkout main` if not on main. Next:
 1. Push your main branch to your origin to have a clean history on your fork on GitHub,
 1. And validate your current main matches the upstream/main by performing a diff:
 
-```
+```sh
 git fetch upstream
 git reset --hard upstream/main
 git push origin main --force
@@ -496,7 +512,7 @@ Finally:
 1. Create a new branch for your contributions, make your changes then
 1. Check the status, add your changes, check status again, commit the changes, and then push the changes:
 
-```
+```sh
 git branch
 git checkout -b fix/something-here
 git status
@@ -529,7 +545,7 @@ New commands in detail:
 
 MY FINAL COMMANDS (clone, fetch, push):
 
-```
+```sh
 git clone --depth=1 https_url
 git remote add upstream https_url
 git fetch upstream
@@ -539,7 +555,7 @@ git push origin main
 
 THEN: create branch, make changes, and push them
 
-```
+```sh
 git checkout -b fix/branch-name
 git add .
 git commit -m "short description"
@@ -548,7 +564,7 @@ git push --set-upstream origin fix/branch-name
 
 Use that last `git push` only for the first time, then use `git push origin fix/something-typos`. Here is the last command AFTER you set the upstream:
 
-```
+```sh
 git push origin fix/branch-name
 ```
 
@@ -673,14 +689,14 @@ Then you will get a message that you can delete your local branch - do that.
 
 Once you are done with your PR and start to work on something else, the repo has most likely had changes by other contributors so your copy is behind. You need to update your local copy of the repo before making new changes:
 
-```
+```sh
 git checkout master
 git pull upstream master
 ```
 
 I actually use `git fetch upstream` to update my local clone. I'm not sure if `git pull upstream master` is better or not. However, I had a PR fail because I was missing a command. `git fetch upstream` will only fetch the git data. To update your main fully, you should:
 
-```
+```sh
 git checkout master
 git fetch upstream
 git merge upstream/master
@@ -700,7 +716,7 @@ A merge conflict is when 2 or more people change the same code/content but with 
 
 But if you did ad there was a conflict, in VS Code you will see something like:
 
-```git
+```
 <<<<<<< HEAD (Current Change)
 <p>some change here</p>
 =======
@@ -721,7 +737,7 @@ Where `HEAD` is your current branch, usually main/master. Once again, this would
 
 To have git ignore any files that you do not want to push create a file called `.gitignore` and add the paths and file names for those files:
 
-```
+```git
 index.html
 js/test.js
 notes.txt
@@ -729,7 +745,7 @@ notes.txt
 
 If you have a file in that list that you don’t want to commit after `git add .`, to remove a file from the staging area, use:
 
-```git
+```sh
 git reset path/filename.ext
 ```
 
@@ -741,7 +757,7 @@ Here is an interesting one: `gitk` shows the graphical interface for a local rep
 
 Here are variations of some of the commands above or common ones you may see:
 
-```
+```sh
 git commit -am "message"
 git log
 git add -A
@@ -758,7 +774,7 @@ Here are some command prompt commands you may need: `clear`, `q`, `Q`, `exit`, `
 
 I am not sure what these commands do, mostly because I believe these are advanced git commands but I have either used them with help from other people, or they are from my many pages of git notes:
 
-```
+```sh
 git push -f
 git reflog
 git archive
@@ -790,7 +806,7 @@ Reference logs record everything you do with your local branch. Use `git reflog`
 
 I had to run the following to fix one of my mistakes:
 
-```
+```sh
 git checkout fix/some-branch-name
 git fetch upstream
 git rebase -i upstream/main
@@ -799,8 +815,8 @@ git push -f
 
 Is this how you add a description?
 
-```
-git commit -m "Title" -m "Description ..........";
+```sh
+git commit -m "Title" -m "Description .........."
 ```
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
