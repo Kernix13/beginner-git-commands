@@ -64,7 +64,7 @@ The `git config` command is used initially to configure the `user.name` and `use
 
 The `--global` flag tells Git that you're going to use the email above for all repos on your computer. Replace that with `--local` to use different emails for different repos.
 
-Some people mention using an SSH key to validate your identity. I found that a little confusing so I prefer the method above.
+Some people mention using an SSH key to validate your identity. An SSH key is another way to identify yourself to Github instead of using a username and password. I found that a little confusing so I prefer using username and password.
 
 Also, try the following command to see all the configuration settings:
 
@@ -283,8 +283,6 @@ git commit -m "First commit"
 git push -u origin master
 ```
 
-> Trying an image divider for visual reasons below the back to top link
-
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
 <br />
@@ -335,6 +333,8 @@ New commands in detail (`git` removed for brevity):
 After you merge your branck into main/master, push the master branch up to github as you normally would: `git pus` or `git push origin master`.
 
 If you push the branch with `git push origin new_branch`, back in your repo on GitHub you will see something like "...`new_branch` had recent pushes 2 minutes ago" and a button labeled _Compare and pull request_.
+
+Miscellaneous (not sure what this is): `git branch --sort=-committerdate # DESC` and `git branch -r --sort=-committerdate # DESC` where the flag `-r` is for just remotes
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
