@@ -104,9 +104,9 @@ git push -u origin master
 | init                 | Initiates git tracking                                                          |
 | status               | Checks the status of your changes/state                                         |
 | add .                | Adds **_ALL_** (.) changes to staging                                           |
-| commit               | Saves changes to local machine                                                  |
+| commit -m "msg"      | Saves changes to local machine                                                  |
 | remote add origin    | Adds URL as remote repo location                                                |
-| `branch -M main`     | Changes default branch to 'main' (this is optional)                             |
+| `branch -M main`     | Changes default branch to 'main' (optional)                                     |
 | push -u origin main  | Push changes to and sets remote                                                 |
 | push                 | Push changes after upstream is set                                              |
 | push origin main     | Used for 1st push if `-u` flad was not used                                     |
@@ -122,6 +122,12 @@ The command `git remote add origin https_url` connects the local repository to a
 The `git push` command is used to send local commits to the master (or main) branch of the remote repository. But to use `git push` in the future you have to set something called an _upstream_, meaning where you want to push it to by default. That is why you use `-u`. The whole command `git push -u origin master` pushes your commits and sets the branch `master` as the origin for the location of `git push` in the future.
 
 Replace `master` with the branch where you want to push your changes when you’re _not_ intending to push to the master branch (See the Branch section).
+
+**NOTE**: You can add a second `-m` flag to your commit command to add a description:
+
+```sh
+git commit -m "commit msg" -m "commit description"
+```
 
 **NOTE**: When you create an empty repo on GitHub, I believe it's best practice to use the same name on GitHub for the folder of your local copy, though you can still push if the names do not match.
 
@@ -485,6 +491,7 @@ Next, add a remote reference to the main freeCodeCamp repo, or whatever repo you
 
 ```sh
 git remote add upstream https://github.com/freeCodeCamp/freeCodeCamp.git
+# check the location
 git remote -v
 ```
 
@@ -519,6 +526,7 @@ git status
 git add .
 git status
 git commit -m "short description"
+# shouldn't it be --set-upstream?
 git push origin fix/something-here
 ```
 
