@@ -1,6 +1,6 @@
 # Beginner Git commands
 
-Below are the commands a beginner will need to use git. Check out [INTERMEDIATE_GIT.md]() for more advanced git commands. The basic steps you need in the beginning are:
+Below are the commands a beginner will need to use git. Check out [INTERMEDIATE_GIT.md](https://github.com/Kernix13/beginner-git-commands/blob/master/INTERMEDIATE_GIT.md) for more advanced git commands. The basic steps you need in the beginning are:
 
 1. Download and install Git (one time ony)
 1. Create an empty repo on GitHub
