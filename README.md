@@ -762,15 +762,136 @@ Where `HEAD` is your current branch, usually main/master. Once again, this would
 
 ### gitignore
 
-To have git ignore any files that you do not want to push create a file called `.gitignore` and add the paths and file names for those files:
+To have git ignore any files that you do not want to push, create a file called `.gitignore` in the root of your project file. Add the paths and file names for those files:
 
 ```git
 index.html
 js/test.js
-notes.txt
 ```
 
-For large repositories, this file will have a lot of entries. And for some npm commands like `npx create-react-app` this file will be created for you.
+For large repositories, this file will have a lot of entries. For some npm commands like `npx create-react-app` this file will be created for you. Here is the ignore file from a project where I used that command:
+
+```sh
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# production
+/build
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+```
+
+Here is an example of a basic gitignore file. You want to always add `node_modules` even if you have not added any NPM packages. You might in the future and accidentally push that folder:
+
+```sh
+# Packages
+node_modules
+
+# Ignore /build and docs directories
+/build
+docs/
+
+# Numerous always-ignore extensions
+*.diff
+*.err
+*.orig
+*.log
+*.rej
+*.swo
+*.swp
+*.vi
+*~
+*.sass-cache
+
+# ignore all files starting with . or ~
+.*
+~*
+
+# ignore composer vendor directory
+/vendor
+
+# ignore Editor files
+*.sublime-project
+*.sublime-workspace
+*.komodoproject
+
+# ignore log files and databases
+*.log
+*.sql
+*.sqlite
+
+# ignore compiled files
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# ignore packaged files
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# ignore private/secret files
+*.der
+*.key
+*.pem
+
+# track these files, if they exist
+!.editorconfig
+!.env.example
+!.gitignore
+!.nvmrc
+!.phpcs.xml.dist
+```
+
+That's a lot. Try this as a beginner template:
+
+```sh
+# Dependencies
+node_modules
+
+# Production and other folders
+/build
+/dist
+
+### VisualStudioCode ###
+.vscode/*
+
+# Windows thumbnail cache files
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+
+# Numerous always-ignore extensions
+*.diff
+*.env
+*.err
+*.log
+*.sass-cache
+*.tmp
+```
 
 ### Mistakes
 
