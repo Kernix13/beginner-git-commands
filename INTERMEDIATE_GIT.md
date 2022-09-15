@@ -20,6 +20,8 @@ These are commands that you will encounter when you start contributing to open-s
    1. [gitignore](#gitignore)
    1. [Mistakes](#mistakes)
 1. [Creating a GitHub gist](#creating-a-github-gist)
+   1. [Clone or fork a gist](#clone-or-fork-a-gist)
+   1. [Editing a gist](#editing-a-gist)
 
 ## Intermediate Git Commands
 
