@@ -19,6 +19,7 @@ These are commands that you will encounter when you start contributing to open-s
 1. [Miscellaneous git commands](#miscellaneous-git-commands)
    1. [gitignore](#gitignore)
    1. [Mistakes](#mistakes)
+1. [Creating a GitHub gist](#creating-a-github-gist)
 
 ## Intermediate Git Commands
 
@@ -709,5 +710,48 @@ Is this how you add a description?
 ```sh
 git commit -m "Title" -m "Description .........."
 ```
+
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
+
+## Creating a GitHub gist
+
+**<ins>What is a Gist?</ins>**
+
+They are basically code snippets to save/store and share. Gists do not have Issues, PR's, Projects or Actions. If you have a simple JavaScript function that is not part of a project, then that would be something you could add to its own gist. From Github:
+
+> Every gist is a Git repository, which means that it can be forked and cloned...and you will see it in your list of gists when you navigate to your gist home page. They're also searchable, so you can use them if you'd like other people to find and see your work.
+
+1. Navigate to your [gist home page](https://gist.github.com/) - OR -
+1. Click the down arrow next to your profile image thumbnail > click _New Gist_
+1. Type a description and file name with extension for your gist (you want the extension for code highlighting).
+1. Optionally, you can change the Indent Mode, Indent Size, and if you want it to Wrap or not.
+1. Type the text of your gist into the gist text box
+1. When done Click either `Create secret gist` or `Create public gist`
+
+**NOTE**: For the gist filename just make something up. For example, if you have a JavaScript function that takes a blog post title and converts it to a URL string, then give it a name like `BlogTitleUrl.js`.
+
+Then you can get the Share link for the gist to share with people or to add to an online article. When you choose `Embed` and add the link to an HTML page it will output is a formatted code block (not for all sites though).
+
+You can add code blocks for your gist by clicking _Add file_.
+
+**Public gists** can be found by other users on the Discover page. Just click _All gists_ from the menu bar and they are listed in reverse chronologial order of creation date. You can also search for gists by keywords, add comments on gists you found and have comments on your gists.
+
+**NOTE**: You can create a gist if you are not signed into GitHub but it will be an anonymous gist which you will not be able to edit or delete. I don't know why you would want to do that but you can if you want to.
+
+### Clone or fork a gist
+
+Your options from the dropdown list after creating your gist are to _Embed_, _Share_ or _Clone_ the gist. If you want to clone the gist then in your terminal do:
+
+```shell
+git clone gist_url
+```
+
+If you choose to _fork_ someone else's gist then it will show upon your gist home page similar to how forked repos will show in your repositories.
+
+### Editing a gist
+
+Just click the Edit button while in your gist and edit the code as you see fit. There is also a delete button next to edit if you want to delete your gist.
+
+When done editing click the _Update public gist_ button. Click the _Revisions_ link to see your changes. Remember that your gists are also repositories. You can go pulls and pushes.
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
