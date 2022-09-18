@@ -314,7 +314,7 @@ If you realize that you need to edit a file or update the commit message after m
 
 `git commit --amend`
 
-This will open up a default text editor like `nano` or `vi` where you can edit the commit message title and add/edit the description.
+This will open up a default text editor like `nano` or `vim` where you can edit the commit message title and add/edit the description. I had a hard time figuring out how to quit out of that editor, but I think `CTRL + X` may do it. If that doesn't work try any of the following: `q`, `Q`, `exit`, `ESC`, `:WQ`, `ENTER`, or `CTRL + C`. Hopefully, one of those work.
 
 Here is a comparison of cloning your repo vs. cloning someone else's repo vs. forking then cloning:
 
