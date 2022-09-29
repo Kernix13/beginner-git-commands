@@ -67,14 +67,12 @@ After you merge your branck into main/master, push the master branch up to githu
 
 If you push the branch with `git push origin new_branch`, back in your repo on GitHub you will see something like "...`new_branch` had recent pushes 2 minutes ago" and a button labeled _Compare and pull request_.
 
-Miscellaneous (not sure what this is): `git branch --sort=-committerdate # DESC` and `git branch -r --sort=-committerdate # DESC` where the flag `-r` is for just remotes.
-
 Recap:
 
 ```sh
 # check what branch you are on
 git branch
-# create new branch
+# create and check out to new_branch
 git checkout -b new_branch
 # make changes, add, commit, push
 git status
@@ -82,6 +80,8 @@ git add .
 git commit -m "commit msg"
 git push --set-upstream origin new_branch
 ```
+
+Miscellaneous (not sure what this is): `git branch --sort=-committerdate # DESC` and `git branch -r --sort=-committerdate # DESC` where the flag `-r` is for just remotes.
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
