@@ -81,14 +81,6 @@ git commit -m "commit msg"
 git push --set-upstream origin new_branch
 ```
 
-Miscellaneous (not sure what this is): `git branch --sort=-committerdate # DESC` and `git branch -r --sort=-committerdate # DESC` where the flag `-r` is for just remotes.
-
-<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
-
-<h3 id="pushing-branches-to-your-repository">&#10551; Pushing branches to your repository</h3>
-
-You can merge branches locally, but more commonly you will push the changes to GitHub then make a PR (pull request) whether you are contributing or working on your own project. Make sure you **switch from main/master back to your branch** before doing that!.
-
 For a new branch, `git push` won't work because git doesn't know what branch you are pushing to, so run:
 
 ```sh
@@ -105,23 +97,50 @@ git commit -m "fixes on new_branch"
 git push
 ```
 
+Miscellaneous (not sure what this is): `git branch --sort=-committerdate # DESC` and `git branch -r --sort=-committerdate # DESC` where the flag `-r` is for just remotes.
+
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
+
+<h3 id="pushing-branches-to-your-repository">&#10551; Pushing branches to your repository</h3>
+
+After you push the changes to GitHub you would then make a PR (pull request) whether you are contributing or working on your own project.
+
 Remember, you push the changes for your branch _from_ your branch, not from `master`.
 
-Then back on your repo main page you should see the **Compare & Pull Request** button. Clicking it takes you to a page titled "_Open a pull request_" where you can add a description. Then click the "_Create pull request_" button. That takes you to the "_Pull requests_" tab where you can click the _Merge pull request_ button and click _Confirm merge_ if you are done, or you can continue to push changes from your branch.
+Then back on your repo main page:
 
-If you have multiple commits for that branch, select _Squash and merge_ option from the dropdown list under _Compare and merge_. You can also click on the Files changed tab, and click the `+` button that appears when you hover over the code, and make a comment on a line of code. You can add a description for the comment and also click the "Resolve conversation" button. Or click Merge pull request.
+1. Click the **Compare & Pull Request** button.
+1. Clicking it takes you to a page titled "_Open a pull request_" where you can add a description.
+1. Then click the "_Create pull request_" button.
+1. That takes you to the "_Pull requests_" tab where you can click the _Merge pull request_ button
+1. And finally, click _Confirm merge_ if you are done working on your branch, or you can continue to work and push changes from your branch.
+
+**Squash**:
+
+If you have multiple commits for that branch, select _Squash and merge_ option from the dropdown list under _Compare and merge_.
+
+**Code Comments**:
+
+1. Click on the Files changed tab
+1. Click the `+` button that appears when you hover over the code
+1. Make a comment on a line of code.
+1. You can add a description for the comment and also click the "Resolve conversation" button.
 
 **Note**: A PR from your branch to the master branch is a request to have your code merged with the master branch. You can, and should (see below), delete your branch when your code/changes are merged.
 
 If you go back to your local project and switch to master, the changes won’t be there because they are only on GitHub and you need to pull them down to your local machine. To pull changes from GitHub to your machine use:
 
 ```sh
-git pull origin master
+git pull
 ```
 
-Or just `git pull` if you set the upstream already. **Make sure you are on the master branch**. What `git pull` does is merge all the changes present in the remote repository to the local working directory (See the section [Staying up to date](#staying-up-to-date)).
+Or just `git pull origin master` if you have not set the upstream already.
 
-**NOTE**: Do `git status` to check the status of your local repo but it should also show a message of `Your branch is up to date with 'origin/master'` if you have the default set as the origin.
+> **Make sure you are on the master branch**
+
+What `git pull` does is merge all the changes present in the remote repository to the local working directory (See the section [Staying up to date](#staying-up-to-date)).
+
+**NOTE**: Do `git status` to check the status of your local repo but it should also show a message of `Your branch is up to date with 'origin/master'`.
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
