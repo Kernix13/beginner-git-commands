@@ -140,7 +140,7 @@ Or just `git pull origin master` if you have not set the upstream already.
 
 What `git pull` does is merge all the changes present in the remote repository to the local working directory (See the section [Staying up to date](#staying-up-to-date)).
 
-**NOTE**: Do `git status` to check the status of your local repo but it should also show a message of `Your branch is up to date with 'origin/master'`.
+**NOTE**: Run `git status` to check the status of your local repo but it should also show a message of `Your branch is up to date with 'origin/master'`.
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
