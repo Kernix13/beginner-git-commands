@@ -1,6 +1,6 @@
 # Intermediate and Advanced Git Commands
 
-These are commands that you will encounter when you start contributing to open-source projects and creating branches.
+These are commands that you will encounter when you start contributing to open-source projects and creating branches. Some people may view branches as beginner-level git, but I am putting them here because even though they are basic commands, they can create problems if done incorrectly.
 
 <a id="back-to-top"></a>
 
@@ -159,7 +159,16 @@ If you continue working on your branch, you can't just checkout to `master` or s
 > Please commit your changes or stash them before you switch branches. <br>
 > Aborting
 
-The `stash` command is an advanced command IMO, so run `git add .` and `git commit -m "message"` before switching to a different branch.
+The `stash` command is when you are working on a branch but are not finished with your work and you need to switch back to master. The questions is did you make commits or not? If you did not then git won't let you switch branches unless you make a commit or stash.
+
+Stash: "stashing" uncommitted changes so that you can return to them later without having to make unnecessary commits. It's better than a half-complete commit. Running `git stash` (or `git stash save`) will take all uncommited changes (staged and unstaged) and stash them, reverting the changes in your working copy.
+
+When you want to go back to your branch and see your changes from befoe you stashed them, run `git stash pop`. There is also `git stash list` to see all your stashes and `git stash clear` to clear your stashes.
+
+```sh
+git stash
+git stash pop
+```
 
 **NOTE**: I did that, switched back to my branch, then ran `git push` and there was nothing on my Github page? I'm not sure why, but you do not get a message for pull requests after you click the "_Create pull request_" button...(Double check that)
 
@@ -467,6 +476,8 @@ So run `git merge upstream/master` every time before making your changes and doi
 
 The main thing to know is that the master branch will most likely updated regularly as you are working on your branch. You will want to pull those changes down to your local master branch. Then you will want to checkout to your branch and use `git merge master` to keep your branch up to date with what is going on with master. This is where you may get a merge conflict.
 
+Note: you should use `git switch branch_name` as opposed to `git checkout` but this is a new command that I am no familiar with. Check out the article [What's the Difference Between Git Switch and Checkout](https://linuxhandbook.com/git-switch-checkout/).
+
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
 <h3 id="handling-merge-conflicts">&#10551; Handling merge conflicts</h3>
@@ -698,10 +709,10 @@ git reset HEAD
 git revert id
 git config -l
 git log --graph --decorate –oneline
-git stash
-git stash pop
 git tag
 git show
+git stash apply
+git stash -u
 git branch login
 git branch -vv
 git remote update --prune
