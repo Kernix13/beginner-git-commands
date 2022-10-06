@@ -97,9 +97,11 @@ git push -u origin master
 
 The `git init` command creates a new local GIT repository in the directory you ran that command.
 
+You tend to use `git add .` to commit all your changes to the staging area, but you do not have to do that. You could individually add some files to staging while not adding others. You would do that by specifying the files you want to add: `git add filename1.ext filename2.ext`, etc.
+
 The command `git branch -M main` is optional and I think the flag `-M` means changing the default branch name from master to the name **main**. I tried searching for it and I found that Git has changed the default branch name from `master` to `main` though GitHub still uses `master` by default. It's your choice.
 
-The command `git remote add origin https_url` connects the local repository to a remote server (GitHub repo). `https_url` is the URL that is on the page when you create a new repo. It is also shown whn you click the `Code` button.
+The command `git remote add origin https_url` connects the local repository to a remote server (GitHub repo). `https_url` is the URL that is on the page when you create a new repo. It is also shown whn you click the `Code` button. And you do not have to use the keyword _origin_, that is just common practice to use that word.
 
 The `git push` command is used to send local commits to the master (or main) branch of the remote repository. But to use `git push` in the future you have to set something called an _upstream_, meaning where you want to push it to by default. That is why you use `-u`. The whole command `git push -u origin master` pushes your commits and sets the branch `master` as the origin for the location of `git push` in the future.
 

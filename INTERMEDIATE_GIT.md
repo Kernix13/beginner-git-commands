@@ -10,6 +10,9 @@ These are commands that you will encounter when you start contributing to open-s
    1. [Pushing branches to your repository](#pushing-branches-to-your-repository)
    1. [Common issues with branches](#common-issues-with-branches)
 1. [Forking and cloning](#forking-and-cloning)
+1. [GitHub Issues](#github-issues)
+   1. [How to create an issue](#how-to-create-an-issue)
+   1. [Closing an issue](#closing-an-issue)
 1. [GitHub pull request process](#github-pull-request-process)
    1. [Pull request title](#pull-request-title)
    1. [Pull requests page notes](#pull-requests-page-notes)
@@ -372,6 +375,40 @@ Here is a comparison of cloning your repo vs. cloning someone else's repo vs. fo
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
+## GitHub Issues
+
+- Issues are for collaborating thru the GitHub website. They will not be in your local repo.
+- The Issues tab is a place to leave a comment about a project
+- Reasons to create an issue: 1) bugs, 2) typos, 3) feature requests, 4) to ask a question, etc.
+
+### How to create an issue
+
+1. Click on the Issues tab
+1. Click the New Issue button
+1. Add a Title and Description about your issue
+1. Note: You can take a screenshot and add it to your issue by copying it and then paste or drag it into the description field.
+1. You can also add labels by clicking on the gear icon next to labels and checking the ones you want.
+1. Then click the Submit new issue button
+
+If you click back on the issues tab you will see your issue and any other open issues. Pay attention to the # next to your issue title. That same number will appear in the address bar when you click into your issue. That is the issue number.
+
+- Issues are Open until they are resolved/closed
+- Issues are Closed when the person who owns the repo or who created the issue can close the issue.
+
+### Closing an issue
+
+When you make a change to a file in regards to an issue, add the issue # in your commit title, e.g.:
+
+> Making change as per issue #3
+
+When you go back into that issue you should see the commit that references the issue. If you are done click the Close issue button. But there are also keywords that will automatically close an issue and the main one is **_fixes_**.
+
+So if you add the "fixes" in your commit title it will close the issue: `This fixes #3`. When you do that you will get a commit # for the closed issue. If you grab that commit hash from the url for the commit that closed an issue, you can create another issue and paste the hash into the description field. That will automatically create a link to that commit. Perhaps you feel the issue should not have been closed and there are still unresolved issues.
+
+So referencing Issue numbers and commit hashes for more functionality in the collaboration process.
+
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
+
 <p>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ </p>
 
 ## GitHub pull request process
@@ -674,6 +711,8 @@ That will unstage any changes made to the file(s) AFTER that commit. The changes
 git reset --hard e220bfb1e34b8c6b6fce1deb7884244239284716
 ```
 
+You can also remove a specific file from staging by using `git rm –cached filename.ext` where `rm` is short for remove.
+
 **Remove Git**: To remove git tracking from a folder use the following command in `git bash`, the command prompt or in VS Code:
 
 ```sh
@@ -690,13 +729,27 @@ git add -A
 git add *.ext
 git add filename
 git --version
-git rm –cached filename
 git merge --abort
 git diff filename.ext
 git fetch
 ```
 
-Here are some command prompt commands you may need: `clear`, `q`, `Q`, `exit`, `ESC`, `:WQ`, `ENTER`, `pwd`, <kbd>CTRL</kbd>+<kbd>C</kbd>.
+Here are some terminal commands you may need:
+
+- `clear`: to clear the terminal
+- `q`, `Q`, or `:q`: to exit out of VIM or Nano
+- `cd` - change directory
+- `.`, `./`, `../`: they stand for home, current directory, and up one directory
+- `pwd` - print working directory
+- `ls` - list the contents of the current working directory, `ls -all`
+- `TAB` - auto fill in file and folder names
+- `git` - shows other commands like `grep`, `show`, `rebase`, `switch`, `tag`
+- `log` - shows your local history
+- up and down arrow to cycle thru previous commands
+- `open .`: open file explorer in Windows from bash or command prompt
+- `code .`: open your default text editor
+- <kbd>CTRL</kbd>+<kbd>C</kbd>,
+- `exit`, `ESC`, `:WQ`, `ENTER`: not sure what these are for
 
 I am not sure what these commands do, mostly because I believe these are advanced git commands but I have either used them with help from other people, or they are from my many pages of git notes:
 
