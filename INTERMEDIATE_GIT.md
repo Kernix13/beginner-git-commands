@@ -719,6 +719,12 @@ You can also remove a specific file from staging by using `git rm –cached file
 rm -rf .git
 ```
 
+**Remove `git remote add origin`**: I once pasted in the link ending in `.gi` instead of `.git` because I missed copying the `t`. Use the following to remove the origin and try again:
+
+```sh
+git remote remove origin
+```
+
 Here is an interesting one: `gitk` shows the graphical interface for a local repository.
 
 Here are variations of some of the commands above or common ones you may see:
