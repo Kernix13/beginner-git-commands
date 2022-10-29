@@ -22,6 +22,7 @@ These are commands that you will encounter when you start contributing to open-s
 1. [Miscellaneous git commands](#miscellaneous-git-commands)
    1. [gitignore](#gitignore)
    1. [Mistakes](#mistakes)
+   1. [Other commands](#other-commands)
 1. [Creating a GitHub gist](#creating-a-github-gist)
    1. [Clone or fork a gist](#clone-or-fork-a-gist)
    1. [Editing a gist](#editing-a-gist)
@@ -548,14 +549,14 @@ Where `HEAD` is your current branch, usually main/master. Once again, this would
 
 ### gitignore
 
-To have git ignore any files that you do not want to push, create a file called `.gitignore` in the root of your project file. Add the paths and file names for those files:
+To have Git ignore any files that you do not want to push, create a file called `.gitignore` in the root of your project folder. Add the paths and file names for those files:
 
 ```git
 index.html
 js/test.js
 ```
 
-For large repositories, this file will have a lot of entries. For some npm commands like `npx create-react-app` this file will be created for you. Here is the ignore file from a project where I used that command:
+For large repositories, this file will have a lot of entries. For some npm commands like `npx create-react-app` this file will be created for you. Here is the ignore file from a project where I used that CRA command:
 
 ```sh
 # dependencies
@@ -581,7 +582,7 @@ yarn-debug.log*
 yarn-error.log*
 ```
 
-Here is an example of a basic gitignore file. You want to always add `node_modules` even if you have not added any NPM packages. You might in the future and accidentally push that folder:
+Here is an example of a basic gitignore file. You _always_ want to add `node_modules`:
 
 ```sh
 # Packages
@@ -681,7 +682,9 @@ ehthumbs_vista.db
 
 ### Mistakes
 
-**Undo Staging**: If you accidentally added a file with `git add .`, to remove it from the staging area, use:
+You will undoubtedly make mistakes when working with Git. Here are common mistakes that I have made and how to fix/undo them.
+
+<strong>1. <ins>Undo Staging</ins></strong>: If you accidentally added a file with `git add .`, to remove it from the staging area, use:
 
 ```sh
 # without arguments
@@ -690,13 +693,13 @@ git reset
 git reset path/filename.ext
 ```
 
-**Undo a Commit**: Use use `git reset` again but include `HEAD` which means the last commit. But to undo the last coomit add `~1` to go back 1 commit past the last commit which will undo the last commit:
+<strong>2. <ins>Undo a Commit</ins></strong>: Use `git reset` again but include `HEAD` which means the last commit. But to undo the last coomit add `~1` to go back 1 commit past the last commit which will undo the last commit:
 
 ```sh
 git reset HEAD~1
 ```
 
-But what if you want to go back a number of commits or to a specific commit. First use `git log` which gives you a list of your commits in reverse chronological order. You can scroll down the log with SPACEBAR.
+But what if you want to go back a number of commits or to a specific commit. First use `git log` which gives you a list of your commits in reverse chronological order. You can scroll down the log with <kbd>SPACEBAR</kbd>.
 
 You will see the commit hash and the commit message along with other information. To go back to a specific commit, use the hash for it:
 
@@ -713,17 +716,19 @@ git reset --hard e220bfb1e34b8c6b6fce1deb7884244239284716
 
 You can also remove a specific file from staging by using `git rm –cached filename.ext` where `rm` is short for remove.
 
-**Remove Git**: To remove git tracking from a folder use the following command in `git bash`, the command prompt or in VS Code:
+<strong>3. <ins>Remove Git</ins></strong>: To remove git tracking from a folder use the following command in `git bash`, the command prompt or in VS Code:
 
 ```sh
 rm -rf .git
 ```
 
-**Remove `git remote add origin`**: I once pasted in the link ending in `.gi` instead of `.git` because I missed copying the `t`. Use the following to remove the origin and try again:
+<strong>4. <ins>Remove remote origin</ins></strong>: I once pasted in my repo link ending in `.gi` instead of `.git` because I missed copying the `t`. Use the following to remove the origin and try again:
 
 ```sh
 git remote remove origin
 ```
+
+### Other commands
 
 Here is an interesting one: `gitk` shows the graphical interface for a local repository.
 
@@ -747,15 +752,16 @@ Here are some terminal commands you may need:
 - `cd` - change directory
 - `.`, `./`, `../`: they stand for home, current directory, and up one directory
 - `pwd` - print working directory
-- `ls` - list the contents of the current working directory, `ls -all`
-- `TAB` - auto fill in file and folder names
+- `ls` - list the contents of the current working directory, all `ls -all`
+- <kbd>TAB</kbd> - auto fill in file and folder names
 - `git` - shows other commands like `grep`, `show`, `rebase`, `switch`, `tag`
 - `log` - shows your local history
 - up and down arrow to cycle thru previous commands
 - `open .`: open file explorer in Windows from bash or command prompt
-- `code .`: open your default text editor
+- `code .`: open your default text editor from a terminal app like Git Bash
 - <kbd>CTRL</kbd>+<kbd>C</kbd>,
-- `exit`, `ESC`, `:WQ`, `ENTER`: not sure what these are for
+- `exit`: to exit out of Git Bash and maybe other uses but not sure
+- <kbd>ESC</kbd>, `:WQ`, <kbd>ENTER</kbd>: not sure what these are for or where/when they are used
 
 I am not sure what these commands do, mostly because I believe these are advanced git commands but I have either used them with help from other people, or they are from my many pages of git notes:
 
