@@ -334,6 +334,8 @@ git commit -m "short description"
 git push --set-upstream origin fix/branch-name
 ```
 
+>  STOPPED HERE
+
 Use that last `git push` only for the first time, then use `git push origin fix/something-typos`. Here is the last command AFTER you set the upstream:
 
 ```sh
