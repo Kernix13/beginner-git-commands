@@ -18,10 +18,8 @@ These are commands that you will encounter when you start contributing to open-s
    1. [Pull requests page notes](#pull-requests-page-notes)
    1. [Replies to your pull request](#replies-to-your-pull-request)
    1. [Staying up to date](#staying-up-to-date)
-   1. [Handling merge conflicts](#handling-merge-conflicts)
-1. [Miscellaneous git commands](#miscellaneous-git-commands)
+1. [Miscellaneous git](#miscellaneous-git)
    1. [gitignore](#gitignore)
-   1. [Mistakes](#mistakes)
    1. [Other commands](#other-commands)
 1. [Creating a GitHub gist](#creating-a-github-gist)
    1. [Clone or fork a gist](#clone-or-fork-a-gist)
@@ -39,7 +37,9 @@ You usually do not want to commit work-in-process (WIP) code to the master/main 
 
 Before you create `new_branch`, you want to make sure that you have a clean working directory (no uncommitted changes). So do `git status` and your other basic push commands before creating a new branch.
 
-Here are common commands you'll often use when working with braches:
+> If you don't do not, you are in for problems such as merge conflicts, so just check and then push.
+
+Here are common commands you'll often use when working with branches:
 
 ```sh
 git branch
@@ -61,13 +61,9 @@ New commands in detail (`git` removed for brevity):
 | branch -a              | Lists all the branch names in your repo                 |
 | checkout branch_name   | Switches to branch_name                                 |
 | checkout -b new_branch | Creates then switches to new_branch                     |
-| merge new_branch       | Merges 2 branches locally                               |
+| merge new_branch       | Merges 2 branches locally (don't do this!)              |
 | diff new_branch        | To check the differences between the two before merging |
 | push origin new_branch | push just the branch with the changes                   |
-
-After you merge your branck into main/master, push the master branch up to github as you normally would: `git push origin master` or `git push`.
-
-> I think that is wrong. Merging into master is a local merge. I had problems doing that.
 
 If you push the branch with `git push origin new_branch`, back in your repo on GitHub you will see something like "...`new_branch` had recent pushes 2 minutes ago" and a button labeled _Compare and pull request_.
 
@@ -101,7 +97,7 @@ git commit -m "fixes on new_branch"
 git push
 ```
 
-Miscellaneous (not sure what this is): `git branch --sort=-committerdate # DESC` and `git branch -r --sort=-committerdate # DESC` where the flag `-r` is for just remotes.
+Miscellaneous (not sure what these are): `git branch --sort=-committerdate # DESC` and `git branch -r --sort=-committerdate # DESC` where the flag `-r` is for just remotes.
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
@@ -109,7 +105,9 @@ Miscellaneous (not sure what this is): `git branch --sort=-committerdate # DESC`
 
 After you push the changes to GitHub you would then make a PR (pull request) whether you are contributing or working on your own project.
 
-Remember, you push the changes for your branch _from_ your branch, not from `master`.
+> **NOTE**: I edited all of BEGINNER_GIT and ADVANCED_GIT and everything above this point. I'm confident on the notes thus far. I'm not so confident about the rest of this file.
+
+> **Remember, you push the changes for your branch _from_ your branch, not from `master`.**
 
 Then back on your repo main page:
 
@@ -117,7 +115,7 @@ Then back on your repo main page:
 1. Clicking it takes you to a page titled "_Open a pull request_" where you can add a description.
 1. Then click the "_Create pull request_" button.
 1. That takes you to the "_Pull requests_" tab where you can click the _Merge pull request_ button
-1. And finally, click _Confirm merge_ if you are done working on your branch, or you can continue to work and push changes from your branch.
+1. And finally, click _Confirm merge_ if you are done working on your branch, or you can continue to work and push changes from your branch. In that case, you do not want to merge and confirm.
 
 **Squash**:
 
@@ -125,7 +123,7 @@ If you have multiple commits for that branch, select _Squash and merge_ option f
 
 **Code Comments**:
 
-1. Click on the Files changed tab
+1. Click on the _Files changed_ tab when on the PR for the push
 1. Click the `+` button that appears when you hover over the code
 1. Make a comment on a line of code.
 1. You can add a description for the comment and also click the "Resolve conversation" button.
@@ -140,7 +138,7 @@ git pull
 
 Or just `git pull origin master` if you have not set the upstream already.
 
-> **Make sure you are on the master branch**
+> **Make sure you are on the master branch when you run that command**
 
 What `git pull` does is merge all the changes present in the remote repository to the local working directory (See the section [Staying up to date](#staying-up-to-date)).
 
@@ -165,9 +163,9 @@ If you continue working on your branch, you can't just checkout to `master` or s
 
 The `stash` command is when you are working on a branch but are not finished with your work and you need to switch back to master. The questions is did you make commits or not? If you did not then git won't let you switch branches unless you make a commit or stash.
 
-Stash: "stashing" uncommitted changes so that you can return to them later without having to make unnecessary commits. It's better than a half-complete commit. Running `git stash` (or `git stash save`) will take all uncommited changes (staged and unstaged) and stash them, reverting the changes in your working copy.
+**Stash**: "stashing" uncommitted changes so that you can return to them later without having to make unnecessary commits. It's better than a half-complete commit. Running `git stash` (or `git stash save`) will take all uncommited changes (staged and unstaged) and stash them, reverting the changes in your working copy.
 
-When you want to go back to your branch and see your changes from befoe you stashed them, run `git stash pop`. There is also `git stash list` to see all your stashes and `git stash clear` to clear your stashes.
+When you want to go back to your branch and see your changes from before you stashed them, run `git stash pop`. There is also `git stash list` to see all your stashes and `git stash clear` to clear your stashes.
 
 ```sh
 git stash
@@ -182,7 +180,7 @@ git stash pop
 
 ...but because I already pushed and continued working, I had to go to the _Conversation_ tab and click _Merge pull request_ (I was 5 commits behind).
 
-So don't merge until you are done making changes and push the changes. Or don't push until you are done with the branch!
+So don't merge until you are done making changes and push the changes. Or don't push until you are done with the branch! Just keep committing.
 
 > These notes are questionable. There is a drop-down list with the option of **Squash and merge** so you can keep working on your branch after pushing. Keep pushing on the same branch until you are done.
 
@@ -404,9 +402,7 @@ When you make a change to a file in regards to an issue, add the issue # in your
 
 When you go back into that issue you should see the commit that references the issue. If you are done click the Close issue button. But there are also keywords that will automatically close an issue and the main one is **_fixes_**.
 
-So if you add the "fixes" in your commit title it will close the issue: `This fixes #3`. When you do that you will get a commit # for the closed issue. If you grab that commit hash from the url for the commit that closed an issue, you can create another issue and paste the hash into the description field. That will automatically create a link to that commit. Perhaps you feel the issue should not have been closed and there are still unresolved issues.
-
-So referencing Issue numbers and commit hashes for more functionality in the collaboration process.
+So if you add the "`fixes`" keyword in your commit title it will close the issue: `This fixes #3`. When you do that you will get a commit # for the closed issue. If you grab that commit hash from the url for the commit that closed an issue, you can create another issue and paste the hash into the description field. That will automatically create a link to that commit.
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
@@ -466,7 +462,7 @@ For example:
 
 Keep it short (less than 30 characters) and simple, you can add more information in the PR description box and comments. Example: `fix(api,client): prevent CORS errors on form submission`.
 
-**QUESTION**: What creates CHANGELOGs? Is it the use of the colon `:`? Learn more: [Why Use Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0-beta.2/#why-use-conventional-commits "Conventional Commits").
+**QUESTION**: What creates CHANGELOGs? Is it the use of the colon `:`? Learn more: [Why Use Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0-beta.2/#why-use-conventional-commits 'Conventional Commits').
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
@@ -518,34 +514,9 @@ Note: you should use `git switch branch_name` as opposed to `git checkout` but t
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
-<h3 id="handling-merge-conflicts">&#10551; Handling merge conflicts</h3>
-
-I'm a little fuzzy on this process. There are a few of ways to handle merge conflicts: 1) on Github, 2) in your terminal, or 3) the easiest is directly in your code.
-
-Read more here: [Conflicts on a pull request](https://github.com/freeCodeCamp/freeCodeCamp/blob/main/docs/how-to-setup-freecodecamp-locally.md#making-changes-locally "Making changes locally").
-
-A merge conflict is when 2 or more people change the same code/content but with different values. However, I don't think a beginner contributor would actually run `git merge branch_name`.
-
-But if you did ad there was a conflict, in VS Code you will see something like:
-
-```sh
-<<<<<<< HEAD (Current Change)
-<p>some change here</p>
-=======
-<p>different change here</p>
->>>>>>> Branch-Name (Incoming Change)
-```
-
-Where `HEAD` is your current branch, usually main/master. Once again, this would only be done by the owner of the repo, but what you would do is:
-
-1. Decide which change you want to keep,
-1. Delete EVERYTHING else -> the change you don't want and the equal, less than, and greater than signs along with the text like `HEAD` and `Current Change`. Everything other than the actual change that you want.
-
-<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
-
 <p>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</p>
 
-## Miscellaneous git commands
+## Miscellaneous git
 
 ### gitignore
 
@@ -680,54 +651,6 @@ ehthumbs_vista.db
 *.tmp
 ```
 
-### Mistakes
-
-You will undoubtedly make mistakes when working with Git. Here are common mistakes that I have made and how to fix/undo them.
-
-<strong>1. <ins>Undo Staging</ins></strong>: If you accidentally added a file with `git add .`, to remove it from the staging area, use:
-
-```sh
-# without arguments
-git reset
-# with filename and optional path
-git reset path/filename.ext
-```
-
-<strong>2. <ins>Undo a Commit</ins></strong>: Use `git reset` again but include `HEAD` which means the last commit. But to undo the last coomit add `~1` to go back 1 commit past the last commit which will undo the last commit:
-
-```sh
-git reset HEAD~1
-```
-
-But what if you want to go back a number of commits or to a specific commit. First use `git log` which gives you a list of your commits in reverse chronological order. You can scroll down the log with <kbd>SPACEBAR</kbd>.
-
-You will see the commit hash and the commit message along with other information. To go back to a specific commit, use the hash for it:
-
-```sh
-# use git reset HASH:
-git reset e220bfb1e34b8c6b6fce1deb7884244239284716
-```
-
-That will unstage any changes made to the file(s) AFTER that commit. The changes will be in your files but they will not be saved into git any more. But how do you get rid of all the changes after a certain point? USe the same command but add the flag `--hard`:
-
-```sh
-git reset --hard e220bfb1e34b8c6b6fce1deb7884244239284716
-```
-
-You can also remove a specific file from staging by using `git rm –cached filename.ext` where `rm` is short for remove.
-
-<strong>3. <ins>Remove Git</ins></strong>: To remove git tracking from a folder use the following command in `git bash`, the command prompt or in VS Code:
-
-```sh
-rm -rf .git
-```
-
-<strong>4. <ins>Remove remote origin</ins></strong>: I once pasted in my repo link ending in `.gi` instead of `.git` because I missed copying the `t`. Use the following to remove the origin and try again:
-
-```sh
-git remote remove origin
-```
-
 ### Other commands
 
 Here is an interesting one: `gitk` shows the graphical interface for a local repository.
@@ -811,6 +734,8 @@ git commit -m "Title" -m "Description .........."
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
 ## Creating a GitHub gist
+
+These are not git commands, they are a way to have code on GitHub that is not a stand-alone repository. To search for a gist on GitHub: `https://gist.github.com/username/`
 
 **<ins>What is a Gist?</ins>**
 
