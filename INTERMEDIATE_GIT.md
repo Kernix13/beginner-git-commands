@@ -520,6 +520,8 @@ Note: you should use `git switch branch_name` as opposed to `git checkout` but t
 
 ## Miscellaneous git
 
+**Tip #1**: `raw` link - If you want to copy the code for a file, click the `raw` button. That will load all the code onto a white/blank webpage and you just need to do <kbd>CTRL</kbd>+<kbd>C</kbd> to copy all the contents. That is way easier than trying to select the code and maybe missing some of it.
+
 ### gitignore
 
 To have Git ignore any files that you do not want to push, create a file called `.gitignore` in the root of your project folder. Add the paths and file names for those files:
