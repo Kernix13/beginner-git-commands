@@ -1,13 +1,19 @@
 # Useful files for repository projects
 
-Files added in a repo I was contributing to:
+This file should not be in here but I will leave it anyway. They are files added in a repo I was contributing to.
 
-1. `.github` folder
-1. `.husky` folder
-1. `.editorconfig` file
-1. `.prettierignore` file
-1. `.prettierrc.json` file
-1. `CODE_OF_CONDUCT` file
+<a id="back-to-top"></a>
+
+## Table of contents
+
+1. [github folder](#github-folder)
+1. [husky folder](#husky-folder)
+1. [editorconfig file](#editorconfig-file)
+1. [prettierignore file](#prettierignore-file)
+1. [prettierrc file](#prettierrc-file)
+   1. [How to configure Prettier and VSCode](#how-to-configure-prettier-and-vscode)
+1. [Code of Contact file](#code-of-contact-file)
+1. [Workflow Rules](#workflow-rules)
 
 ## github folder
 
@@ -39,6 +45,8 @@ Fixes # (issue)
 - [ ] I have run the project locally and reviewed the code changes
 - [ ] My changes generate no new warnings
 ```
+
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
 ## husky folder
 
@@ -100,6 +108,8 @@ pre-commit file
 npx lint-staged
 ```
 
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
+
 ## editorconfig file
 
 From EditorConfig.org:
@@ -154,6 +164,8 @@ indent_style = space
 indent_size = 2
 ```
 
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
+
 ## prettierignore file
 
 ```sh
@@ -162,7 +174,7 @@ build
 coverage
 ```
 
-## prettier json file
+## prettierrc file
 
 ```json
 {
@@ -173,33 +185,7 @@ coverage
 }
 ```
 
-## CODE_OF_CONDUCT file
-
-```md
-# Contributor Code of Conduct
-
-All members and contributors should strive to create a harassment-free experience for everyone, regardless of age, body size, visible or invisible disability, ethnicity, sex characteristics, gender identity and expression, level of experience, education, socio-economic status, nationality, personal appearance, race, religion, or sexual identity and orientation.
-
-We are here to encourage a welcoming, diverse, inclusive, and healthy community.
-
-## Examples of positive community involvement
-
-- Practicing empathy and kindness toward other people
-- Being respectful of differing opinions
-- Be open to providing and receiving constructive feedback
-
-## Examples of negative community involvement
-
-- The use of sexualized language or imagery, and sexual attention or advances of any kind
-- Trolling, insulting or derogatory comments, and personal or political attacks
-- Public or private harassment
-- Publishing others' private information, such as a physical or email address, without their explicit permission
-- Other conduct which could reasonably be considered inappropriate in a professional setting
-
-If you wish to participate in our open source project, please adhere to this code of conduct.
-```
-
-## How to configure Prettier and VSCode
+### How to configure Prettier and VSCode
 
 - https://glebbahmutov.com/blog/configure-prettier-in-vscode/
 - https://github.com/yi-Xu-0100/Application-Lists/blob/main/.prettierrc.js
@@ -242,3 +228,53 @@ My settings.json file (prettier only):
   "prettier.trailingComma": "none"
 }
 ```
+
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
+
+## Code of Contact file
+
+```md
+# Contributor Code of Conduct
+
+All members and contributors should strive to create a harassment-free experience for everyone, regardless of age, body size, visible or invisible disability, ethnicity, sex characteristics, gender identity and expression, level of experience, education, socio-economic status, nationality, personal appearance, race, religion, or sexual identity and orientation.
+
+We are here to encourage a welcoming, diverse, inclusive, and healthy community.
+
+## Examples of positive community involvement
+
+- Practicing empathy and kindness toward other people
+- Being respectful of differing opinions
+- Be open to providing and receiving constructive feedback
+
+## Examples of negative community involvement
+
+- The use of sexualized language or imagery, and sexual attention or advances of any kind
+- Trolling, insulting or derogatory comments, and personal or political attacks
+- Public or private harassment
+- Publishing others' private information, such as a physical or email address, without their explicit permission
+- Other conduct which could reasonably be considered inappropriate in a professional setting
+
+If you wish to participate in our open source project, please adhere to this code of conduct.
+```
+
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
+
+## Workflow Rules
+
+Notes from the Discord server for the repo contrast-ratio-repo that I did a few contributions to.
+
+1. All discussions for new features will be in the discussions tab on github. Check that periodically and leave your comments.
+1. Once we have decided on features, then it will be broken into issues for people to pick up and work on.
+   1. Make sure to break the work down into tickets for everyone to work on.
+1. Once you pick up an issue, make sure to
+   1. Create a new branch and make your changes there.
+   1. Then you will need to push your changes to GitHub and create a new PR.
+   1. Then request a review so we can review changes and approve it and merge it into main.
+   1. Also make sure to link the issue you are working on to that PR.
+1. Once your PR is merged, you are free to delete the branch from both the remote and local repos. Then make sure to update your main branch locally by using git pull.
+1. Then update your main branch using git fetch && git rebase if you feel comfortable with that option.
+1. While you are waiting for a review on your PR, feel free to pick up any new issue that hasn't been assigned yet.
+1. Please make sure to link the issue you are working on to the PR you created. That will automatically close the issue when the PR is merged so we don't have to remember to do that ourselves and have old issues on the board that has been completed.
+1. When you create a PR, you can request a review from someone on the team and they will be alerted through email to leave a review
+
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>

@@ -334,19 +334,17 @@ git commit -m "short description"
 git push --set-upstream origin fix/branch-name
 ```
 
->  STOPPED HERE
-
-Use that last `git push` only for the first time, then use `git push origin fix/something-typos`. Here is the last command AFTER you set the upstream:
+Use that last `git push` only for the first time, then use `git push origin fix/something-typos`. Although, I believe once you set the `upstream` and/or `origin`, you only need to do `git push` similar to a regualr push. Here is the last command AFTER you set the upstream:
 
 ```sh
 git push origin fix/branch-name
 ```
 
-If you realize that you need to edit a file or update the commit message after making a commit you can do so after editing the files with:
+If you realize that you need to edit a file or update the commit message after making a commit use:
 
 `git commit --amend`
 
-This will open up a default text editor like `nano` or `vim` where you can edit the commit message title and add/edit the description. I had a hard time figuring out how to quit out of that editor, but I think `CTRL + X` may do it. If that doesn't work try any of the following: `q`, `Q`, `exit`, `ESC`, `:WQ`, `ENTER`, or `CTRL + C`. Hopefully, one of those work.
+This will open up a default text editor like `nano` or `vim` where you can edit the commit message title and add/edit the description. I had a hard time figuring out how to quit out of that editor, but I think `CTRL + X` may do it. If that doesn't work try any of the following: `q`, `Q`, `exit`, `ESC`, `:WQ`, `ENTER`, or `CTRL + C`. One of those should work.
 
 Here is a comparison of cloning your repo vs. cloning someone else's repo vs. forking then cloning:
 
@@ -378,33 +376,33 @@ Here is a comparison of cloning your repo vs. cloning someone else's repo vs. fo
 
 ## GitHub Issues
 
-- Issues are for collaborating thru the GitHub website. They will not be in your local repo.
-- The Issues tab is a place to leave a comment about a project
+- Issues are for communicating or contributing through the GitHub website. They will not be in your local repo.
+- The Issues tab is a place to leave a comment about a project, suggest a change, report a bug, etc.
 - Reasons to create an issue: 1) bugs, 2) typos, 3) feature requests, 4) to ask a question, etc.
 
 ### How to create an issue
 
-1. Click on the Issues tab
-1. Click the New Issue button
-1. Add a Title and Description about your issue
-1. Note: You can take a screenshot and add it to your issue by copying it and then paste or drag it into the description field.
-1. You can also add labels by clicking on the gear icon next to labels and checking the ones you want.
-1. Then click the Submit new issue button
+1. Click on the _Issues_ tab
+1. Click the _New Issue_ button
+1. Add a _Title_ and _Description_ about your issue
+1. **Note**: You can take a screenshot and add it to your issue by copying it and then paste or drag it into the description field.
+1. You can also add _Labels_ by clicking on the gear icon next to labels and checking the ones you want.
+1. Then click the _Submit_ new issue button
 
-If you click back on the issues tab you will see your issue and any other open issues. Pay attention to the # next to your issue title. That same number will appear in the address bar when you click into your issue. That is the issue number.
+If you click back on the issues tab you will see your issue and any other open issues. Pay attention to the `#` next to your issue title. That same number will appear in the address bar when you click into your issue. That is the issue number.
 
-- Issues are Open until they are resolved/closed
-- Issues are Closed when the person who owns the repo or who created the issue can close the issue.
+- Issues are _Open_ until they are resolved/closed
+- Issues are _Closed_ when the person who owns the repo or who created the issue closes the issue.
 
 ### Closing an issue
 
-When you make a change to a file in regards to an issue, add the issue # in your commit title, e.g.:
+When you make a change to a file in regards to an issue, add the issue `#` in your commit title, e.g.: `Making change as per issue #3`
 
-> Making change as per issue #3
+When you go back into that issue you should see the commit that references the issue. If you are done click the _Close_ issue button. But there are also keywords that will automatically close an issue and the main one is **_fixes_**.
 
-When you go back into that issue you should see the commit that references the issue. If you are done click the Close issue button. But there are also keywords that will automatically close an issue and the main one is **_fixes_**.
+So if you add the "`fixes`" keyword in your commit title it will close the issue AUTOMATICALLY: `This fixes #3`. 
 
-So if you add the "`fixes`" keyword in your commit title it will close the issue: `This fixes #3`. When you do that you will get a commit # for the closed issue. If you grab that commit hash from the url for the commit that closed an issue, you can create another issue and paste the hash into the description field. That will automatically create a link to that commit.
+When you do that you will get a commit `#` for the closed issue. If you grab that commit hash from the url for the commit that closed an issue, you can create another issue and paste the hash into the description field. That will automatically create a link to that commit.
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
@@ -414,7 +412,7 @@ So if you add the "`fixes`" keyword in your commit title it will close the issue
 
 After you push your changes, go to your cloned copy of the repo on GitHub. You should see a green button labeled **_Compare & pull request_**. If you do not see it then click the Pull requests link to go to that tab.
 
-Click the "Compare & pull request" button and notice the page title of **_Open a pull request_** and the paragraph in the section below the title saying **_Able to merge. These branches can be automatically merged._**
+Click the "**_Compare & pull request_**" button and notice the page title of **_Open a pull request_** and the paragraph in the section below the title saying **_Able to merge. These branches can be automatically merged._**
 
 You can then edit your commit message if need be. In the body of your PR include a more detailed summary of the changes you made and why.
 
@@ -423,7 +421,7 @@ Large repos will have various form fields to fill out. Here is an example of the
 1. Put an `x` in the checkboxes,
 1. Remove all the comment fields,
 1. You can preview the message if you like,
-1. Remove the phrase "Closes #XXXXX"
+1. Remove the phrase "Closes #XXXXX" unless your change closes an issue,
 1. When done, click the green button **_Create pull request_**.
 
 REMEMBER TO USE `fix: what-you-fixed` or `fix(curriculum)` in the PR Title or other prefixes like `feat`, `bug`, `chore`, `revert`, etc. And you can add to those, e.g. `fix(tools)` or `chore(deps)`.
@@ -436,9 +434,9 @@ Indicate if you have tested on a local copy of the site or not. Here are some of
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
-<h3 id="pull-request-title">&#10551;    Pull request title</h3>
+<h3 id="pull-request-title">&#10551; Pull request title</h3>
 
-The convention has the following format:
+The title convention has the following format:
 
 `<type>([optional scope(s)]): <description>`
 
@@ -462,7 +460,7 @@ For example:
 
 **Description:**
 
-Keep it short (less than 30 characters) and simple, you can add more information in the PR description box and comments. Example: `fix(api,client): prevent CORS errors on form submission`.
+Keep it short (less than 30 characters) and simple. You can add more information in the PR description box and comments. Example: `fix(api,client): prevent CORS errors on form submission`.
 
 **QUESTION**: What creates CHANGELOGs? Is it the use of the colon `:`? Learn more: [Why Use Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0-beta.2/#why-use-conventional-commits 'Conventional Commits').
 
@@ -477,9 +475,9 @@ Check the values for the fields labeled `base fork` and `head fork`.
 
 Those fields should be correct but just be aware of the values. You will also see fields labeled just `base` which shows the branch of the original repo that you pushed to, and `compare` which shows the name of the branch you created and pushed.
 
-**Note**: Large repos like the one for freeCodeCamp will have fields created in the pull request text area that I reference in the steps above. A smaller repo that you are contributing to may not have that setup. In the latter case, be as descriptive but concise as possible.
+**Note**: Large repos like the one for freeCodeCamp will have fields created in the pull request text area that I reference in the steps above. A smaller repo that you are contributing to may not have that setup. In the latter case, be as descriptive but also as brief as possible.
 
-Also, if you scroll further down on the page you will see all the changes you made. And after clicking the "Create pull request" button you will be taken to the source repo showing your pull request, other pull requests, the conversations for each, etc. Also, check the tabs **Checks**, **Files changed** and **Commits**.
+Also, if you scroll further down on the page you will see all the changes you made. After clicking the "Create pull request" button you will be taken to the source repo showing your pull request, other pull requests, the conversations for each, etc. Also, check the tabs **Checks**, **Files changed** and **Commits**.
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
@@ -487,13 +485,15 @@ Also, if you scroll further down on the page you will see all the changes you ma
 
 > Our moderators will now take a look and leave you feedback. You will get a message when a reviewer for the source repo adds a comment about your pull request...
 
-Regardless, your changes will either be accepted or rejected. When the owner of the repo accepts your changes they will do so by clicking the **Merge pull request** button. If it is your repo you will then see a green button **Confirm merge**.
+Your changes will either be accepted or rejected. When the owner of the repo accepts your changes they will do so by clicking the **Merge pull request** button (or Squash for multiple commits pushed). If it is your repo you will then see a green button **Confirm merge**.
 
 Then you will get a message that you can delete your local branch - do that.
 
 <h3 id="staying-up-to-date">&#10551; Staying up to date</h3>
 
-Once you are done with your PR and start to work on something else, the repo has most likely had changes by other contributors so your copy is behind. You need to update your local copy of the repo before making new changes:
+Once you are done with your PR and start to work on something else, the repo has most likely had changes by other contributors so your copy is behind. You need to update your local copy of the repo before making new changes. 
+
+Use the following commands to update your local copy:
 
 ```sh
 git checkout master
@@ -510,7 +510,7 @@ git merge upstream/master
 
 So run `git merge upstream/master` every time before making your changes and doing a push. That will ensure you always have the latest state of `master` locally.
 
-The main thing to know is that the master branch will most likely updated regularly as you are working on your branch. You will want to pull those changes down to your local master branch. Then you will want to checkout to your branch and use `git merge master` to keep your branch up to date with what is going on with master. This is where you may get a merge conflict.
+The main thing to know is that the master branch will most likely be updated regularly as you are working on your branch. You will want to pull those changes down to your local master branch. Then you will want to checkout to your branch and use `git merge master` to keep your branch up to date with what is going on with master. This is where you may get a merge conflict.
 
 Note: you should use `git switch branch_name` as opposed to `git checkout` but this is a new command that I am no familiar with. Check out the article [What's the Difference Between Git Switch and Checkout](https://linuxhandbook.com/git-switch-checkout/).
 
@@ -653,6 +653,8 @@ ehthumbs_vista.db
 *.tmp
 ```
 
+You can add anything you want in the gitignore file for your repos. If you are contributing, then do not touch that file unless the repo owner asked you to.
+
 ### Other commands
 
 Here is an interesting one: `gitk` shows the graphical interface for a local repository.
@@ -677,15 +679,16 @@ Here are some terminal commands you may need:
 - `cd` - change directory
 - `.`, `./`, `../`: they stand for home, current directory, and up one directory
 - `pwd` - print working directory
-- `ls` - list the contents of the current working directory, all `ls -all`
-- <kbd>TAB</kbd> - auto fill in file and folder names
+- `ls` - list the contents of the current working directory
+- `ls -all`: list all including hidden files
 - `git` - shows other commands like `grep`, `show`, `rebase`, `switch`, `tag`
 - `log` - shows your local history
-- up and down arrow to cycle thru previous commands
 - `open .`: open file explorer in Windows from bash or command prompt
 - `code .`: open your default text editor from a terminal app like Git Bash
-- <kbd>CTRL</kbd>+<kbd>C</kbd>,
 - `exit`: to exit out of Git Bash and maybe other uses but not sure
+- Use the up <kbd>&uarr;</kbd> and down <kbd>&darr;</kbd> arrow keys to cycle thru previous commands
+- <kbd>CTRL</kbd>+<kbd>C</kbd>,
+- <kbd>TAB</kbd> - auto fill in file and folder names
 - <kbd>ESC</kbd>, `:WQ`, <kbd>ENTER</kbd>: not sure what these are for or where/when they are used
 
 I am not sure what these commands do, mostly because I believe these are advanced git commands but I have either used them with help from other people, or they are from my many pages of git notes:
@@ -737,28 +740,30 @@ git commit -m "Title" -m "Description .........."
 
 ## Creating a GitHub gist
 
-These are not git commands, they are a way to have code on GitHub that is not a stand-alone repository. To search for a gist on GitHub: `https://gist.github.com/username/`
+These are not git commands, rather they are a way to have code on GitHub that is not a stand-alone repository. People ceate them because they are chunks of code that other people can use.
+
+To search for a gist on GitHub: `https://gist.github.com/username/`
 
 **<ins>What is a Gist?</ins>**
 
 They are basically code snippets to save/store and share. Gists do not have Issues, PR's, Projects or Actions. If you have a simple JavaScript function that is not part of a project, then that would be something you could add to its own gist. From Github:
 
-> Every gist is a Git repository, which means that it can be forked and cloned...and you will see it in your list of gists when you navigate to your gist home page. They're also searchable, so you can use them if you'd like other people to find and see your work.
+> Every gist is a Git repository, which means that it can be forked and cloned...and you will see it in your list of gists when you navigate to your gist home page. They're also searchable, so you can use them if you would like other people to find and see your work.
 
 1. Navigate to your [gist home page](https://gist.github.com/) - OR -
 1. Click the down arrow next to your profile image thumbnail > click _New Gist_
 1. Type a description and file name with extension for your gist (you want the extension for code highlighting).
 1. Optionally, you can change the Indent Mode, Indent Size, and if you want it to Wrap or not.
-1. Type the text of your gist into the gist text box
+1. Type or copy the code/text of your gist into the gist text box
 1. When done Click either `Create secret gist` or `Create public gist`
 
 **NOTE**: For the gist filename just make something up. For example, if you have a JavaScript function that takes a blog post title and converts it to a URL string, then give it a name like `BlogTitleUrl.js`.
 
-Then you can get the Share link for the gist to share with people or to add to an online article. When you choose `Embed` and add the link to an HTML page it will output is a formatted code block (not for all sites though).
+Then you can get the Share link for the gist to share with people or to add to an online article. When you choose `Embed` and add the link to an HTML page it will output as a formatted code block (not for all sites though).
 
 You can add code blocks for your gist by clicking _Add file_.
 
-**Public gists** can be found by other users on the Discover page. Just click _All gists_ from the menu bar and they are listed in reverse chronologial order of creation date. You can also search for gists by keywords, add comments on gists you found and have comments on your gists.
+**Public gists** can be found on the Discover page. Just click _All gists_ from the menu bar and they are listed in reverse chronologial order of creation date. You can also search for gists by keywords, add comments on gists you found and have comments on your gists.
 
 **NOTE**: You can create a gist if you are not signed into GitHub but it will be an anonymous gist which you will not be able to edit or delete. I don't know why you would want to do that but you can if you want to.
 
@@ -770,7 +775,7 @@ Your options from the dropdown list after creating your gist are to _Embed_, _Sh
 git clone gist_url
 ```
 
-If you choose to _fork_ someone else's gist then it will show upon your gist home page similar to how forked repos will show in your repositories.
+If you choose to _fork_ someone else's gist then it will show on your gist home page similar to how forked repos will show in your repositories.
 
 ### Editing a gist
 
