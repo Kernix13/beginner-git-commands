@@ -1,4 +1,4 @@
-# Intermediate and Advanced Git Commands
+# Intermediate Git Commands
 
 These are commands that you will encounter when you start contributing to open-source projects and creating branches. Some people may view branches as beginner-level git, but I am putting them here because even though they are basic commands, they can create problems if done incorrectly.
 

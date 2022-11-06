@@ -1,10 +1,8 @@
-# Beginner Git Commands
+# Git Commands for Beginners
 
 Get these commands down in the beginning, then move to the intermediate commands.
 
 <a id="back-to-top"></a>
-
-<p>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</p>
 
 ## Table of contents
 
