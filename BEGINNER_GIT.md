@@ -168,9 +168,9 @@ If you modified an existing file you can use `git commit -am "msg"` which combin
 
 ## Clone your own repo
 
-> Why would you do this? It doesn't make sense to me...
+> Why would you clone your own repo?
 
-Use this when you created a repo and added a file on GitHub like a `README.md` file. Or if for some reason you have a commit and issues history that you want to copy, though who would have that? Regardless, the process is almost identical to cloning a repo that is not yours:
+The one reason I will clone my repos is when I want to do more than just a refactoring of my code, but rather a total rewrite of the code. Regardless, the process is almost identical to cloning a repo that is not yours:
 
 ```sh
 git clone https_url
