@@ -176,8 +176,6 @@ The one reason I will clone my repos is when I want to do more than just a refac
 git clone https_url
 cd folder_name
 git remote -v
-git remote add origin https_url
-git remote -v
 git push -u origin master
 ```
 
@@ -194,6 +192,8 @@ The command `git clone` also initiates a git repo for the repo you want to clone
 `git clone` is used on its own or when you Fork a repo. Use `cd` to switch to that folder.
 
 Use `git remote -v` to list the remote repository that is connected to this project. That is to check if you are pointing to the cloned URL or the copy of the repo in your account. Did you fork and clone to contribute, or to work on your own version of the repo?
+
+> I remove the command below for this process (EDIT TO-DO)
 
 `remote set-url origin` here sets your repo as the source URL as opposed to changing the URL if cloned from a different account (see next section). It's function is similar to `remote add origin` in the first section.
 
