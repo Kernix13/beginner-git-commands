@@ -26,28 +26,27 @@ Check out this video from the YouTube channel LearnWebCode: [Git Tutorial Part 3
 
 **Note**: On your first push ever to GitHub, you will need to provide a `user name` and `email address` to git, the ones used when you created your GitHub account, or accounts on GitLab or BitBucket. This is so git knows that you are who you say you are.
 
-Ater downloading Git, open the `.exe` file to install Git. Then find Git Bash and open it. For me on Windows, there was a Git folder in my Start ment and Git bash was in there. Open it and in the command prompt that opens enter the following commands:
+Ater downloading Git, open the `.exe` file to install Git. Then find Git Bash and open it. For me on Windows, there was a Git folder in my Start ment and Git bash was in there. Open it...
 
-```bash
-git config --global user.name "Github user name"
-git config --global user.email "youremail@somewhere.com"
+You have to generate an SSH to let GitHub know you are who you say you are. Here are the sommands I used:
+
+```sh
+# Generate your key
+ssh-keygen -t ed25519 -C "jimkernicky@gmail.com"
+# or if that doesn't work:
+ssh-keygen -t rsa -b 4096 -C "jimkernicky@gmail.com"
+# ENTER for location and for the passphrase
+# start agent:
+eval "$(ssh-agent -s)"
+# Add your SSH private key to the ssh-agent
+ssh-add ~/.ssh/id_ed25519
+# Copy the SSH public key to your clipboard.
+clip < ~/.ssh/id_ed25519.pub
 ```
-
-The `git config` command is used initially to configure the `user.name` and `user.email` fields. This specifies what email and username will be used from a local repository.
-
-The `--global` flag tells Git that you're going to use the email above for all repos on your computer. Replace that with `--local` to use different emails for different repos.
 
 Some people mention using an SSH key to validate your identity. An SSH key is another way to identify yourself to Github instead of using a username and password. I found that a little confusing so I prefer using username and password.
 
 Check out my SSH markdown file in my repo `bash-shell-scripts`, specifically the section [Generate SSH keys](https://github.com/Kernix13/bash-shell-scripts/blob/main/SSH.md#generate-ssh-keys) to learn more about that method.
-
-Also, try the following command to see all the configuration settings:
-
-```bash
-git config --list
-```
-
-Run that command from the cmd promt or in Git Bash and scroll down and look for `user.name="Yourname"` and `user.email="your-email@whatevs.com"`, though until you set those values you either will not see those fields or they will be set to empty strings.
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
