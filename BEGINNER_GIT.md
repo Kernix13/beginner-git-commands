@@ -42,7 +42,13 @@ eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_ed25519
 # Copy the SSH public key to your clipboard.
 clip < ~/.ssh/id_ed25519.pub
+# error on git commit
+# Author identity unknown
+git config --global user.email "you@example.com"
+git config --global user.name "Your Name"
 ```
+
+> I HAVE TO REDO THESE NOTES - LOOKS LIKE YOU NEED BOTH METHODS - I'LL HAVE TO GET THE CODE AND NOTES OFF MY OTHER MACHINE
 
 Some people mention using an SSH key to validate your identity. An SSH key is another way to identify yourself to Github instead of using a username and password. I found that a little confusing so I prefer using username and password.
 
