@@ -28,29 +28,42 @@ Check out this video from the YouTube channel LearnWebCode: [Git Tutorial Part 3
 
 Ater downloading Git, open the `.exe` file to install Git. Then find Git Bash and open it. For me on Windows, there was a Git folder in my Start ment and Git bash was in there. Open it...
 
-You have to generate an SSH to let GitHub know you are who you say you are. Here are the sommands I used:
+In the past you could just use `user.name` and `user.email` to verify your identity to GitHub. Now you have to generate an SSH to let GitHub know you are who you say you are. I used the following docs for the commands I used:
+
+1. Link 1: [Generating a new SSH key and adding it to the ssh-agent](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+Link 2: [Adding a new SSH key to your GitHub account](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
+
+Here are the commands I used:
 
 ```sh
 # Generate your key
 ssh-keygen -t ed25519 -C "jimkernicky@gmail.com"
 # or if that doesn't work:
 ssh-keygen -t rsa -b 4096 -C "jimkernicky@gmail.com"
-# ENTER for location and for the passphrase
-# start agent:
+# Press ENTER for location and for the passphrase start the SSH agent:
 eval "$(ssh-agent -s)"
 # Add your SSH private key to the ssh-agent
 ssh-add ~/.ssh/id_ed25519
 # Copy the SSH public key to your clipboard.
 clip < ~/.ssh/id_ed25519.pub
-# error on git commit
+# error on git commit:
 # Author identity unknown
 git config --global user.email "you@example.com"
 git config --global user.name "Your Name"
 ```
 
-> I HAVE TO REDO THESE NOTES - LOOKS LIKE YOU NEED BOTH METHODS - I'LL HAVE TO GET THE CODE AND NOTES OFF MY OTHER MACHINE
+Those worked and I cloned this repo. Then I made a change and tried to commit it but I got an error in the command (see the last 4 lines in the code block above). So you still need to use `user.name` and `user.email`:
 
-Some people mention using an SSH key to validate your identity. An SSH key is another way to identify yourself to Github instead of using a username and password. I found that a little confusing so I prefer using username and password.
+```sh
+git config --global user.name "Github user name"
+git config --global user.email "youremail@somewhere.com"
+```
+
+The git `config` command is used initially to configure the `user.name` and `user.email` fields. This specifies what email and username will be used from a local repository.
+
+The `--global` flag tells Git that you're going to use the email above for all repos on your computer. Replace that with `--local` to use different emails for different repos.
+
+I was then able to commit my changes but on `git push` I got a message about having to authenticate my GitHub account. There was a new tab open in Chrome where I clicked _Authenticate_ and I had to enter my GitHub password (something like that). I should have taken better notes but I was more concerned on getting everything to work.
 
 Check out my SSH markdown file in my repo `bash-shell-scripts`, specifically the section [Generate SSH keys](https://github.com/Kernix13/bash-shell-scripts/blob/main/SSH.md#generate-ssh-keys) to learn more about that method.
 
