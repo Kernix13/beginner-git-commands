@@ -31,21 +31,26 @@ Ater downloading Git, open the `.exe` file to install Git. Then find Git Bash an
 In the past you could just use `user.name` and `user.email` to verify your identity to GitHub. Now you have to generate an SSH to let GitHub know you are who you say you are. I used the following docs for the commands I used:
 
 1. Link 1: [Generating a new SSH key and adding it to the ssh-agent](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
-Link 2: [Adding a new SSH key to your GitHub account](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
+   Link 2: [Adding a new SSH key to your GitHub account](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
 
 Here are the commands I used:
 
 ```sh
 # Generate your key
-ssh-keygen -t ed25519 -C "jimkernicky@gmail.com"
+ssh-keygen -t ed25519 -C "myemail@somewhere.com"
+
 # or if that doesn't work:
-ssh-keygen -t rsa -b 4096 -C "jimkernicky@gmail.com"
+ssh-keygen -t rsa -b 4096 -C "myemail@somewhere.com"
+
 # Press ENTER for location and for the passphrase start the SSH agent:
 eval "$(ssh-agent -s)"
+
 # Add your SSH private key to the ssh-agent
 ssh-add ~/.ssh/id_ed25519
+
 # Copy the SSH public key to your clipboard.
 clip < ~/.ssh/id_ed25519.pub
+
 # error on git commit:
 # Author identity unknown
 git config --global user.email "you@example.com"
