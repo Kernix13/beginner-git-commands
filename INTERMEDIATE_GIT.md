@@ -520,6 +520,13 @@ The main thing to know is that the master branch will most likely be updated reg
 
 Note: you should use `git switch branch_name` as opposed to `git checkout` but this is a new command that I am no familiar with. Check out the article [What's the Difference Between Git Switch and Checkout](https://linuxhandbook.com/git-switch-checkout/).
 
+> If you have to switch branches, use the `git switch` command instead of `git checkout`. Why? Because it was created for this specific task. For new Git users, it is easier to remember that `git switch` is for switching branches, `git restore` is for restoring a commit
+
+| checkout              | switch              | purpose                   |
+| :-------------------- | :------------------ | :------------------------ |
+| checkout my-branch    | switch my-branch    | Switch to branch          |
+| checkout -b my-branch | switch -c my-branch | Create & switch to branch |
+
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
 <p>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</p>
