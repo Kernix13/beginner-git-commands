@@ -244,6 +244,8 @@ Double-check that the branch is gone with `git branch`.
 
 To fork a repo, go to the repository main page, then click the `Fork` button to the left of the `Star` button (upper right). I'm going to use the <a href="https://github.com/freeCodeCamp/freeCodeCamp" target="_blank">freeCodeCamp repo</a> as an example.
 
+You will be taken a page where you can rename the fork but leave it as is and click _Create fork_. You will be redirected to your account for the repository with the note "_forked from user/repo-name_".
+
 After you fork a repo, open up a terminal with Git Bash and navigate to the folder where you want the cloned repo. Then enter the following commands:
 
 ```bash
@@ -319,13 +321,15 @@ MY FINAL COMMANDS (clone, fetch, push):
 
 ```sh
 git clone --depth=1 https_url
+# or just
+git clone https_url
 git remote add upstream https_url
 git fetch upstream
 git remote -v
 git push origin main
 ```
 
-THEN: create branch, make changes, and push them
+THEN: create and checkout to your branch, make changes, add and commit your changes, and push them.
 
 ```sh
 git checkout -b fix/branch-name
@@ -335,6 +339,8 @@ git push --set-upstream origin fix/branch-name
 ```
 
 Use that last `git push` only for the first time, then use `git push origin fix/something-typos`. Although, I believe once you set the `upstream` and/or `origin`, you only need to do `git push` similar to a regualr push. Here is the last command AFTER you set the upstream:
+
+> NOTE: Remember to add a label!
 
 ```sh
 git push origin fix/branch-name
@@ -400,7 +406,7 @@ When you make a change to a file in regards to an issue, add the issue `#` in yo
 
 When you go back into that issue you should see the commit that references the issue. If you are done click the _Close_ issue button. But there are also keywords that will automatically close an issue and the main one is **_fixes_**.
 
-So if you add the "`fixes`" keyword in your commit title it will close the issue AUTOMATICALLY: `This fixes #3`. 
+So if you add the "`fixes`" keyword in your commit title it will close the issue AUTOMATICALLY: `This fixes #3`.
 
 When you do that you will get a commit `#` for the closed issue. If you grab that commit hash from the url for the commit that closed an issue, you can create another issue and paste the hash into the description field. That will automatically create a link to that commit.
 
@@ -491,7 +497,7 @@ Then you will get a message that you can delete your local branch - do that.
 
 <h3 id="staying-up-to-date">&#10551; Staying up to date</h3>
 
-Once you are done with your PR and start to work on something else, the repo has most likely had changes by other contributors so your copy is behind. You need to update your local copy of the repo before making new changes. 
+Once you are done with your PR and start to work on something else, the repo has most likely had changes by other contributors so your copy is behind. You need to update your local copy of the repo before making new changes.
 
 Use the following commands to update your local copy:
 
