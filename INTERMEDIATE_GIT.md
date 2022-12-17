@@ -212,6 +212,10 @@ git log branch_name --not main
 
 That will show you what has been changed and what has not been pushed to main (or maybe has not been merged). If you are fine with the differences then replace `-d` with `-D`.
 
+NOTE: I used `git push origin fix/branch-name` instead of `git push --set-upstream origin fix/branch-name` and I got the above error when trying to delete the branch after it was merged and main updated.
+
+> Get your commands right the first time!
+
 It appears that after the PR from your branch has been merged and you _do not_ delete it, there is not a way to delete it from GitHub. When that happens run:
 
 ```sh
