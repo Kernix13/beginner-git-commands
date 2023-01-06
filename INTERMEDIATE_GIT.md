@@ -8,6 +8,7 @@ These are commands that you will encounter when you start contributing to open-s
 
 1. [Branches](#branches)
    1. [Pushing branches to your repository](#pushing-branches-to-your-repository)
+   1. [Code Comments](code-omments)
    1. [Common issues with branches](#common-issues-with-branches)
 1. [Forking and cloning](#forking-and-cloning)
 1. [GitHub Issues](#github-issues)
@@ -102,13 +103,11 @@ Miscellaneous commands that I am unsure of:
 
 <h3 id="pushing-branches-to-your-repository">&#10551; Pushing branches to your repository</h3>
 
-After you push the changes to GitHub you would then make a PR (pull request) whether you are contributing or working on your own project.
-
-> **NOTE**: I edited all of BEGINNER_GIT and ADVANCED_GIT and everything above this point. I'm confident on the notes thus far. I'm not so confident about the rest of this file.
+When you push the changes for your branch to GitHub a PR (pull request) is created whether you are contributing to an open source repo or working on your own project.
 
 > **Remember, you push the changes for your branch _from_ your branch, not from `master`.**
 
-Then back on your repo main page:
+Then back on your/the repo main page:
 
 1. Click the **Compare & Pull Request** button.
 1. Clicking it takes you to a page titled "_Open a pull request_" where you can add a description.
@@ -116,20 +115,31 @@ Then back on your repo main page:
 1. That takes you to the "_Pull requests_" tab where you can click the _Merge pull request_ button
 1. And finally, click _Confirm merge_ if you are done working on your branch, or you can continue to work and push changes from your branch. In that case, you do not want to merge and confirm.
 
+> NOTE: check the notes on this process under the section _GitHub pull request process_ as they provide more information.
+
 **Squash**:
 
-If you have multiple commits for that branch, select _Squash and merge_ option from the dropdown list under _Compare and merge_.
+If you have multiple commits for that branch, select _Squash and merge_ option from the dropdown list under _Compare and merge_. Here is another reason to _squash your commits_:
 
-**Code Comments**:
+PR Merges fixes:
+
+- Squash your PR's - if something goes wrong then you can pull that commit out using `git revert commit_hash` - so squash will combine the commits into one and give a new commit hash
+- Click `Squash and merge` btn > click `Confirm squash and merge` then delete the branch
+- go back to the code view for the repo and you will see a new hash
+- if you have to use `git revert commit_hash` that will make a new commit which will undo the previous commit but the history of it will be there
+
+### Code Comments
+
+You can make comments on the code you pushed:
 
 1. Click on the _Files changed_ tab when on the PR for the push
 1. Click the `+` button that appears when you hover over the code
 1. Make a comment on a line of code.
-1. You can add a description for the comment and also click the "Resolve conversation" button.
+1. You can add a description for the comment and also click the "_Resolve conversation_" button.
 
 **Note**: A PR from your branch to the master branch is a request to have your code merged with the master branch. You can, and should (see below), delete your branch when your code/changes are merged.
 
-If you go back to your local project and switch to master, the changes won’t be there because they are only on GitHub and you need to pull them down to your local machine. To pull changes from GitHub to your machine use:
+If you go back to your local project and switch to master, the changes won’t be there because they are only on GitHub. Assuming your PR was merged with the master branch, you need to pull the changes down to your local machine. To pull changes from GitHub to your machine use:
 
 ```sh
 git pull
@@ -169,9 +179,11 @@ When you want to go back to your branch and see your changes from before you sta
 ```sh
 git stash
 git stash pop
+git stash list
+git stash clear
 ```
 
-**NOTE**: I did that, switched back to my branch, then ran `git push` and there was nothing on my Github page? I'm not sure why, but you do not get a message for pull requests after you click the "_Create pull request_" button...(Double check that)
+**NOTE**: I did that, switched back to my branch, then ran `git push` and there was nothing on my Github page? I'm not sure why, but you do not get a message for pull requests after you click the "_Create pull request_" button...
 
 <br>
 
@@ -192,7 +204,7 @@ Once the PR is merged, you generally delete your branch and switch back to the m
 ```sh
 # check the branch you are on:
 git branch
-# checkout to master if not on master
+# checkout to master if not on master/main
 git checkout master
 # delete the new branch that you pushed and merged
 git branch -d branch_name
@@ -203,7 +215,7 @@ If you get this error when trying to delete a branch:
 > error: The branch `branch-name` is not fully merged.
 > If you are sure you want to delete it, run `git branch -D branch-name`.
 
-It's probably because something in your local branch has not actually made it to the remote repository. To find out what commits have not been merged from your source branch to a target branch run:
+I'm not sure why this error occurs. To find out what commits have not been merged from your source branch to a target branch run:
 
 ```sh
 git log branch_name --not main
@@ -236,7 +248,7 @@ Double-check that the branch is gone with `git branch`.
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
-<p>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ </p>
+<br>
 
 ## Forking and cloning
 
@@ -247,7 +259,7 @@ Double-check that the branch is gone with `git branch`.
 
 To fork a repo, go to the repository main page, then click the `Fork` button to the left of the `Star` button (upper right). I'm going to use the <a href="https://github.com/freeCodeCamp/freeCodeCamp" target="_blank">freeCodeCamp repo</a> as an example.
 
-You will be taken a page where you can rename the fork but leave it as is and click _Create fork_. You will be redirected to your account for the repository with the note "_forked from user/repo-name_".
+You will be taken to a page where you can rename the fork but leave it as it is and click _Create fork_. You will be redirected to the forked repo on your account with the note "_forked from user/repo-name_".
 
 After you fork a repo, open up a terminal with Git Bash and navigate to the folder where you want the cloned repo. Then enter the following commands:
 
@@ -314,11 +326,9 @@ New commands in detail:
 
 **NOTES**:
 
-> `git reset --hard upstream/main` erases any uncommitted changes. This is not a required command used every time you need to push changes to the remote repo - use it wisely and when needed. Or **ONLY** run as part of the original fetch process.
-
-> `git push origin main --force`, you don’t need to add the `--force`. Just doing a regular git push is fine. Or **ONLY** do it on the first push.
-
-> You only use the `--set-upstream` parameter when you need to add **your LOCAL** branch to **your REMOTE** branch. But once the new branch is added to the remote repo, then you don’t need to use `--set-upstream` each time.
+- `git reset --hard upstream/main` erases any uncommitted changes. This is not a required command used every time you need to push changes to the remote repo - use it wisely and when needed. Or **ONLY** run as part of the original fetch process.
+- `git push origin main --force`, you don’t need to add the `--force`. Just doing a regular git push is fine. Or **ONLY** do it on the first push.
+- You only use the `--set-upstream` parameter when you need to add **your LOCAL** branch to **your REMOTE** branch. But once the new branch is added to the remote repo, then you don’t need to use `--set-upstream` each time.
 
 MY FINAL COMMANDS (clone, fetch, push):
 
@@ -355,7 +365,7 @@ If you realize that you need to edit a file or update the commit message after m
 
 This will open up a default text editor like `nano` or `vim` where you can edit the commit message title and add/edit the description. I had a hard time figuring out how to quit out of that editor, but I think `CTRL + X` may do it. If that doesn't work try any of the following: `q`, `Q`, `exit`, `ESC`, `:WQ`, `ENTER`, or `CTRL + C`. One of those should work.
 
-Actually, I believe to exit VIM use <kbd>ESC</kbd> + `:wq`.
+Actually, I believe to exit VIM use <kbd>ESC</kbd> + `:wq` or just `wq`.
 
 Here is a comparison of cloning your repo vs. cloning someone else's repo vs. forking then cloning:
 
@@ -413,7 +423,7 @@ When you go back into that issue you should see the commit that references the i
 
 So if you add the "`fixes`" keyword in your commit title it will close the issue AUTOMATICALLY: `This fixes #3`.
 
-When you do that you will get a commit `#` for the closed issue. If you grab that commit hash from the url for the commit that closed an issue, you can create another issue and paste the hash into the description field. That will automatically create a link to that commit.
+When you do that you will get a commit `#` for the closed issue. If you grab that commit hash from the url for the commit that closed an issue, you can create another issue and paste the hash into the description field. That will automatically create a link to that commit (Huh?)
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
@@ -498,7 +508,7 @@ Also, if you scroll further down on the page you will see all the changes you ma
 
 Your changes will either be accepted or rejected. When the owner of the repo accepts your changes they will do so by clicking the **Merge pull request** button (or Squash for multiple commits pushed). If it is your repo you will then see a green button **Confirm merge**.
 
-Then you will get a message that you can delete your local branch - do that.
+Then you will get a message that you can delete your local branch. Do that and also delete your local branch.
 
 <h3 id="staying-up-to-date">&#10551; Staying up to date</h3>
 
@@ -511,7 +521,7 @@ git checkout master
 git pull upstream master
 ```
 
-I actually use `git fetch upstream` to update my local clone. I'm not sure if `git pull upstream master` is better or not. However, I had a PR fail because I was missing a command. `git fetch upstream` will only fetch the git data. To update your main fully, you should:
+I actually use `git fetch upstream` to update my local copy. I'm not sure if `git pull upstream master` is better or not. However, I had a PR fail because I was missing a command. `git fetch upstream` will only fetch the git data. To update your main fully, you should:
 
 ```sh
 git checkout master
@@ -521,11 +531,11 @@ git merge upstream/master
 
 So run `git merge upstream/master` every time before making your changes and doing a push. That will ensure you always have the latest state of `master` locally.
 
-The main thing to know is that the master branch will most likely be updated regularly as you are working on your branch. You will want to pull those changes down to your local master branch. Then you will want to checkout to your branch and use `git merge master` to keep your branch up to date with what is going on with master. This is where you may get a merge conflict.
+The main thing to know is that the master branch will most likely be updated regularly as you are working on your branch. You will want to pull those changes down to your local master branch. Then you will want to checkout to your branch and use `git merge master` to keep your branch up to date with what is going on with master. If you don't do that then this is where you _may_ get a merge conflict.
 
-Note: you should use `git switch branch_name` as opposed to `git checkout` but this is a new command that I am no familiar with. Check out the article [What's the Difference Between Git Switch and Checkout](https://linuxhandbook.com/git-switch-checkout/).
+Note: you should use `git switch branch_name` as opposed to `git checkout` but this is a new command that I am not familiar with. Check out the article [What's the Difference Between Git Switch and Checkout](https://linuxhandbook.com/git-switch-checkout/).
 
-> If you have to switch branches, use the `git switch` command instead of `git checkout`. Why? Because it was created for this specific task. For new Git users, it is easier to remember that `git switch` is for switching branches, `git restore` is for restoring a commit
+> If you have to switch branches, use the `git switch` command instead of `git checkout`. Why? Because it was created for this specific task. For new Git users, it is easier to remember that `git switch` is for switching branches, `git restore` is for restoring a commit.
 
 | checkout                  | switch                  | purpose                   |
 | :------------------------ | :---------------------- | :------------------------ |
@@ -534,7 +544,7 @@ Note: you should use `git switch branch_name` as opposed to `git checkout` but t
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
-<p>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</p>
+<br>
 
 ## Miscellaneous git
 
@@ -575,7 +585,7 @@ yarn-debug.log*
 yarn-error.log*
 ```
 
-Here is an example of a basic gitignore file. You _always_ want to add `node_modules`:
+Here is an example of a basic gitignore file. You _always_ want to add `node_modules` assuming you added node packages to your project:
 
 ```sh
 # Packages
@@ -750,19 +760,13 @@ git rebase -i upstream/main
 git push -f
 ```
 
-Is this how you add a description?
-
-```sh
-git commit -m "Title" -m "Description .........."
-```
-
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
 ## Creating a GitHub gist
 
 These are not git commands, rather they are a way to have code on GitHub that is not a stand-alone repository. People ceate them because they are chunks of code that other people can use.
 
-To search for a gist on GitHub: `https://gist.github.com/username/`
+To search for a gist on GitHub: `https://gist.github.com/username/` or just `https://gist.github.com/`
 
 **<ins>What is a Gist?</ins>**
 
@@ -781,9 +785,9 @@ They are basically code snippets to save/store and share. Gists do not have Issu
 
 Then you can get the Share link for the gist to share with people or to add to an online article. When you choose `Embed` and add the link to an HTML page it will output as a formatted code block (not for all sites though).
 
-You can add code blocks for your gist by clicking _Add file_.
+You can add code blocks or other files for your gist by clicking _Add file_.
 
-**Public gists** can be found on the Discover page. Just click _All gists_ from the menu bar and they are listed in reverse chronologial order of creation date. You can also search for gists by keywords, add comments on gists you found and have comments on your gists.
+**Public gists** can be found on the Discover page. Just click _All gists_ from the menu bar and they are listed in reverse chronologial order of creation date. You can also search for gists by keywords, add comments on gists you found, and have comments on your gists.
 
 **NOTE**: You can create a gist if you are not signed into GitHub but it will be an anonymous gist which you will not be able to edit or delete. I don't know why you would want to do that but you can if you want to.
 

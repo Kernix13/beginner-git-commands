@@ -53,7 +53,7 @@ git reset path/filename.ext
 
 ### Undo a Commit
 
-Use `git reset` again but include `HEAD` which means the last commit. But to undo the last coomit add `~1` to go back 1 commit past the last commit which will undo the last commit:
+Use `git reset` again but include `HEAD` which means the last commit. But to undo the last commit add `~1` to go back 1 commit past the last commit which will undo the last commit:
 
 ```sh
 git reset HEAD~1
@@ -68,7 +68,7 @@ You will see the commit hash and the commit message along with other information
 git reset e220bfb1e34b8c6b6fce1deb7884244239284716
 ```
 
-That will unstage any changes made to the file(s) AFTER that commit. The changes will be in your files but they will not be saved into git anymore. But how do you get rid of all the changes after a certain point? USe the same command but add the flag `--hard`:
+That will unstage any changes made to the file(s) AFTER that commit. The changes will be in your files but they will not be saved into git anymore. But how do you get rid of all the changes after a certain point? Use the same command but add the flag `--hard`:
 
 ```sh
 git reset --hard e220bfb1e34b8c6b6fce1deb7884244239284716
@@ -80,7 +80,7 @@ You can also remove a specific file from staging by using `git rm –cached file
 
 ### Remove Git
 
-To remove git tracking from a folder use the following command in `git bash`, the command prompt or in VS Code:
+To remove git tracking from a folder use the following command in `git bash`, the command prompt, or the terminal in VS Code:
 
 ```sh
 rm -rf .git
