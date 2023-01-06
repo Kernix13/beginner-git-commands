@@ -6,6 +6,8 @@
 
 > **THOUGHTS**: THE AMOUNT OF TIME YOU NEED TO SPEND TO FIND SOMETHING THAT YOU CAN DO IS RIDICULOUS. AND THEN YOU HAVE TO GET TO IT BEFORE SOMEONE ELSE DOES.
 
+## PR and issues search
+
 You want to search for either a subject or programming language/technology that you feel would work for you.
 
 **TIP 1**: Try searching for `good first issue`
@@ -17,8 +19,6 @@ is:open is:issue archived:false label:"good first issue" language"javascript"
 **TIP 2**: Search the project for `To Do` or `ToDo` or `To-Do`- they often get forgotten about
 
 - Check the issues tab – on a repo or the main one on GH – search by specific Labels – like `good first issue` and `javascript`
-
-## PR and issues search
 
 Here are examples of the search criteria you can use searching for open issues or pull requests:
 
