@@ -6,13 +6,14 @@
 
 This repo have the commands a beginner will need to use git, as well as intermediate and advanced commands:
 
-- [BEGINNER_GIT.md](https://github.com/Kernix13/beginner-git-commands/blob/master/BEGINNER_GIT.md) 
-- [INTERMEDIATE_GIT.md](https://github.com/Kernix13/beginner-git-commands/blob/master/INTERMEDIATE_GIT.md) 
+- [BEGINNER_GIT.md](https://github.com/Kernix13/beginner-git-commands/blob/master/BEGINNER_GIT.md)
+- [INTERMEDIATE_GIT.md](https://github.com/Kernix13/beginner-git-commands/blob/master/INTERMEDIATE_GIT.md)
 - [ADVANCED_GIT.md](https://github.com/Kernix13/beginner-git-commands/blob/master/ADVANCED_GIT.md)
 
 The basic steps you need in the beginning are:
 
 1. Download and install Git (one time ony)
+1. Generate an SSH key to authenticate your machine with GitHub
 1. Create an empty repo on GitHub
 1. Initialize Git in a project folder
 1. Make changes or create a file

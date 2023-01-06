@@ -25,19 +25,15 @@ These are commands that you will encounter when you start contributing to open-s
    1. [Clone or fork a gist](#clone-or-fork-a-gist)
    1. [Editing a gist](#editing-a-gist)
 
-## Intermediate Git Commands
-
-From here the commands are a little more involved and are for when you start creating your own branches and/or contributing to open source projects.
-
 ## Branches
 
-A branch is a version of your project. `master` or `main` is the primary or live or production version of your project. `main` is the preferred default name for your production branch.
+A branch is a version of your project. `master` or `main` is the primary or live or production version of your project. FYI, `main` is the preferred default name for your production branch.
 
 You usually do not want to commit work-in-process (WIP) code to the master/main branch. Instead, create a new branch for each new feature of your project.
 
 Before you create `new_branch`, you want to make sure that you have a clean working directory (no uncommitted changes). So do `git status` and your other basic push commands before creating a new branch.
 
-> If you don't do not, you are in for problems such as merge conflicts, so just check and then push.
+> If you don't do that, you are in for problems such as merge conflicts, so just check and then push.
 
 Here are common commands you'll often use when working with branches:
 
@@ -87,7 +83,7 @@ For a new branch, `git push` won't work because git doesn't know what branch you
 git push --set-upstream origin branch_name
 ```
 
-**Note**: Using `--set-upstream` is the same thing as using `-u` in the sections above. Actually, `-u` is short-hand for `--set-upstream`.
+**Note**: Using `--set-upstream` is the same thing as using `-u` mentioned in the BEGINNER_GIT file. Once again, `-u` is short-hand for `--set-upstream`.
 
 Then after setting the upstream for your new branch you can do the usual:
 
@@ -97,7 +93,10 @@ git commit -m "fixes on new_branch"
 git push
 ```
 
-Miscellaneous (not sure what these are): `git branch --sort=-committerdate # DESC` and `git branch -r --sort=-committerdate # DESC` where the flag `-r` is for just remotes.
+Miscellaneous commands that I am unsure of:
+
+1. `git branch --sort=-committerdate # DESC`
+1. `git branch -r --sort=-committerdate # DESC` where the flag `-r` is for just remotes.
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
