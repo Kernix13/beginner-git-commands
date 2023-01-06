@@ -28,7 +28,7 @@ Check out this video from the YouTube channel LearnWebCode: [Git Tutorial Part 3
 
 Ater downloading Git, open the `.exe` file to install Git. Then find Git Bash and open it. For me on Windows, there was a Git folder in my Start ment and Git bash was in there. Open it...
 
-In the past you could just use `user.name` and `user.email` to verify your identity to GitHub. Now you have to generate an SSH to let GitHub know you are who you say you are. I used the following docs for the commands I used:
+In the past you could just use `user.name` and `user.email` to verify your identity to GitHub. Now you have to generate an SSH key to let GitHub know you are who you say you are. I used the following docs for the commands I used:
 
 1. Link 1: [Generating a new SSH key and adding it to the ssh-agent](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
    Link 2: [Adding a new SSH key to your GitHub account](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
@@ -132,7 +132,6 @@ git commit -m "commit msg" -m "commit description"
 <!-- &#8702; -->
 <!-- &#10230; -->
 <!-- &#10511; -->
-
 <!-- &#10551; -->
 <!-- &#10559; -->
 
@@ -184,6 +183,11 @@ git commit -am "Commit message"
 ```
 
 If you modified an existing file you can use `git commit -am "msg"` which combines **_add_** (`a`) amd **_message_** (`m`). That combines the `git add .` and `git commit -m "msg"` into one command.
+
+Other commands you may find useful are:
+
+1. `git log`: this shows you your commit history with the hash you would use to undo a commit with some of the advanced git commands.
+1. `git diff`: this shows you the file(s) that changed and the actual changes by showing the before and after pictures of y our files.
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 

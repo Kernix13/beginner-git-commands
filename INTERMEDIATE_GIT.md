@@ -356,6 +356,8 @@ If you realize that you need to edit a file or update the commit message after m
 
 This will open up a default text editor like `nano` or `vim` where you can edit the commit message title and add/edit the description. I had a hard time figuring out how to quit out of that editor, but I think `CTRL + X` may do it. If that doesn't work try any of the following: `q`, `Q`, `exit`, `ESC`, `:WQ`, `ENTER`, or `CTRL + C`. One of those should work.
 
+Actually, I believe to exit VIM use <kbd>ESC</kbd> + `:wq`.
+
 Here is a comparison of cloning your repo vs. cloning someone else's repo vs. forking then cloning:
 
 | Command Description            |        Clone (Yours)        |      Clone (Not Yours)      |              Fork then Clone               |
@@ -708,7 +710,7 @@ Here are some terminal commands you may need:
 - Use the up <kbd>&uarr;</kbd> and down <kbd>&darr;</kbd> arrow keys to cycle thru previous commands
 - <kbd>CTRL</kbd>+<kbd>C</kbd>,
 - <kbd>TAB</kbd> - auto fill in file and folder names
-- <kbd>ESC</kbd>, `:WQ`, <kbd>ENTER</kbd>: not sure what these are for or where/when they are used
+- <kbd>ESC</kbd>, `:WQ`, <kbd>ENTER</kbd>: I think these are used with Vim or Nano.
 
 I am not sure what these commands do, mostly because I believe these are advanced git commands but I have either used them with help from other people, or they are from my many pages of git notes:
 

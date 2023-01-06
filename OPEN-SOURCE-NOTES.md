@@ -18,7 +18,24 @@ is:open is:issue archived:false label:"good first issue" language"javascript"
 
 - Check the issues tab – on a repo or the main one on GH – search by specific Labels – like `good first issue` and `javascript`
 
-## Supposed must have elements in all Open-Source projects
+## PR and issues search
+
+Here are examples of the search criteria you can use searching for open issues or pull requests:
+
+```
+<!-- issues tab -->
+is:open is:issue label:question
+is:open is:issue label:bug
+is:open is:issue label:Content:Accessibility
+is:open label:Content:JS
+
+<!-- pull requests tab -->
+is:open is:pr label:bug
+is:open is:pr label:"good first issue"
+is:open is:pr label:Content:CSS
+```
+
+## Must have elements in all Open-Source projects
 
 1. License: If a project does not have an open-source license, then it is not open source.
 1. README file: lists the requirements for contributing to the project.
