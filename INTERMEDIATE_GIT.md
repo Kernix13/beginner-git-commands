@@ -22,6 +22,7 @@ These are commands that you will encounter when you start contributing to open-s
 1. [Miscellaneous git](#miscellaneous-git)
    1. [gitignore](#gitignore)
    1. [Other commands](#other-commands)
+   1. [Download a folder from GitHub](#download-a-folder-from-github)
 1. [Creating a GitHub gist](#creating-a-github-gist)
    1. [Clone or fork a gist](#clone-or-fork-a-gist)
    1. [Editing a gist](#editing-a-gist)
@@ -761,6 +762,12 @@ git push -f
 ```
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
+
+### Download a folder from GitHub
+
+This does not involve any git commands but it can be useful if you need images from a repo but do not want to clone the entire repo or download a zip.
+
+Go to [GitHub Download](https://www.gitkraken.com/learn/git/github-download) and scroll down to _How to Download a Folder from GitHub_. There is a link to [download-directory](https://download-directory.github.io/) where all you have to do is paste in the link to the folder you want to download.
 
 ## Creating a GitHub gist
 
