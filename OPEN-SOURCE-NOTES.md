@@ -38,6 +38,7 @@ is:open is:pr label:Content:CSS
 ## Must have elements in all Open-Source projects
 
 1. License: If a project does not have an open-source license, then it is not open source.
+   1. For a simple guide how to add a license, check out [Adding a license to a repository](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository) in the GitHub docs.
 1. README file: lists the requirements for contributing to the project.
 1. A good README should contain everything a potential contributor would want to know about the project
 1. Contribution Guidelines: These are guidelines that help people who contribute to the project know exactly what is expected from them
