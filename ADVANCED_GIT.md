@@ -10,6 +10,7 @@ This markdown file is a work-in-process...there is not a lot here now. I will be
    1. [Undo a Commit](#undo-a-commit)
    1. [Remove Git](#remove-git)
    1. [Remove remote origin](#remove-remote-origin)
+   1. [Undo git add](#undo-git-add)
 
 ## Handling merge conflicts
 
@@ -95,3 +96,7 @@ git remote remove origin
 ```
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
+
+### Undo git add
+
+If you accidentally push your `node_modules` directory for your first push (when you forgot about `.gitignore`), just use `git reset`to unstage all changes. You could also remove a single file with `git reset <file>`.
