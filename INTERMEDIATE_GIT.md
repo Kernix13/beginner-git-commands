@@ -8,7 +8,8 @@ These are commands that you will encounter when you start contributing to open-s
 
 1. [Branches](#branches)
    1. [Pushing branches to your repository](#pushing-branches-to-your-repository)
-   1. [Code Comments](code-omments)
+   1. [Code Comments](#code-omments)
+   1. [Deleting branches](#deleting-branches)
    1. [Common issues with branches](#common-issues-with-branches)
 1. [Forking and cloning](#forking-and-cloning)
 1. [GitHub Issues](#github-issues)
@@ -156,6 +157,27 @@ What `git pull` does is merge all the changes present in the remote repository t
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
+## Deleting branches
+
+Once the PR is merged, you generally delete your branch and switch back to the master branch. To delete a branch use:
+
+```sh
+# check the branch you are on:
+git branch
+# checkout to master if not on master/main
+git checkout master
+# delete the new branch that you pushed and merged
+git branch -d branch_name
+```
+
+Check out the freeCodeCamp article [Git Delete Remote Branch – How to Remove a Remote Branch in Git](https://www.freecodecamp.org/news/git-delete-remote-branch/) for a great guide on the whole process. But once you delete your local branch, you want to delete your remote branch:
+
+```sh
+git push origin –d branch_name
+```
+
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
+
 <h3 id="common-issues-with-branches">&#10551; Common issues with branches</h3>
 
 You may run into issues when you start working with branches. Here are some that I encountered.
@@ -199,17 +221,6 @@ So don't merge until you are done making changes and push the changes. Or don't 
 <br>
 
 **--> Deleting branches**:
-
-Once the PR is merged, you generally delete your branch and switch back to the master branch. To delete a branch use:
-
-```sh
-# check the branch you are on:
-git branch
-# checkout to master if not on master/main
-git checkout master
-# delete the new branch that you pushed and merged
-git branch -d branch_name
-```
 
 If you get this error when trying to delete a branch:
 
