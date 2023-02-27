@@ -8,7 +8,7 @@ These are commands that you will encounter when you start contributing to open-s
 
 1. [Branches](#branches)
    1. [Pushing branches to your repository](#pushing-branches-to-your-repository)
-   1. [Code Comments](#code-omments)
+   1. [Code Comments](#code-comments)
    1. [Deleting branches](#deleting-branches)
    1. [Common issues with branches](#common-issues-with-branches)
 1. [Forking and cloning](#forking-and-cloning)
