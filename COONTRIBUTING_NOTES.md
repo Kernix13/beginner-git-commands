@@ -172,3 +172,13 @@ A realistic experience that you would find on a professional dev team.
 - When you are first starting out, you will probably be coding 5-6 hours. You won't have to many meetings. Then it bumps down to about 4-5 hours. Then it goes from there.
 - It also depends on where you are at in the project. For example, the team may be testing the app and, doing code reviews and making small bug fixes... testing the edge cases and making sure the product is good to go for the launch.
 - Also, don't worry about error handling right now. We can decide on how we best want to show the user they have an invalid input in a later ticket
+
+### Project Boards
+
+Project boards are used to organize the open tickets. They can have multiple views such as milestones for upcoming releases, and a list of all the tickets.
+
+Tickets are often prioritized by importance so that team members know which tickets should be worked on first.
+
+### Milestones
+
+Milestones are used to group ticket organized and focused on priority items and releases. You would have milestones for releases and testing.
