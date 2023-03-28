@@ -739,6 +739,7 @@ I am not sure what these commands do, mostly because I believe these are advance
 git push -f
 git reflog
 git archive
+# I think I've used prune before
 git prune
 git reset HEAD
 git revert id

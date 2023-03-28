@@ -32,19 +32,19 @@ In the past you could just use `user.name` and `user.email` to verify your ident
 Here are the commands I used for my new laptop:
 
 ```sh
-# Generate your key
+# 1. Generate your key
 ssh-keygen -t ed25519 -C "myemail@somewhere.com"
 
 # or if that doesn't work:
 ssh-keygen -t rsa -b 4096 -C "myemail@somewhere.com"
 
-# Press ENTER for location and for the passphrase start the SSH agent:
+# 2. Press ENTER for location and 3. for the passphrase start the SSH agent:
 eval "$(ssh-agent -s)"
 
-# Add your SSH private key to the ssh-agent
+# 4. Add your SSH private key to the ssh-agent
 ssh-add ~/.ssh/id_ed25519
 
-# Copy the SSH public key to your clipboard.
+# 5. Copy the SSH public key to your clipboard.
 clip < ~/.ssh/id_ed25519.pub
 
 # error on git commit:
@@ -58,6 +58,9 @@ Those worked and I then cloned this repo. Then I made a change and tried to comm
 ```sh
 git config --global user.name "Github user name"
 git config --global user.email "youremail@somewhere.com"
+
+# To check to see if you have a name set already use:
+git config user.name
 ```
 
 The git `config` command is used initially to configure the `user.name` and `user.email` fields. This specifies what email and username will be used from a local repository.
