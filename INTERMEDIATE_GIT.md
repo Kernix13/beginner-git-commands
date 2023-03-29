@@ -43,6 +43,7 @@ Here are common commands you'll often use when working with branches:
 ```sh
 git branch
 git branch -a
+# Should be git switch
 git checkout branch_name
 git checkout -b new_branch
 git merge new_branch
@@ -55,14 +56,17 @@ New commands in detail (`git` removed for brevity):
 
 | _Branch_ Git Commands  | Definition                                              |
 | :--------------------- | :------------------------------------------------------ |
-| branch                 | Shows the branch you are working on                     |
+| branch                 | Shows the branches in your repo + \*current branch      |
 | branch branch_name     | create branch_name                                      |
-| branch -a              | Lists all the branch names in your repo                 |
 | checkout branch_name   | Switches to branch_name                                 |
 | checkout -b new_branch | Creates then switches to new_branch                     |
 | merge new_branch       | Merges 2 branches locally (don't do this!)              |
 | diff new_branch        | To check the differences between the two before merging |
 | push origin new_branch | push just the branch with the changes                   |
+| branch -d branch_name  | Delete the specified branch                             |
+| branch -D branch_name  | Force delete the specified branch                       |
+
+**NOTE**: the branch with an asterisk (`*`) before it's name indicates that it is your current branch - the branch you are on.
 
 If you push the branch with `git push origin new_branch`, back in your repo on GitHub you will see something like "...`new_branch` had recent pushes 2 minutes ago" and a button labeled _Compare and pull request_.
 
@@ -545,7 +549,7 @@ So run `git merge upstream/master` every time before making your changes and doi
 
 The main thing to know is that the master branch will most likely be updated regularly as you are working on your branch. You will want to pull those changes down to your local master branch. Then you will want to checkout to your branch and use `git merge master` to keep your branch up to date with what is going on with master. If you don't do that then this is where you _may_ get a merge conflict.
 
-Note: you should use `git switch branch_name` as opposed to `git checkout` but this is a new command that I am not familiar with. Check out the article [What's the Difference Between Git Switch and Checkout](https://linuxhandbook.com/git-switch-checkout/).
+**Note**: you should use `git switch branch_name` as opposed to `git checkout branch_name` but this is a new command that I am not familiar with. Check out the article [What's the Difference Between Git Switch and Checkout](https://linuxhandbook.com/git-switch-checkout/).
 
 > If you have to switch branches, use the `git switch` command instead of `git checkout`. Why? Because it was created for this specific task. For new Git users, it is easier to remember that `git switch` is for switching branches, `git restore` is for restoring a commit.
 
@@ -564,14 +568,19 @@ Note: you should use `git switch branch_name` as opposed to `git checkout` but t
 
 ### gitignore
 
-To have Git ignore any files that you do not want to push, create a file called `.gitignore` in the root of your project folder. Add the paths and file names for those files:
+There are some files that you do NOT want to push to a remoe public repository. The files you want got to ignore include secrets, environmental variables, API keys, credentials, operating system files, log files, dependencies and packages, etc.
 
-```git
+To have Git ignore any files that you do not want to push, create a file called `.gitignore`, usually in the root of your project folder. Add the paths and file names that you do not want to push:
+
+```sh
 index.html
 js/test.js
+*.log
 ```
 
-For large repositories, this file will have a lot of entries. For some npm commands like `npx create-react-app` this file will be created for you. Here is the ignore file from a project where I used that CRA command:
+For large repositories, this file will have a lot of entries. For some npm commands like `npx create-react-app` this file will be created for you.
+
+If you want to ignore a folder you need to add `/` after the folder name or Git will think it is a file. Here is the ignore file from a project where I used that CRA command:
 
 ```sh
 # dependencies
