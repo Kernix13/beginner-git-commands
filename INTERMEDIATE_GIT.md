@@ -60,6 +60,8 @@ New commands in detail (`git` removed for brevity):
 | branch branch_name     | create branch_name                                      |
 | checkout branch_name   | Switches to branch_name                                 |
 | checkout -b new_branch | Creates then switches to new_branch                     |
+| switch branch_name     | Switches to branch_name                                 |
+| switch -c new_branch   | Creates then switches to new_branch                     |
 | merge new_branch       | Merges 2 branches locally (don't do this!)              |
 | diff new_branch        | To check the differences between the two before merging |
 | push origin new_branch | push just the branch with the changes                   |
