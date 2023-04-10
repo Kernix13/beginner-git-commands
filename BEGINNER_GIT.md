@@ -27,7 +27,7 @@ First you will need to [download Git](https://git-scm.com/downloads 'Git downloa
 In the past you could just use `user.name` and `user.email` to verify your identity to GitHub. Now you have to generate an SSH key for authentification. I used the following docs to do that:
 
 1. Link 1: [Generating a new SSH key and adding it to the ssh-agent](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
-   Link 2: [Adding a new SSH key to your GitHub account](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
+2. Link 2: [Adding a new SSH key to your GitHub account](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
 
 Here are the commands I used for my new laptop:
 
