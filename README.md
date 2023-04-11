@@ -9,7 +9,7 @@ This repo has the commands a beginner will need to use git, as well as intermedi
 - [BEGINNER_GIT.md](https://github.com/Kernix13/beginner-git-commands/blob/master/BEGINNER_GIT.md)
 - [INTERMEDIATE_GIT.md](https://github.com/Kernix13/beginner-git-commands/blob/master/INTERMEDIATE_GIT.md)
 - [ADVANCED_GIT.md](https://github.com/Kernix13/beginner-git-commands/blob/master/ADVANCED_GIT.md)
-- [details.md](#)
+- [details.md](https://github.com/Kernix13/beginner-git-commands/blob/master/details.md): File describing the various commands in more detail.
 
 The basic steps you need in the beginning are:
 
