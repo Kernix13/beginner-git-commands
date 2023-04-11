@@ -1,35 +1,69 @@
 # Git Commands for Beginners
 
-Get these commands down in the beginning, then move to the intermediate commands.
+NOTE: I alternately use `main` or `master` when referring to your default branch name in the commands in this file and in the other files.
 
 <a id="back-to-top"></a>
 
 ## Table of contents
 
-1. [Download and setup Git](#download-and-setup-git)
-1. [Pushing your local files to an empty repo](#pushing-your-local-files-to-an-empty-repo)
+1. [Download and Setup Git for Windows](#download-and-setup-git-for-windows)
+1. [Authenticate with GitHub](#authenticate-with-github)
+1. [Pushing a local project to an empty repo on GitHub](#pushing-a-local-project-to-an-empty-repo-on-github)
    1. [Commands after initial push](#commands-after-initial-push)
-1. [Clone your own repo](#clone-your-own-repo)
-1. [Clone an existing repo](#clone-an-existing-repo)
-   1. [Push the cloned files up to your repo](#push-the-cloned-files-up-to-your-repo)
+1. [Clone one of your existing GitHub repos](#clone-one-of-your-existing-github-repos)
+1. [Clone a repo that is not yours](#clone-a-repo-that-is-not-yours)
+1. [gitignore](#gitignore)
+1. [Important Notes about the `commit` command](#important-notes-about-the-commit-command)
 1. [Reference links](#reference-links)
 1. [Final notes](#final-notes)
-   1. [Terminology](#terminology)
+   1. [Git keywords](#git-keywords)
 
-<p>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</p>
+## Download and Setup Git for Windows
 
-## Download and setup Git
+You need to [download Git](https://git-scm.com/downloads 'Git download page') then open the `.exe` file to install Git. Accept all the defaults during the install with two exceptions:
 
-First you will need to [download Git](https://git-scm.com/downloads 'Git download page'). Ater downloading Git, open the `.exe` file to install Git. Then find Git Bash and open it. For me on Windows, there was a Git folder in my Start ment and Git bash was in there. Open it...
+1. _Choosing the default editor used by Git_. I chose VS Code but there is a way to set your default editor from Git Bash or the terminal (see below).
+2. _Adjusting the name of the initial branch in new repositories_ by not choosing _Let Git decide_, and instead set it to _main_.
 
-**Note**: On your first push ever to GitHub, you will need to authenticate your machine with GitHub. This is so git/GitHub knows that you are who you say you are.
+**NOTE**: You need Git Bash but that comes bundled with Git for Windows.
+
+On the last screen you can select _Launch Git Bash_ then press finish or find Git Bash on your computer and open it. For me on Windows, there was a Git folder in my Start ment and Git bash was in there.
+
+Open it then to verify that git is installed type `git --version` or `git -v` for short. If you see a version number then Git installed properly.
+
+To close the Git Bash window just type `exit`. To open it again, you can hover over a folder in Windows Explorer, right-click and select _Git Bash Here_.
+
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
+
+## Authenticate with GitHub
+
+On your first push ever to GitHub, you will need to authenticate your machine with GitHub. This is so Git/GitHub knows that you are who you say you are.
 
 In the past you could just use `user.name` and `user.email` to verify your identity to GitHub. Now you have to generate an SSH key for authentification. I used the following docs to do that:
 
 1. Link 1: [Generating a new SSH key and adding it to the ssh-agent](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
-2. Link 2: [Adding a new SSH key to your GitHub account](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
+1. Link 2: [Adding a new SSH key to your GitHub account](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
 
-Here are the commands I used for my new laptop:
+However, you still need to have `user.name` and `user.email` set. Here are the commands I used for my new laptop but I suggest using the 2 links above:
+
+```sh
+# Check to make sure Git installed by checking the version:
+git --version
+# or just
+git -v
+
+# To check to see if you have a name set already use:
+git config user.name
+
+# Set your user name and email
+git config --global user.name "Name you want to be associated with"
+git config --global user.email "Use the email you used for GitHub"
+
+# Make VS Code your default editor
+git config --global core.editor "code --wait"
+```
+
+The steps for creating your SSH key:
 
 ```sh
 # 1. Generate your key
@@ -38,7 +72,7 @@ ssh-keygen -t ed25519 -C "myemail@somewhere.com"
 # or if that doesn't work:
 ssh-keygen -t rsa -b 4096 -C "myemail@somewhere.com"
 
-# 2. Press ENTER for location and 3. for the passphrase start the SSH agent:
+# 2. Press ENTER for location and 3. for the passphrase then start the SSH agent:
 eval "$(ssh-agent -s)"
 
 # 4. Add your SSH private key to the ssh-agent
@@ -46,102 +80,49 @@ ssh-add ~/.ssh/id_ed25519
 
 # 5. Copy the SSH public key to your clipboard.
 clip < ~/.ssh/id_ed25519.pub
-
-# error on git commit:
-# Author identity unknown
-git config --global user.email "you@example.com"
-git config --global user.name "Your Name"
 ```
 
-Those worked and I then cloned this repo. Then I made a change and tried `git commit` but I got an error in the terminal (see the last 4 lines in the code block above).
+Those commands worked and I then cloned this repo.
 
-So you still need to use and set `user.name` and `user.email` but you may want to do that before the steps for your SSH key. To do that, enter the following commands:
-
-```sh
-git config --global user.name "Name you want to be associated with"
-git config --global user.email "Use the email you used for GitHub"
-
-# To check to see if you have a name set already use:
-git config user.name
-```
-
-The git `config` command is used initially to configure the `user.name` and `user.email` fields. This specifies what email and username will be used from a local repository.
-
-The `--global` flag tells Git that you're going to use the email above for all repos on your computer. Replace that with `--local` to use different emails for your projects/repos, although that is not recommended if you are new to Git.
-
-I was then able to commit my changes but on `git push` I got a message about having to authenticate my GitHub account. There was a new tab open in Chrome where I clicked _Authenticate_ and I had to enter my GitHub password (something like that). I should have taken better notes but I was more concerned on getting everything to work.
-
-Check out my SSH markdown file in my repo `bash-shell-scripts`, specifically the section [Generate SSH keys](https://github.com/Kernix13/bash-shell-scripts/blob/main/SSH.md#generate-ssh-keys) to learn more about that method.
+I was then able to commit my changes but on my first `git push` I got a message about having to authenticate my GitHub account. There was a new tab open in Chrome where I clicked _Authenticate_ and I think I only had to enter my GitHub password. I should have taken better notes but I was more concerned on getting everything to work.
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
-<p>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</p>
+## Pushing a local project to an empty repo on GitHub
 
-## Pushing your local files to an empty repo
+After you created a project with files on your machine, you then need to push them to GitHub.
 
-Here are the commands followed by a brief definition on each. Make sure to know these because they are used for other sections in this file. By the way, you need to make changes to your files or create a file before running `git add .` unless you already have files in your project folder.
+Don't worry if you do not know what the words _branch_, _staging_, _commit_ or _remote_ means - you will in time. You can use the commands that GitHub shows when you create the repo or use the following commands but make sure to copy the repo URL link (`https_url`).
 
-Go to GitHub and create an _empty_ repo, meaning _do not_ add a README file. Then back in Git Bash or VS Code run:
+Also note that step 4 requires you to add the URL for an empty repo on Github, so create an empty repo from your GitHub account. Choose to make it a public repo and DO NOT add a `README.md` file. The basic steps are:
 
 ```bash
+# 1. Initiaze git tracking in the current folder:
 git init
+# 2. Add all your files to staging:
 git add .
+# 3. Commit the files in your staging area:
 git commit -m "First commit"
+# 4. Optionally rename the default branch from master to main:
 git branch -M main
+# 5. Set the remote to the optional name 'origin':
 git remote add origin https_url
+# 6. Push your commited changes to your repo:
 git push -u origin master
 ```
 
-**NOTE**: I removed `git` from the commands in all the definition tables to make the table smaller. You should know to add `git` before the main commands (not for the parameters/flags). Here is the first table:
+An alternate way to add new or changed files to staging is to add the files individually:
 
-| _Basic_ Git Commands | Definition                                      |
-| :------------------- | :---------------------------------------------- |
-| init                 | Initiates git tracking                          |
-| status               | Checks the status of your changes/state         |
-| add .                | Adds **_ALL_** (.) changes to staging           |
-| add file1 file2 ...  | Adds specific files to staging                  |
-| commit -m "msg"      | Saves changes to local machine with a message   |
-| remote add origin    | Adds URL as remote repo location                |
-| `branch -M main`     | Changes default branch to 'main' (optional)     |
-| push -u origin main  | Push changes to and sets remote                 |
-| push                 | Push changes after upstream is set              |
-| `-u`                 | Parameter short for `upstream`                  |
-| `upstream`           | the primary _branch_ on the original repository |
-
-The `git init` command creates a new local GIT repository in the directory you ran that command.
-
-You tend to use `git add .` to commit all your changes to the staging area, but you do not have to do that. You could individually add some files to staging while not adding others. You would do that by specifying the files you want to add: `git add filename1.ext filename2.ext`, etc.
-
-The command `git branch -M main` is optional and I think the flag `-M` means changing the default branch name from master to the name **main**. I tried searching for it and I found that Git has changed the default branch name from `master` to `main` though GitHub still uses `master` by default. It's your choice. To see the branch you are on, look to the far left of the bottom bar in VS Code or run `git branch`.
-
-The command `git remote add origin https_url` connects the local repository to a remote server (GitHub repo). `https_url` is the URL that is on the page when you create a new repo. It is also shown when you click the `Code` button in your GitHub repo.
-
-<!-- And you do not have to use the keyword _origin_, that is just common practice to use that word. -->
-
-The `git push` command is used to send local commits to the _master_ (or _main_) branch of the remote repository. But to use `git push` in the future you have to set something called an _upstream_, meaning where you want to push it to by default. That is why you use `-u`. The whole command `git push -u origin master` pushes your commits and sets the branch `master` as the origin for the location of `git push` in the future.
-
-The keyword `origin` means the branch you want to push to. Replace `master` with the branch where you want to push your changes when you’re _not_ intending to push to the master branch (See the Branch section in INTERMEDIATE_GIT.md).
-
-**NOTE**: You can add a second `-m` flag to your commit command to add a description, though I never do that:
-
-```sh
-git commit -m "commit msg" -m "commit description"
+```bash
+# Use the following to add files individually to staging:
+git add filename1.ext filename2.ext
 ```
 
-**NOTE**: When you create an empty repo on GitHub, I believe it's best practice to use the same name on GitHub as the folder of your local copy, though you can still push if the names do not match. I tend to match up the names so that there is no confusion for repos/projects with similar names.
-
-<!-- &#8627; -->
-<!-- &#8640; -->
-<!-- &#8674; -->
-<!-- &#8702; -->
-<!-- &#10230; -->
-<!-- &#10511; -->
-<!-- &#10551; -->
-<!-- &#10559; -->
+**NOTE**: When you create an empty repo on GitHub, it's best practice to use the same name on GitHub as the folder on your local machine, though you can still push if the names do not match. I tend to make the names the same so that there is no confusion for repos/projects with similar names.
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
-<h3 id="commands-after-initial-push">&#10551; Commands after initial push</h3>
+### Commands after initial push
 
 Now your local repo is connected to your remote repo on Github. After making some changes or creating new files use:
 
@@ -150,36 +131,13 @@ git add .
 git status
 git commit -m "Your next commit message"
 git push
+# Or
+git push origin master
 ```
 
-**Note**: I'll repeat this again => You need to use `git push -u origin master` for the first commit. After that just use `git push`. Although I believe you can still use `git push origin master` _AFTER_ the first commit and it won't have a negative effect, though it's totally unnecessary to do that.
+**NOTE**: You need to use `git push -u origin master` for the first commit. After that just use `git push`, although I believe you can still use `git push origin master` _AFTER_ the first commit and it won't have a negative effect.
 
-Also, the flag `-u` is not needed if you are pushing to the default branch. The flag `-u` is short for `--set-upstream` which is what you would use when you are pushing a branch you created locally for the first time. By using that flag you set that as the default when you push to GitHub.
-
-Also, I use `git status` as a habit to check the status of the files. That command is not required but it's a good idea to know what you plan on commiting and pushing.
-
-These commands work for me when pushing to a repo I created without a README file. If you have a README file, then you will get an error when trying to push, so you'll have to do a `git pull` or `git fetch` command to pull/fetch the README to your local repo then you can use `git push`. However, if you also have a README.md file in your local git repo, then you will get a merge conflict. You will also have to use `git merge upstream/master` or `main`...
-
-> You don't want to have a conflict when you first start working with git! In the beginning, don't create anything on GitHub.
-
-Here is a comparison of my commands vs. the commands you see on GitHub when you create an empty repo (there is only 1 difference). I am also tacking on the standard `add`, `commit`, and `push` commands.
-
-Commands in detail:
-
-| Command Description           |             My Git commands | GitHub commands             |
-| :---------------------------- | --------------------------: | :-------------------------- |
-| Initiate tracking             |                        init | init                        |
-| Make changes                  |                           - | -                           |
-| Add changes to staging        |                       add . | add README.md               |
-| Save changes to local         |    commit -m "First commit" | commit -m "First commit"    |
-| Change default branch to main |                           - | branch -M main              |
-| Add url as remote repo        | remote add origin https_url | remote add origin https_url |
-| Verify repo url               |                   remote -v | remote -v                   |
-| Push changes to remote        |       push -u origin master | push -u origin main         |
-| Make additional changes       |                           - | -                           |
-| Add new changes to staging    |                       add . | add .                       |
-| Saves changes to local        |     commit -m "Next commit" | commit -m "Next commit"     |
-| Recurring pushes              |                        push | push                        |
+Also, get in the habit of using `git status` as a way to check the status of your files and folders.
 
 **NOTE**: You can add your files to staging and commit them in one command with the `-am` flag with the `commit` command:
 
@@ -187,124 +145,144 @@ Commands in detail:
 git commit -am "Commit message"
 ```
 
-If you modified an existing file you can use `git commit -am "msg"` which combines **_add_** (`a`) amd **_message_** (`m`). That combines the `git add .` and `git commit -m "msg"` into one command. However, that flag will not work if you have new/untracked files. In that case, you need to use `git add .` and `git commit` separately.
+Also, try not to make changes to any files on GitHub. If you do, you need to run either `git pull` or `git fetch`. The only time you may need to create a file on GitHub is adding a LICENSE file. See the INTERMEDIATE_GIT.md file for details on t hose commands.
 
-Other commands you may find useful are:
-
-1. `git log`: this shows your commit history for the day with the hash you would use to undo a commit with some of the advanced git commands. Type `q` to exit the screen.
-1. `git log --oneline`: show your commit hashes and messages on one line.
-1. `git diff`: this shows you the file(s) that changed and the actual changes by showing the before and after pictures of your files. Type `q` to exit the screen.
-1. `clear`: to clear the console/terminal. That is a terminal command, not a Git command.
+<!-- Add notes on the following maybe: git log --oneline, git diff, clear -->
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
-<p>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</p>
+## Clone one of your existing GitHub repos
 
-## Clone your own repo
+You would clone your own repo when you get a new computer/laptop or if you accidentally deleted one of your local repos.
 
-> Why would you clone your own repo?
-
-The reason I cloned my repos is when I got a new laptop and I cloned the projects I wanted on my new machine. Regardless, the process is almost identical to cloning a repo that is not yours:
+Go to the main repo page and click on the green `Code` button and copy the _HTTPS_ link and replace `https_url` in the commands below with that link
 
 ```sh
+# Go to the folder where you want your project folder and run
 git clone https_url
+# move into that folder
 cd folder_name
+# Check the remote location
 git remote -v
-git remote set-url origin https_url
-git push -u origin master
 ```
 
-New commands in detail:
+**NOTE**: `git clone` automatically initializes Git and sets the remote so you do not need the commands `git init` and `git remote add origin https_url`. By running `git remote -v` you should see:
 
-| _Clone_ Git Commands  | Definition                                 |
-| :-------------------- | :----------------------------------------- |
-| clone                 | Copies the repo at the URL to your machine |
-| remote -v             | Checks where your local copy points to     |
-| remote set-url origin | Sets the URL to point to when pushing      |
-
-The command `git clone` also initiates a git repo for the repo you want to clone, but git is installed in the downloaded/cloned folder, _NOT_ in the directory where you ran that command. So when cloning you do not need `git init`.
-
-`git clone` is used on its own or when you Fork a repo. Use `cd` to switch to the folder cloned repo.
-
-Use `git remote -v` to list the remote repository that is connected to this project. That is to check if you are pointing to the cloned URL or the copy of the repo in your account. Did you fork and clone to contribute, or to work on your own version of the repo?
-
-`remote set-url origin` here sets your repo as the source URL as opposed to changing the URL if cloned from a different account (see next section). It's function is similar to `remote add origin` in the first section.
+```bash
+origin  https://github.com/You_User_Name/your_repo_name.git (fetch)
+origin  https://github.com/You_User_Name/your_repo_name.git (push)
+```
 
 Then make some changes and run the standard commands:
 
 ```sh
 git status
 git add .
-git commit -m "First commit"
+git commit -m "your commit message"
 git push
+# Or run
+git push origin main
 ```
-
-That all works for your repos, but eventually you will want to clone, or fork and clone a repo so that you can contribute to it. You will then need to use the `git clone` again, and various `branch` git commands. You will also need to add additional parameters to your git commands (see the Forking and cloning section in INTERMEDIATE_GIT.md)
-
-**NOTE**: This is an alterate way of initializing a local git repo than what is in the section [Pushing your local files to an empty repo](#pushing-your-local-files-to-an-empty-repo). The differece though is that this method installs git in the cloned file folder and not in the directory where you ran `git clone url`, whereas in the section above it installs git in that folder.
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
-## Clone an existing repo
+## Clone a repo that is not yours
 
-These coomands are for when you want to work on a repo that someone else created. Go to GitHub and create an empty repo. Then back in Git Bash or VS Code run:
+These commands are for when you want to work on a repo that someone else created. The commands are the same as the section above except you want to change the remote location.
+
+Go to GitHub and create an empty repo.
+
+**NOTE**: `https_url` for the `git clone` command is the URL of the repo you want to clone, but `https_url` for the `git remote set-url origin` command should be the URL for the empty repo you created.
+
+Then back in Git Bash or VS Code run these commands:
 
 ```sh
 git clone https_url
 cd folder_name
+# Check to see where the remote is pointing to
 git remote -v
-```
-
-You can also clone a specific branch with:
-
-```sh
-git clone -branch_name https_url
-```
-
-You can also clone the repo into a folder name that you want to use by adding that parameter to the end of the command:
-
-```sh
-git clone https_url app_folder_name
-```
-
-Once again, since you did not fork this repo, but instead you want a copy of it to work on for yourself (assuming that is your intention), you need to first push it up to your empty GitHub repo. See the next section for the details on that.
-
-<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
-
-<h3 id="push-the-cloned-files-up-to-your-repo"> &#10551; Push the cloned files up to your repo</h3>
-
-Because you cloned this repo from an existing repo, git will try to push it to its original destination. For example, if you type `git remote -v` you will get the address of the cloned repo where Git thinks you want to push to.
-
-That is fine if you are contributing, otherwise you need to update the address. Copy the **https_url** from the overview page for the repo you created for the clone, then use:
-
-```sh
+# Set your GitHub repo as the remote
 git remote set-url origin https_url
+# Check to make sure it is now pointing to your account
 git remote -v
-```
-
-The `git remote set-url` command here changes an existing remote repository URL from it's original source to whatever you used for `https_url`.
-
-Now git knows that the origin is your repo. Using `git remote -v` again is to check that git is pointing to the repo address you want.
-
-Then to push the cloned repo files to _your_ repo use:
-
-```sh
-git push origin master
-```
-
-Where `origin` stands for the default branch of your repo.. Then after making changes use the usual:
-
-```sh
-git add .
-git commit -m "First commit"
 git push -u origin master
 ```
 
+Then for pushes after you set the upstream use:
+
+```sh
+git add .
+git commit -m "your message"
+git push origin master
+# or just
+git push
+```
+
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
-<br />
+## gitignore
 
-<p>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _</p>
+There are some files that you do NOT want to push to a remoe public repository. The files you want Git to ignore include secrets, environmental variables, API keys, credentials, operating system files, log files, dependencies and packages, etc.
+
+To have Git ignore any files that you do not want to push, create a file called `.gitignore`, usually in the root of your project folder. Add the paths and file names that you do not want to push:
+
+```sh
+index.html
+js/test.js
+*.log
+```
+
+For large repositories, this file will have a lot of entries. For some npm commands like `npx create-react-app` this file will be created for you.
+
+If you want to ignore a folder you need to add `/` after the folder name or Git will think it is a file.Here is an example of a basic gitignore file. You _always_ want to add `node_modules` assuming you added node packages to your project:
+
+```sh
+# Dependencies
+node_modules
+
+# Production and other folders
+/build
+/dist
+
+### VisualStudioCode ###
+.vscode/*
+
+# misc
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Numerous always-ignore extensions
+*.diff
+*.env
+*.err
+*.log
+*.sass-cache
+*.tmp
+```
+
+You can add anything you want in the gitignore file for your repos. If you are contributing, then do not touch that file unless the repo owner asked you to.
+
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
+
+## Important Notes about the `commit` command
+
+I originally would do massive changes to one or many files and `commit` all those changes, then `push` them to my GitHub repo. _THAT IS NOT WHAT YOU WANT TO DO!_
+
+What you want to do is `commit` changes in related batches. You can have as many commits as you want when you run `git push`. Each `commit` should be for a specific change in case you need to _undo_ that commit.
+
+**COMMIT MESSAGES**: you should use 1) present tense 2) imperative style when writing your commit mesages, although some people prefer past tense:
+
+- `make thing do X` or past tense:
+- `made thing do X`
+
+**Atomic commits**:
+
+- Atomic Commits – when possible a commit should encompass a single feature, change, or fix – focused on a single thing – that makes undo/rollback easier and makes your code easier to review
+
+NOTE: If you forget to add `-m "msg"` with your `commit` command, you will be taken either into the Vim editor or VS Code if you added the global command for that. If you are in the Vim editor, type `:wq` to exit Vim.
 
 ## Reference links
 
@@ -344,26 +322,8 @@ To-Do List:
 - What are **Milestones**?
 - What is a **Releases** exactly?
 - What exactly do you put on the **Projects** tab?
+- What about the other **Insights** and **Security** tabs.
 - What else can you do to make full use of all the GitHub tabs?
-
-<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
-
-<h3 id="terminology">&#10551; Terminology</h3>
-
-Here are some common terms. These notes are from git, MDN, and other sources:
-
-1. **Staging area**: From Git SCM, "_Staged means that you have marked a modified file in its current version to go into your next commit snapshot_".
-1. **`push`**: To send your committed changes to a remote repo, to upload local repo content to a remote repo.
-1. **`pull`**: Pulling a branch means to fetch it and merge it; fetches and merges changes on the remote server to your working directory.
-1. **`fetch`**: adding changes from the remote repository to your local working branch without committing them.
-1. **`upstream`**: the primary _branch_ on the original repository; where you cloned the repo from.
-1. **`origin`**: The default upstream repository - a reference to the remote repository from where a project was initially cloned.
-1. **`remote` / `remote repository`**: the version of a repository or branch that is hosted on a server (like GitHub), a shared repository that all team members use to exchange their changes.
-1. **`clone`**: used to make a copy of the target repository; a copy of a repo that lives on your computer.
-1. **`merge`**: bring the contents of another branch into the current branch; to take the data created on a separate branch and integrate them into a single branch.
-1. **`head`**: A named reference to the commit at the tip of a branch.
-1. **`HEAD`**: your current branch, or a defined commit of a branch, usually the most recent commit at the tip of the branch, or refers to the current commit you are viewing. `HEAD` is a reference to one of the heads in your repository.
-1. **`blob`**: (Binary Large OBject) Untyped object, e.g. the contents of a file, is the object type used to store the contents of each file in a repository.
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
@@ -373,8 +333,4 @@ I'm wondering if putting in the following keywords will help beginners searching
 
 **Keywords**: git for beginners, basic git commands, basic git commands cheat sheet, basic git commands github, basic git commands for beginners, basic git commands list, basic commands for git, github basic commands, basic commands in git, basic git command, basic git commands to know, what are basic git commands, git guide command line, most basic git commands, basic commands of git, basic git workflow commands, basic git cheat sheet, git commands cheat sheet github.
 
-<!-- [Back to Top](#back-to-top "Table of contents") -->
-
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
-
-<!-- Ignore this line, experimenting with markdown comments -->
