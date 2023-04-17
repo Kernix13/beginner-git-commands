@@ -16,7 +16,7 @@ NOTE: I alternately use `main` or `master` when referring to your default branch
 1. [Important Notes about the `commit` command](#important-notes-about-the-commit-command)
 1. [Reference links](#reference-links)
 1. [Final notes](#final-notes)
-   1. [Git keywords](#git-keywords)
+1. [Git keywords](#git-keywords)
 
 ## Download and Setup Git for Windows
 
@@ -44,7 +44,7 @@ In the past you could just use `user.name` and `user.email` to verify your ident
 1. Link 1: [Generating a new SSH key and adding it to the ssh-agent](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 1. Link 2: [Adding a new SSH key to your GitHub account](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
 
-However, you still need to have `user.name` and `user.email` set. Here are the commands I used for my new laptop but I suggest using the 2 links above:
+However, you still need to have `user.name` and `user.email` set. Here are the commands I used for my new laptop but I suggest using the 2 links above as they are the offical source and things change:
 
 ```sh
 # Check to make sure Git installed by checking the version:
@@ -117,6 +117,8 @@ An alternate way to add new or changed files to staging is to add the files indi
 # Use the following to add files individually to staging:
 git add filename1.ext filename2.ext
 ```
+
+For the above command you can use <kbd>TAB</kbd> once you have typed a few characters of your filename.
 
 **NOTE**: When you create an empty repo on GitHub, it's best practice to use the same name on GitHub as the folder on your local machine, though you can still push if the names do not match. I tend to make the names the same so that there is no confusion for repos/projects with similar names.
 
@@ -234,7 +236,7 @@ js/test.js
 
 For large repositories, this file will have a lot of entries. For some npm commands like `npx create-react-app` this file will be created for you.
 
-If you want to ignore a folder you need to add `/` after the folder name or Git will think it is a file.Here is an example of a basic gitignore file. You _always_ want to add `node_modules` assuming you added node packages to your project:
+If you want to ignore a folder you need to add `/` after the folder name or Git will think it is a file. Here is an example of a basic gitignore file. You _always_ want to add `node_modules` assuming you added node packages to your project, the other files are just suggestions:
 
 ```sh
 # Dependencies
@@ -243,6 +245,7 @@ node_modules
 # Production and other folders
 /build
 /dist
+/images
 
 ### VisualStudioCode ###
 .vscode/*
@@ -283,6 +286,8 @@ What you want to do is `commit` changes in related batches. You can have as many
 - Atomic Commits – when possible a commit should encompass a single feature, change, or fix – focused on a single thing – that makes undo/rollback easier and makes your code easier to review
 
 NOTE: If you forget to add `-m "msg"` with your `commit` command, you will be taken either into the Vim editor or VS Code if you added the global command for that. If you are in the Vim editor, type `:wq` to exit Vim.
+
+- `git commit --amend` to change your commit message or when you forgot to add a file to a commit
 
 ## Reference links
 
@@ -327,7 +332,7 @@ To-Do List:
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
-### Git keywords
+## Git keywords
 
 I'm wondering if putting in the following keywords will help beginners searching on GitHub to find this repo:
 
