@@ -79,6 +79,8 @@ Other commands you may find useful are:
 1. `git diff`: this shows you the file(s) that changed and the actual changes by showing the before and after pictures of your files. Type `q` to exit the screen.
 1. `clear`: to clear the console/terminal. That is a terminal command, not a Git command.
 
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
+
 ### Clone notes
 
 The `git remote set-url` command here changes an existing remote repository URL from it's original source to whatever you used for `https_url`.
@@ -232,6 +234,8 @@ Miscellaneous commands that I am unsure of:
 1. `git branch --sort=-committerdate # DESC`
 1. `git branch -r --sort=-committerdate # DESC` where the flag `-r` is for just remotes.
 
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
+
 ### Deleting branches
 
 Once the PR is merged, you generally delete your branch and switch back to the master branch. To delete a branch use:
@@ -247,6 +251,8 @@ Check out the freeCodeCamp article [Git Delete Remote Branch – How to Remove a
 - `git remote rename <old> <new>` - to rename a remote but is not common to do -
 - `git remote remove <name>` - to remove a remote
 - it's common to have multiple remotes especially when working on open source projects
+
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
 ## Advanced file notes
 
@@ -403,6 +409,8 @@ git config --global core.autocrlf true
 git command --help
 ```
 
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
+
 ### git checkout
 
 Various commands and topics using `checkout`
@@ -483,6 +491,8 @@ These are mainly to undo changes or to go back in time.
 | git revert                                |        |
 | -                                         | -      |
 | git rebase                                |        |
+
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
 ### Terminology
 

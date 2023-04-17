@@ -118,6 +118,8 @@ git merge --abort
 - you could change that, but all you need to do is close the file to finalize the merge commit – ‘recursive' strategy -
 - conflicts are much more difficult to perform
 
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
+
 ### Pushing branches to your repository
 
 Use these commands when pushing the committed changes for your new branch:

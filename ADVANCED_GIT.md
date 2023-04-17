@@ -203,6 +203,8 @@ You can make comments on the code you pushed. This only makes sense when you are
 1. Make a comment on a line of code.
 1. You can add a description for the comment and also click the "_Resolve conversation_" button.
 
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
+
 ## Staying up to date
 
 Once you are done with your PR and start to work on something else, the repo has most likely had changes by other contributors so your copy is behind. You need to update your local copy of the repo before making new changes.
@@ -271,6 +273,8 @@ You have unmerged paths.
 
 - so `git add` modified file > `git commit -m "merged test-branch"`
 
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
+
 ### More on Merge conflicts
 
 When a line in the same file were changed in the branch you are trying to merge and in master, then you will get a merge conflict with a message:
@@ -291,6 +295,8 @@ It shows the content that cam from the HEAD branch, the branch you are on indica
 Then below the equal signs is the content from the branch followed by `>>>>> branch-name`.
 
 You have to figure out which to keep and which to delete, then get rid of all the extra symbols and keywords and save the file. Then you add and commit the changes.
+
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
 ### The steps to resolve a merge conflict
 
@@ -316,6 +322,8 @@ WTF, `git diff` not working?
 
 - I think it may not work with changes to untracked files,
 - And it has to be changes within the branch you ran the command
+
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
 ### using vs code to resolve conflicts
 
@@ -507,6 +515,8 @@ Common terminal commands
 - `HEAD` points to whatever branch you are on -
 - "A branch is just a reference to some commit" - ???
 - So `HEAD` always points to the branch you are on which is pointing to the last commit for that branch – it points to the "Tip" of the branch - how ever this is an exception to that, which I think is from running `git rebase`
+
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
 ## Git Diff
 
