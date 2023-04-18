@@ -581,7 +581,14 @@ Common terminal commands
 
 ## git rebase
 
-> Geez, I need some notes here...
+T here are 2 ways to use the `git rebase` cmd:
+
+1. as an alternative to merging – `git rebase` instead of `git merge`
+2. as a cleanup tool
+
+You will need to routinely merge changes for the `master` branch for an active open-source repo. As a result, your feature branch will have a lot of merge commits.
+
+There are a lot to this commit to know, understand and think about. This is a huge topic....
 
 1. `git rebase --abort`
 1. `git rebase --continue`
