@@ -37,28 +37,29 @@ To verify that git is installed, type `git --version` or `git -v` for short. If 
 
 ## Authenticate with GitHub
 
-On your first push ever to GitHub, you will need to authenticate your machine with GitHub. This is so Git/GitHub knows that you are who you say you are.
+On your first push ever to GitHub from your machine, you will need to authenticate your machine with GitHub. This is so Git/GitHub knows that you are who you say you are.
 
 In the past you could just use `user.name` and `user.email` to verify your identity to GitHub. Now you have to generate an SSH key for authentification. I used the following docs to do that:
 
 1. Link 1: [Generating a new SSH key and adding it to the ssh-agent](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 1. Link 2: [Adding a new SSH key to your GitHub account](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
 
-However, you still need to have `user.name` and `user.email` set. Here are the commands I used for my new laptop but I suggest using the 2 links above as they are the offical source and things change:
+However, you still need to have `user.name` and `user.email` set. Here are the commands I used for my new laptop but I suggest using the 2 links above as they are the offical source and the commands or syntax may change over time:
 
 ```sh
-# Check to make sure Git installed by checking the version:
+# Check to make sure Git installed by checking the version
+# Git installed correctly if you see a version
 git --version
-# or just
+# or use -v which is short for --version
 git -v
 
 # To check to see if you have a name set already use:
 git config user.name
-# To see all your config items use:
+# To see all your config settings use:
 git config --list
 
 # Set your user name and email
-git config --global user.name "Name you want to be associated with"
+git config --global user.name "Name you want displayed"
 git config --global user.email "Use the email you used for GitHub"
 
 # Make VS Code your default editor
@@ -68,25 +69,35 @@ git config --global core.editor "code --wait"
 The steps for creating your SSH key:
 
 ```sh
-# 1. Generate your key
+# 1. Generate your key (use the email you set with user.email above)
 ssh-keygen -t ed25519 -C "myemail@somewhere.com"
 
 # or if that doesn't work:
 ssh-keygen -t rsa -b 4096 -C "myemail@somewhere.com"
 
-# 2. Press ENTER for location and 3. for the passphrase then start the SSH agent:
+# 2. Press ENTER for location
+# 3. Press ENTER for the passphrase
+# 4. then start the SSH agent:
 eval "$(ssh-agent -s)"
 
-# 4. Add your SSH private key to the ssh-agent
+# 5. Add your SSH private key to the ssh-agent
 ssh-add ~/.ssh/id_ed25519
 
-# 5. Copy the SSH public key to your clipboard.
+# 6. Copy the SSH public key to your clipboard.
 clip < ~/.ssh/id_ed25519.pub
 ```
 
-Those commands worked and I then cloned this repo.
+Those commands worked and I then cloned this repo. Then back on GitHub:
 
-I was then able to commit my changes but on my first `git push` I got a message about having to authenticate my GitHub account. There was a new tab open in Chrome where I clicked _Authenticate_ and I think I only had to enter my GitHub password. I should have taken better notes but I was more concerned on getting everything to work.
+1. click your profile photo, then click Settings.
+2. In the "Access" section of the sidebar, click SSH and GPG keys.
+3. Click New SSH key or Add SSH key.
+4. In the "Title" field, add a descriptive label for the new key, e.g. "Personal Laptop" but the title is not important.
+5. Leave the default for the dropdown for Key type set to Authentification key
+6. Paste your public key into the "Key" field.
+7. Click Add SSH key. If prompted, confirm access to your account on GitHub.
+
+On my first `git push` to GitHub I got a message about having to authenticate my GitHub account. There was a new tab open in Chrome where I clicked _Authenticate_ and I think I only had to enter my GitHub password.
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
@@ -94,7 +105,7 @@ I was then able to commit my changes but on my first `git push` I got a message 
 
 After you created a project with files on your machine, you then need to push them to GitHub.
 
-Don't worry if you do not know what the words _branch_, _staging_, _commit_ or _remote_ means - you will in time. You can use the commands that GitHub shows when you create the repo or use the following commands but make sure to copy the repo URL link (`https_url`).
+Don't worry if you do not know what the words _branch_, _staging_, _commit_ or _remote_ means. You can use the commands that GitHub shows when you create the repo or use the following commands but make sure to copy the repo URL link (`https_url`).
 
 Also note that step 4 requires you to add the URL for an empty repo on Github, so create an empty repo from your GitHub account. Choose to make it a public repo and DO NOT add a `README.md` file. The basic steps are:
 
