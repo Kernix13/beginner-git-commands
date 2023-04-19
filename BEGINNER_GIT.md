@@ -107,7 +107,7 @@ After you created a project with files on your machine, you then need to push th
 
 Don't worry if you do not know what the words _branch_, _staging_, _commit_ or _remote_ means. You can use the commands that GitHub shows when you create the repo or use the following commands but make sure to copy the repo URL link (`https_url`).
 
-Also note that step 4 requires you to add the URL for an empty repo on Github, so create an empty repo from your GitHub account. Choose to make it a public repo and DO NOT add a `README.md` file. The basic steps are:
+Also note that step 4 requires you to add the URL for an empty repo on Github, so create an empty repo from your GitHub account. Choose to make it a public repo and **_DO NOT_** add a `README.md` file. The basic steps are:
 
 ```bash
 # 1. Initiaze git tracking in the current folder:
