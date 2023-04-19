@@ -2,7 +2,7 @@
 
 Some of these commands or actions on GitHub are intermediate level, others are advanced or very specific.
 
-This file used to be very short but I added section from the intermediate file, plus a lot of notes I took from [Colt Steele's Git Bootcamp course](https://www.udemy.com/course/git-and-github-bootcamp/). As a result, I believe I have duplicates and very _sloppy_ notes.
+This file used to be very short but I added sections from the intermediate file, plus a lot of notes from [Colt Steele's Git Bootcamp course](https://www.udemy.com/course/git-and-github-bootcamp/). As a result, I believe I have duplicates and very _sloppy_ notes. I'll clean this file up when I get time.
 
 <a id="back-to-top"></a>
 
@@ -19,8 +19,8 @@ This file used to be very short but I added section from the intermediate file, 
    1. [Code comments](#code-comments)
 1. [Staying up to date](#staying-up-to-date)
 1. [Handling merge conflicts](#handling-merge-conflicts)
-   1. [merge conflicts](#merge-conflicts)
-   1. [More on Merge conflicts](#more-on-merge-conflicts)
+   1. [More on merge conflicts](#more-on-merge-conflicts)
+   1. [Another section on merge conflicts](#another-section-on-merge-conflicts)
    1. [The steps to resolve a merge conflict](#the-steps-to-resolve-a-merge-conflict)
    1. [using vs code to resolve conflicts](#using-vs-code-to-resolve-conflicts)
 1. [Mistakes](#mistakes)
@@ -42,36 +42,53 @@ This file used to be very short but I added section from the intermediate file, 
 
 ## Forking and cloning
 
-After you fork a repo, open up a terminal with Git Bash and navigate to the folder where you want the cloned repo.
+Read the GitHub page [Fork a repo](https://docs.github.com/en/get-started/quickstart/fork-a-repo) for the same steps as shown below.
+
+After you fork a repo, open up a terminal with Git Bash and navigate to the folder where you want the cloned repo and run:
 
 ```bash
-git clone https://github.com/User_Name/freeCodeCamp
-cd folder-name
+# Create local clone
+git clone https://github.com/Your_User_Name/repo_name
+cd folder_name
 ```
 
-Next, add a remote reference to the main forked repo then check the configuration:
+Next, check the remote reference then add a remote reference to the main forked repo:
 
 ```sh
-git remote add upstream https://github.com/other-account/their-repo-name.git
-# check the location
+# see the current configured remote repository for your fork
 git remote -v
+> origin  https://github.com/YOUR_USERNAME/YOUR_FORK.git (fetch)
+> origin  https://github.com/YOUR_USERNAME/YOUR_FORK.git (push)
+
+# sync your fork with the upstream repository
+git remote add upstream https://github.com/ORIGINAL_OWNER/their-repo-name.git
 ```
 
-Then use `git status` and `git checkout main` if not on main.
+To verify the new upstream repository you have specified for your fork, type git remote -v again:
+
+```bash
+git remote -v
+> origin    https://github.com/YOUR_USERNAME/YOUR_FORK.git (fetch)
+> origin    https://github.com/YOUR_USERNAME/YOUR_FORK.git (push)
+> upstream  https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git (fetch)
+> upstream  https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git (push)
+```
+
+Then use `git status` and `git checkout main` if not on main/master.
 
 My final commands:
 
 ```sh
-git clone --depth=1 https_url
-# or just
 git clone https_url
-git remote add upstream https_url
-git fetch upstream
+cd folder_name
 git remote -v
-git push origin main
+git remote add upstream https_url
+git remote -v
+git status
+git switch main
 ```
 
-> The following set of commands are questionable. They are from when I contributed to freeCodeCamp.
+> The following set of commands are questionable. They are from when I contributed to freeCodeCamp:
 
 Next:
 
@@ -98,28 +115,23 @@ Finally:
 
 ```sh
 git branch
-git checkout -b fix/something-here
+git checkout -b fix/something
+# or
+git switch -c fix/something
 git status
+# make changes then the usual
 git add .
 git status
 git commit -m "short description"
-# shouldn't it be --set-upstream?
-git push origin fix/something-here
+git push --set-upstream origin fix/something
 ```
 
-THEN: create and checkout to your branch, make changes, add and commit your changes, and push them.
-
-```sh
-git checkout -b fix/branch-name
-git add .
-git commit -m "short description"
-git push --set-upstream origin fix/branch-name
-```
-
-Use that last `git push` only for the first time, then use `git push origin fix/something-typos`. Although, I believe once you set the `upstream` and/or `origin`, you only need to do `git push` similar to a regualr push. Here is the last command AFTER you set the upstream:
+Use that last `git push` only for the first time, then use `git push origin fix/something`. Although, I believe once you set the `upstream` and/or `origin`, you only need to do `git push` similar to a regualr push. Here is the last command AFTER you set the upstream:
 
 ```sh
 git push origin fix/branch-name
+# Or maybe just
+git push
 ```
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
@@ -137,20 +149,21 @@ git push origin fix/branch-name
 1. Add a _Title_ and _Description_ about your issue
 1. **Note**: You can take a screenshot and add it to your issue by copying it and then paste or drag it into the description field.
 1. You can also add _Labels_ by clicking on the gear icon next to labels and checking the ones you want.
-1. Then click the _Submit_ new issue button
+1. You can also add _Assignees_ to review your issue.
+1. Then click the _Submit new issue_ button
 
 If you click back on the issues tab you will see your issue and any other open issues. Pay attention to the `#` next to your issue title. That same number will appear in the address bar when you click into your issue. That is the issue number.
+
+### Closing an issue
 
 - Issues are _Open_ until they are resolved/closed
 - Issues are _Closed_ when the person who owns the repo or who created the issue closes the issue.
 
-### Closing an issue
+When you make a change to a file in regards to an issue, add the issue `#` in your commit title, e.g.: `Making change as per issue #123`
 
-When you make a change to a file in regards to an issue, add the issue `#` in your commit title, e.g.: `Making change as per issue #3`
+When you go back into that issue you should see the commit that references the issue. If you are done click the _Close_ issue button. There are also keywords that will automatically close an issue and the main one is **_fixes_**.
 
-When you go back into that issue you should see the commit that references the issue. If you are done click the _Close_ issue button. But there are also keywords that will automatically close an issue and the main one is **_fixes_**.
-
-So if you add the "`fixes`" keyword in your commit title it will close the issue AUTOMATICALLY: `This fixes #3`.
+So if you add the "`fixes`" keyword in your commit title it will close the issue AUTOMATICALLY: `This fixes #123`.
 
 When you do that you will get a commit `#` for the closed issue. If you grab that commit hash from the url for the commit that closed an issue, you can create another issue and paste the hash into the description field. That will automatically create a link to that commit (Huh?)
 
@@ -188,7 +201,9 @@ For example:
 | revert   | Reverts a previous commit                                                  |
 | style    | Code formatting such as white-space, missing semi-colons, etc.             |
 
-**Description:**
+<br >
+
+**Title:**
 
 Keep it short (less than 30 characters) and simple. You can add more information in the PR description box and comments. Example: `fix(api,client): prevent CORS errors on form submission`.
 
@@ -199,7 +214,7 @@ Keep it short (less than 30 characters) and simple. You can add more information
 You can make comments on the code you pushed. This only makes sense when you are contributing:
 
 1. Click on the _Files changed_ tab when on the PR for the push
-1. Click the `+` button that appears when you hover over the code
+1. Click the `+` button that appears when you hover over a line of the code
 1. Make a comment on a line of code.
 1. You can add a description for the comment and also click the "_Resolve conversation_" button.
 
@@ -216,31 +231,31 @@ git checkout master
 git pull upstream master
 ```
 
-I actually use `git fetch upstream` to update my local copy. I'm not sure if `git pull upstream master` is better or not. However, I had a PR fail because I was missing a command. `git fetch upstream` will only fetch the git data. To update your main fully, you should:
+I have also used `git fetch upstream` to update my local copy. I'm not sure if `git pull upstream master` is better or not. However, I had a PR fail because I was missing a command. `git fetch upstream` will only fetch the git data. To update your main fully, you should:
 
 ```sh
 git checkout master
 git fetch upstream
 git merge upstream/master
+# or use pull to fetch and merge in one step
+git pull upstream master
 ```
 
-So run `git merge upstream/master` every time before making your changes and doing a push. That will ensure you always have the latest state of `master` locally.
+So run `git merge upstream/master` every time before making your changes and doing a push if you chose to use `git fetch`. That will ensure you always have the latest state of `master` locally.
 
-The main thing to know is that the master branch will most likely be updated regularly as you are working on your branch. You will want to pull those changes down to your local master branch. Then you will want to checkout to your branch and use `git merge master` to keep your branch up to date with what is going on with master. If you don't do that then this is where you _may_ get a merge conflict.
+The main thing to know is that the master branch will most likely be updated regularly as you are working on your branch. You will want to pull those changes down to your local master branch.
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
 ## Handling merge conflicts
 
-> This section definitely needs to be edited and rewritten
-
-I'm a little fuzzy on this process. There are a few of ways to handle merge conflicts: 1) on Github, 2) in your terminal, or 3) directly in your code. However, try not to make any mistakes so you don't have to deal with conflicts.
+> This section definitely needs to be edited and rewritten - I'm a little fuzzy on this process.
 
 Read more here: [Conflicts on a pull request](https://github.com/freeCodeCamp/freeCodeCamp/blob/main/docs/how-to-setup-freecodecamp-locally.md#making-changes-locally 'Making changes locally').
 
-A merge conflict is when 2 or more people change the same code/content but with different values. However, I don't think a beginner contributor would actually run `git merge branch_name`.
+A merge conflict is when 2 or more people change the same code/content but with different values. However, I don't think a beginner contributor would actually handle merge conflicts.
 
-But if you did and there was a conflict, in VS Code you will see something like:
+But if you have a conflict, in VS Code you will see something like:
 
 ```sh
 <<<<<<< HEAD (Current Change)
@@ -250,16 +265,19 @@ But if you did and there was a conflict, in VS Code you will see something like:
 >>>>>>> Branch-Name (Incoming Change)
 ```
 
-Where `HEAD` is your current branch, usually main/master. Once again, this would only be done by the owner of the repo, but what you would do is:
+Where `HEAD` is pointing to the last commit for your current branch, usually main/master. What you would do is:
 
 1. Decide which change you want to keep,
 1. Delete EVERYTHING else -> the change you don't want and the equal (`=`), less than (`<`), and greater than (`>`) signs along with the text like `HEAD` and `Current Change`. Everything other than the actual change that you want.
 
+Although, that is the hard way to do it.
+
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
-### merge conflicts
+### More on merge conflicts
 
-- git can NOT automatically merge the branches when there is a merge conflict – they have to manually be resolved
+Git can NOT automatically merge the branches when there is a merge conflict – they have to manually be resolved
+
 - when you merge a branch into main or another branch where the same line was changed on both branches, you will get a warning in the terminal AND the file with the conflict will open with conflict marrkers and the line(s) in question -
 - `HEAD` starts with `<<<<` and ends/includes `=====`, below that is the file changes you are trying to merge into main – do you want just the main changes, just the branch changes or BOTH or some combination of both?
 - so make that choice and remove the conflict markers then save the file(s) – my file is red-orange with a green btn `Resolve in Merge Editor` - what is that?
@@ -275,9 +293,9 @@ You have unmerged paths.
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
-### More on Merge conflicts
+### Another section on merge conflicts
 
-When a line in the same file were changed in the branch you are trying to merge and in master, then you will get a merge conflict with a message:
+When a line in the same file was changed in the branch you are trying to merge _AND_ in master, then you will get a merge conflict with a message:
 
 > CONFLICT (content): Merge conflict in file.ext
 > Automatic merge failed; fix conflicts then commit the result.
@@ -290,11 +308,11 @@ This is a multi-step process
 
 The files that are conflicting have new content - many `<`, `>`, and `=` symbols and `HEAD` and the other branch name
 
-It shows the content that cam from the HEAD branch, the branch you are on indicated by `<<<<<< HEAD`, followed by the content then `=======`.
+It shows the content that came from the `HEAD` branch, the branch you are on, indicated by `<<<<<< HEAD`, followed by the content then `=======`.
 
-Then below the equal signs is the content from the branch followed by `>>>>> branch-name`.
+Then below the equal signs is the content from the branch followed by `>>>>> branch-name` (usually main/master).
 
-You have to figure out which to keep and which to delete, then get rid of all the extra symbols and keywords and save the file. Then you add and commit the changes.
+You have to figure out which to keep and which to delete, then get rid of all the extra symbols and keywords and save the file. Then you `add` and `commit` the changes.
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
@@ -316,10 +334,6 @@ Terminal messages you see with a merge conflict:
 > (fix conflicts and run “git commit”)
 > (use “git merge --abort” to abort the merge)
 
-This is a line from the 'luna' branch.
-
-WTF, `git diff` not working?
-
 - I think it may not work with changes to untracked files,
 - And it has to be changes within the branch you ran the command
 
@@ -336,7 +350,7 @@ WTF, `git diff` not working?
 
 above the HEAD line are 4 options you can click:
 
-1. `Accept Current Change` – that is for main or whatver you are merging into
+1. `Accept Current Change` – that is for `main` or whichever branch you are merging into
 2. `Accept Incoming Change`
 3. `Accept Both Changes`
 4. `Compare Changes`
@@ -350,10 +364,10 @@ Notes:
 
 ### PR and merge conflict on GitHub
 
-> I'm unsure why this section is here
+> I'm unsure why this section is here and unsure about the code block
 
 - when you go into the pull request it will not have a Merge conflict btn – instead click the _Resolve Conflicts_ btn
-- you get an option to do it in the browser which he has never done, but it is probably easier to resolve them on your own machine
+- you get an option to do it in the browser but it is probably easier to resolve them on your own machine
 - on the same page is a link titled "_command line instructions_":
 
 ```sh
@@ -371,9 +385,9 @@ git merge --no-ff new-branch
 git push origin main
 ```
 
-- what `git merge main` is doing is merge `main` into `new-branch` and resolve the conflicts in that branch - so test things out and make sure it works -
-- then you save/add/commit the changes and switch to `main` and merge the branch into it -
-- `--no-ff` tells git to NOT fast-forward if it detects that it can which will move the HEAD pointer forward but sometimes you want to prevent that -
+- what `git merge main` is doing is merge `main` into `new-branch` and resolve the conflicts in that branch - so test things out and make sure it works
+- then you save/add/commit the changes and switch to `main` and merge the branch into it
+- `--no-ff` tells git to NOT fast-forward if it detects that it can. That will move the `HEAD` pointer forward but sometimes you want to prevent that (?)
 - that is to preserve the history that a branch was merged in (???)
 - back on GitHub everything should be good
 - remember to do `git pull origin main`
@@ -393,17 +407,21 @@ git reset
 git reset path/filename.ext
 ```
 
-- use `git restore --staged <file>` to unstage any files you added -
+Another method would be to use `git restore` to unstage any file(s) you added:
+
+```sh
+git restore --staged <file>
+```
 
 ### Undo a Commit
 
-Use `git reset` again but include `HEAD` which means the last commit. But to undo the last commit add `~1` to go back 1 commit past the last commit which will undo the last commit:
+Use `git reset` again but include `HEAD` which means the last commit. But to undo the last commit add `~1` to go back 1 commit past the last commit which will _undo_ the last commit:
 
 ```sh
 git reset HEAD~1
 ```
 
-But what if you want to go back a number of commits or to a specific commit. First use `git log` which gives you a list of your commits in reverse chronological order. You can scroll down the log with <kbd>SPACEBAR</kbd>.
+But what if you want to go back a number of commits or to a specific commit. First use `git log` or `git log --oneline` which gives you a list of your commits in reverse chronological order. You can scroll down the log with <kbd>SPACEBAR</kbd>.
 
 You will see the commit hash and the commit message along with other information. To go back to a specific commit and undo it, use the hash for it:
 
@@ -420,11 +438,13 @@ git reset --hard e220bfb1e34b8c6b6fce1deb7884244239284716
 
 You can also remove a specific file from staging by using `git rm –cached filename.ext` where `rm` is short for remove.
 
+> I'm not sure about that last command - double-check that!
+
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
 ### Remove Git
 
-To remove git tracking from a folder use the following command in `git bash`, the command prompt, or the terminal in VS Code:
+To remove git tracking from a folder use the following command in `git bash`, the command prompt, or the terminal in VS Code. Make sure you are in the root folder where you want Git removed:
 
 ```sh
 rm -rf .git
@@ -482,46 +502,53 @@ Common terminal commands
 | `open .`             | open file explorer in Windows                  |
 
 - `~` indicates your home directory -
-- `q`, `Q`, or `:q`: to exit out of VIM or Nano
+- `q`, `Q`, or `:q`: to exit out of VIM or Nano (I think)
 - `.`, `./`, `../`: they stand for home, current directory, and up one directory
 - `git` - shows other commands like `grep`, `show`, `rebase`, `switch`, `tag`
-- `git help git` opens your local `git.html` file
+- `git help git` opens your local `git.html` file in the browser
 - if you are in Vim use `i` to insert your message then `ESC` once to exit insert mode then `:wq` to exit Vim
 - Use the up <kbd>&uarr;</kbd> and down <kbd>&darr;</kbd> arrow keys to cycle thru previous commands
-- <kbd>CTRL</kbd>+<kbd>C</kbd> to exit REPLs like Node, Mongod, etc
+- <kbd>CTRL</kbd>+<kbd>C</kbd> to exit REPLs like Node, Mongod, etc.
 - <kbd>TAB</kbd> - auto fill in file and folder names
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
 ## Git Log
 
-- `git log` is a log of the commits for your local repo -
-- to configure it so you can limit what you see for a very long commit msg – we need the commit hashes – you need those to redo a commit, to checkout, to look at a commit, etc
-- 50 chars or less – for more detail, keep it to 72 chars – the 1st line is treated as the subject of the commit and the rest as the body -
+> Lots of confusing notes in this section...
+
+Check the [Git Docs](https://git-scm.com/docs).
+
+- `git log` is a log of the commits for your local repo
+- you need the commit hashes – you need those to redo a commit, to checkout, to look at a commit, etc
+- to configure it so you can limit what you see for a very long commit msg (?)
+- **_50_** characters or less – for more detail, keep it to **_72_** chars (Which one?)
+- the 1st line is treated as the subject of the commit and the rest as the body
 - the blank line separating the subject from the body is critical – cmds like `log`, `shortlog`, and `rebase` can get confused if you run the 2 together `???`
-- explain the problem that the commit is solving – focus on WHY you are making the change as opposed to HOW – are there side effects or unintuitive consequences of the change – additional paragraphs should also be separated by blank lines
-- options for git log, https://git-scm.com/docs – git log shows commit logs – there are a lot of options but here is a common one: --pretty |
-- Commit formatting: https://git-scm.com/docs/git-log#_commit_formatting -
+- explain the problem that the commit is solving – focus on **WHY** you are making the change as opposed to HOW
+  - are there side effects or unintuitive consequences of the change
+  - additional paragraphs should also be separated by blank lines
+- `git log` shows commit logs – there are a lot of options but here is a common one: `--pretty`
+- [Commit formatting](https://git-scm.com/docs/git-log#_commit_formatting)
 - you can filter by who made the commit, when it was, sort them, …
-- more commonly you will use `--oneline` – shorthand for `"--pretty=oneline --abbrev-commit"` used together – `git log --oneline`
+- more commonly you will use `--oneline` – shorthand for `"--pretty=oneline --abbrev-commit"` used together: `git log --oneline`
 - THAT ONE IS EXCELLENT!!!
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
 ### what is HEAD
 
-- when you do `git log` at the top commit you will see (`HEAD -> Master`) – HEAD refers to master – but if you switch to a different branch like new-feature then you will see (`HEAD -> new-feature`) -
+- when you do `git log` at the top commit you will see (`HEAD -> Master`) – _HEAD_ refers to master – but if you switch to a different branch like `new-feature` then you will see (`HEAD -> new-feature`) -
 - `HEAD` is a pointer, is a reference to a branch pointer – a branch pointer is where a branch currently is
-- `HEAD` points to whatever branch you are on -
-- "A branch is just a reference to some commit" - ???
-- So `HEAD` always points to the branch you are on which is pointing to the last commit for that branch – it points to the "Tip" of the branch - how ever this is an exception to that, which I think is from running `git rebase`
+- `HEAD` points to whatever branch you are on
+- So `HEAD` always points to the branch you are on which is pointing to the last commit for that branch – it points to the "Tip" of the branch - however there is an exception to that, which I think is from running `git rebase`
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
 ## Git Diff
 
-- `git diff` is about showing changes – diffs b\tw files, b\tw commits, b\tw branches, on GitHub, ...
-- often used with `git log` and `git status` -
+- `git diff` is about showing changes – differences between files, between commits, between branches, on GitHub, ...
+- often used with `git log` and `git status`
 - use it when you don't remember all the changes you made!!!
 - `git diff` will list ALL the changes in your working directory that are not staged for the next commit!
 - I think it may not work with changes to untracked files, and it has to be changes within the branch you ran the command
@@ -530,58 +557,75 @@ Common terminal commands
 - `git diff HEAD`: shows staged AND unstaged changes, do not need `q` to exit
 - `git diff --staged` and `git diff --cached`: shows only staged changes, do not need `q` to exit
 
+I am unsure of all the commands, but I believe these are common ones you would use:
+
+```sh
+git diff HEAD [filename]
+git --diff staged [filename]
+git diff --cached
+git diff --staged
+git diff filename1..filename2
+git diff branch1..branch2
+git diff commit1..commit2
+git diff HEAD HEAD~1
+git diff hash#
+```
+
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
 ## git restore
 
-- `git restore` helps with undoing operations -
-- use `git restore --staged <file>` to unstage any files you added -
-- FIRST, you can discard changes since the last commit -
-- `git restore <file-name>` - to restore the file to the contents in the HEAD – if you have uncommitted changes in the file, they will be lost – it replaces `git checkout HEAD <file-name>` -
-- SECOND, you can reference a particular commit – `git restore filename` restores using HHEAD as the default source, but you can change that using the --source option -
-- `git restore --source HEAD~1 <file-name>` - restores the contents of file-name to the state prior to HEAD – you can also use a particular commit hash as the source -
-- so either a commit hash or HEAD~num – all the other files and branches are untouched -
+> These notes are not good!
+
+- `git restore` helps with undoing operations
+- use `git restore --staged <file>` to unstage any files you added
+- FIRST, you can discard changes since the last commit
+- `git restore <file-name>` - to restore the file to the contents in the HEAD – if you have uncommitted changes in the file, they will be lost – it replaces `git checkout HEAD <file-name>`
+- `git restore filename` restores using HEAD as the default source, but you can change that using the `--source` option
+- SECOND, you can reference a particular commit
+- `git restore --source HEAD~1 <file-name>` - restores the contents of `file-name` to the state prior to HEAD – you can also use a particular commit hash as the source
+- so either a commit hash or `HEAD~num` – all the other files and branches are untouched
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
 ### un-staging changes with git restore
 
-- `git restore --staged <file-name>` - to unstage files that you staged – use that if you do not want to include the file in your next commit -
+- `git restore --staged <file-name>` - to unstage files that you staged – use that if you do not want to include the file in your next commit
 
 ## git reset
 
 - `git reset` restores a repo back to a specific commit – the commits are gone
-- common if you did work on the master branch but you meant to do it on a new branch -
+- common if you did work on the master branch but you meant to do it on a new branch
 - there are 2 versions: regular and a hard reset
-- `git reset <commit-hash>` - restores a repo back to a specific commit, use the 7-digit hash from `git log --oneline` -
-- but that is a regular reset and that only removed the commits – the changes are still in the working directory – but we just went back in time by removing commits – in git's mind, that's where the history stops – butt for some reason it kept the changes in the file – WHY IS THAT?
-- **Answer**: it's useful if you make commits on the wrong branch – you can keep that work and move it to another branch – how do you do that? By creating a new branch and then adding/committing thee changes on that one – this may be what I did when I made a branch on a branch and made changes on that
-- `git reset --hard <commit-hash>` - a hard reset that loses all the commits up to that commit hash – AND – the changes are removed from your working directory -
-- like `git restore` you can use a commit hash or HEAD~3 or whatever number
+- `git reset <commit-hash>` - restores a repo back to a specific commit, use the 7-digit hash from the `git log --oneline` command
+- but that is a regular reset and that only removed the commits – the changes are still in the working directory – you just went back in time by removing commits – to Git, that's where the history stops – but for some reason it kept the changes in the file – WHY IS THAT?
+- **Answer**: it's useful if you make commits on the wrong branch – you can keep that work and move it to another branch – how do you do that? By creating a new branch and then adding/committing the changes on that one – this may be what I did when I made a branch on a branch and made changes on that
+- `git reset --hard <commit-hash>` - a hard reset that loses all the commits up to that commit hash – AND – the changes are removed from your working directory
+- like `git restore` you can use a commit hash or `HEAD~3` or whatever number
 - YOU NEED TO BE CAREFUL USING `--hard`
-- note this is on a per-branch basis -
+- note this is on a per-branch basis
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
 ## git revert
 
-`git revert` is the first command that you would use when dealing specifically with remote repositories. All the commands up to this point are used with local and remotte repos, but this one is only for remote repositories with 2 or more contributors.
+`git revert` is the first command that you would use when dealing specifically with remote repositories. All the commands up to this point are used with local and remote repos, but this one is only for remote repositories with 2 or more contributors.
 
-- `revert` is similar to `reset` in that they both "undo" changes, but they do it in different ways -
-- `git reset` hash actually moves the branch pointer backwards, eliminating commits – as if they commits NEVER occurred -
+- `revert` is similar to `reset` in that they both "undo" changes, but they do it in different ways
+- `git reset hash` actually moves the branch pointer backwards, eliminating commits – as if the commits NEVER occurred
 - `git revert` instead creates a brand new commit which reverses/undos the changes from an earlier commit – because it results in a new commit, you have to enter a commit msg – instead of deleting everything, deleting history – that can be a problem if you are collaborating with other people
-- with reset, you lose the commits that came after the one you used it the cmd – they are gone!
+- with reset, you lose the commits that came after the one you used in the command – they are gone!
 - with revert you get rid of the changes but you do not lose the commit for those changes – you have history!
 
 > When to use `reset` and when to use `revert`?
 
-- it has to do with collaboration – if you want to reverse some commits that other people already have on their machines, you should use `revert` – if you want to reverse commits that you haven't shared with others, use `reset` and no one will ever know -
+- it has to do with collaboration – if you want to reverse some commits that other people already have on their machines, you should use `revert` – if you want to reverse commits that you haven't shared with others, use `reset` and no one will ever know
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
 ## git rebase
 
-T here are 2 ways to use the `git rebase` cmd:
+There are 2 ways to use the `git rebase` cmd:
 
 1. as an alternative to merging – `git rebase` instead of `git merge`
 2. as a cleanup tool

@@ -511,4 +511,13 @@ Here are some common terms. These notes are from git, MDN, and other sources:
 1. **`HEAD`**: your current branch, or a defined commit of a branch, usually the most recent commit at the tip of the branch, or refers to the current commit you are viewing. `HEAD` is a reference to one of the heads in your repository.
 1. **`blob`**: (Binary Large OBject) Untyped object, e.g. the contents of a file, is the object type used to store the contents of each file in a repository.
 
+Here are some terms I need to look into or need to understand better:
+
+1. detached HEAD
+1. upstream vs origin
+1. `git tag`: most often tags are used to mark different releases or versions
+1. `git show`
+1. `git branch login`
+1. `git bisect`
+
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>

@@ -54,6 +54,8 @@ git -v
 
 # To check to see if you have a name set already use:
 git config user.name
+# To see all your config items use:
+git config --list
 
 # Set your user name and email
 git config --global user.name "Name you want to be associated with"
