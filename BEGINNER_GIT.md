@@ -160,7 +160,7 @@ Also, get in the habit of using `git status` as a way to check the status of you
 git commit -am "Commit message"
 ```
 
-Also, try not to make changes to any files on GitHub. If you do, you need to run either `git pull` or `git fetch`. The only time you may need to create a file on GitHub is adding a LICENSE file. See the INTERMEDIATE_GIT.md file for details on t hose commands.
+Also, try not to make changes to any files on GitHub. If you do, you need to run either `git pull` or `git fetch`. The only time you may need to create a file on GitHub is adding a LICENSE file. See the INTERMEDIATE_GIT.md file for details on those commands.
 
 <!-- Add notes on the following maybe: git log --oneline, git diff, clear -->
 
@@ -203,7 +203,7 @@ git push origin main
 
 ## Clone a repo that is not yours
 
-These commands are for when you want to work on a repo that someone else created. The commands are the same as the section above except you want to change the remote location.
+These commands are for when you want to work on a repo that someone else created but not contribute to the repo. The commands are the same as the section above except you want to change the remote location.
 
 Go to GitHub and create an empty repo.
 
@@ -212,6 +212,7 @@ Go to GitHub and create an empty repo.
 Then back in Git Bash or VS Code run these commands:
 
 ```sh
+# Use the source repo address to clone
 git clone https_url
 cd folder_name
 # Check to see where the remote is pointing to
@@ -223,7 +224,7 @@ git remote -v
 git push -u origin master
 ```
 
-Then for pushes after you set the upstream use:
+Then for pushes after you set the upstream use the usual commands:
 
 ```sh
 git add .
