@@ -20,18 +20,18 @@ NOTE: I alternately use `main` or `master` when referring to your default branch
 
 ## Download and Setup Git for Windows
 
-You need to [download Git](https://git-scm.com/downloads 'Git download page') then open the `.exe` file to install Git. Accept all the defaults during the install with two exceptions:
+If you have not done so already, then you need to [download Git](https://git-scm.com/downloads 'Git download page') open the `.exe` file to install Git. Accept all the defaults during the install with the following two exceptions:
 
 1. _Choosing the default editor used by Git_. I chose VS Code but there is a way to set your default editor from Git Bash or the terminal (see below).
 2. _Adjusting the name of the initial branch in new repositories_ by not choosing _Let Git decide_, and instead set it to _main_.
 
 **NOTE**: You need Git Bash but that comes bundled with Git for Windows.
 
-On the last screen you can select _Launch Git Bash_ then press finish or find Git Bash on your computer and open it. For me on Windows, there was a Git folder in my Start ment and Git bash was in there.
+On the last screen you can select _Launch Git Bash_ then press _Finish_ or find Git Bash on your computer and open it.
 
-Open it then to verify that git is installed type `git --version` or `git -v` for short. If you see a version number then Git installed properly.
+To verify that git is installed, type `git --version` or `git -v` for short. If you see a version number then Git installed properly.
 
-To close the Git Bash window just type `exit`. To open it again, you can hover over a folder in Windows Explorer, right-click and select _Git Bash Here_.
+**NOTE**: To close the Git Bash window just type `exit`. To open it again, you can hover over a folder in Windows Explorer, right-click and select _Git Bash Here_. But don't close it yet because you have to authenticate with GitHub (next section).
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
