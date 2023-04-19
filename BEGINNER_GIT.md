@@ -297,11 +297,11 @@ What you want to do is `commit` changes in related batches. You can have as many
 
 **Atomic commits**:
 
-- Atomic Commits – when possible a commit should encompass a single feature, change, or fix – focused on a single thing – that makes undo/rollback easier and makes your code easier to review
+- Atomic Commits – when possible a commit should encompass a single feature, change, or fix – focused on a single thing – that makes undo/rollback easier and makes your code easier to review.
 
 NOTE: If you forget to add `-m "msg"` with your `commit` command, you will be taken either into the Vim editor or VS Code if you added the global command for that. If you are in the Vim editor, type `:wq` to exit Vim.
 
-- `git commit --amend` to change your commit message or when you forgot to add a file to a commit
+- `git commit --amend` to change your commit message or when you forgot to add a file to a commit.
 
 ## Reference links
 
@@ -326,11 +326,9 @@ FYI, it's difficult keeping this list up-to-date. I'll do my best to provide the
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
-<p>_ _ _ _ _ _ _ _ _ _ _</p>
-
 ## Final notes
 
-I may have errors or incorrect usage of commands in this file. I'll fix them as I find them. Or open an issue or create a pull request for any proposed changes.
+I may have errors or incorrect usage of commands in this file. I'll fix them as I find them. Or if you find any errors, open an issue or create a pull request for any proposed changes.
 
 I am also looking to find 3-4 entry-level designers and developers to start a project or two. I have some ideas about how we can help each other land a job!
 
