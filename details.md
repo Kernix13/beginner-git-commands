@@ -519,5 +519,11 @@ Here are some terms I need to look into or need to understand better:
 1. `git show`
 1. `git branch login`
 1. `git bisect`
+1. hashing functions
+1. `git cat-file`
+1. Git blobs
+1. Git trees
+1. `git reflog`
+1. Git aliases - e.g. `git config --global alias.s status`
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
