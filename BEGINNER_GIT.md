@@ -14,6 +14,9 @@ NOTE: I alternately use `main` or `master` when referring to your default branch
 1. [Clone a repo that is not yours](#clone-a-repo-that-is-not-yours)
 1. [gitignore](#gitignore)
 1. [Important Notes about the `commit` command](#important-notes-about-the-commit-command)
+   1. [Atomic commits](#atomic-commits)
+   1. [Commit messages](#commit-messages)
+   1. [Ammending a commit](#ammending-a-commit)
 1. [Reference links](#reference-links)
 1. [Final notes](#final-notes)
 1. [Git keywords](#git-keywords)
@@ -286,22 +289,30 @@ You can add anything you want in the gitignore file for your repos. If you are c
 
 ## Important Notes about the `commit` command
 
+NOTE: If you forget to add `-m "msg"` with your `commit` command, you will be taken either into the Vim editor or VS Code if you added the global command for that. If you are in the Vim editor, type `:wq` to exit Vim.
+
+### Atomic commits
+
 I originally would do massive changes to one or many files and `commit` all those changes, then `push` them to my GitHub repo. _THAT IS NOT WHAT YOU WANT TO DO!_
 
 What you want to do is `commit` changes in related batches. You can have as many commits as you want when you run `git push`. Each `commit` should be for a specific change in case you need to _undo_ that commit.
 
-**COMMIT MESSAGES**: you should use 1) present tense 2) imperative style when writing your commit mesages, although some people prefer past tense:
+- Atomic Commits – when possible a commit should encompass a single feature, change, or fix. It should be focused on a single thing. That makes undo/rollback easier and makes your code easier to review.
+
+### Commit messages
+
+When composing the text for your commit message, you should use 1) _present tense_ and 2) _imperative style_, although some people prefer past tense:
 
 - `make thing do X` or past tense:
 - `made thing do X`
 
-**Atomic commits**:
+### Ammending a commit
 
-- Atomic Commits – when possible a commit should encompass a single feature, change, or fix – focused on a single thing – that makes undo/rollback easier and makes your code easier to review.
-
-NOTE: If you forget to add `-m "msg"` with your `commit` command, you will be taken either into the Vim editor or VS Code if you added the global command for that. If you are in the Vim editor, type `:wq` to exit Vim.
+Use the following command when you need to change something about your last commit:
 
 - `git commit --amend` to change your commit message or when you forgot to add a file to a commit.
+
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
 ## Reference links
 
