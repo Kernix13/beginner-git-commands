@@ -29,6 +29,7 @@ This file used to be very short but I added sections from the intermediate file,
    1. [Remove Git](#remove-git)
    1. [Remove remote origin](#remove-remote-origin)
    1. [Undo git add](#undo-git-add)
+   1. [Remove a file](#remove-a-file)
 1. [Terminal commands](#terminal-commands)
 1. [Git Log](#git-log)
    1. [what is HEAD](#what-is-head)
@@ -468,6 +469,20 @@ git remote remove origin
 If you accidentally push your `node_modules` directory for your first push (when you forgot about `.gitignore`), just use `git reset`to unstage all changes. You could also remove a single file with `git reset <file>`.
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
+
+### Remove a file
+
+I'm not exactly sure of this command but I used it to remove a file from GitHub that has a different case from my local copy. I mistakenly created my file name as `errorMiddleWare.js` where the `W` should have been lowercase `w`. I made the change to my local filename but the filename on GitHub maintained the uppercase `W`. Here is the command I ran to fix that followed by an explanation of the command:
+
+```sh
+git rm -r --cached .
+```
+
+1. `git rm`: used to remove individual files or a collection of files
+2. `-r`: shorthand for 'recursive'. When operating in recursive mode `git rm` will remove a target directory and all the contents of that directory
+3. `--cached`: specifies that the removal should happen only on the staging index. Working directory files will be left alone
+
+I thought the entire project was deleted and then added to staging because EVERY file was highlighted green in VS Code, but that not the case. I can't explain it but use this command if you also have a file where the case changed and the local file and GitHub file do not match.
 
 ## Terminal commands
 
