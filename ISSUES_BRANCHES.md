@@ -2,6 +2,9 @@
 
 Anchor Links: [Issues](#issues) | [Branch Strategies](#branch-strategies) |
 
+- A `Git strategy` might be around cloning, branching, and merging
+- A `GitHub strategy` would be around Issues, Actions, and PRs (and how they relate to clones, branches, and merges)
+
 ## Labels
 
 1. [GitHub Labels article](https://seantrane.com/posts/logical-colorful-github-labels-18230/):
@@ -57,7 +60,7 @@ Anchor Links: [Issues](#issues) | [Branch Strategies](#branch-strategies) |
 
 ## Branch Strategies
 
-1. [Git Branching Strategies](https://www.abtasty.com/blog/git-branching-strategies/):
+### 1. [AB Tasty: Git Branching Strategies](https://www.abtasty.com/blog/git-branching-strategies/)
 
 - Branches are primarily used as a means for teams to develop features giving them a separate workspace for their code. These branches are usually merged back to a master branch upon completion of work
 - A `branching strategy` is the strategy that software development teams adopt when writing, merging and deploying code when using a version control system
@@ -67,8 +70,14 @@ Anchor Links: [Issues](#issues) | [Branch Strategies](#branch-strategies) |
 - When we talk about branches, we are referring to independent lines of code that branch off the master branch, allowing developers to work independently before merging their changes back to the code base
 - branching strategies that teams use in order to organize their workflow... pros and cons...
 - having a branching strategy is necessary to avoid conflicts when merging and to allow for the easier integration of changes into the master trunk
-- `Strategy #1`: _GitFlow_ - Considered to be a bit complicated and advanced for many of today’s projects
-- `Strategy #2`: _GitHub Flow_ - this model doesn’t have release branches. You start off with the main branch then developers create branches, feature branches that stem directly from the master, to isolate their work which are then merged back into main. The feature branch is then deleted.
+
+#### Strategy #1 GitFlow
+
+- Considered to be a bit complicated and advanced for many of today’s projects - SKIP
+
+#### Strategy #2: GitHub Flow
+
+- this model doesn’t have release branches. You start off with the main branch then developers create branches, feature branches that stem directly from the master, to isolate their work which are then merged back into main. The feature branch is then deleted.
 - The main idea behind this model is keeping the master code in a constant deployable state and hence can support continuous integration and continuous delivery processes.
 - Github Flow focuses on Agile principles and so it is a fast and streamlined branching strategy with short production cycles and frequent releases
 - allows for fast feedback loops so that teams can quickly identify issues and resolve them
@@ -77,15 +86,58 @@ Anchor Links: [Issues](#issues) | [Branch Strategies](#branch-strategies) |
 - Thus, this strategy is not suitable for handling multiple versions of the code
 - the lack of development branches makes this strategy more susceptible to bugs and so can lead to an unstable production code if branches are not properly tested before merging with the master
 - The master branch, as a result, can become cluttered more easily as it serves as both a production and development branch
-- `Strategy #3`: _GitLab Flow_ - a simpler alternative to GitFlow that combines feature-driven development and feature branching with issue tracking
+
+#### Strategy #3 GitLab Flow
+
+- a simpler alternative to GitFlow that combines feature-driven development and feature branching with issue tracking
 - developers create a develop branch and make that the default while GitLab Flow works with the main branch right away
 - is great when you want to maintain multiple environments and when you prefer to have a staging environment separate from the production environment
 - whenever the main branch is ready to be deployed, you can merge back into the production branch and release it
 - this strategy offers propers isolation between environments allowing developers to maintain several versions of software in different environments
 - this method is suited for situations where you don’t control the timing of the release, such as an iOS app that needs to go through the App store validation first or when you have specific deployment windows
-- `Strategy #3`: _Trunk-based development_ - a branching strategy that in fact requires no branches but instead, developers integrate their changes into a shared trunk at least once a day. This shared trunk should be ready for release anytime
+
+#### Strategy #4 Trunk-based development
+
+- a branching strategy that in fact requires no branches but instead, developers integrate their changes into a shared trunk at least once a day. This shared trunk should be ready for release anytime
 - ... make smaller changes more frequently... developers commit directly into the trunk without the use of branches
 - trunk-based development is a key enabler of continuous integration (CI) and continuous delivery (CD) since changes are done more frequently to the trunk
 - This strategy is often combined with feature flags. As the trunk is always kept ready for release, feature flags help decouple deployment from release so any changes that are not ready can be wrapped in a feature flag and kept hidden while features that are complete can be released to end-users without delay
 
 > I want to use _GitHub Flow_ - When first starting out, it’s best to keep things simple and so initially `GitHub Flow` or `Trunk-based development`
+
+### 2. [Tilburg Science Hub: Git Branching Strategies](https://tilburgsciencehub.com/building-blocks/collaborate-and-share-your-work/use-github/git-branching-strategies/)
+
+- A Git branching strategy allows developers to collaborate on a project while also tracking changes and maintaining multiple versions of the codebase
+- This article lists the same strategies as above with the exception of GitLab Flow
+
+#### Strategy 1: Trunk-Based Development
+
+- A branching strategy in which all developers make changes directly on the main branch, commonly referred to as the trunk, which holds the project’s deployable code
+- Developers are encouraged to commit frequently and use feature toggles`*` and other techniques to manage changes that are not yet ready for release
+- Testing is typically automated, with a focus on continuous integration (CI) and continuous delivery (CD) to ensure that code changes are thoroughly tested before they are deployed
+- **Feature toggles**, also known as _feature flags_, can be used in software development to manage features that are not yet ready for release or that need to be shown only to specific users or groups
+
+#### Strategy 2: Feature Branching
+
+- a commonly used workflow that involves creating a new branch for a specific feature or change in the codebase
+- This allows developers to work on the feature independently without affecting the `main` branch. When the feature is complete, it can be merged back into the `main` branch through a pull request
+
+Feature Branching Workflow:
+
+1. Create a new branch for each feature or task you’re working on
+2. start implementing the new feature by making as many commits as necessary. The branch should only contain changes relating to that particular feature
+3. When you’re finished working on the feature branch, you create a pull request to merge the changes into the main branch
+4. Other developers review the changes in the pull request and approve them if they are satisfied with the changes. Code review can help catch issues or mistakes before they are merged into the `main` branch
+5. Once you’re done working on the feature, you can merge the feature branch back into the `main` branch
+6. After merging, you can delete the feature branch, as it is no longer needed
+
+> This strategy can lead to conflicts due to branch dependencies - is this an alternate name for _GitHub Flow_?
+
+#### Strategy 3: Git Flow
+
+- Git Flow is a branching strategy that uses two main long-lived branches - `main` and `develop`
+- several short-lived branches (feature, release, hotfix) are created as needed to manage the development process and deleted once they have fulfilled their purpose
+- The `main` branch is the stable production-ready code and the `develop` branch is where all development takes place.
+  - `feature` branches are used to develop new features or changes,
+  - `release` branches are used to prepare for a new release, and
+  - `hotfix` branches are used to quickly address critical issues in the production code
