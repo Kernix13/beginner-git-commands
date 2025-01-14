@@ -65,6 +65,12 @@ git config --list
 git config --global user.name "Name you want displayed"
 git config --global user.email "Use the email you used for GitHub"
 
+# Check the name of your main branch
+git config --global init.defaultBranch
+
+# Change your default branch to "main"
+git config --global init.defaultBranch main
+
 # Make VS Code your default editor
 git config --global core.editor "code --wait"
 ```
@@ -100,6 +106,17 @@ Those commands worked and I then cloned this repo. Then back on GitHub:
 6. Paste your public key into the "Key" field.
 7. Click Add SSH key. If prompted, confirm access to your account on GitHub.
 
+To test to make sure that worked run:
+
+```sh
+ssh -T git@github.com
+# you should see the message "Hi YourName! You've successfully authenticated, but GitHub does not provide shell access."
+# if that doesn't work run
+eval `ssh-agent -s`
+# You should see
+Agent pid 1234
+```
+
 On my first `git push` to GitHub I got a message about having to authenticate my GitHub account. There was a new tab open in Chrome where I clicked _Authenticate_ and I think I only had to enter my GitHub password.
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
@@ -121,11 +138,15 @@ git add .
 git commit -m "First commit"
 # 4. Optionally rename the default branch from master to main:
 git branch -M main
-# 5. Set the remote to the optional name 'origin':
+# 5a. Set the remote to the optional name 'origin':
 git remote add origin https_url
+# 5b. Or use git@github... address:
+git remote add origin git@github.com:yourname/your-project.git
 # 6. Push your commited changes to your repo:
-git push -u origin master
+git push -u origin main
 ```
+
+When you run `git init` you will see your brnach name in the lower left corner of VS Code. You will also see all your file names turn green with a `U` next to them. The `U` stands for "untracked".
 
 An alternate way to add new or changed files to staging is to add the files individually:
 
@@ -150,10 +171,10 @@ git status
 git commit -m "Your next commit message"
 git push
 # Or
-git push origin master
+git push -u origin master
 ```
 
-**NOTE**: You need to use `git push -u origin master` for the first commit. After that just use `git push`, although I believe you can still use `git push origin master` _AFTER_ the first commit and it won't have a negative effect.
+**NOTE**: You need to use `git push -u origin master` for the first push. After that just use `git push`, although you can still use `git push origin master` _AFTER_ the first push and it won't have a negative effect.
 
 Also, get in the habit of using `git status` as a way to check the status of your files and folders.
 
@@ -161,6 +182,12 @@ Also, get in the habit of using `git status` as a way to check the status of you
 
 ```bash
 git commit -am "Commit message"
+```
+
+Another way to do that is with `&&`:
+
+```bash
+git add index.html && git commit -m "Updated index.html"
 ```
 
 Also, try not to make changes to any files on GitHub. If you do, you need to run either `git pull` or `git fetch`. The only time you may need to create a file on GitHub is adding a LICENSE file. See the INTERMEDIATE_GIT.md file for details on those commands.

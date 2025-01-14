@@ -43,8 +43,11 @@ This file used to be very short but I added sections from the intermediate file,
 1. [GitHub Two Factor Authentication](#github-two-factor-authentication)
    1. [Two-factor authentication recovery codes](#two-factor-authentication-recovery-codes)
 1. [Signed Commits](#signed-commits)
+1. [ci cd pipeline](#ci-cd-pipeline)
 
 ## Forking and cloning
+
+Forking: copying a repo from GitHub into your GitHub account
 
 Read the GitHub page [Fork a repo](https://docs.github.com/en/get-started/quickstart/fork-a-repo) for the same steps as shown below.
 
@@ -67,6 +70,8 @@ git remote -v
 # sync your fork with the upstream repository
 git remote add upstream https://github.com/ORIGINAL_OWNER/their-repo-name.git
 ```
+
+**NOTE**: `git fetch` is typically used to get the latest changes from the remote repo without merging them into the main branch.
 
 To verify the new upstream repository you have specified for your fork, type git remote -v again:
 
@@ -233,6 +238,8 @@ Use the following commands to update your local copy:
 ```sh
 git checkout master
 git pull upstream master
+# Or use:
+git pull origin master
 ```
 
 I have also used `git fetch upstream` to update my local copy. I'm not sure if `git pull upstream master` is better or not. However, I had a PR fail because I was missing a command. `git fetch upstream` will only fetch the git data. To update your main fully, you should:
@@ -810,5 +817,13 @@ git config --global commit.gpgsign true
 ```
 
 Also check out [Telling Git about your SSH key](https://docs.github.com/en/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key#telling-git-about-your-ssh-key)
+
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
+
+## ci cd pipeline
+
+> Continuous integration and continuous delivery (CI/CD) is a software development methodology that allows for rapid, frequent, and reliable code updates. It is a core component of DevOps, which is a set of practices that aims to foster collaboration and communication between development and operations teams
+
+You can practice this on your projects hosted on Netlify or VErcel for example. It's a simple as puhing to GitHub and Netlify or Vercel will notice the change and redeploy your project/app/website.
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
