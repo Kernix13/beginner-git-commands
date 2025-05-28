@@ -130,20 +130,32 @@ Don't worry if you do not know what the words _branch_, _staging_, _commit_ or _
 Also note that step 4 requires you to add the URL for an empty repo on Github, so create an empty repo from your GitHub account. Choose to make it a public repo and **_DO NOT_** add a `README.md` file. The basic steps are:
 
 ```bash
-# 1. Initiaze git tracking in the current folder:
+# 1. Initialize git in current folder:
 git init
-# 2. Add all your files to staging:
+
+# 2. Add all changed files to staging:
 git add .
-# 3. Commit the files in your staging area:
-git commit -m "First commit"
+
+# 3. Commit all staged files:
+git commit -m "first commit"
+
 # 4. Optionally rename the default branch from master to main:
 git branch -M main
-# 5a. Set the remote to the optional name 'origin':
-git remote add origin https_url
-# 5b. Or use git@github... address:
-git remote add origin git@github.com:yourname/your-project.git
-# 6. Push your commited changes to your repo:
+
+# 5. Connect your remote/GitHub repo to your local repo, & set the remote to the alias 'origin':
+git remote add [alias] [url]
+git remote add origin https://github.com/YOUR_USER_NAME/YOUR_REPO_NAME.git
+
+# In case origin is pointing to the wrong GitHub repo
+git remote remove origin
+
+# 6. Push your commits and connect your local to your remote repo
+git push [alias] [branch]
 git push -u origin main
+
+# NOTE: the -u flag is short for --set-upstream
+# For any future commits just use:
+git push
 ```
 
 When you run `git init` you will see your brnach name in the lower left corner of VS Code. You will also see all your file names turn green with a `U` next to them. The `U` stands for "untracked".
@@ -170,8 +182,6 @@ git add .
 git status
 git commit -m "Your next commit message"
 git push
-# Or
-git push -u origin master
 ```
 
 **NOTE**: You need to use `git push -u origin master` for the first push. After that just use `git push`, although you can still use `git push origin master` _AFTER_ the first push and it won't have a negative effect.
@@ -192,6 +202,22 @@ git add index.html && git commit -m "Updated index.html"
 
 Also, try not to make changes to any files on GitHub. If you do, you need to run either `git pull` or `git fetch`. The only time you may need to create a file on GitHub is adding a LICENSE file. See the INTERMEDIATE_GIT.md file for details on those commands.
 
+### Commands GitHub shows with new repo
+
+```sh
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/YOUR_USER_NAME/YOUR_REPO_NAME.git
+git push -u origin main
+
+# or push an existing repository from the command line
+git remote add origin https://github.com/YOUR_USER_NAME/YOUR_REPO_NAME.git
+git branch -M main
+git push -u origin main
+```
+
 <!-- Add notes on the following maybe: git log --oneline, git diff, clear -->
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
@@ -204,11 +230,17 @@ Go to the main repo page and click on the green `Code` button and copy the _HTTP
 
 ```sh
 # Go to the folder where you want your project folder and run
-git clone https_url
-# move into that folder
+git clone [url]
+git clone https://github.com/YOUR_USER_NAME/YOUR_REPO_NAME.git
+
+# Move into that folder
 cd folder_name
+
 # Check the remote location
 git remote -v
+
+# "git clone" automatically initializes Git and sets the remote
+# so you do not need the commands "git init" and "git remote add origin https_url"
 ```
 
 **NOTE**: `git clone` automatically initializes Git and sets the remote so you do not need the commands `git init` and `git remote add origin https_url`. By running `git remote -v` you should see:
@@ -225,8 +257,8 @@ git status
 git add .
 git commit -m "your commit message"
 git push
-# Or run
-git push origin main
+# No need to set upstream because cloning automatically does that
+git push
 ```
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
