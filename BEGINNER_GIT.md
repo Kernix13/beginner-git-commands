@@ -256,7 +256,6 @@ Then make some changes and run the standard commands:
 git status
 git add .
 git commit -m "your commit message"
-git push
 # No need to set upstream because cloning automatically does that
 git push
 ```
