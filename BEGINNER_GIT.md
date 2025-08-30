@@ -134,7 +134,11 @@ On my first `git push` to GitHub I got a message about having to authenticate my
 
 ## Pushing a local project to an empty repo on GitHub
 
-After you created a project with files on your machine, you then need to push them to GitHub.
+After you created a project with files on your machine, you then need to push them to GitHub. But first you need somewhere to push them to so create a repo on GitHub:
+
+1. Step 1 is to create a new repo on GitHub by clicking the `+` icon and choose "New repository".
+2. Enter the name and set it to public
+3. Click "Create repository"
 
 You can use the commands that GitHub shows when you create the repo or use the following commands but make sure to copy the repo URL link (`https_url`).
 
@@ -157,7 +161,7 @@ git commit -m "first commit"
 git branch -M main
 
 # 5. Connect your remote/GitHub repo to your local repo, & set the remote to the alias 'origin':
-git remote add [alias] [url]
+# SYNTAX: git remote add [alias] [url]
 git remote add origin https://github.com/YOUR_USER_NAME/YOUR_REPO_NAME.git
 
 # In case origin is pointing to the wrong GitHub repo
