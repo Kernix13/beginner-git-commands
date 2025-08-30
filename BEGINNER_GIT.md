@@ -44,8 +44,9 @@ On your first push ever to GitHub from your machine, you will need to authentica
 
 In the past you could just use `user.name` and `user.email` to verify your identity to GitHub. Now you have to generate an SSH key for authentification. I used the following docs to do that:
 
-1. Link 1: [Generating a new SSH key and adding it to the ssh-agent](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
-1. Link 2: [Adding a new SSH key to your GitHub account](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
+1. Link 1: [Checking for existing SSH keys](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/checking-for-existing-ssh-keys)
+1. Link 2: [Generating a new SSH key and adding it to the ssh-agent](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+1. Link 3: [Adding a new SSH key to your GitHub account](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
 
 However, you still need to have `user.name` and `user.email` set. Here are the commands I used but I suggest using the 2 links above as they are the offical source and the commands or syntax may change over time:
 
@@ -78,19 +79,24 @@ git config --global init.defaultBranch main
 git config --global core.editor "code --wait"
 ```
 
-The steps for creating your SSH key:
+The steps for creating your SSH key from **_Git Bash_**:
 
 ```sh
+# First check to see if you already have an SSH key
+ls -al ~/.ssh
+
 # 1. Generate your key (use the email you set with user.email above)
 ssh-keygen -t ed25519 -C "myemail@somewhere.com"
 
 # or if that doesn't work:
 ssh-keygen -t rsa -b 4096 -C "myemail@somewhere.com"
 
-# 2. Press ENTER for location
-# 3. Press ENTER for the passphrase
-# 4. then start the SSH agent:
+# 2. Press ENTER to accept the default file location
+# 3. Enter Passphrase or press ENTER for no passphrase
+# 3b. Repeat above again - that generates the .pub key
+# 4. Then start the ssh-agent in the background (in Git Bash or use Windows command):
 eval "$(ssh-agent -s)"
+# you should see: Agent pid 59566
 
 # 5. Add your SSH private key to the ssh-agent
 ssh-add ~/.ssh/id_ed25519
@@ -285,7 +291,7 @@ git push
 
 ## Clone a repo that is not yours
 
-These commands are for when you want to work on a repo that someone else created but not contribute to the repo. The commands are the same as the section above except you want to change the remote location.
+These commands are for when you want to work on a repo that someone else created and either contribute to the repo, or work on it yourself. The commands are the same as the section above except you want to change the remote location.
 
 Go to GitHub and create an empty repo. This is where you will push so give it a relevant name.
 
