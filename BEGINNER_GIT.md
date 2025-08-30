@@ -25,8 +25,8 @@ NOTE: I alternately use `main` or `master` when referring to your default branch
 
 If you have not done so already, then you need to [download Git](https://git-scm.com/downloads 'Git download page') open the `.exe` file to install Git. Accept all the defaults during the install with the following two exceptions:
 
-1. _Choosing the default editor used by Git_. I chose VS Code but there is a way to set your default editor from Git Bash or the terminal (see below).
-2. _Adjusting the name of the initial branch in new repositories_ by not choosing _Let Git decide_, and instead set it to _main_.
+1. _Choosing the default editor used by Git_. I chose VS Code from the select list but there is a way to set your default editor from Git Bash or the terminal (see below).
+2. _Adjusting the name of the initial branch in new repositories_ by not choosing _Let Git decide_, and instead set it to `main`.
 
 **NOTE**: You need Git Bash but that comes bundled with Git for Windows.
 
@@ -47,26 +47,29 @@ In the past you could just use `user.name` and `user.email` to verify your ident
 1. Link 1: [Generating a new SSH key and adding it to the ssh-agent](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 1. Link 2: [Adding a new SSH key to your GitHub account](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
 
-However, you still need to have `user.name` and `user.email` set. Here are the commands I used for my new laptop but I suggest using the 2 links above as they are the offical source and the commands or syntax may change over time:
+However, you still need to have `user.name` and `user.email` set. Here are the commands I used but I suggest using the 2 links above as they are the offical source and the commands or syntax may change over time:
 
 ```sh
-# Check to make sure Git installed by checking the version
-# Git installed correctly if you see a version
+# Verify that git is installed by checking the version
+# Installation worked if you see a version
 git --version
 # or use -v which is short for --version
 git -v
 
-# To check to see if you have a name set already use:
-git config user.name
-# To see all your config settings use:
+# CONFIG
+# See all settings
 git config --list
 
-# Set your user name and email
-git config --global user.name "Name you want displayed"
+# check your name and email
+git config user.name
+git config user.email
+
+# Set (or change) your user name and email
+git config --global user.name "Name you want to be known as"
 git config --global user.email "Use the email you used for GitHub"
 
-# Check the name of your main branch
-git config --global init.defaultBranch
+# Check the name of your default branch
+git config init.defaultBranch
 
 # Change your default branch to "main"
 git config --global init.defaultBranch main
@@ -98,21 +101,23 @@ clip < ~/.ssh/id_ed25519.pub
 
 Those commands worked and I then cloned this repo. Then back on GitHub:
 
-1. click your profile photo, then click Settings.
-2. In the "Access" section of the sidebar, click SSH and GPG keys.
-3. Click New SSH key or Add SSH key.
-4. In the "Title" field, add a descriptive label for the new key, e.g. "Personal Laptop" but the title is not important.
+1. Click your profile photo, then click Settings.
+2. In the "_Access_" section of the sidebar, click _SSH and GPG keys_.
+3. Click the _New SSH key_ or _Add SSH key_ button.
+4. In the "_Title_" field, add a descriptive label for the new key, e.g. "Personal Laptop" but the title is not important.
 5. Leave the default for the dropdown for Key type set to Authentification key
 6. Paste your public key into the "Key" field.
-7. Click Add SSH key. If prompted, confirm access to your account on GitHub.
+7. Click _Add SSH key_. If prompted, confirm access to your account on GitHub.
 
 To test to make sure that worked run:
 
 ```sh
 ssh -T git@github.com
 # you should see the message "Hi YourName! You've successfully authenticated, but GitHub does not provide shell access."
+
 # if that doesn't work run
 eval `ssh-agent -s`
+
 # You should see
 Agent pid 1234
 ```
@@ -125,9 +130,9 @@ On my first `git push` to GitHub I got a message about having to authenticate my
 
 After you created a project with files on your machine, you then need to push them to GitHub.
 
-Don't worry if you do not know what the words _branch_, _staging_, _commit_ or _remote_ means. You can use the commands that GitHub shows when you create the repo or use the following commands but make sure to copy the repo URL link (`https_url`).
+You can use the commands that GitHub shows when you create the repo or use the following commands but make sure to copy the repo URL link (`https_url`).
 
-Also note that step 4 requires you to add the URL for an empty repo on Github, so create an empty repo from your GitHub account. Choose to make it a public repo and **_DO NOT_** add a `README.md` file. The basic steps are:
+Also note that step 5 requires you to add the URL for an empty repo on Github, so create an empty repo from your GitHub account. Choose to make it a public repo and **_DO NOT_** add a `README.md` file. The basic steps are:
 
 ```bash
 # 1. Initialize git in current folder:
@@ -135,8 +140,11 @@ git init
 
 # 2. Add all changed files to staging:
 git add .
+# 2b. add specific files to staging:
+git add filename1.ext filename2.ext filename3.ext
 
 # 3. Commit all staged files:
+git commit --message "first commit"
 git commit -m "first commit"
 
 # 4. Optionally rename the default branch from master to main:
@@ -169,7 +177,17 @@ git add filename1.ext filename2.ext
 
 For the above command you can use <kbd>TAB</kbd> once you have typed a few characters of your filename.
 
-**NOTE**: When you create an empty repo on GitHub, it's best practice to use the same name on GitHub as the folder on your local machine, though you can still push if the names do not match. I tend to make the names the same so that there is no confusion for repos/projects with similar names.
+**NOTE**: When you create an empty repo on GitHub, it's best practice to use the same name on GitHub as the folder on your local machine, though you can still push if the names do not match.
+
+The `git log` is a log of the commits for your local repo. It shows the commit hash, author, date, and message.
+
+```sh
+# See log of all your commits
+git log
+
+# Put logs on one line, shows the first 7 characters of the commit hash and the message
+git log --oneline
+```
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
@@ -191,6 +209,7 @@ Also, get in the habit of using `git status` as a way to check the status of you
 **NOTE**: You can add your files to staging and commit them in one command with the `-am` flag with the `commit` command:
 
 ```bash
+git commit -a -m "Commit message"
 git commit -am "Commit message"
 ```
 
@@ -203,6 +222,8 @@ git add index.html && git commit -m "Updated index.html"
 Also, try not to make changes to any files on GitHub. If you do, you need to run either `git pull` or `git fetch`. The only time you may need to create a file on GitHub is adding a LICENSE file. See the INTERMEDIATE_GIT.md file for details on those commands.
 
 ### Commands GitHub shows with new repo
+
+NOTE: Ignore the commands `git add README.md` and `git branch -M main`. If you want to add a README file, then do it manually and add content to it. And you should have already configured your default branch name.
 
 ```sh
 git init
@@ -266,7 +287,7 @@ git push
 
 These commands are for when you want to work on a repo that someone else created but not contribute to the repo. The commands are the same as the section above except you want to change the remote location.
 
-Go to GitHub and create an empty repo.
+Go to GitHub and create an empty repo. This is where you will push so give it a relevant name.
 
 **NOTE**: `https_url` for the `git clone` command is the URL of the repo you want to clone, but `https_url` for the `git remote set-url origin` command should be the URL for the empty repo you created.
 
@@ -282,7 +303,7 @@ git remote -v
 git remote set-url origin https_url
 # Check to make sure it is now pointing to your account
 git remote -v
-git push -u origin master
+git push -u origin main
 ```
 
 Then for pushes after you set the upstream use the usual commands:
@@ -290,7 +311,7 @@ Then for pushes after you set the upstream use the usual commands:
 ```sh
 git add .
 git commit -m "your message"
-git push origin master
+git push origin main
 # or just
 git push
 ```
@@ -345,9 +366,13 @@ You can add anything you want in the gitignore file for your repos. If you are c
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
-## Important Notes about the `commit` command
+## Important Notes about the commit command
 
-NOTE: If you forget to add `-m "msg"` with your `commit` command, you will be taken either into the Vim editor or VS Code if you added the global command for that. If you are in the Vim editor, type `:wq` to exit Vim.
+NOTE: If you forget to add `-m "msg"` with your `commit` command, you will be taken either into the Vim editor or VS Code if you added the global command for that. If you are in the Vim editor:
+
+1. if you are in Vim type `i` (insert mode) to insert your message then
+2. <kbd>ESC</kbd> once to exit insert mode then
+3. Type `:wq` (or just `wq`) to exit Vim, `w` = write, `q` = quit
 
 ### Atomic commits
 
@@ -369,6 +394,14 @@ When composing the text for your commit message, you should use 1) _present tens
 Use the following command when you need to change something about your last commit:
 
 - `git commit --amend` to change your commit message or when you forgot to add a file to a commit.
+
+```sh
+# If you need to edit a commit msg
+git commit --amend
+
+# Change PREVIOUS commit by adding a file you forgot
+git add forgotten-file.md
+```
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
