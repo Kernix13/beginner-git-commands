@@ -16,6 +16,7 @@ NOTE: I alternately use `main` or `master` when referring to your default branch
    1. [Atomic commits](#atomic-commits)
    1. [Commit messages](#commit-messages)
    1. [Ammending a commit](#ammending-a-commit)
+   1. [Conventional Commits](#conventional-commits)
 1. [gitignore](#gitignore)
 1. [Reference links](#reference-links)
 1. [Final notes](#final-notes)
@@ -375,6 +376,26 @@ git commit --amend
 git add forgotten-file.md
 ```
 
+### Conventional Commits
+
+Link: [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0-beta.2/#why-use-conventional-commits)
+
+Commit messages should start with the `<type>`
+
+```
+<type>[optional scope]: <description>
+
+[optional body]
+
+[optional footer]
+```
+
+Common types:
+
+- `fix:`, `feat;`, `chore:`, `docs:`, `style:`, `refactor:`, `perf:`, `test:`, `improvement:`, and others
+
+Read the notes on the Conventional Commits page.
+
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
 ## gitignore
@@ -434,6 +455,14 @@ FYI, it's difficult keeping this list up-to-date. I'll do my best to provide the
 1. [Git reference docs](https://git-scm.com/docs 'Git documentation')
 1. [GitHub for complete beginners MDN](https://developer.mozilla.org/en-US/docs/MDN/Contribute/GitHub_beginners 'MDN GitHub docs')
 1. [Why Use Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0-beta.2/#why-use-conventional-commits 'Conventional Commits')
+1. [How to contribute on GitHub](https://www.dataschool.io/how-to-contribute-on-github/ 'Step-by-step guide to contributing on GitHub')
+1. [Contributing to MDN](https://developer.mozilla.org/en-US/docs/MDN/Contribute 'Contributing to MDN')
+1. [Hostinger: Basic GIT Commands](https://www.hostinger.com/tutorials/basic-git-commands 'Basic GIT Commands')
+1. [Frequently used Git Commands](https://codeburst.io/git-tutorial-a-beginners-guide-to-most-frequently-used-git-commands-2ab92bd22787 'Frequently used Git Commands')
+1. [Atlassian Git Tutorial](https://www.atlassian.com/git/tutorials)
+
+Contributing to freeCodeCamp:
+
 1. [Contribute to freeCodeCamp.org](https://contribute.freecodecamp.org/#/ 'freeCpdeCamp contribution docs')
 1. [how-to-setup-freecodecamp-locally.md](https://github.com/freeCodeCamp/freeCodeCamp/blob/main/docs/how-to-setup-freecodecamp-locally.md 'How to setup freeCodeCamp locally')
 1. [freeCodeCamp Conflicts on a pull request](https://github.com/freeCodeCamp/freeCodeCamp/blob/main/docs/how-to-setup-freecodecamp-locally.md#making-changes-locally 'freeCodeCamp PR Conflicts')
@@ -442,11 +471,6 @@ FYI, it's difficult keeping this list up-to-date. I'll do my best to provide the
 1. [freeCodeCamp FAQs](https://contribute.freecodecamp.org/#/FAQ 'freeCodeCamp FAQs')
 1. [freeCodeCamp How to open a Pull Request](https://github.com/freeCodeCamp/freeCodeCamp/blob/main/docs/how-to-open-a-pull-request.md 'How to open a PR freeCodeCamp')
 1. [freeCodeCamp How to contribute to open source](https://github.com/freeCodeCamp/how-to-contribute-to-open-source 'How to contribute to open source')
-1. [How to contribute on GitHub](https://www.dataschool.io/how-to-contribute-on-github/ 'Step-by-step guide to contributing on GitHub')
-1. [Contributing to MDN](https://developer.mozilla.org/en-US/docs/MDN/Contribute 'Contributing to MDN')
-1. [Hostinger: Basic GIT Commands](https://www.hostinger.com/tutorials/basic-git-commands 'Basic GIT Commands')
-1. [Frequently used Git Commands](https://codeburst.io/git-tutorial-a-beginners-guide-to-most-frequently-used-git-commands-2ab92bd22787 'Frequently used Git Commands')
-1. [Atlassian Git Tutorial](https://www.atlassian.com/git/tutorials)
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
