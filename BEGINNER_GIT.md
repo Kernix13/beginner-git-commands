@@ -134,28 +134,25 @@ On my first `git push` to GitHub I got a message about having to authenticate my
 
 ## Pushing a local project to an empty repo on GitHub
 
-After you created a project with files on your machine, you then need to push them to GitHub. But first you need somewhere to push them to so create a repo on GitHub:
+After you created a project with files on your machine, you then need to push them to GitHub. But first you need to create a repo on GitHub:
 
-1. Step 1 is to create a new repo on GitHub by clicking the `+` icon and choose "New repository".
+1. Create a new repo on GitHub by clicking the `+` icon and choose "New repository"
 2. Enter the name and set it to public
-3. Click "Create repository"
+3. **_DO NOT_** add a `README.md` file
+4. Click "Create repository"
 
 You can use the commands that GitHub shows when you create the repo or use the following commands but make sure to copy the repo URL link (`https_url`).
 
-Also note that step 5 requires you to add the URL for an empty repo on Github, so create an empty repo from your GitHub account. Choose to make it a public repo and **_DO NOT_** add a `README.md` file. The basic steps are:
+The basic commands are:
 
 ```bash
 # 1. Initialize git in current folder:
 git init
 
-# 2. Add all changed files to staging:
+# 2. Add all changed files to staging (-A, --a):
 git add .
-# 2b. Or add specific files to staging:
-git add filename1.ext filename2.ext filename3.ext
 
-# 3. Commit all staged files:
-git commit --message "first commit"
-# 3b. Shorter common version
+# 3. Commit all staged files (--message):
 git commit -m "first commit"
 
 # 4. Optionally rename the default branch from master to main:
@@ -165,7 +162,7 @@ git branch -M main
 # SYNTAX: git remote add [alias] [url]
 git remote add origin https://github.com/YOUR_USER_NAME/YOUR_REPO_NAME.git
 
-# 6. Push your commits and connect your local to your remote repo
+# 6. Push your commits and connect your local to your remote repo (--set-upstream)
 # SYNTAX: git push [alias] [branch]
 git push -u origin main
 
@@ -175,6 +172,11 @@ git push
 
 # In case origin is pointing to the wrong GitHub repo
 git remote remove origin
+
+# Get help on commands
+git help
+git help -m
+git help -a
 ```
 
 When you run `git init` you will see your brnach name in the lower left corner of VS Code. You will also see all your file names turn green with a `U` next to them. The `U` stands for "untracked".
@@ -183,7 +185,7 @@ An alternate way to add new or changed files to staging is to add the files indi
 
 ```bash
 # Use the following to add files individually to staging:
-git add filename1.ext filename2.ext
+git add filename1.ext filename2.ext filename3.ext
 ```
 
 For the above command you can use <kbd>TAB</kbd> once you have typed a few characters of your filename.
@@ -196,7 +198,7 @@ The `git log` is a log of the commits for your local repo. It shows the commit h
 # See log of all your commits
 git log
 
-# Put logs on one line, shows the first 7 characters of the commit hash and the message
+# Put logs on one line, only shows first 7 characters of the commit hash and the message
 git log --oneline
 ```
 
@@ -213,9 +215,9 @@ git commit -m "Your next commit message"
 git push
 ```
 
-**NOTE**: You need to use `git push -u origin master` for the first push. After that just use `git push`, although you can still use `git push origin master` _AFTER_ the first push and it won't have a negative effect.
+**NOTE**: You need to use `git push -u origin main` for the first push. After that just use `git push`, although you can still use `git push origin main` _AFTER_ the first push and it won't have a negative effect.
 
-Also, get in the habit of using `git status` as a way to check the status of your files and folders.
+Also, get in the habit of using `git status` as a way to check the status of your files and folders, which branch you are on, and more.
 
 **NOTE**: You can add your files to staging and commit them in one command with the `-am` flag with the `commit` command:
 
@@ -227,14 +229,14 @@ git commit -am "Commit message"
 Another way to do that is with `&&`:
 
 ```bash
-git add index.html && git commit -m "Updated index.html"
+git add index.html && git commit -m "Update index.html"
 ```
 
 Also, try not to make changes to any files on GitHub. If you do, you need to run either `git pull` or `git fetch`. The only time you may need to create a file on GitHub is adding a LICENSE file. See the INTERMEDIATE_GIT.md file for details on those commands.
 
 ### Commands GitHub shows with new repo
 
-NOTE: Ignore the commands `git add README.md` and `git branch -M main`. If you want to add a README file, then do it manually and add content to it. And you should have already configured your default branch name.
+NOTE: Ignore the commands `git add README.md` and `git branch -M main`. If you want to add a README file, then do it manually in your local repo and add content to it. And you should have already configured your default branch name.
 
 ```sh
 git init
@@ -250,7 +252,7 @@ git branch -M main
 git push -u origin main
 ```
 
-<!-- Add notes on the following maybe: git log --oneline, git diff, clear -->
+<!-- Add notes on the following maybe: git diff, clear -->
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
@@ -270,16 +272,13 @@ cd folder_name
 
 # Check the remote location
 git remote -v
-
-# "git clone" automatically initializes Git and sets the remote
-# so you do not need the commands "git init" and "git remote add origin https_url"
 ```
 
 **NOTE**: `git clone` automatically initializes Git and sets the remote so you do not need the commands `git init` and `git remote add origin https_url`. By running `git remote -v` you should see:
 
 ```bash
-origin  https://github.com/You_User_Name/your_repo_name.git (fetch)
-origin  https://github.com/You_User_Name/your_repo_name.git (push)
+origin  https://github.com/YOUR_USER_NAME/YOUR_REPO_NAME.git (fetch)
+origin  https://github.com/YOUR_USER_NAME/YOUR_REPO_NAME.git (push)
 ```
 
 Then make some changes and run the standard commands:
