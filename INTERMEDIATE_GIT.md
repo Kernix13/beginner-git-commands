@@ -6,12 +6,12 @@ Some of the git commands below can be considered beginner but they involve using
 
 ## Table of contents
 
-1. [Stashing your changes](#stashing-your-changes)
 1. [Branches](#branches)
    1. [Merge branches locally](#merge-branches-locally)
    1. [generating merge commits](#generating-merge-commits)
    1. [Pushing branches to your repository](#pushing-branches-to-your-repository)
    1. [Squashing commits](#squashing-commits)
+1. [Stashing your changes](#stashing-your-changes)
 1. [Miscellaneous git stuff](#miscellaneous-git-stuff)
    1. [Use the raw link](#use-the-raw-link)
    1. [git reflog](#git-reflog)
@@ -20,45 +20,6 @@ Some of the git commands below can be considered beginner but they involve using
    1. [Clone or fork a gist](#clone-or-fork-a-gist)
    1. [Editing a gist](#editing-a-gist)
 1. [GitHub pages](#github-pages)
-
-## Stashing your changes
-
-The `git stash` commands are easy and should be in the beginner file, but you only use them when you start working with branches. Creating and merging braches locally are also beginner level _unless_ you make a mistake. That's why stashing and branches are in this file.
-
-The `git stash` command is used when you have more than 1 branch and you need to switch to a different branch. It's doubtful you will need this command unless you are contributing.
-
-There are 2 scenarios when you try to checkout/switch without committing your changes:
-
-1. the changes come with you to the destination branch-name
-2. git won't let you switch if there are potential conflicts
-
-If you have changes in your files, you will not be able to switch to a different branch unless you `commit` or `stash` those changes. If you are not ready to `commit` your changes then you should `stash` them.
-
-Actually, Git won't let you switch if there are potential conflicts between files and you will see the following message in the teminal:
-
-> Please commit your changes or stash them before you switch branches.
-
-These are the main commands ou will use:
-
-```sh
-# Stash your changes with:
-git stash
-# FYI, that command is short for
-git stash save
-# Then to bring the changes back (un-stash them) use:
-git stash pop
-```
-
-Other useful stash commands are:
-
-```bash
-# Show all your stashed files
-git stash list
-# cleasr your stash (be careful using this one)
-git stash clear
-```
-
-<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
 ## Branches
 
@@ -162,6 +123,45 @@ If you have multiple commits for that branch, select _Squash and merge_ option f
 
 - Click `Squash and merge` btn > click `Confirm squash and merge` then delete the branch
 - Go back to the code view for the repo and you will see a new hash
+
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
+
+## Stashing your changes
+
+The `git stash` commands are easy and should be in the beginner file, but you only use them when you start working with branches. Creating and merging braches locally are also beginner level _unless_ you make a mistake. That's why stashing and branches are in this file.
+
+The `git stash` command is used when you have more than 1 branch and you need to switch to a different branch. It's doubtful you will need this command unless you are contributing.
+
+There are 2 scenarios when you try to checkout/switch without committing your changes:
+
+1. the changes come with you to the destination branch-name
+2. git won't let you switch if there are potential conflicts
+
+If you have changes in your files, you will not be able to switch to a different branch unless you `commit` or `stash` those changes. If you are not ready to `commit` your changes then you should `stash` them.
+
+Actually, Git won't let you switch if there are potential conflicts between files and you will see the following message in the teminal:
+
+> Please commit your changes or stash them before you switch branches.
+
+These are the main commands ou will use:
+
+```sh
+# Stash your changes with:
+git stash
+# FYI, that command is short for
+git stash save
+# Then to bring the changes back (un-stash them) use:
+git stash pop
+```
+
+Other useful stash commands are:
+
+```bash
+# Show all your stashed files
+git stash list
+# cleasr your stash (be careful using this one)
+git stash clear
+```
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
