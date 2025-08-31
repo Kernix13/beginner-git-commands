@@ -30,25 +30,38 @@ In the past you would use `checkout` to switch and create branches, but now you 
 ```bash
 # Check which branch you are on and to see all branches:
 git branch
-# Switch to an existing branch or to create a new branch:
+
+# Switch to an existing branch:
 git branch branch-name
+
 # Create new_branch and switch to it
 git switch -c new_branch
+
+# "Old" way to create and switch to a new branch
+git checkout -b new_branch
+
 # To see the last commit and msg on each branch
 git branch -v
-# Rename a branch but you have to switch to the branch you want to rename
+
+# Rename a branch but you have to be on the branch you want to rename
 git branch -m new-name
-# To switch back to whatever branch you were on last
+
+# To switch/return to the previously active branch
 git switch -
+
 # Delete a branch but make sure to switch to a different branch first
+# Check what branch you are on
 git branch
-git switch master
+# Switch to the main branch
+git switch main
+# Delete "branch-name"
 git branch -d branch-name
+
 # Force delete a branch, to delete the branch if it is not fully merged
 git branch -D branch-name
 ```
 
-**NOTE**: The old way to create and switch to a new branch was to use use `git checkout -b new_branch`
+**NOTE**: `git branch branch-name` will create and switch to `branch-name` assuming you pulled a new remote branch from GitHub which you do not have locally.
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
