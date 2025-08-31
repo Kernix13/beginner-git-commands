@@ -79,7 +79,7 @@ git config --global init.defaultBranch main
 git config --global core.editor "code --wait"
 ```
 
-The steps for creating your SSH key from **_Git Bash_**:
+The steps for creating your SSH key onWindows using **_Git Bash_**:
 
 ```sh
 # First check to see if you already have an SSH key
@@ -124,7 +124,7 @@ ssh -T git@github.com
 # if that doesn't work run
 eval `ssh-agent -s`
 
-# You should see
+# You should see some pis number (not "1234")
 Agent pid 1234
 ```
 
@@ -150,11 +150,12 @@ git init
 
 # 2. Add all changed files to staging:
 git add .
-# 2b. add specific files to staging:
+# 2b. Or add specific files to staging:
 git add filename1.ext filename2.ext filename3.ext
 
 # 3. Commit all staged files:
 git commit --message "first commit"
+# 3b. Shorter common version
 git commit -m "first commit"
 
 # 4. Optionally rename the default branch from master to main:
@@ -164,16 +165,16 @@ git branch -M main
 # SYNTAX: git remote add [alias] [url]
 git remote add origin https://github.com/YOUR_USER_NAME/YOUR_REPO_NAME.git
 
-# In case origin is pointing to the wrong GitHub repo
-git remote remove origin
-
 # 6. Push your commits and connect your local to your remote repo
-git push [alias] [branch]
+# SYNTAX: git push [alias] [branch]
 git push -u origin main
 
 # NOTE: the -u flag is short for --set-upstream
 # For any future commits just use:
 git push
+
+# In case origin is pointing to the wrong GitHub repo
+git remote remove origin
 ```
 
 When you run `git init` you will see your brnach name in the lower left corner of VS Code. You will also see all your file names turn green with a `U` next to them. The `U` stands for "untracked".
