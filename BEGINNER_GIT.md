@@ -12,11 +12,11 @@ NOTE: I alternately use `main` or `master` when referring to your default branch
    1. [Commands after initial push](#commands-after-initial-push)
 1. [Clone one of your existing GitHub repos](#clone-one-of-your-existing-github-repos)
 1. [Clone a repo that is not yours](#clone-a-repo-that-is-not-yours)
-1. [gitignore](#gitignore)
 1. [Important Notes about the `commit` command](#important-notes-about-the-commit-command)
    1. [Atomic commits](#atomic-commits)
    1. [Commit messages](#commit-messages)
    1. [Ammending a commit](#ammending-a-commit)
+1. [gitignore](#gitignore)
 1. [Reference links](#reference-links)
 1. [Final notes](#final-notes)
 1. [Git keywords](#git-keywords)
@@ -270,9 +270,11 @@ git clone https://github.com/YOUR_USER_NAME/YOUR_REPO_NAME.git
 # Move into that folder
 cd folder_name
 
-# Check the remote location
+# Check the remote location (name/alias and URL)
 git remote -v
 ```
+
+<!-- Add notes somewhere on git remote, git remote add, git remote remove, git remote rename - maybe INTERMEDIATE -> Branches? -->
 
 **NOTE**: `git clone` automatically initializes Git and sets the remote so you do not need the commands `git init` and `git remote add origin https_url`. By running `git remote -v` you should see:
 
@@ -297,22 +299,30 @@ git push
 
 These commands are for when you want to work on a repo that someone else created and either contribute to the repo, or work on it yourself. The commands are the same as the section above except you want to change the remote location.
 
-Go to GitHub and create an empty repo. This is where you will push so give it a relevant name.
-
-**NOTE**: `https_url` for the `git clone` command is the URL of the repo you want to clone, but `https_url` for the `git remote set-url origin` command should be the URL for the empty repo you created.
+If you intend to work on the repo yourself, go to GitHub and create an empty repo. This is where you will push so give it a relevant name.
 
 Then back in Git Bash or VS Code run these commands:
 
 ```sh
 # Use the source repo address to clone
-git clone https_url
+git clone https://github.com/THEIR_USER_NAME/THEIR_REPO_NAME.git
+
+# Switch into the folder and open VS Code
 cd folder_name
+code .
+
 # Check to see where the remote is pointing to
 git remote -v
-# Set your GitHub repo as the remote
-git remote set-url origin https_url
+
+# Set your GitHub repo as the remote if you do not intent to contribute
+git remote set-url origin https://github.com/YOUR_USER_NAME/YOUR_REPO_NAME.git
+
 # Check to make sure it is now pointing to your account
 git remote -v
+
+# Make changes, add, commit, tthen push
+git add .
+git commit -m "message"
 git push -u origin main
 ```
 
@@ -322,57 +332,9 @@ Then for pushes after you set the upstream use the usual commands:
 git add .
 git commit -m "your message"
 git push origin main
-# or just
+# or just if you used the -u flag
 git push
 ```
-
-<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
-
-## gitignore
-
-There are some files that you do NOT want to push to a remoe public repository. The files you want Git to ignore include secrets, environmental variables, API keys, credentials, operating system files, log files, dependencies and packages, etc.
-
-To have Git ignore any files that you do not want to push, create a file called `.gitignore`, usually in the root of your project folder. Add the paths and file names that you do not want to push:
-
-```sh
-index.html
-js/test.js
-*.log
-```
-
-For large repositories, this file will have a lot of entries. For some npm commands like `npx create-react-app` this file will be created for you.
-
-If you want to ignore a folder you need to add `/` after the folder name or Git will think it is a file. Here is an example of a basic gitignore file. You _always_ want to add `node_modules` assuming you added node packages to your project, the other files are just suggestions:
-
-```sh
-# Dependencies
-node_modules
-
-# Production and other folders
-/build
-/dist
-/images
-
-### VisualStudioCode ###
-.vscode/*
-
-# misc
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-
-# Numerous always-ignore extensions
-*.diff
-*.env
-*.err
-*.log
-*.sass-cache
-*.tmp
-```
-
-You can add anything you want in the gitignore file for your repos. If you are contributing, then do not touch that file unless the repo owner asked you to.
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
@@ -412,6 +374,56 @@ git commit --amend
 # Change PREVIOUS commit by adding a file you forgot
 git add forgotten-file.md
 ```
+
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
+
+## gitignore
+
+There are some files that you do NOT want to push to a remoe public repository. Some examples of files you want Git to ignore are environmental variables, API keys, credentials, operating system files, log files, dependencies and packages, etc.
+
+To have Git ignore any files that you do not want to push, create a file called `.gitignore`, usually in the root of your project folder. Add the paths and file names that you do not want to push:
+
+```sh
+index.html
+js/test.js
+*.log
+```
+
+For large repositories, this file will have a lot of entries. For some npm commands like `npx create-react-app` this file will be created for you.
+
+If you want to ignore a folder you need to add `/` after the folder name or Git will think it is a file. Here is an example of a basic gitignore file. You _always_ want to add `node_modules` assuming you added node packages to your project, the other files are just suggestions.
+
+```sh
+# Dependencies
+/node_modules
+
+# Production and other folders
+/build
+/dist
+/images
+
+### VisualStudioCode ###
+.vscode/*
+
+# misc
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Numerous always-ignore extensions
+*.diff
+*.env
+*.err
+*.log
+*.sass-cache
+*.tmp
+```
+
+You can add anything you want in the gitignore file for your repos. If you are contributing, then do not touch that file unless the repo owner asked you to.
+
+> When do you add the `/` before the folder name vs after, such as `/node_modules` vs `images/`?
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
