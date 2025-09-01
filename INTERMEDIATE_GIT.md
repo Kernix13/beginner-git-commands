@@ -63,19 +63,29 @@ git branch -d branch-name
 git branch -D branch-name
 ```
 
-**NOTE**: `git branch branch-name` will create and switch to `branch-name` assuming you pulled a new remote branch from GitHub which you do not have locally.
+**NOTE**: `git branch branch-name` will create and switch to `branch-name` assuming you pulled a new remote branch from GitHub which you do not have locally. That won't make sense until you have the opportunity to do it, so ignore this if it is confusing.
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
 ### Merge branches locally
 
-Most of the time you will push your branches with the changes on it to your own repo, or to a repo that you are contributing for. But sometimes you will merge branches locally:
+Most of the time you will push your branches with the changes on it to your own repo, or to a repo that you are contributing for. But sometimes you will merge branches locally.
 
-```bash
-# Switch to the branch you want to merge into (the receiving branch) and run
+2 merging concepts:
+
+- You merge branches not specific commits
+- You always merge to the current `HEAD` branch – you merge to where you are
+
+1. checkout/switch to master/main or the branch you want to merge to -> move over to the RECEIVING branch
+2. `git merge branch-name` – main is catching up to the same commit as the new branch – so now `main` and `branch-name` are both ponting to the same commit
+
+```sh
+# MERGING BRANCHES
+# 1. Move to the receiving branch
+git switch main
+
+# 2. Merge branch-name into receiving branch (main)
 git merge branch-name
-# To abort a merge you performed:
-git merge --abort
 ```
 
 ### generating merge commits
