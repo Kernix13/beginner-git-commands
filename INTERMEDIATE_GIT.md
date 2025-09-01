@@ -7,9 +7,12 @@ Some of the git commands below can be considered beginner but they involve using
 ## Table of contents
 
 1. [Branches](#branches)
-   1. [Merge branches locally](#merge-branches-locally)
-   1. [generating merge commits](#generating-merge-commits)
-   1. [Pushing branches to your repository](#pushing-branches-to-your-repository)
+1. [Merge branches locally](#merge-branches-locally)
+   1. [Generating merge commits locally](#generating-merge-commits-locally)
+   1. [merge conflicts](#merge-conflicts)
+   1. [Resolving merge conflicts](#resolving-merge-conflicts)
+   1. [Using VS Code to resolve conflicts](#using-vs-code-to-resolve-conflicts)
+1. [Pushing branches to your repository](#pushing-branches-to-your-repository)
    1. [Squashing commits](#squashing-commits)
 1. [Stashing your changes](#stashing-your-changes)
 1. [Miscellaneous git stuff](#miscellaneous-git-stuff)
@@ -67,7 +70,7 @@ git branch -D branch-name
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
-### Merge branches locally
+## Merge branches locally
 
 Most of the time you will push your branches with the changes on it to your own repo, or to a repo that you are contributing for which creates a Pull Request (PR). But sometimes you will merge branches locally.
 
@@ -97,25 +100,98 @@ git merge branch-name
 
 > Look into `Merge made by the 'ort' strategy.`
 
-### generating merge commits
+### Generating merge commits locally
 
-> This section is sloppy and needs editing and a rewrite
+You will have a merge commit when there are changes on main that are not on your branch and/or changes on your branch that are not on main.
 
-**MERGING**: Incorporating changes from one branch to another – 2 merging concepts:
-
-1. You merge branches not specific commits
-2. You always merge to the current HEAD branch – you merge to where you are, to where `HEAD` is
-
-- not Fast-forward merges – changes on master that are not on the branch and changes on the branch that are not on master – git may not automatically be able to do the merge for us – it depends on conflicts – if the same line(s) were changed in both – if the same lines were not edited that it can happen automatically -
-- when that happens a merge commit is generated and we need a `msg –
-- and that commit will have 2 different parent commits -
-- when you do that a file will open in VS Code – git made a commit and created the message `merge branch branch-name` –
-- you could change that, but all you need to do is close the file to finalize the merge commit – ‘recursive' strategy -
-- conflicts are much more difficult to perform
+- git may not automatically be able to do the merge for us – it depends on conflicts.
+  - if the same line(s) were changed in both
+  - if the same lines were not edited then it can happen automatically
+- git makes a commit for us: when that happens a merge commit is generated and we need a msg – and that commit will have 2 different parent commits
+- a file will open in VS Code – git made a commit and created the message _merge branch branch-name_ – you could change that, but all you need to do is close the file to finalize the merge commit
+- this happens automatically if there are no conflicting lines.
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
-### Pushing branches to your repository
+### merge conflicts
+
+Git can NOT automatically merge the branches when there is a merge conflict – they have to manually be resolved. If there are conflicts after running git merge, you will see a msg like this:
+
+```sh
+Auto-merging filename.md
+CONFLICT(content): Merge conflict in filename.md
+Automatic merge failed; fix conflicts and then commit the result.
+```
+
+- This is a multi-step process
+  - Git tells us that there are conflicts
+  - Then we have to open the files & fix the conflicts
+  - Then commit those changes
+- The files where there are conflicts are decorated red. Here is an example of what you will see:
+
+```
+<<<<<< HEAD
+blah blah blah
+=======
+blah blah blah blah blah blah
+>>>>>> branch-name
+```
+
+- The content below `<<<<<<< HEAD` and above `=======` is content that came from your `HEAD` branch - the branch you are trying to merge into (Content A)
+- The content below `=======` and above `>>>>>> branch-name` is the content from `branch-name` that you are trying to merge in (Content B)
+- You need to decide which to keep then delete:
+  - `<<<<<<< HEAD`
+  - `=======`
+  - `>>>>>> branch-name`
+  - Content A or Content B
+
+Here are the steps:
+
+1. Open the file(s) with conflicts
+2. Edit the file(s) - decide which content to keep (or keep both)
+3. Remove the conflict markers (`<`, `=`, `>`, `HEAD`, and `branch-name`)
+4. Add changes then commit
+
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
+
+### Resolving merge conflicts
+
+When you merge a branch into main or another branch where the same line was changed on both branches, you will get a warning in the terminal AND the file(s) with the conflict will open with conflict marrkers and the line(s) in question
+
+- `HEAD` starts with `<<<<` and ends with `=====`
+- Below that is the file changes you are trying to merge into main – do you want:
+  - Just the main changes
+  - Just the branch changes
+  - Or BOTH or some combination of both?
+- Make that choice and remove the conflict markers then save the file(s)
+- Run `git status` which shows the terminal msg: "_You have unmerged paths. (fix conflicts and run "`git commit`") (use "`git merge --abort`" to abort the merge)_"
+
+```sh
+git add modifiedfilename
+git commit -m "merged test-branch"
+
+# Abort the merge
+git merge --abort
+```
+
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
+
+### Using vs code to resolve conflicts
+
+- Use `git status` on each brach as a check
+- In VS Code there is a built in interface – you don’t have to manually delete the conflict markers
+- Above the `HEAD` line are 4 options you can click:
+
+1. Accept Current Change
+2. Accept Incoming Change
+3. Accept Both Changes
+4. Compare Changes
+
+If you click _Compare Changes_, whatever was changed last is highlighted red, and the first file is highlighted green. Sometimes you need to add code and work with both files to resolve the conflict.
+
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
+
+## Pushing branches to your repository
 
 Use these commands when pushing the committed changes for your new branch:
 
