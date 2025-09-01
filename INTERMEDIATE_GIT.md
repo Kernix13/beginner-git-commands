@@ -48,7 +48,7 @@ git branch -v
 # Rename a branch but you have to be on the branch you want to rename
 git branch -m new-name
 
-# To switch/return to the previously active branch (make sure to commit or stash your changes)
+# To switch/return to the previously active branch (you may have to commit or stash your changes)
 git switch -
 
 # Delete a branch but make sure to switch to a different branch first
@@ -77,7 +77,7 @@ Most of the time you will push your branches with the changes on it to your own 
 - You always merge to the current `HEAD` branch – you merge to where you are
 
 1. checkout/switch to master/main or the branch you want to merge to -> move over to the RECEIVING branch
-2. `git merge branch-name` – main is catching up to the same commit as the new branch – so now `main` and `branch-name` are both ponting to the same commit
+2. `git merge branch-name` – `main` is catching up to the same commit as the new branch – so now `main` and `branch-name` are both ponting to the same commit
 
 ```sh
 # MERGING BRANCHES
@@ -87,6 +87,15 @@ git switch main
 # 2. Merge branch-name into receiving branch (main)
 git merge branch-name
 ```
+
+- That is called a "Fast Forward Merge", and that is what you will see in the terminal
+- A fast forward merge is a simpler merge to perform - when nothing has been changed on `main` so you just merge in the changes from the new branch
+- All git does is move the `HEAD` pointer up the number of commits
+- After the merge `branch-name` still exists and you can continue working on it
+
+**`git merge` is one of the most important features of git**
+
+> Look into `Merge made by the 'ort' strategy.`
 
 ### generating merge commits
 
