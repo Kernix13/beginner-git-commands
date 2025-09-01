@@ -16,7 +16,11 @@ Some of the git commands below can be considered beginner but they involve using
 1. [Pushing branches to your repository](#pushing-branches-to-your-repository)
    1. [Squashing commits](#squashing-commits)
    1. [Deleting branches](#deleting-branches)
+   1. [Branch Protection Rules](#branch-protection-rules)
 1. [Stashing your changes](#stashing-your-changes)
+1. [Pull Requests](#pull-requests)
+1. [Forking](#forking)
+   1. [Fork and Clone Workflow](#fork-and-clone-workflow)
 1. [Miscellaneous git stuff](#miscellaneous-git-stuff)
    1. [Use the raw link](#use-the-raw-link)
    1. [git reflog](#git-reflog)
@@ -265,7 +269,7 @@ If you have multiple commits for that branch, select _Squash and merge_ option f
 
 ### Deleting branches
 
-Once you are done working on a brnach, and merged it locally, or pushed the final changes to GitHub, then you should delete the branch.
+Once you are done working on a branch, and merged it locally or pushed the final changes to GitHub, then you should delete the branch.
 
 - `git branch -d branch-name`: you can’t be on that branch and it must be fully merged with master
 - `git branch -D branch-name`: to delete it if it is not fully merged
@@ -290,6 +294,12 @@ git push origin --delete branch-to-delete
 # or this
 git push origin -d "branch-to-delete"
 ```
+
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
+
+### Branch Protection Rules
+
+> later
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
@@ -329,6 +339,24 @@ git stash list
 # cleasr your stash (be careful using this one)
 git stash clear
 ```
+
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
+
+## Pull Requests
+
+> coming soon
+
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
+
+## Forking
+
+> coming soon
+
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
+
+## Fork and Clone Workflow
+
+> coming soon
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
