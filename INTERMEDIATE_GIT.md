@@ -25,39 +25,41 @@ Some of the git commands below can be considered beginner but they involve using
 
 In the beginning you will be working on your default branch which will most likely be `master`, or `main` if you changed the default name. You will definitely be working with branches when you start contributing to other people's repositories, but it would be a good idea to experiment with branches on your own projects.
 
-In the past you would use `checkout` to switch and create branches, but now you should be using the `switch` command. Here are common git commands you will use when working with branches:
+In the past you would use `checkout` to switch to and/or create branches, but now you should be using the newer `switch` command. Here are common git commands you will use when working with branches:
 
 ```bash
 # Check which branch you are on and to see all branches:
 git branch
 
 # Switch to an existing branch:
-git branch branch-name
+git switch branch-name
+# Checkout to an existing branch
+git checkout branch-name
 
 # Create new_branch and switch to it
 git switch -c new_branch
 
-# "Old" way to create and switch to a new branch
+# "Old" way to create and switch/checkout to a new branch
 git checkout -b new_branch
 
-# To see the last commit and msg on each branch
+# To see the last commit hash and msg on each branch
 git branch -v
 
 # Rename a branch but you have to be on the branch you want to rename
 git branch -m new-name
 
-# To switch/return to the previously active branch
+# To switch/return to the previously active branch (make sure to commit or stash your changes)
 git switch -
 
 # Delete a branch but make sure to switch to a different branch first
-# Check what branch you are on
+# 1. Check what branch you are on
 git branch
-# Switch to the main branch
+# 2. Switch to the main branch
 git switch main
-# Delete "branch-name"
+# 3. Delete "branch-name"
 git branch -d branch-name
 
-# Force delete a branch, to delete the branch if it is not fully merged
+# 4. Force delete a branch, to delete the branch if it is not fully merged
 git branch -D branch-name
 ```
 
