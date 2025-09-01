@@ -29,7 +29,6 @@ Some of the git commands below can be considered beginner but they involve using
    1. [Clone or fork a gist](#clone-or-fork-a-gist)
    1. [Editing a gist](#editing-a-gist)
 1. [GitHub pages](#github-pages)
-1. [Test a conflict](#test-a-conflict)
 
 ## Branches
 
@@ -300,7 +299,27 @@ git push origin -d "branch-to-delete"
 
 ### Branch Protection Rules
 
-> later
+> _Define branch rules to disable force pushing, prevent branches from being deleted, or require pull requests before merging. Learn more about repository rules and protected branches_.
+
+You want to add branch protection rules if you have collaborators. If you are just starting out with Git/GitHub, skip this section until you are more comfortable with the whole process
+
+- Go into Settings > Branches Click _Add branch ruleset_ or _Add classic branch protection rule_
+
+**Add classic branch protection rule** option:
+
+- The first thing you are asked is a branch name pattern - it can be complicated for large repos but just do `main` or `master`
+- Check "_Require pull request reviews before merging_" - that means commits have to be made to a non-protected branch and then submitted via PR
+  - Then select the number of people needed to approve the PR
+
+**Add Ruleset** option:
+
+- Enter _Ruleset Name_ (required)
+- Select option for Enforcement status: either Disabled (default) or Active
+- Bypass list: Exempt roles, teams, and apps from this ruleset
+- Target branches: Which branches should be matched?
+- Rules > Branch rules: check/uncheck for what you need.
+  - _Restrict deletions_ and _Block force pushes_ are checked by default.
+- Click Create
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
