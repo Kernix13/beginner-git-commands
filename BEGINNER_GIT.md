@@ -45,10 +45,6 @@ On your first push ever to GitHub from your machine, you will need to authentica
 
 In the past you could just use `user.name` and `user.email` to verify your identity to GitHub. Now you have to generate an SSH key for authentification. I used the following docs to do that:
 
-1. Link 1: [Checking for existing SSH keys](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/checking-for-existing-ssh-keys)
-1. Link 2: [Generating a new SSH key and adding it to the ssh-agent](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
-1. Link 3: [Adding a new SSH key to your GitHub account](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
-
 However, you still need to have `user.name` and `user.email` set. Here are the commands I used but I suggest using the 2 links above as they are the offical source and the commands or syntax may change over time:
 
 ```sh
@@ -80,12 +76,22 @@ git config --global init.defaultBranch main
 git config --global core.editor "code --wait"
 ```
 
-The steps for creating your SSH key onWindows using **_Git Bash_**:
+You may need to create an SSH key and add it to your GitHub account as an additional step to authentication. I followed the steps from the following links and I had no problems:
+
+1. Link 1: [Checking for existing SSH keys](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/checking-for-existing-ssh-keys)
+
+Here are the steps for creating your SSH key on Windows using.
 
 ```sh
-# First check to see if you already have an SSH key
+# Check to see if you already have an SSH key
 ls -al ~/.ssh
+```
 
+2. Link 2: [Generating a new SSH key and adding it to the ssh-agent](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+
+**NOTE**: Even though I am on Windows, I chose to use Git Bash and the commands from the tab for _Linux_. I chose NOT to enter a passphrase:
+
+```sh
 # 1. Generate your key (use the email you set with user.email above)
 ssh-keygen -t ed25519 -C "myemail@somewhere.com"
 
@@ -93,9 +99,8 @@ ssh-keygen -t ed25519 -C "myemail@somewhere.com"
 ssh-keygen -t rsa -b 4096 -C "myemail@somewhere.com"
 
 # 2. Press ENTER to accept the default file location
-# 3. Enter Passphrase or press ENTER for no passphrase
-# 3b. Repeat above again - that generates the .pub key
-# 4. Then start the ssh-agent in the background (in Git Bash or use Windows command):
+# 3. Enter Passphrase or press ENTER for no passphrase, then repeat - that generates the .pub key
+# 4. Then start the ssh-agent in the background (in Git Bash/Linux):
 eval "$(ssh-agent -s)"
 # you should see: Agent pid 59566
 
@@ -106,7 +111,9 @@ ssh-add ~/.ssh/id_ed25519
 clip < ~/.ssh/id_ed25519.pub
 ```
 
-Those commands worked and I then cloned this repo. Then back on GitHub:
+3. Link 3: [Adding a new SSH key to your GitHub account](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
+
+All those commands above worked and I then back on GitHub:
 
 1. Click your profile photo, then click Settings.
 2. In the "_Access_" section of the sidebar, click _SSH and GPG keys_.
@@ -156,20 +163,20 @@ git add .
 # 3. Commit all staged files (--message):
 git commit -m "first commit"
 
-# 4. Optionally rename the default branch from master to main:
-git branch -M main
-
-# 5. Connect your remote/GitHub repo to your local repo, & set the remote to the alias 'origin':
+# 4. Connect your remote/GitHub repo to your local repo, & set the remote to the alias 'origin':
 # SYNTAX: git remote add [alias] [url]
 git remote add origin https://github.com/YOUR_USER_NAME/YOUR_REPO_NAME.git
 
-# 6. Push your commits and connect your local to your remote repo (--set-upstream)
+# 5. Push your commits and connect your local to your remote repo (--set-upstream)
 # SYNTAX: git push [alias] [branch]
 git push -u origin main
 
 # NOTE: the -u flag is short for --set-upstream
 # For any future commits just use:
 git push
+
+# If you do not use the -u flag then do the following each time you push
+git push origin main
 
 # In case origin is pointing to the wrong GitHub repo
 git remote remove origin
