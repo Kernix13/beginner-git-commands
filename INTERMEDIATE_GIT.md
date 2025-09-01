@@ -462,7 +462,65 @@ Then just use `git push` for future pushes.
 
 ## Fork and Clone Workflow
 
-> coming soon
+In your forked copy you will see messages like "This branch is 1 commit ahead of username:master", or whatever the number is based on your commits. You can ignore that and not do anything with the original repo. Or you can attempt to share your work by making a PR to the source repo.
+
+1. Click the _Pull request_ link/button
+2. Click the green _Create pull request_ button
+3. Add any information you feel is important for the repo owner about your PR
+
+Then the repo owner can choose to merge your PR or close it without merging.
+
+> THAT IS THE POINT OF FORKING - TO CONTRIBUTE TO AN OPEN-SOURCE PROJECT!
+
+Or you may see that you are "X" number of commits behind "username:master", in which case you should update your version.
+
+Remember, for `git clone` you need to set the remote for your github repo or else you will push to the repo you cloned. Recap:
+
+1. First you fork which creates a copy in your GitHub acct
+2. Then you clone the forked repo in your account down to your machine and it will point to your remote copy when you push and pull
+
+- **ORIGIN** = refers to your forked copy in your github acct – origin is the default remote name
+- But you want to set up a second remote, normally you call it `upstream` hich refers to the original repo your forked
+- **UPSTREAM** = to the source, where you forked it from – you need to set up a 2nd remote – you need to get the changes from the source down to your machine – you can't push but you can pull
+- You push to your origin in your acct
+
+Fork & clone allows a project maintainer to accept contributions from developers all around the world without having to add them as actual owners of the main project repo or worry about giving them all permission to push to the repo.
+
+The process:
+
+1. Make changes locally then push to your fork
+2. Make a Pull Request to the source repo
+3. Update your local copy with git pull for changes on the source repo
+4. Continue working and repeat
+
+> Pull from source > Push to your copy > make PR > Repeat
+
+1. Fork the project
+2. Clone the fork
+3. Add upstream remote
+4. Do some work
+5. Push to origin
+6. Open PR
+
+You don't need to create a fork for every project you are working on. It's a good idea to go this route if you don't want to give contributors access to your repo.
+
+To add the upstream, go to the source repo and copy the URL:
+
+```sh
+git remote add upstream original_url
+# Check the remotes
+git remote -v
+# You will have origin pointing to your acct and upstream pointing to the original
+# Then to get changes
+git pull upstream main
+# Then make changes to your local copy and
+git add .
+git commit -m "message"
+# Push to your copy
+git push origin main
+```
+
+Now you are ahead of the last known copy of the original source repo. Then create a pull request to the original source – from your fork to the original.
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
