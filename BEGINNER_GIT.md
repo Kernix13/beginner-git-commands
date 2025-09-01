@@ -175,9 +175,16 @@ git push
 
 # If you do not use the -u flag then do the following each time you push
 git push origin main
+```
 
+Here are some related git commands:
+
+```sh
 # In case origin is pointing to the wrong GitHub repo
 git remote remove origin
+
+# Rename a remote but is not common to do
+git remote rename <oldname> <newname>
 
 # Get help on commands
 git help
