@@ -20,7 +20,7 @@ NOTE: I alternately use `main` or `master` when referring to your default branch
 1. [gitignore](#gitignore)
 1. [Reference links](#reference-links)
 1. [Final notes](#final-notes)
-1. [Git keywords](#git-keywords)
+<!-- 1. [Git keywords](#git-keywords) -->
 
 ## Download and Setup Git for Windows
 
@@ -80,8 +80,6 @@ You may need to create an SSH key and add it to your GitHub account as an additi
 
 1. Link 1: [Checking for existing SSH keys](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/checking-for-existing-ssh-keys)
 
-Here are the steps for creating your SSH key on Windows using.
-
 ```sh
 # Check to see if you already have an SSH key
 ls -al ~/.ssh
@@ -113,7 +111,7 @@ clip < ~/.ssh/id_ed25519.pub
 
 3. Link 3: [Adding a new SSH key to your GitHub account](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
 
-All those commands above worked and I then back on GitHub:
+All those commands above worked. Then go to GitHub and follow these steps:
 
 1. Click your profile photo, then click Settings.
 2. In the "_Access_" section of the sidebar, click _SSH and GPG keys_.
@@ -146,7 +144,7 @@ After you created a project with files on your machine, you then need to push th
 
 1. Create a new repo on GitHub by clicking the `+` icon and choose "New repository"
 2. Enter the name and set it to public
-3. **_DO NOT_** add a `README.md` file
+3. **_DO NOT_** add a `README.md` file or anything else
 4. Click "Create repository"
 
 You can use the commands that GitHub shows when you create the repo or use the following commands but make sure to copy the repo URL link (`https_url`).
@@ -348,10 +346,10 @@ git push
 
 ## Important Notes about the commit command
 
-NOTE: If you forget to add `-m "msg"` with your `commit` command, you will be taken either into the Vim editor or VS Code if you added the global command for that. If you are in the Vim editor:
+NOTE: If you forget to add `-m "msg"` with your `commit` command, you may be taken into the Vim editor. If you are in Vim:
 
-1. if you are in Vim type `i` (insert mode) to insert your message then
-2. <kbd>ESC</kbd> once to exit insert mode then
+1. Ttype `i` (insert mode) to insert your message then
+2. Hit the <kbd>ESC</kbd> key once to exit insert mode then
 3. Type `:wq` (or just `wq`) to exit Vim, `w` = write, `q` = quit
 
 ### Atomic commits
@@ -366,8 +364,8 @@ What you want to do is `commit` changes in related batches. You can have as many
 
 When composing the text for your commit message, you should use 1) _present tense_ and 2) _imperative style_, although some people prefer past tense:
 
-- `make thing do X` or past tense:
-- `made thing do X`
+- `make thing do X` (present tense)
+- `made thing do X` (past tense)
 
 ### Ammending a commit
 
@@ -379,7 +377,7 @@ Use the following command when you need to change something about your last comm
 # If you need to edit a commit msg
 git commit --amend
 
-# Change PREVIOUS commit by adding a file you forgot
+# After running the above command, add a file you forgot:
 git add forgotten-file.md
 ```
 
@@ -483,26 +481,30 @@ Contributing to freeCodeCamp:
 
 ## Final notes
 
-I may have errors or incorrect usage of commands in this file. I'll fix them as I find them. Or if you find any errors, open an issue or create a pull request for any proposed changes.
+<!-- I may have errors or incorrect usage of commands in this file. I'll fix them as I find them. Or if you find any errors, open an issue or create a pull request for any proposed changes.
 
-I am also looking to find 3-4 entry-level designers and developers to start a project or two. I have some ideas about how we can help each other land a job!
+I am also looking to find 3-4 entry-level designers and developers to start a project or two. I have some ideas about how we can help each other land a job! -->
 
-To-Do List:
+I still have a lot to learn about git, GitHub, and contributing.
 
-- What are **Actions**?
+Here is my current to-do list:
+
+- What are GitHub **Actions**?
 - What are **Environments**?
 - What are **Milestones**?
+- What are **Wikis**?
 - What is a **Releases** exactly?
 - What exactly do you put on the **Projects** tab?
-- What about the other **Insights** and **Security** tabs.
+- How to use the **Insights** and **Security** tabs.
 - What else can you do to make full use of all the GitHub tabs?
+- What are the steps to contributing? Issues, issue labels, pull-requests, squashing PRs, ...
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
-## Git keywords
+<!-- ## Git keywords
 
 I'm wondering if putting in the following keywords will help beginners searching on GitHub to find this repo:
 
 **Keywords**: git for beginners, basic git commands, basic git commands cheat sheet, basic git commands github, basic git commands for beginners, basic git commands list, basic commands for git, github basic commands, basic commands in git, basic git command, basic git commands to know, what are basic git commands, git guide command line, most basic git commands, basic commands of git, basic git workflow commands, basic git cheat sheet, git commands cheat sheet github.
 
-<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div> -->
