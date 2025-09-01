@@ -507,20 +507,46 @@ You don't need to create a fork for every project you are working on. It's a goo
 To add the upstream, go to the source repo and copy the URL:
 
 ```sh
+# Set upstream so you can pull changes to your machine
 git remote add upstream original_url
+
 # Check the remotes
 git remote -v
-# You will have origin pointing to your acct and upstream pointing to the original
+# You will have 2 origin remotes pointing to your acct (fetch & push) and 2 upstream remotes pointing to the original/source (fetch & push)
+
 # Then to get changes
 git pull upstream main
+
 # Then make changes to your local copy and
 git add .
 git commit -m "message"
+
 # Push to your copy
 git push origin main
+# Or
+git push
 ```
 
 Now you are ahead of the last known copy of the original source repo. Then create a pull request to the original source – from your fork to the original.
+
+`git remote -v` will show:
+
+```sh
+> origin  https://github.com/YOUR_USERNAME/YOUR_FORK.git (fetch)
+> origin  https://github.com/YOUR_USERNAME/YOUR_FORK.git (push)
+> upstream  https://github.com/SOURCE_USERNAME/THEIR_REPO_NAME.git (fetch)
+> upstream  https://github.com/SOURCE_USERNAME/THEIR_REPO_NAME.git (push)
+```
+
+To make a pull request to the original project:
+
+1. Click _Pull request_
+2. Add description for the PR
+3. Click the green button _Create pull request_
+
+It's then up to the source repo owner to merge the PR in or not.
+
+> Make sure you are going from `feature_branch` to `main` (or whatever branch to branch you want) by looking at the fields _base repository_ and _head repository_ at the top of the "Open a pull request page".
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
