@@ -69,7 +69,7 @@ git branch -D branch-name
 
 ### Merge branches locally
 
-Most of the time you will push your branches with the changes on it to your own repo, or to a repo that you are contributing for. But sometimes you will merge branches locally.
+Most of the time you will push your branches with the changes on it to your own repo, or to a repo that you are contributing for which creates a Pull Request (PR). But sometimes you will merge branches locally.
 
 2 merging concepts:
 
@@ -88,7 +88,7 @@ git switch main
 git merge branch-name
 ```
 
-- That is called a "Fast Forward Merge", and that is what you will see in the terminal
+- That is called a "Fast Forward Merge", and that is what you will see in the terminal - no merge commit is needed with fast forward merges
 - A fast forward merge is a simpler merge to perform - when nothing has been changed on `main` so you just merge in the changes from the new branch
 - All git does is move the `HEAD` pointer up the number of commits
 - After the merge `branch-name` still exists and you can continue working on it
