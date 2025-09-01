@@ -29,6 +29,7 @@ Some of the git commands below can be considered beginner but they involve using
    1. [Clone or fork a gist](#clone-or-fork-a-gist)
    1. [Editing a gist](#editing-a-gist)
 1. [GitHub pages](#github-pages)
+1. Testing
 
 ## Branches
 
