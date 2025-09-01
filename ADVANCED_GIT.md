@@ -47,57 +47,9 @@ This file used to be very short but I added sections from the intermediate file,
 
 ## Forking and cloning
 
-Forking: copying a repo from GitHub into your GitHub account
+> This section has moved to `INTERMEDIATE_GIT.md`
 
-Read the GitHub page [Fork a repo](https://docs.github.com/en/get-started/quickstart/fork-a-repo) for the same steps as shown below.
-
-After you fork a repo, open up a terminal with Git Bash and navigate to the folder where you want the cloned repo and run:
-
-```bash
-# Create local clone
-git clone https://github.com/Your_User_Name/repo_name
-cd folder_name
-```
-
-Next, check the remote reference then add a remote reference to the main forked repo:
-
-```sh
-# see the current configured remote repository for your fork
-git remote -v
-> origin  https://github.com/YOUR_USERNAME/YOUR_FORK.git (fetch)
-> origin  https://github.com/YOUR_USERNAME/YOUR_FORK.git (push)
-
-# sync your fork with the upstream repository
-git remote add upstream https://github.com/ORIGINAL_OWNER/their-repo-name.git
-```
-
-**NOTE**: `git fetch` is typically used to get the latest changes from the remote repo without merging them into the main branch.
-
-To verify the new upstream repository you have specified for your fork, type git remote -v again:
-
-```bash
-git remote -v
-> origin    https://github.com/YOUR_USERNAME/YOUR_FORK.git (fetch)
-> origin    https://github.com/YOUR_USERNAME/YOUR_FORK.git (push)
-> upstream  https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git (fetch)
-> upstream  https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git (push)
-```
-
-Then use `git status` and `git checkout main` if not on main/master.
-
-My final commands:
-
-```sh
-git clone https_url
-cd folder_name
-git remote -v
-git remote add upstream https_url
-git remote -v
-git status
-git switch main
-```
-
-> The following set of commands are questionable. They are from when I contributed to freeCodeCamp:
+<!-- > The following set of commands are questionable. They are from when I contributed to freeCodeCamp:
 
 Next:
 
@@ -114,34 +66,7 @@ git push origin main --force
 
 The 1st command is necessary for the clone to fetch the files. Use #2 & #3 with caution - read up on them. The commands above are from freeCodeCamp docs.
 
-**NOTE**: `git fetch upstream` is used to fetch all objects from the remote repo that don't currently reside in the local working directory. You'll also often see`git fetch origin`. `git diff upstream` checks for a difference between a branch and its upstream source.
-
-Finally:
-
-1. Check the branch you are on and switch to main/master if not on that branch,
-1. Create a new branch for your contributions, make your changes then
-1. Check the status, add your changes, check status again, commit the changes, and then push the changes:
-
-```sh
-git branch
-git checkout -b fix/something
-# or
-git switch -c fix/something
-git status
-# make changes then the usual
-git add .
-git status
-git commit -m "short description"
-git push --set-upstream origin fix/something
-```
-
-Use that last `git push` only for the first time, then use `git push origin fix/something`. Although, I believe once you set the `upstream` and/or `origin`, you only need to do `git push` similar to a regualr push. Here is the last command AFTER you set the upstream:
-
-```sh
-git push origin fix/branch-name
-# Or maybe just
-git push
-```
+**NOTE**: `git fetch upstream` is used to fetch all objects from the remote repo that don't currently reside in the local working directory. You'll also often see`git fetch origin`. `git diff upstream` checks for a difference between a branch and its upstream source. -->
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
