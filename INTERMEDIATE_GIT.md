@@ -7,13 +7,15 @@ Some of the git commands below can be considered beginner but they involve using
 ## Table of contents
 
 1. [Branches](#branches)
+   1. [Branches and HEAD](#branches-and-head)
 1. [Merge branches locally](#merge-branches-locally)
    1. [Generating merge commits locally](#generating-merge-commits-locally)
-   1. [merge conflicts](#merge-conflicts)
+   1. [Merge conflicts](#merge-conflicts)
    1. [Resolving merge conflicts](#resolving-merge-conflicts)
    1. [Using VS Code to resolve conflicts](#using-vs-code-to-resolve-conflicts)
 1. [Pushing branches to your repository](#pushing-branches-to-your-repository)
    1. [Squashing commits](#squashing-commits)
+   1. [Deleting branches](#deleting-branches)
 1. [Stashing your changes](#stashing-your-changes)
 1. [Miscellaneous git stuff](#miscellaneous-git-stuff)
    1. [Use the raw link](#use-the-raw-link)
@@ -70,6 +72,31 @@ git branch -D branch-name
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
+### Branches and HEAD
+
+- When you make a commit, each commit gets a hash to identify it
+- Each commit references at least 1 parent commit that came before it
+- Contexts: large projects often work in multiple contexts, e.g.: bug fixes, feature adds, redesign, etc
+- You need branches (different contexts) to do all that – and merges will be required
+- `HEAD -> Main, origin/main`: `HEAD` refers to `main` – but if you switch to a different branch like `new-feature` then you will see (`HEAD -> new-feature`)
+- `HEAD` is a pointer, is a reference to a branch pointer – a branch pointer is where a branch currently is - `HEAD` points to whatever branch you are on
+- A branch is just a reference to some commit - the last commit for that branch but `HEAD` follows the current branch being worked on
+  - Each branch has a branch reference pointing to where you left off
+  - `HEAD` always points to the branch you are on which is pointing to the last commit for that branch – it points to the "Tip" of the branch
+- The branch with an asterisk (`*`) is the branch you are currently on
+- When you create a new branch it is based off of the `HEAD`, where you currently were on `main`
+- If you run `git log` you will see (`HEAD -> main, newbranch`) – you see the `new-branch` because it is at the same commit, it is pointing to the same commit as main
+- When you make a change on `new-branch` and add, commit and then do `git log`, you will see `HEAD` pointing to `new-branch`
+
+```sh
+# See detailed information on commits:
+git log
+# Abbreviated version
+git log --oneline
+```
+
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
+
 ## Merge branches locally
 
 Most of the time you will push your branches with the changes on it to your own repo, or to a repo that you are contributing for which creates a Pull Request (PR). But sometimes you will merge branches locally.
@@ -113,7 +140,7 @@ You will have a merge commit when there are changes on main that are not on your
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
-### merge conflicts
+### Merge conflicts
 
 Git can NOT automatically merge the branches when there is a merge conflict – they have to manually be resolved. If there are conflicts after running git merge, you will see a msg like this:
 
@@ -233,6 +260,36 @@ If you have multiple commits for that branch, select _Squash and merge_ option f
 
 - Click `Squash and merge` btn > click `Confirm squash and merge` then delete the branch
 - Go back to the code view for the repo and you will see a new hash
+
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
+
+### Deleting branches
+
+Once you are done working on a brnach, and merged it locally, or pushed the final changes to GitHub, then you should delete the branch.
+
+- `git branch -d branch-name`: you can’t be on that branch and it must be fully merged with master
+- `git branch -D branch-name`: to delete it if it is not fully merged
+- `git branch -m new-name`: to rename a branch but you have to switch to the branch you want to rename
+- `-d` = `--delete`
+- `-D `= `--delete --force`
+- `-m` = `--move` -> move/rename
+- To delete a remote branch, use git `push --delete` or just `-d`
+
+```sh
+# Delete branch, must be fully merged with main, must not be on that branch
+git branch -d branch-name
+
+# Delete it if it is not fully merged
+git branch -D branch-name
+
+# Rename a branch, you have to switch to the branch you want to rename
+git branch -m new-name
+
+# Delete a remote branch
+git push origin --delete branch-to-delete
+# or this
+git push origin -d "branch-to-delete"
+```
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
