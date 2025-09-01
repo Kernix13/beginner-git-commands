@@ -370,7 +370,93 @@ git stash clear
 
 ## Forking
 
-> coming soon
+This is another workflow – instead of one centralized github repo, every developer has their own github repo in addition to the "main" repo. Read the GitHub page [Fork a repo](https://docs.github.com/en/get-started/quickstart/fork-a-repo) for the same steps as shown below.
+
+> **_Developers make changes and push to their own forks/versions before making pull requests_**
+
+- This is common on large open source projects where there may be 1000’s of contributors but only a few maintainers
+- The Fork & Clone workflow enables ANYBODY to try and make a contribution – you don't need permission because you make your own copy – then you make a PR
+- FORKS: a personal copy of someone else's repos in your account – the copy is called a "fork"
+- It's your repo now and you can do whatever you want or you can start making open-source contributions
+
+If you only clone a repo, you can't make changes and commits then push them up to that repo - you don't have permission. If you want to make changes and push them up to GitHub, then fork the repo and push to your forked version. Then you can clone your fork and the remote will be set to push to your copy of the repo. If y ou only cloned, pushing changes would go to the original repo.
+
+How to fork:
+
+1. Go to a repo that you like and click the Fork button on the top right. You will be taken to a copy/fork of that repo but in your account.
+2. You clone it which sets up the remote to push to your copy
+
+After you fork a repo, open up a terminal and navigate to the folder where you want the cloned repo and run:
+
+```sh
+# Create local clone
+git clone https://github.com/Your_User_Name/repo_name
+
+# Move into that folder
+cd folder_name
+```
+
+Next, check the remote reference then add a remote reference to the main forked repo:
+
+```sh
+# Check to see that the remote origin is set to your fork
+git remote -v
+
+> origin  https://github.com/YOUR_USERNAME/YOUR_FORK.git (fetch)
+> origin  https://github.com/YOUR_USERNAME/YOUR_FORK.git (push)
+
+# Sync your fork with the upstream repository
+git remote add upstream https://github.com/ORIGINAL_OWNER/their-repo-name.git
+```
+
+`git remote -v` for a clone shows the source repo but for fork & clone it shows your copy.
+
+**NOTE**: `git fetch` is typically used to get the latest changes from the remote repo without merging them into the main branch.
+
+To verify the new upstream repository you have specified for your fork, type `git remote -v` again:
+
+```sh
+git remote -v
+> origin    https://github.com/YOUR_USERNAME/YOUR_FORK.git (fetch)
+> origin    https://github.com/YOUR_USERNAME/YOUR_FORK.git (push)
+> upstream  https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git (fetch)
+> upstream  https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git (push)
+```
+
+My final commands:
+
+```sh
+git clone https_url
+cd folder_name
+git remote -v
+git remote add upstream https_url
+git remote -v
+git status
+git switch main
+```
+
+Finally:
+
+1. Check the branch you are on and switch to main/master if not on that branch,
+2. Create a new branch for your contributions, make your changes then
+3. Check the status, add your changes, check status again, commit the changes, and then push the changes:
+
+```sh
+git branch
+git checkout -b fix/something
+# or
+git switch -c fix/something
+git status
+# make changes then the usual
+git add .
+git status
+git commit -m "short description"
+git push --set-upstream origin fix/something
+# or
+git push -u origin fix/something
+```
+
+Then just use `git push` for future pushes.
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
