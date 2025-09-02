@@ -32,7 +32,7 @@ This file used to be very short but I added sections from the intermediate file,
    1. [Another section on merge conflicts](#another-section-on-merge-conflicts)
    1. [The steps to resolve a merge conflict](#the-steps-to-resolve-a-merge-conflict)
    1. [using vs code to resolve conflicts](#using-vs-code-to-resolve-conflicts)
-1. [Terminal commands](#terminal-commands)
+1. ✅ [Terminal commands](#terminal-commands)
 1. [Git Log](#git-log)
    1. [what is HEAD](#what-is-head)
 1. [Git Diff](#git-diff)
@@ -451,39 +451,91 @@ git push origin main
 
 Common terminal commands
 
-| Command              | Use                                            |
-| :------------------- | :--------------------------------------------- |
-| `cd`                 | change directory                               |
-| `cd folder-name`     | move into folder-name                          |
-| `cd ..`              | cd to folder one level up                      |
-| `cd ~`               | go to your home directory                      |
-| `cd /`               | go to your root directory                      |
-| `--help`             | use with any cmd for all the flags             |
-| `ls`                 | list files & folders in current directory      |
-| `ls -a `             | list hidden files as well using `-a`           |
-| `ls folder-name`     | list contents of folder_name                   |
-| `code .`             | Opens up VS Code                               |
-| `pwd`                | print working directory                        |
-| `touch filename.ext` | create filename.ext                            |
-| `mkdir folder_name`  | to make a directory/folder                     |
-| `rm filename.ext`    | to delete/remove a file - it's GONE!           |
-| `rmdir folder-name`  | only deletes an empty folder                   |
-| `rm -rf folder_name` | to delete a folder, e.g. `rm -rf .git`         |
-| r                    | recursive                                      |
-| f                    | force                                          |
-| `exit`               | close terminal                                 |
-| `clear`              | Clear the terminal                             |
-| `exit`               | To close the terminal                          |
-| `code .`             | To open your default text editor               |
-| -                    | -                                              |
-| `cls`                | to clear the terminal in cmd prompt/powershell |
-| `start . `           | Opens up windows explorer                      |
-| `dir`                | the ls version for command prompt              |
-| `ni filename.ext `   | create using cmd prompt/powershell             |
-| `open .`             | open file explorer in Windows                  |
-| `CTRL + C`           | Exit out of the shell prompt                   |
-| `:wq` or `wq`        | Exit out of Vim                                |
+```bash
+# command [OPTIONS] arguments
+# Arrow up will show the last command(s) ran so that you can run it again
+# Bash scripts start with a shebang:
+#!/bin/bash
 
+# Use with any commands to see the flags
+--help
+# Display the current date:
+date
+
+# List the contents of the current directory: ls
+# List files/directories in long form, displays detailed information
+ls -l
+# Show hidden files/folders
+ls -a
+# Sort output by last modified date
+ls -t
+# List only the directories
+ls -d */
+# List contents of folder_name
+ls folder-name
+
+# Display the present working directory:
+pwd
+# Go to home directory:
+cd ~
+# Go to last directory:
+cd -
+# Go up one directory
+cd ..
+# Go up two directories
+cd ../..
+# Go to folder-name
+cd folder-name
+# Go to your root directy
+cd /
+
+# FOLDERS
+# Create filename.ext
+touch filename.ext
+# Used to create a directory: mkdir
+mkdir folder_name
+# Delete an empty folder
+rmdir folder_name
+# Delete all files & sub-directories of folder_name
+rm -rf folder_name
+
+# FILES
+# Used to copy file(s):
+cp filename destination
+# Used to move or rename a file:
+mv filename destination path
+# Used to remove/delete: rm
+rm filename.ext
+# Ask user for confirmation
+rm -i filename.ext
+
+# Overwrite or create file with content
+echo "foo" > bar.txt
+# Append to file with content:
+echo "foo" >> bar.txt
+
+# Clear terminal output
+clear
+# Open default code editor:
+code .
+# Open Windows Explorer:
+explorer .
+# Open Notepad
+notepad .
+
+# Close bash terminal
+exit
+
+# Exit out of Vim
+:wq
+
+# Exit out of the shell prompt
+CTRL+C
+```
+
+Others:
+
+- rsync, read, cat, less, head, tail, wc, chmod, type, wget, which, whereis, locate, find, grep, sed, ln, zip, gzip, tar -c, unzip, gunzip, tar -x, df, du, free, apt, shutdown, reboot
 - `~` indicates your home directory -
 - `q`, `Q`, or `:q`: to exit out of VIM or Nano (I think)
 - `.`, `./`, `../`: they stand for home, current directory, and up one directory
@@ -493,6 +545,7 @@ Common terminal commands
 - Use the up <kbd>&uarr;</kbd> and down <kbd>&darr;</kbd> arrow keys to cycle thru previous commands
 - <kbd>CTRL</kbd>+<kbd>C</kbd> to exit REPLs like Node, Mongod, etc.
 - <kbd>TAB</kbd> - auto fill in file and folder names
+- `cls` to clear the screen in PowerShell/Command Prompt
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
