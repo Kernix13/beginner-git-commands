@@ -18,9 +18,9 @@ Some of the git commands below can be considered beginner but they involve using
    1. [Deleting branches](#deleting-branches)
    1. [Branch Protection Rules](#branch-protection-rules)
 1. [Stashing your changes](#stashing-your-changes)
-1. [Pull Requests](#pull-requests)
 1. [Forking](#forking)
    1. [Fork and Clone Workflow](#fork-and-clone-workflow)
+1. [Pull Requests](#pull-requests)
 1. [Miscellaneous git stuff](#miscellaneous-git-stuff)
    1. [Use the raw link](#use-the-raw-link)
    1. [git reflog](#git-reflog)
@@ -406,12 +406,6 @@ git stash clear
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
-## Pull Requests
-
-> coming soon - check the section on PRs in `ADVANCED_GIT.md`
-
-<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
-
 ## Forking
 
 This is another workflow – instead of one centralized github repo, every developer has their own github repo in addition to the "main" repo. Read the GitHub page [Fork a repo](https://docs.github.com/en/get-started/quickstart/fork-a-repo) for the same steps as shown below.
@@ -591,6 +585,12 @@ To make a pull request to the original project:
 It's then up to the source repo owner to merge the PR in or not.
 
 > Make sure you are going from `feature_branch` to `main` (or whatever branch to branch you want) by looking at the fields _base repository_ and _head repository_ at the top of the "Open a pull request page".
+
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
+
+## Pull Requests
+
+> coming soon - check the section on PRs in `ADVANCED_GIT.md`
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
