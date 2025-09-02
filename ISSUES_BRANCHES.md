@@ -1,5 +1,7 @@
 # Issues, Labels, and Branch Strategies
 
+> ## REVIEW THIS ENTIRE PAGE AND EITHER EDIT IT OR DELETE EVERYTHING AND START OVER!
+
 Anchor Links: [Issues](#issues) | [Branch Strategies](#branch-strategies) |
 
 - A `Git strategy` might be around cloning, branching, and merging

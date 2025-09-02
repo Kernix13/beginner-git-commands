@@ -1,5 +1,7 @@
 # Detailed descriptions on the commands
 
+> ## REVIEW THIS ENTIRE PAGE AND EITHER EDIT IT!
+
 This is meant to be details and descriptions of the main files. I wanted to keep the main files as brief as possible, with explanations and insights on the commands placed here.
 
 As of now the detailed notes are not orderly so do a search for the command you are looking for. Eventually I will add better structure. Also, the `git checkout` section is unique only to this file. That section was originally in the advanced file.

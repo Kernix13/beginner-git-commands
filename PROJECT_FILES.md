@@ -1,5 +1,7 @@
 # Useful files for repository projects
 
+> ## REVIEW THIS ENTIRE PAGE AND EITHER EDIT IT OR DELETE EVERYTHING AND START OVER!
+
 This file should not be in here but I will leave it anyway. They are files added in a repo I was contributing to. Check out my repo [github-actions-dotfiles](https://github.com/Kernix13/github-actions-dotfiles) for more dotfiles and a more in-depth explanation of each.
 
 <a id="back-to-top"></a>

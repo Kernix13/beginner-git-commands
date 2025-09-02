@@ -1,6 +1,8 @@
 # NOTES
 
-Notes for the [contrast-ratio-repo](https://github.com/DBenMoshe/contrast-ratio-repo) that I am a part of
+> ## REVIEW THIS ENTIRE PAGE AND EITHER EDIT IT OR DELETE EVERYTHING AND START OVER!
+
+Notes for the [contrast-ratio-repo](https://github.com/DBenMoshe/contrast-ratio-repo) that I am a part of.
 
 ## Notes from Discord
 

@@ -1,5 +1,7 @@
 # Summary of the most important Git Commands
 
+> ## EDIT THIS ENTIRE PAGE AND ADD TO IT!
+
 | Command                           | Purpose                                 |
 | :-------------------------------- | :-------------------------------------- |
 | **BASIC**:                        | -                                       |
