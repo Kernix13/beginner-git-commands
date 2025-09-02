@@ -8,7 +8,14 @@ This file used to be very short but I added sections from the intermediate file,
 
 ## Table of contents
 
-1. [Forking and cloning](#forking-and-cloning)
+1. [Fixing mistakes](#fixing-mistakes)
+   1. [Remove unstaged changes](#remove-unstaged-changes)
+   1. [Remove staged changes](#remove-staged-changes)
+   1. [Remove commits](#remove-commits)
+   1. [Remove git](#remove-git)
+   1. [Remove remote origin](#remove-remote-origin)
+   1. [Remove a file from git tracking](#remove-a-file-from-git-tracking)
+   1. [Remove a file from GitHub](#remove-a-file-from-github)
 1. [GitHub Issues](#github-issues)
    1. [How to create an issue](#how-to-create-an-issue)
    1. [Closing an issue](#closing-an-issue)
@@ -45,28 +52,145 @@ This file used to be very short but I added sections from the intermediate file,
 1. [Signed Commits](#signed-commits)
 1. [ci cd pipeline](#ci-cd-pipeline)
 
-## Forking and cloning
+## Fixing mistakes
 
-> This section has moved to `INTERMEDIATE_GIT.md`
+You will make mistakes from time to time. Here are ways to fix the most common mistakes.
 
-<!-- > The following set of commands are questionable. They are from when I contributed to freeCodeCamp:
+Git reset summary:
 
-Next:
+- `git reset` (no args) = unstage all files
+- `git reset HEAD <file>` = unstage just that file
+- `git reset --mixed HEAD~1` = undo the last commit but keep changes (unstaged)
 
-1. Update your local copy of the upstream repository,
-1. Hard reset your main branch with the freeCodeCamp main,
-1. Push your main branch to your origin to have a clean history on your fork on GitHub,
-1. And validate your current main matches the upstream/main by performing a diff:
+### Remove unstaged changes
 
 ```sh
-git fetch upstream
-git reset --hard upstream/main
-git push origin main --force
+# Discard changes in a single file:
+git checkout HEAD filename
+git checkout -- file1
+git checkout -- file1 file2
+
+# or (newer Git versions prefer):
+git restore filename
+
+# restores the contents of filename to the state prior to HEAD
+# use HEAD~# or 7-digit commit hash
+git restore --source HEAD~1 filename
+git restore --source abc1234 file1 file2
+
+# Discard all unstaged changes: This resets files back to what’s in your most recent commit
+# ⚠️ Careful: this will delete your work if you haven’t saved it elsewhere.
+git restore .
 ```
 
-The 1st command is necessary for the clone to fetch the files. Use #2 & #3 with caution - read up on them. The commands above are from freeCodeCamp docs.
+### Remove staged changes
 
-**NOTE**: `git fetch upstream` is used to fetch all objects from the remote repo that don't currently reside in the local working directory. You'll also often see`git fetch origin`. `git diff upstream` checks for a difference between a branch and its upstream source. -->
+Remove **staged** changes: changes you’ve already added with `git add`, but haven’t committed yet
+
+- With no commit reference, using just `git reset` Git assumes:
+  - Reset the index (staging area) to match the current HEAD
+  - Leave the working directory alone
+- That means everything you staged gets unstaged, but your file changes stay on disk
+- It's basically shorthand for `git reset --mixed HEAD`
+
+```sh
+# Unstage a single file
+git reset HEAD filename
+
+# or (newer Git):
+# Unstage a single file
+git restore --staged filename
+
+# With filename and optional path
+git reset path/filename.ext
+
+# Unstage everything:
+git reset
+```
+
+You can also remove a specific file from staging by using git rm –cached filename.ext.
+
+### Remove commits
+
+Use git reset again but include HEAD which means the last commit. But to undo the last commit add ~1 to go back 1 commit past the last commit which will undo the last commit.
+
+1. Undo the commit but keep changes staged - Useful if you committed too early but still want to keep all those changes staged for a new commit:
+
+```sh
+git reset --soft HEAD~1
+```
+
+2. Undo the commit and unstage changes (keep them in working directory) - If you want to undo the commit and put the changes back into your working directory - commit gone, staging cleared, but your edits still sit in your working directory:
+
+```sh
+# This is the default for git reset if you don’t specify --soft or --hard
+git reset --mixed HEAD~1
+# same as
+git reset HEAD~1
+```
+
+3. Undo the commit and discard changes completely - If you want to undo the commit and throw away all changes:
+
+```sh
+# ⚠️ This permanently deletes changes that weren’t pushed anywhere.
+git reset --hard HEAD~1
+```
+
+But what if you want to go back a number of commits or to a specific commit. First use `git log` or `git log --oneline` which gives you a list of your commits in reverse chronological order. You can scroll down the log with <kbd>SPACEBAR</kbd>.
+
+4. Undo a commit that’s already pushed (safe way) - If you’ve already pushed and want to undo without rewriting history:
+
+```sh
+# Use git reset with the commit HASH:
+git revert <commit_hash>
+git reset e220bfb1e34b8c6b6fce1deb7884244239284716
+```
+
+That will unstage any changes made to the file(s) AFTER that commit. The changes will be in your files but they will not be saved into git anymore. But how do you get rid of all the changes after a certain point? Use the same command but add the flag --hard:
+
+```sh
+git reset --hard e220bfb1e34b8c6b6fce1deb7884244239284716
+```
+
+### Remove git
+
+To remove git tracking from a folder use the following command in git bash, the command prompt, or the terminal in VS Code. Make sure you are in the root folder where you want Git removed:
+
+```sh
+rm -rf .git
+```
+
+### Remove remote origin
+
+I once pasted in my repo link ending in `.gi` instead of `.git` because I missed copying the `t`. Use the following to remove the origin and try again:
+
+```sh
+git remote remove origin
+```
+
+### Remove a file from git tracking
+
+If you want Git to stop tracking a file but keep it locally, use:
+
+```sh
+git rm --cached filename.ext
+```
+
+Pair this with adding the file (or its pattern) to `.gitignore` so Git doesn’t stage it again. This is especially useful for sensitive files like `.env` or directories such as `node_modules/` that should stay local but not be version-controlled.
+
+### Remove a file from GitHub
+
+I used the following command to remove a file from GitHub that had a different case from my local copy. I mistakenly created my file name as `errorMiddleWare.js` where the `W` should have been lowercase `w`. I made the change to my local filename but the filename on GitHub maintained the uppercase `W`. Here is the command I ran to fix that followed by an explanation of the command:
+
+```sh
+git rm -r --cached .
+```
+
+1. `git rm`: used to remove individual files or a collection of files
+2. `-r`: shorthand for 'recursive'. When operating in recursive mode git rm will remove a target directory and all the contents of that directory
+3. `--cached`: specifies that the removal should happen only on the staging index. Working directory files will be left alone
+
+I thought the entire project was deleted and then added to staging because EVERY file was highlighted green in VS Code, but that not the case. I can't explain it but use this command if you also have a file where the case changed and the local file and GitHub file do not match.
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
@@ -327,94 +451,6 @@ git push origin main
 - that is to preserve the history that a branch was merged in (???)
 - back on GitHub everything should be good
 - remember to do `git pull origin main`
-
-## Mistakes
-
-You will undoubtedly make mistakes when working with Git. Here are common mistakes that I have made and how to fix/undo them.
-
-### Undo Staging
-
-If you accidentally added a file with `git add .`, to remove it from the staging area, use:
-
-```sh
-# without arguments
-git reset
-# with filename and optional path
-git reset path/filename.ext
-```
-
-Another method would be to use `git restore` to unstage any file(s) you added:
-
-```sh
-git restore --staged <file>
-```
-
-### Undo a Commit
-
-Use `git reset` again but include `HEAD` which means the last commit. But to undo the last commit add `~1` to go back 1 commit past the last commit which will _undo_ the last commit:
-
-```sh
-git reset HEAD~1
-```
-
-But what if you want to go back a number of commits or to a specific commit. First use `git log` or `git log --oneline` which gives you a list of your commits in reverse chronological order. You can scroll down the log with <kbd>SPACEBAR</kbd>.
-
-You will see the commit hash and the commit message along with other information. To go back to a specific commit and undo it, use the hash for it:
-
-```sh
-# use git reset HASH:
-git reset e220bfb1e34b8c6b6fce1deb7884244239284716
-```
-
-That will unstage any changes made to the file(s) AFTER that commit. The changes will be in your files but they will not be saved into git anymore. But how do you get rid of all the changes after a certain point? Use the same command but add the flag `--hard`:
-
-```sh
-git reset --hard e220bfb1e34b8c6b6fce1deb7884244239284716
-```
-
-You can also remove a specific file from staging by using `git rm –cached filename.ext` where `rm` is short for remove.
-
-> I'm not sure about that last command - double-check that!
-
-<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
-
-### Remove Git
-
-To remove git tracking from a folder use the following command in `git bash`, the command prompt, or the terminal in VS Code. Make sure you are in the root folder where you want Git removed:
-
-```sh
-rm -rf .git
-```
-
-### Remove remote origin
-
-I once pasted in my repo link ending in `.gi` instead of `.git` because I missed copying the `t`. Use the following to remove the origin and try again:
-
-```sh
-git remote remove origin
-```
-
-<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
-
-### Undo git add
-
-If you accidentally push your `node_modules` directory for your first push (when you forgot about `.gitignore`), just use `git reset`to unstage all changes. You could also remove a single file with `git reset <file>`.
-
-<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
-
-### Remove a file
-
-I'm not exactly sure of this command but I used it to remove a file from GitHub that has a different case from my local copy. I mistakenly created my file name as `errorMiddleWare.js` where the `W` should have been lowercase `w`. I made the change to my local filename but the filename on GitHub maintained the uppercase `W`. Here is the command I ran to fix that followed by an explanation of the command:
-
-```sh
-git rm -r --cached .
-```
-
-1. `git rm`: used to remove individual files or a collection of files
-2. `-r`: shorthand for 'recursive'. When operating in recursive mode `git rm` will remove a target directory and all the contents of that directory
-3. `--cached`: specifies that the removal should happen only on the staging index. Working directory files will be left alone
-
-I thought the entire project was deleted and then added to staging because EVERY file was highlighted green in VS Code, but that not the case. I can't explain it but use this command if you also have a file where the case changed and the local file and GitHub file do not match.
 
 ## Terminal commands
 
