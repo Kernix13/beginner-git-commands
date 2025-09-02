@@ -481,6 +481,8 @@ Common terminal commands
 | `dir`                | the ls version for command prompt              |
 | `ni filename.ext `   | create using cmd prompt/powershell             |
 | `open .`             | open file explorer in Windows                  |
+| `CTRL + C`           | Exit out of the shell prompt                   |
+| `:wq` or `wq`        | Exit out of Vim                                |
 
 - `~` indicates your home directory -
 - `q`, `Q`, or `:q`: to exit out of VIM or Nano (I think)
