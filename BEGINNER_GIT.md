@@ -170,8 +170,8 @@ git remote add origin https://github.com/YOUR_USER_NAME/YOUR_REPO_NAME.git
 # 5. Push your commits and connect your local to your remote repo (--set-upstream)
 # SYNTAX: git push [alias] [branch]
 git push -u origin main
-
 # NOTE: the -u flag is short for --set-upstream
+
 # For any future commits just use:
 git push
 
