@@ -681,13 +681,25 @@ When done editing click the _Update public gist_ button. Click the _Revisions_ l
 
 Use [GitHub Pages](https://pages.github.com/) to host your portfolio or a live version of your app(s). Other options would be to use Netlify or Vercel. Portfolios, personal websites, projects, documentation all are good reasons to use these
 
-There are 2 types: 1. user sites, and 2. project sites
+Links:
+
+- **NOTE**: https://pages.github.com/ redirects to [GitHub Pages documentation](https://docs.github.com/en/pages)
+- [Quickstart for GitHub Pages](https://docs.github.com/en/pages/quickstart)
+- [Creating a GitHub Pages site](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site)
+
+There are 2 types:
+
+1. User sites, and
+2. Project sites
+
+> Because https://pages.github.com/ redirects to a new page, I'm not sure if ths is true anymore, or the page describing both is unavailable at this time?!?
 
 - Project sites: for every repo you can have a corresponding website
-- URL pattern: `username.github.io/repo-name` – one per project
+  - URL pattern: `username.github.io/repo-name` – one per project
 - User site: `username.github.io` – you can only have 1 per GitHub account
 - You can have a website or just markdown files like docs
-- To setup a website go into one of your repos > select a branch (`main`/`master` most likely)
+- To setup a website go into one of your repos > select a branch (`main`/`master` but it could be any branch)
+  - It would be good to have a branch solely for the GitHub page and the main branch is for your code and docs
 - You need to tell GitHub that the branch contains a website, specificall an `index.html` file
 - Then go to the Repo _Settings_ tab > in the left sidebar look for _Pages_ under _Code and automation_ > go the the _Branch_ subheading where it says:
 
@@ -696,20 +708,8 @@ There are 2 types: 1. user sites, and 2. project sites
 - Then select the branch you want
 - The old convention was to name the branch `gh-pages` so use that and keep main for your `project/portfolio` – but you can name the branch anything
 - Make sure your `index.html` file is either in the root or a `/docs` folder – tell GitHub where it is
-- Any time you update `gh-pages` branch your website will update
+- Any time you update the `gh-pages` branch (or whatever page you chose) your website will update
 
-> I'm not positive about these commands:
-
-```bash
-# Go to the folder where you want your project, and clone the new repo
-git clone https://github.com/username/username.github.io
-# go into the folder
-cd username.github.io
-# add, commit, push
-git add --all
-git commit -m "Initial commit"
-git push -u origin main
-# Open a browser and go to https://username.github.io
-```
+> Open a browser and go to https://username.github.io
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
