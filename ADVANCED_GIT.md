@@ -4,11 +4,13 @@ Some of these commands or actions on GitHub are intermediate level, others are a
 
 This file used to be very short but I added sections from the intermediate file, plus a lot of notes from [Colt Steele's Git Bootcamp course](https://www.udemy.com/course/git-and-github-bootcamp/). As a result, I believe I have duplicates and very _sloppy_ notes. I'll clean this file up when I get time.
 
+✅: a green checkmark emoji means I revised/edited the section and it is 99-100% done.
+
 <a id="back-to-top"></a>
 
 ## Table of contents
 
-1. [Fixing mistakes](#fixing-mistakes)
+1. ✅ [Fixing mistakes](#fixing-mistakes)
    1. [Remove unstaged changes](#remove-unstaged-changes)
    1. [Remove staged changes](#remove-staged-changes)
    1. [Remove commits](#remove-commits)

@@ -2,24 +2,26 @@
 
 NOTE: I alternately use `main` or `master` when referring to your default branch name in the commands in this file and in the other files.
 
+✅: a green checkmark emoji means I revised/edited the section and it is 99-100% done.
+
 <a id="back-to-top"></a>
 
 ## Table of contents
 
-1. [Download and Setup Git for Windows](#download-and-setup-git-for-windows)
-1. [Authenticate with GitHub](#authenticate-with-github)
-1. [Pushing a local project to an empty repo on GitHub](#pushing-a-local-project-to-an-empty-repo-on-github)
+1. ✅ [Download and Setup Git for Windows](#download-and-setup-git-for-windows)
+1. ✅ [Authenticate with GitHub](#authenticate-with-github)
+1. ✅ [Pushing a local project to an empty repo on GitHub](#pushing-a-local-project-to-an-empty-repo-on-github)
    1. [Commands after initial push](#commands-after-initial-push)
-1. [Clone one of your existing GitHub repos](#clone-one-of-your-existing-github-repos)
-1. [Clone a repo that is not yours](#clone-a-repo-that-is-not-yours)
+1. ✅ [Clone one of your existing GitHub repos](#clone-one-of-your-existing-github-repos)
+1. ✅ [Clone a repo that is not yours](#clone-a-repo-that-is-not-yours)
 1. [Important Notes about the `commit` command](#important-notes-about-the-commit-command)
    1. [Atomic commits](#atomic-commits)
    1. [Commit messages](#commit-messages)
    1. [Ammending a commit](#ammending-a-commit)
    1. [Conventional Commits](#conventional-commits)
-1. [gitignore](#gitignore)
-1. [Reference links](#reference-links)
-1. [Final notes](#final-notes)
+1. ✅ [gitignore](#gitignore)
+1. ✅ [Reference links](#reference-links)
+1. ✅ [Final notes](#final-notes)
 <!-- 1. [Git keywords](#git-keywords) -->
 
 ## Download and Setup Git for Windows

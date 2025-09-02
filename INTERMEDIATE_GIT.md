@@ -2,22 +2,24 @@
 
 Some of the git commands below can be considered beginner but they involve using branches. Many people think that branches are beginner as well, but you can easily make mistakes when working with branches. I also added notes on creating GitHub Gists and GitHub pages at the bottom of the file.
 
+✅: a green checkmark emoji means I revised/edited the section and it is 99-100% done.
+
 <a id="back-to-top"></a>
 
 ## Table of contents
 
-1. [Branches](#branches)
+1. ✅ [Branches](#branches)
    1. [Branches and HEAD](#branches-and-head)
-1. [Merge branches locally](#merge-branches-locally)
+1. ✅ [Merge branches locally](#merge-branches-locally)
    1. [Generating merge commits locally](#generating-merge-commits-locally)
    1. [Merge conflicts](#merge-conflicts)
    1. [Resolving merge conflicts](#resolving-merge-conflicts)
    1. [Using VS Code to resolve conflicts](#using-vs-code-to-resolve-conflicts)
-1. [Pushing branches to your repository](#pushing-branches-to-your-repository)
+1. ✅ [Pushing branches to your repository](#pushing-branches-to-your-repository)
    1. [Squashing commits](#squashing-commits)
    1. [Deleting branches](#deleting-branches)
    1. [Branch Protection Rules](#branch-protection-rules)
-1. [Stashing your changes](#stashing-your-changes)
+1. ✅ [Stashing your changes](#stashing-your-changes)
 1. [Forking](#forking)
    1. [Fork and Clone Workflow](#fork-and-clone-workflow)
 1. [Pull Requests](#pull-requests)
@@ -25,10 +27,11 @@ Some of the git commands below can be considered beginner but they involve using
    1. [Use the raw link](#use-the-raw-link)
    1. [git reflog](#git-reflog)
    1. [Download a folder from GitHub](#download-a-folder-from-github)
-1. [Creating a GitHub gist](#creating-a-github-gist)
+   1. [githubuser](#githubuser)
+1. ✅ [Creating a GitHub gist](#creating-a-github-gist)
    1. [Clone or fork a gist](#clone-or-fork-a-gist)
    1. [Editing a gist](#editing-a-gist)
-1. [GitHub pages](#github-pages)
+1. ✅ [GitHub pages](#github-pages)
 
 ## Branches
 
@@ -615,6 +618,10 @@ Reference logs record everything you do with your local branch.
 This does not involve any git commands but it can be useful if you need images from a repo but do not want to clone the entire repo or download a zip file.
 
 Go to [GitHub Download on GitKraken](https://www.gitkraken.com/learn/git/github-download) and scroll down to _How to Download a Folder from GitHub_. There is a link to [download-directory](https://download-directory.github.io/) where all you have to do is paste in the link to the folder you want to download.
+
+### Download a folder from GitHub
+
+> LATER...
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
