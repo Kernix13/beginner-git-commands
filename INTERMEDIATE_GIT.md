@@ -19,6 +19,7 @@ Some of the git commands below can be considered beginner but they involve using
    1. [Squashing commits](#squashing-commits)
    1. [Deleting branches](#deleting-branches)
    1. [Branch Protection Rules](#branch-protection-rules)
+   1. [Remote Tracking Branches](#remote-tracking-branches)
 1. ✅ [Stashing your changes](#stashing-your-changes)
 1. ✅ [Forking](#forking)
    1. [Fork and Clone Workflow](#fork-and-clone-workflow)
@@ -325,6 +326,17 @@ You want to add branch protection rules if you have collaborators. If you are ju
 - Rules > Branch rules: check/uncheck for what you need.
   - _Restrict deletions_ and _Block force pushes_ are checked by default.
 - Click Create
+
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
+
+### Remote Tracking Branches
+
+> COMING SOON
+
+```sh
+# View the remote branches your local repo knows about, shows all the remote branches from the clone
+git branch -r
+```
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
