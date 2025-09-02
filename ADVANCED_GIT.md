@@ -523,14 +523,17 @@ explorer .
 # Open Notepad
 notepad .
 
-# Close bash terminal
-exit
+# Exit out of git diff
+q
 
 # Exit out of Vim
 :wq
 
 # Exit out of the shell prompt
 CTRL+C
+
+# Close bash terminal
+exit
 ```
 
 Others:
@@ -596,15 +599,22 @@ Check the [Git Docs](https://git-scm.com/docs).
 I am unsure of all the commands, but I believe these are common ones you would use:
 
 ```sh
+git diff
+
+git diff HEAD
 git diff HEAD [filename]
-git --diff staged [filename]
+
 git diff --cached
 git diff --staged
+git diff --staged [filename]
+
 git diff filename1..filename2
 git diff branch1..branch2
 git diff commit1..commit2
-git diff HEAD HEAD~1
-git diff hash#
+git diff <commithash1> <commithash2>
+
+git diff HEAD~1 HEAD
+git diff <hash1>
 ```
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
