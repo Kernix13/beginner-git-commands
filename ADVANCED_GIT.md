@@ -62,6 +62,7 @@ Git reset summary:
 ```sh
 # Discard changes in a single file:
 git checkout HEAD filename
+# alternate syntax
 git checkout -- file1
 git checkout -- file1 file2
 
@@ -109,6 +110,11 @@ You can also remove a specific file from staging by using git rm –cached filen
 
 Use git reset again but include HEAD which means the last commit. But to undo the last commit add ~1 to go back 1 commit past the last commit which will undo the last commit.
 
+```sh
+# Run the following to get a specific commit hash
+git log --oneline
+```
+
 1. Undo the commit but keep changes staged - Useful if you committed too early but still want to keep all those changes staged for a new commit:
 
 ```sh
@@ -122,6 +128,8 @@ git reset --soft HEAD~1
 git reset --mixed HEAD~1
 # same as
 git reset HEAD~1
+# using a specific commit
+git reset <commit-hash>
 ```
 
 3. Undo the commit and discard changes completely - If you want to undo the commit and throw away all changes:
@@ -129,6 +137,8 @@ git reset HEAD~1
 ```sh
 # ⚠️ This permanently deletes changes that weren’t pushed anywhere.
 git reset --hard HEAD~1
+# using a specific commit
+git reset --hard <commit-hash>
 ```
 
 But what if you want to go back a number of commits or to a specific commit. First use `git log` or `git log --oneline` which gives you a list of your commits in reverse chronological order. You can scroll down the log with <kbd>SPACEBAR</kbd>.
@@ -137,7 +147,7 @@ But what if you want to go back a number of commits or to a specific commit. Fir
 
 ```sh
 # Use git reset with the commit HASH:
-git revert <commit_hash>
+git reset <commit_hash>
 git reset e220bfb1e34b8c6b6fce1deb7884244239284716
 ```
 
@@ -666,6 +676,11 @@ git diff <hash1>
 > When to use `reset` and when to use `revert`?
 
 - it has to do with collaboration – if you want to reverse some commits that other people already have on their machines, you should use `revert` – if you want to reverse commits that you haven't shared with others, use `reset` and no one will ever know
+
+```sh
+git revert <commit-hash>
+git revert HEAD~1
+```
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
