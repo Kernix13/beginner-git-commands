@@ -360,6 +360,50 @@ git stash list
 git stash clear
 ```
 
+- `git stash` or `git stash save` – takes uncommited changes, staged or unstaged, and stashes/hides them and it reverts those changes in your working copy – you can retrieve them later
+  - It removes your changes but saves them for later
+- `git stash pop` – to remove the most recently stashed changes in your stash and reapply them to your working copy – or you can reapply them to a different branch
+- NOTE: `index` is what git calls the staging area
+- Run `git stash` and in the terminal you will see:
+
+> "Saved working directory and index state WIP on test: 0282ecd Added Colt's notes to new files"
+
+- The 7-digit hash is the first 7 chars on your last commit
+
+**git stash apply & git stash list**:
+
+- 90% of the time he only uses `git stash` and `git stash pop`
+- `git stash apply` – to apply whatever is stashed away WITHOUT removing it from the stash – useful if you want to apply stashed changes to multiple branches
+
+```sh
+# Run on a different branch but you may get conflicts
+git stash apply
+```
+
+- You can add multiple stashes onto the stack of stashes – they will be stashed in the order you added them – he rarely does this – SKIP
+- `git stash list` – to view all your stashes – terminal shows stash@{0}...stash@{1}
+- It starts at 0 so zero-based and it gives the most recent commit when you made the stash
+- However, no one really does multiple stashes on the same branch -
+
+- If you do git stash pop, that will pop off the stash with the highest index #, or the first stash you did, not the latest stash – you may not want that so do:
+  - `git stash apply stash@{2}` – where 2 is the stash ID -
+
+```sh
+git stash list
+# where 2 is the stash ID
+git stash apply stash@{2}
+```
+
+**dropping & clearing the stash**:
+
+- `git stash drop stash@{2}` to delete the stash with an ID/Index of 2
+- `git stash clear` to empty out everything in the stash
+
+```sh
+git stash drop stash@{2}
+git stash clear
+```
+
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
 ## Pull Requests
