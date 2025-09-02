@@ -408,7 +408,7 @@ git stash clear
 
 ## Pull Requests
 
-> coming soon
+> coming soon - check the section on PRs in `ADVANCED_GIT.md`
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
@@ -630,7 +630,17 @@ They are basically code snippets to save/store and share. Gists do not have Issu
 
 > Every gist is a Git repository, which means that it can be forked and cloned...and you will see it in your list of gists when you navigate to your gist home page. They're also searchable, so you can use them if you would like other people to find and see your work.
 
-1. Navigate to your [gist home page](https://gist.github.com/) - OR -
+Besides being able to fork and clone gists, you can also:
+
+- Leave comments
+- Star them
+- Download them
+- Share them
+- Embed them
+- Have collaborators
+- See revisions and diffs (history)
+
+1. Navigate to your [gist home page](https://gist.github.com/) and click the `+` button - OR -
 1. Click the down arrow next to your profile image thumbnail > click _New Gist_
 1. Type a description and file name with extension for your gist (you want the extension for code highlighting).
 1. Optionally, you can change the Indent Mode, Indent Size, and if you want it to Wrap or not.
