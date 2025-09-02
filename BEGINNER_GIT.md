@@ -14,7 +14,7 @@ NOTE: I alternately use `main` or `master` when referring to your default branch
    1. [Commands after initial push](#commands-after-initial-push)
 1. ✅ [Clone one of your existing GitHub repos](#clone-one-of-your-existing-github-repos)
 1. ✅ [Clone a repo that is not yours](#clone-a-repo-that-is-not-yours)
-1. [Important Notes about the `commit` command](#important-notes-about-the-commit-command)
+1. ✅ [Important Notes about the `commit` command](#important-notes-about-the-commit-command)
    1. [Atomic commits](#atomic-commits)
    1. [Commit messages](#commit-messages)
    1. [Ammending a commit](#ammending-a-commit)
