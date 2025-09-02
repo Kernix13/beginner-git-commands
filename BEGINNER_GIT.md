@@ -201,6 +201,9 @@ An alternate way to add new or changed files to staging is to add the files indi
 ```bash
 # Use the following to add files individually to staging:
 git add filename1.ext filename2.ext filename3.ext
+
+# Example of adding a folder
+git add images/
 ```
 
 For the above command you can use <kbd>TAB</kbd> once you have typed a few characters of your filename.
