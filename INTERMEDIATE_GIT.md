@@ -20,7 +20,7 @@ Some of the git commands below can be considered beginner but they involve using
    1. [Deleting branches](#deleting-branches)
    1. [Branch Protection Rules](#branch-protection-rules)
 1. ✅ [Stashing your changes](#stashing-your-changes)
-1. [Forking](#forking)
+1. ✅ [Forking](#forking)
    1. [Fork and Clone Workflow](#fork-and-clone-workflow)
 1. [Pull Requests](#pull-requests)
 1. [Miscellaneous git stuff](#miscellaneous-git-stuff)
@@ -34,6 +34,8 @@ Some of the git commands below can be considered beginner but they involve using
 1. ✅ [GitHub pages](#github-pages)
 
 ## Branches
+
+![alt text](image.png)
 
 In the beginning you will be working on your default branch which will most likely be `master`, or `main` if you changed the default name. You will definitely be working with branches when you start contributing to other people's repositories, but it would be a good idea to experiment with branches on your own projects.
 
@@ -619,9 +621,23 @@ This does not involve any git commands but it can be useful if you need images f
 
 Go to [GitHub Download on GitKraken](https://www.gitkraken.com/learn/git/github-download) and scroll down to _How to Download a Folder from GitHub_. There is a link to [download-directory](https://download-directory.github.io/) where all you have to do is paste in the link to the folder you want to download.
 
-### Download a folder from GitHub
+### githubuser
 
-> LATER...
+If you need to paste a screenshot into an issue or pull request description field, you can just copy the screenshot and paste into the field. In the past, if you inspected the image `src` it had `githubuser`. However, that must have
+
+I just did that on the Discussions tab for a new post and got this:
+
+```html
+<!-- github.com/user-attachments -->
+<img
+  width="208"
+  height="298"
+  alt="image"
+  src="https://github.com/user-attachments/assets/38221e73-db58-4b84-bf04-bc1180cb752b"
+/>
+```
+
+I don't know when they changed it but now part of the `src` is `github.com/user-attachments`. That's better than pushing up images only for your markdown files, but then you will have to edit the markdown file(s) on GitHub!
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
