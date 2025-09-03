@@ -106,8 +106,6 @@ git reset path/filename.ext
 git reset
 ```
 
-You can also remove a specific file from staging by using `git rm –cached filename.ext`.
-
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
 ### Remove commits
@@ -182,6 +180,8 @@ Pair this with adding the file (or its pattern) to `.gitignore` so Git doesn’t
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
 ### Remove a file from GitHub
+
+> I'm not sure if this command is correct
 
 I used the following command to remove a file from GitHub that had a different case from my local copy. I mistakenly created my file name as `errorMiddleWare.js` where the `W` should have been lowercase `w`. I made the change to my local filename but the filename on GitHub maintained the uppercase `W`. Here is the command I ran to fix that followed by an explanation of the command:
 
