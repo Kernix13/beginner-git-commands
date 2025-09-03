@@ -484,6 +484,8 @@ git diff v17.0.0 v17.0.1
 
 ### Creating and working with tags
 
+<br>
+
 **Creating lightweight tags**:
 
 - Lightweight tags: just a name and a label that points to a commit - lightwieght tags are frowned upon
@@ -494,6 +496,8 @@ git diff v17.0.0 v17.0.1
 git tag <tagname>
 git tag v18.2.1
 ```
+
+<br>
 
 **Creating annotated tags**:
 
@@ -514,6 +518,8 @@ git tag -a <tagname> -m "tag description"
 git show <tagname>
 ```
 
+<br>
+
 **Tagging previous commits**:
 
 - You can go back and tag earlier commits
@@ -525,6 +531,8 @@ git log --online
 git tag <tagname> <commit>
 ```
 
+<br>
+
 **Replacing tags with force**:
 
 - If you need to move a tag, have it refer to a different commit, use the `-f` flag for force to force that tag through
@@ -535,11 +543,15 @@ git tag -f <tagname> <commit>
 git tag <tagname> <commit> -f
 ```
 
+<br>
+
 **Deleting tags**:
 
 ```sh
 git tag -d <tagname>
 ```
+
+<br>
 
 **Pushing tags**:
 
