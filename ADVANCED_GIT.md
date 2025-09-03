@@ -364,7 +364,11 @@ git diff <hash1>
 
 ## git reflog
 
-> COMING SOON
+Reference logs record everything you do with your local branch.
+
+1. Use `git reflog` to show everything you did in previous steps
+2. Find the entry where you think you want to go back to.
+3. Then use `git checkout HEAD@{12}` or `git reset HEAD@{3}` to get back to that state, where `HEAD@{12}` and `HEAD@{3}` are referring to the number of commits in the past.
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 

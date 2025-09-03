@@ -617,14 +617,6 @@ It's then up to the source repo owner to merge the PR in or not.
 
 **Tip**: `raw` link - If you want to copy the code for a file, click the `raw` button. That will load all the code onto a white/blank webpage and you just need to do <kbd>CTRL</kbd>+<kbd>C</kbd> to copy all the contents. That is way easier than trying to select the code and maybe missing some of it.
 
-### git reflog
-
-Reference logs record everything you do with your local branch.
-
-1. Use `git reflog` to show everything you did in previous steps
-2. find the entry where you think you want to go back to.
-3. Then use `git checkout HEAD@{12}` or`git reset HEAD@{3}` to get back to that state, where `HEAD@{12}` and `HEAD@{3}` are referring to the number of commits in the past.
-
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
 ### Download a folder from GitHub
