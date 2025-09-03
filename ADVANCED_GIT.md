@@ -27,8 +27,11 @@ This file used to be very short but I added sections from the intermediate file,
    1. [what is HEAD](#what-is-head)
 1. [git giff](#git-diff)
 1. [git reflog](#git-reflog)
-1. [git tag](#git-tag)
-   1. ✅ [Semantic Versioning](#semantic-versioning)
+1. ✅ [git tag](#git-tag)
+   1. [Semantic Versioning](#semantic-versioning)
+   1. [Viewing and searching tags](#viewing-and-searching-tags)
+   1. [Comparing tags with git diff](#comparing-tags-with-git-diff)
+   1. [Creating and working with tags](#creating-and-working-with-tags)
 1. [GitHub Issues](#github-issues)
    1. [How to create an issue](#how-to-create-an-issue)
    1. [Closing an issue](#closing-an-issue)
@@ -367,7 +370,31 @@ git diff <hash1>
 
 ## git tag
 
-> COMING SOON
+- The concept of a tag is to mark or highlight some point in history (a commit) and have it be a static reference and it does not move
+- Most often tags are used to mark different releases or versions like v7.0.1
+- They are useful and simple to understand
+- You can tag particular commits to mark a moment in time
+- Think of tags as branch references that do not change – once a tag is created, it always refers to the same commit – it's just a label for a commit
+- Tags are for specific points in a repos history that are important
+  - _Mostly used for release points_
+  - When a feature branch is merged into master
+  - A radical change,
+  - A bug fix,
+  - New feature added, etc
+- They can be named anything
+- There are 2 types of tags:
+
+1. Lightweight tags – just a name/label that points to a specific commit
+2. Annotated tags: store extra meta-data including the author's name and email, the date, and a tagging message – _these are generally preferred_
+
+- The basic command is `git tag`
+- Tagging and versioning are kind of used together
+
+```sh
+git tag
+```
+
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
 ### Semantic Versioning
 
@@ -407,6 +434,129 @@ The new version makes it clear to a consumer or user how significant the change 
 - Go to Boostrap on Github and click on Tags above the listed files – then click on Releases to see the details for each tag/release
 - You can also append after the patch number with things like beta: `v3.2.1-beta` or `-alpha3`
 - Or go to the [changelog page on the React website](https://react.dev/versions#changelog) and click on a changelog link
+
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
+
+### Viewing and searching tags
+
+- The concept of a tag is to mark or highlight some point in history (a commit) and have it be a static reference and it does not move
+
+How to view existing tags
+
+- `git tag` will print a list of all the tags in the current repo
+  - You may also see `v` prepended to the version number
+  - They are tied to a specific commit
+  - Type `q` to exit the list
+- You can also filter and search the tags
+  - `git tag -l` + wildcard pattern to search, `-l` is for list
+
+```sh
+# List all the tags in the current repo in ASCENDING order
+git tag
+
+# filter and search the tags
+git tag -l "search criteria"
+
+# Find all tags starting with v17
+git tag -l "v17*"
+
+# Find all tags with "beta"
+git tag -l "*beta*"
+```
+
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
+
+### Comparing tags with git diff
+
+- You can "checkout" particular tags, and a tag refers to a particular commit not a branch
+- `git checkout <tag>` to view the state of a repo at a particular tag – this puts you in detached HEAD
+- A tag is referring to a particular commit NOT a branch – and you go into detached HEAD because you are basically just checking out a commit
+- `git checkout v15.3.1 `– but just takes you back, better to see the difference b\tw 2 tags
+- `git diff v17.0.0 v17.0.1` – remember to do git switch master or git switch -
+
+```sh
+git checkout <tag>
+git checkout v15.3.1
+
+# See what changed between releases
+git diff v17.0.0 v17.0.1
+```
+
+### Creating and working with tags
+
+**Creating lightweight tags**:
+
+- Lightweight tags: just a name and a label that points to a commit - lightwieght tags are frowned upon
+- `git tag <tagname>`: by default it will reference the commit that `HEAD` is referencing/pointing to
+
+```sh
+# Create a tag:
+git tag <tagname>
+git tag v18.2.1
+```
+
+**Creating annotated tags**:
+
+- Annotated tags: store extra meta data including the author's name and email, the data, and a tagging message.
+- To create an anotated tag use the `-a` option
+- `git tag -a <tagname>`: this also is based on the current HEAD position
+  - You will get a prompt file in VS Code -> `TAG_EDITMSG` - add your description, save and close
+  - You can also include `-m` option to write your description/message inline instead of in the text editor
+- `git show <tagname>`: to see the meta info - use `q` to exit
+
+```sh
+# Create an annotated tag
+git tag -a <tagname>
+# Annotated tag with message
+git tag -a <tagname> -m "tag description"
+
+# See the meta data for an annotated tag
+git show <tagname>
+```
+
+**Tagging previous commits**:
+
+- You can go back and tag earlier commits
+- `git tag <tagname> <commit>` - use `git log --online` to find a commit without a tag and copy the 9-digit commit hash
+- You can do this for lightweight or annotated tags
+
+```sh
+git log --online
+git tag <tagname> <commit>
+```
+
+**Replacing tags with force**:
+
+- If you need to move a tag, have it refer to a different commit, use the `-f` flag for force to force that tag through
+- You can't reuse a tag that is already referring to a commit - tag names need to be unique
+
+```sh
+git tag -f <tagname> <commit>
+git tag <tagname> <commit> -f
+```
+
+**Deleting tags**:
+
+```sh
+git tag -d <tagname>
+```
+
+**Pushing tags**:
+
+- `git push origin --tags`: by default, git push doesn't transfer tags to remote servers
+- The `--tags` option used with `git push` is for when you have a lot of tags to push up at once
+- This will transfer all your tags to the remote server that are not already there
+- `git push origin v1.5.0` to push a single tag
+
+```sh
+# Push all tags to GitHub
+git push origin --tags
+
+# Push a single tag
+git push origin v1.5.0
+```
+
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
 ## GitHub Issues
 
