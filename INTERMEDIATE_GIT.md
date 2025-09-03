@@ -26,7 +26,6 @@ Some of the git commands below can be considered beginner but they involve using
 1. [Pull Requests](#pull-requests)
 1. [Miscellaneous git stuff](#miscellaneous-git-stuff)
    1. [Use the raw link](#use-the-raw-link)
-   1. [git reflog](#git-reflog)
    1. [Download a folder from GitHub](#download-a-folder-from-github)
    1. [githubuser](#githubuser)
 1. ✅ [Creating a GitHub gist](#creating-a-github-gist)
