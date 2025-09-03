@@ -23,9 +23,9 @@ This file used to be very short but I added sections from the intermediate file,
 1. [git revert](#git-revert)
 1. [git rebase](#git-rebase)
 1. [restore vs reset vs revert vs rebase](#restore-vs-reset-vs-revert-vs-rebase)
-1. [git Log](#git-log)
+1. [git log](#git-log)
    1. [what is HEAD](#what-is-head)
-1. [git Diff](#git-diff)
+1. [git giff](#git-diff)
 1. [git reflog](#git-reflog)
 1. [GitHub Issues](#github-issues)
    1. [How to create an issue](#how-to-create-an-issue)
@@ -290,7 +290,7 @@ There are a lot to this commit to know, understand and think about. This is a hu
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
-## git Log
+## git log
 
 > Lots of confusing notes in this section...
 
@@ -322,7 +322,7 @@ Check the [Git Docs](https://git-scm.com/docs).
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
-## git Diff
+## git diff
 
 - `git diff` is about showing changes – differences between files, between commits, between branches, on GitHub, ...
 - often used with `git log` and `git status`
