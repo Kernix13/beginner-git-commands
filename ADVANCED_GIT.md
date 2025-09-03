@@ -27,6 +27,8 @@ This file used to be very short but I added sections from the intermediate file,
    1. [what is HEAD](#what-is-head)
 1. [git giff](#git-diff)
 1. [git reflog](#git-reflog)
+1. [git tag](#git-tag)
+   1. ✅ [Semantic Versioning](#semantic-versioning)
 1. [GitHub Issues](#github-issues)
    1. [How to create an issue](#how-to-create-an-issue)
    1. [Closing an issue](#closing-an-issue)
@@ -362,6 +364,49 @@ git diff <hash1>
 > COMING SOON
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
+
+## git tag
+
+> COMING SOON
+
+### Semantic Versioning
+
+- The mostt common use for tags is versioning
+- The semantic versioning spec outlines a standardized versioning system for software releases – it provides a consistent way for devs to give meaning to their software release
+- Versions consist of three numbers separated by periods:
+
+Semantic Versioning pattern:
+
+- Major-Release.Minor-Release.Patch-Release
+- The first release is typically 1.0.0
+- Example: 2.4.1
+  - 2 = Major-Release
+  - .4 = Minor-Release
+  - .1 = Patch-Release
+
+Patch Releases:
+
+- Normally do not contain new features or significant changes
+- They typically signify bug fixes and other changes that do not impact how the code is used
+- They happen pretty frequently
+
+Minor Release:
+
+- Signify that new features or functionality have been added, but the project is still backwards compatible – no breaking changes
+- The new functionality is optional and should not force users to rewrite their own code
+- Whenever you have a minor release you should reset the patch number to 0
+
+Major Release:
+
+- Signify significant changes that are not backwwards compatible
+- Features may be sunstantially removed or changed - breaking changes
+- Then set minor and path releases numbers to 0
+
+The new version makes it clear to a consumer or user how significant the change is.
+
+- Go to Boostrap on Github and click on Tags above the listed files – then click on Releases to see the details for each tag/release
+- You can also append after the patch number with things like beta: `v3.2.1-beta` or `-alpha3`
+- Or go to the [changelog page on the React website](https://react.dev/versions#changelog) and click on a changelog link
 
 ## GitHub Issues
 
