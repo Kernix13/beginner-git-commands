@@ -18,6 +18,15 @@ This file used to be very short but I added sections from the intermediate file,
    1. [Remove a file from git tracking](#remove-a-file-from-git-tracking)
    1. [Remove a file from GitHub](#remove-a-file-from-github)
    1. [Remove git](#remove-git)
+1. [git restore](#git-restore)
+1. [git reset](#git-reset)
+1. [git revert](#git-revert)
+1. [git rebase](#git-rebase)
+1. [restore vs reset vs revert vs rebase]
+1. [git Log](#git-log)
+   1. [what is HEAD](#what-is-head)
+1. [git Diff](#git-diff)(#restore-vs-reset-vs-revert-vs-rebase)
+1. [git reflog](#git-reflog)
 1. [GitHub Issues](#github-issues)
    1. [How to create an issue](#how-to-create-an-issue)
    1. [Closing an issue](#closing-an-issue)
@@ -33,15 +42,6 @@ This file used to be very short but I added sections from the intermediate file,
    1. [The steps to resolve a merge conflict](#the-steps-to-resolve-a-merge-conflict)
    1. [using vs code to resolve conflicts](#using-vs-code-to-resolve-conflicts)
 1. ✅ [Terminal commands](#terminal-commands)
-1. [Git Log](#git-log)
-   1. [what is HEAD](#what-is-head)
-1. [Git Diff](#git-diff)
-1. [git restore](#git-restore)
-   1. [un-staging changes with git restore](#un-staging-changes-with-git-restore)
-1. [git reset](#git-reset)
-1. [git revert](#git-revert)
-1. [git rebase](#git-rebase)
-1. [restore vs reset vs revert vs rebase](#restore-vs-reset-vs-revert-vs-rebase)
 1. [GitHub Two Factor Authentication](#github-two-factor-authentication)
    1. [Two-factor authentication recovery codes](#two-factor-authentication-recovery-codes)
 1. [Signed Commits](#signed-commits)
@@ -204,6 +204,162 @@ If you really messedthings up and you want to start over, you can remove git tra
 ```sh
 rm -rf .git
 ```
+
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
+
+## git restore
+
+> These notes are not good!
+
+- `git restore` helps with undoing operations
+- use `git restore --staged <file>` to unstage any files you added
+- FIRST, you can discard changes since the last commit
+- `git restore <file-name>` - to restore the file to the contents in the HEAD – if you have uncommitted changes in the file, they will be lost – it replaces `git checkout HEAD <file-name>`
+- `git restore filename` restores using HEAD as the default source, but you can change that using the `--source` option
+- SECOND, you can reference a particular commit
+- `git restore --source HEAD~1 <file-name>` - restores the contents of `file-name` to the state prior to HEAD – you can also use a particular commit hash as the source
+- so either a commit hash or `HEAD~num` – all the other files and branches are untouched
+
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
+
+## git reset
+
+- `git reset` restores a repo back to a specific commit – the commits are gone
+- common if you did work on the master branch but you meant to do it on a new branch
+- there are 2 versions: regular and a hard reset
+- `git reset <commit-hash>` - restores a repo back to a specific commit, use the 7-digit hash from the `git log --oneline` command
+- but that is a regular reset and that only removed the commits – the changes are still in the working directory – you just went back in time by removing commits – to Git, that's where the history stops – but for some reason it kept the changes in the file – WHY IS THAT?
+- **Answer**: it's useful if you make commits on the wrong branch – you can keep that work and move it to another branch – how do you do that? By creating a new branch and then adding/committing the changes on that one – this may be what I did when I made a branch on a branch and made changes on that
+- `git reset --hard <commit-hash>` - a hard reset that loses all the commits up to that commit hash – AND – the changes are removed from your working directory
+- like `git restore` you can use a commit hash or `HEAD~3` or whatever number
+- YOU NEED TO BE CAREFUL USING `--hard`
+- note this is on a per-branch basis
+
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
+
+## git revert
+
+`git revert` is the first command that you would use when dealing specifically with remote repositories. All the commands up to this point are used with local and remote repos, but this one is only for remote repositories with 2 or more contributors.
+
+- `revert` is similar to `reset` in that they both "undo" changes, but they do it in different ways
+- `git reset hash` actually moves the branch pointer backwards, eliminating commits – as if the commits NEVER occurred
+- `git revert` instead creates a brand new commit which reverses/undos the changes from an earlier commit – because it results in a new commit, you have to enter a commit msg – instead of deleting everything, deleting history – that can be a problem if you are collaborating with other people
+- with reset, you lose the commits that came after the one you used in the command – they are gone!
+- with revert you get rid of the changes but you do not lose the commit for those changes – you have history!
+
+> When to use `reset` and when to use `revert`?
+
+- it has to do with collaboration – if you want to reverse some commits that other people already have on their machines, you should use `revert` – if you want to reverse commits that you haven't shared with others, use `reset` and no one will ever know
+
+```sh
+git revert <commit-hash>
+git revert HEAD~1
+```
+
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
+
+## git rebase
+
+There are 2 ways to use the `git rebase` cmd:
+
+1. as an alternative to merging – `git rebase` instead of `git merge`
+2. as a cleanup tool
+
+You will need to routinely merge changes for the `master` branch for an active open-source repo. As a result, your feature branch will have a lot of merge commits.
+
+There are a lot to this commit to know, understand and think about. This is a huge topic....
+
+1. `git rebase --abort`
+1. `git rebase --continue`
+1. `git rebase -i HEAD~4 `
+
+## restore vs reset vs revert vs rebase
+
+1. `restore`: to restore the contents of a **_file_** to a specific point or to unstage files
+   1. `git restore <file-name> `
+   1. `git restore --source HEAD~1 <file-name>`
+   1. `git restore --staged <file-name>`
+1. `reset`: reset a repo back to a specific **_commit_**
+   1. `git reset <commit-hash>`
+   1. `git reset --hard <commit-hash>`
+1. `revert`: similar to `reset`, **_undo changes_**, moves the branch pointer backwards, eliminating commits
+   1. `git revert <commit-hash>`
+1. `rebase`: an alternative to `git merge` or a cleanup tool for merge commits
+   1. `git rebase main` or `git rebase <branch-name`
+   1. `git rebase --continue`
+
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
+
+## git Log
+
+> Lots of confusing notes in this section...
+
+Check the [Git Docs](https://git-scm.com/docs).
+
+- `git log` is a log of the commits for your local repo
+- you need the commit hashes – you need those to redo a commit, to checkout, to look at a commit, etc
+- to configure it so you can limit what you see for a very long commit msg (?)
+- **_50_** characters or less – for more detail, keep it to **_72_** chars (Which one?)
+- the 1st line is treated as the subject of the commit and the rest as the body
+- the blank line separating the subject from the body is critical – cmds like `log`, `shortlog`, and `rebase` can get confused if you run the 2 together `???`
+- explain the problem that the commit is solving – focus on **WHY** you are making the change as opposed to HOW
+  - are there side effects or unintuitive consequences of the change
+  - additional paragraphs should also be separated by blank lines
+- `git log` shows commit logs – there are a lot of options but here is a common one: `--pretty`
+- [Commit formatting](https://git-scm.com/docs/git-log#_commit_formatting)
+- you can filter by who made the commit, when it was, sort them, …
+- more commonly you will use `--oneline` – shorthand for `"--pretty=oneline --abbrev-commit"` used together: `git log --oneline`
+- THAT ONE IS EXCELLENT!!!
+
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
+
+### what is HEAD
+
+- when you do `git log` at the top commit you will see (`HEAD -> Master`) – _HEAD_ refers to master – but if you switch to a different branch like `new-feature` then you will see (`HEAD -> new-feature`) -
+- `HEAD` is a pointer, is a reference to a branch pointer – a branch pointer is where a branch currently is
+- `HEAD` points to whatever branch you are on
+- So `HEAD` always points to the branch you are on which is pointing to the last commit for that branch – it points to the "Tip" of the branch - however there is an exception to that, which I think is from running `git rebase`
+
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
+
+## git Diff
+
+- `git diff` is about showing changes – differences between files, between commits, between branches, on GitHub, ...
+- often used with `git log` and `git status`
+- use it when you don't remember all the changes you made!!!
+- `git diff` will list ALL the changes in your working directory that are not staged for the next commit!
+- I think it may not work with changes to untracked files, and it has to be changes within the branch you ran the command
+- use `q` to exit `git diff` -
+- `git diff`: shows ONLY unstaged changes
+- `git diff HEAD`: shows staged AND unstaged changes, do not need `q` to exit
+- `git diff --staged` and `git diff --cached`: shows only staged changes, do not need `q` to exit
+
+I am unsure of all the commands, but I believe these are common ones you would use:
+
+```sh
+git diff
+
+git diff HEAD
+git diff HEAD [filename]
+
+git diff --cached
+git diff --staged
+git diff --staged [filename]
+
+git diff filename1..filename2
+git diff branch1..branch2
+git diff commit1..commit2
+git diff <commithash1> <commithash2>
+
+git diff HEAD~1 HEAD
+git diff <hash1>
+```
+
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
+
+## git reflog
+
+> COMING SOON
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
@@ -567,160 +723,6 @@ Others:
 - <kbd>CTRL</kbd>+<kbd>C</kbd> to exit REPLs like Node, Mongod, etc.
 - <kbd>TAB</kbd> - auto fill in file and folder names
 - `cls` to clear the screen in PowerShell/Command Prompt
-
-<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
-
-## Git Log
-
-> Lots of confusing notes in this section...
-
-Check the [Git Docs](https://git-scm.com/docs).
-
-- `git log` is a log of the commits for your local repo
-- you need the commit hashes – you need those to redo a commit, to checkout, to look at a commit, etc
-- to configure it so you can limit what you see for a very long commit msg (?)
-- **_50_** characters or less – for more detail, keep it to **_72_** chars (Which one?)
-- the 1st line is treated as the subject of the commit and the rest as the body
-- the blank line separating the subject from the body is critical – cmds like `log`, `shortlog`, and `rebase` can get confused if you run the 2 together `???`
-- explain the problem that the commit is solving – focus on **WHY** you are making the change as opposed to HOW
-  - are there side effects or unintuitive consequences of the change
-  - additional paragraphs should also be separated by blank lines
-- `git log` shows commit logs – there are a lot of options but here is a common one: `--pretty`
-- [Commit formatting](https://git-scm.com/docs/git-log#_commit_formatting)
-- you can filter by who made the commit, when it was, sort them, …
-- more commonly you will use `--oneline` – shorthand for `"--pretty=oneline --abbrev-commit"` used together: `git log --oneline`
-- THAT ONE IS EXCELLENT!!!
-
-<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
-
-### what is HEAD
-
-- when you do `git log` at the top commit you will see (`HEAD -> Master`) – _HEAD_ refers to master – but if you switch to a different branch like `new-feature` then you will see (`HEAD -> new-feature`) -
-- `HEAD` is a pointer, is a reference to a branch pointer – a branch pointer is where a branch currently is
-- `HEAD` points to whatever branch you are on
-- So `HEAD` always points to the branch you are on which is pointing to the last commit for that branch – it points to the "Tip" of the branch - however there is an exception to that, which I think is from running `git rebase`
-
-<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
-
-## Git Diff
-
-- `git diff` is about showing changes – differences between files, between commits, between branches, on GitHub, ...
-- often used with `git log` and `git status`
-- use it when you don't remember all the changes you made!!!
-- `git diff` will list ALL the changes in your working directory that are not staged for the next commit!
-- I think it may not work with changes to untracked files, and it has to be changes within the branch you ran the command
-- use `q` to exit `git diff` -
-- `git diff`: shows ONLY unstaged changes
-- `git diff HEAD`: shows staged AND unstaged changes, do not need `q` to exit
-- `git diff --staged` and `git diff --cached`: shows only staged changes, do not need `q` to exit
-
-I am unsure of all the commands, but I believe these are common ones you would use:
-
-```sh
-git diff
-
-git diff HEAD
-git diff HEAD [filename]
-
-git diff --cached
-git diff --staged
-git diff --staged [filename]
-
-git diff filename1..filename2
-git diff branch1..branch2
-git diff commit1..commit2
-git diff <commithash1> <commithash2>
-
-git diff HEAD~1 HEAD
-git diff <hash1>
-```
-
-<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
-
-## git restore
-
-> These notes are not good!
-
-- `git restore` helps with undoing operations
-- use `git restore --staged <file>` to unstage any files you added
-- FIRST, you can discard changes since the last commit
-- `git restore <file-name>` - to restore the file to the contents in the HEAD – if you have uncommitted changes in the file, they will be lost – it replaces `git checkout HEAD <file-name>`
-- `git restore filename` restores using HEAD as the default source, but you can change that using the `--source` option
-- SECOND, you can reference a particular commit
-- `git restore --source HEAD~1 <file-name>` - restores the contents of `file-name` to the state prior to HEAD – you can also use a particular commit hash as the source
-- so either a commit hash or `HEAD~num` – all the other files and branches are untouched
-
-<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
-
-### un-staging changes with git restore
-
-- `git restore --staged <file-name>` - to unstage files that you staged – use that if you do not want to include the file in your next commit
-
-## git reset
-
-- `git reset` restores a repo back to a specific commit – the commits are gone
-- common if you did work on the master branch but you meant to do it on a new branch
-- there are 2 versions: regular and a hard reset
-- `git reset <commit-hash>` - restores a repo back to a specific commit, use the 7-digit hash from the `git log --oneline` command
-- but that is a regular reset and that only removed the commits – the changes are still in the working directory – you just went back in time by removing commits – to Git, that's where the history stops – but for some reason it kept the changes in the file – WHY IS THAT?
-- **Answer**: it's useful if you make commits on the wrong branch – you can keep that work and move it to another branch – how do you do that? By creating a new branch and then adding/committing the changes on that one – this may be what I did when I made a branch on a branch and made changes on that
-- `git reset --hard <commit-hash>` - a hard reset that loses all the commits up to that commit hash – AND – the changes are removed from your working directory
-- like `git restore` you can use a commit hash or `HEAD~3` or whatever number
-- YOU NEED TO BE CAREFUL USING `--hard`
-- note this is on a per-branch basis
-
-<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
-
-## git revert
-
-`git revert` is the first command that you would use when dealing specifically with remote repositories. All the commands up to this point are used with local and remote repos, but this one is only for remote repositories with 2 or more contributors.
-
-- `revert` is similar to `reset` in that they both "undo" changes, but they do it in different ways
-- `git reset hash` actually moves the branch pointer backwards, eliminating commits – as if the commits NEVER occurred
-- `git revert` instead creates a brand new commit which reverses/undos the changes from an earlier commit – because it results in a new commit, you have to enter a commit msg – instead of deleting everything, deleting history – that can be a problem if you are collaborating with other people
-- with reset, you lose the commits that came after the one you used in the command – they are gone!
-- with revert you get rid of the changes but you do not lose the commit for those changes – you have history!
-
-> When to use `reset` and when to use `revert`?
-
-- it has to do with collaboration – if you want to reverse some commits that other people already have on their machines, you should use `revert` – if you want to reverse commits that you haven't shared with others, use `reset` and no one will ever know
-
-```sh
-git revert <commit-hash>
-git revert HEAD~1
-```
-
-<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
-
-## git rebase
-
-There are 2 ways to use the `git rebase` cmd:
-
-1. as an alternative to merging – `git rebase` instead of `git merge`
-2. as a cleanup tool
-
-You will need to routinely merge changes for the `master` branch for an active open-source repo. As a result, your feature branch will have a lot of merge commits.
-
-There are a lot to this commit to know, understand and think about. This is a huge topic....
-
-1. `git rebase --abort`
-1. `git rebase --continue`
-1. `git rebase -i HEAD~4 `
-
-## restore vs reset vs revert vs rebase
-
-1. `restore`: to restore the contents of a **_file_** to a specific point or to unstage files
-   1. `git restore <file-name> `
-   1. `git restore --source HEAD~1 <file-name>`
-   1. `git restore --staged <file-name>`
-1. `reset`: reset a repo back to a specific **_commit_**
-   1. `git reset <commit-hash>`
-   1. `git reset --hard <commit-hash>`
-1. `revert`: similar to `reset`, **_undo changes_**, moves the branch pointer backwards, eliminating commits
-   1. `git revert <commit-hash>`
-1. `rebase`: an alternative to `git merge` or a cleanup tool for merge commits
-   1. `git rebase main` or `git rebase <branch-name`
-   1. `git rebase --continue`
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
