@@ -26,7 +26,7 @@ This file used to be very short but I added sections from the intermediate file,
 1. [git log](#git-log)
    1. [what is HEAD](#what-is-head)
 1. [git giff](#git-diff)
-1. [git reflog](#git-reflog)
+1. ✅ [git reflog](#git-reflog)
 1. ✅ [git tag](#git-tag)
    1. [Semantic Versioning](#semantic-versioning)
    1. [Viewing and searching tags](#viewing-and-searching-tags)
@@ -364,11 +364,107 @@ git diff <hash1>
 
 ## git reflog
 
-Reference logs record everything you do with your local branch.
+Reference logs record everything you do with your local branches.
+
+- `reflog` is short for reference logs, is used to fix things
+- Git keeps a record of when tips of branches were updated
+- `git reflog`: is used to view and update the reference logs
+- References are things like branch references (git switch), HEAD, remote branches, fetch HEAD, merge HEAD, ...
+- Git keeps a record of when they change, e.g., a reflog for when HEAD changes
+- Check `.git/logs` > `.git/logs/HEAD` – is readable - do not edit that file!
+- Reflogs are only local, not shared with collaborators
+- Reflogs also expire, cleaned out after 90 days
+- They are used to fix mistakes, if you need to access a commit hash you no longer see in your git log, ...
+
+```sh
+git log --oneline
+git reflog
+```
 
 1. Use `git reflog` to show everything you did in previous steps
 2. Find the entry where you think you want to go back to.
 3. Then use `git checkout HEAD@{12}` or `git reset HEAD@{3}` to get back to that state, where `HEAD@{12}` and `HEAD@{3}` are referring to the number of commits in the past.
+
+- The `git reflog` command works with 4 different sub-commands, but `show` is the only one you want. The other three (`expire`, `delete`, `exists`) are not really used.
+- `git reflog show HEAD` – or just `git reflog` because it defaults to HEAD
+- `git reflog show` will show the log of a specific reference (defaults to HEAD)
+- The output is similar to `git log` but shows things like
+  - When you checked out a branch
+  - When you used git reset, restore, revert, or rebase
+  - Deleted a commit with the commit hash
+  - When you were in detached HEAD
+- You will see `HEAD@{#}`: that syntax refers to a particular entry in a reflog
+
+```sh
+git reflog show <reference>
+# The output is similar to git log
+git reflog show HEAD
+```
+
+**Passing reflog references around**:
+
+- SYNTAX: `name@{qualifier}`
+- We can access specific git refs using `name@{qualifier}` – they can be passed to other commands like `checkout`, `reset`, `diff`, and `merge`
+  - `HEAD@{2}` is different that `HEAD~2` (involves commits)
+  - `HEAD@{2}` means where HEAD was 2 moves ago
+- `HEAD@{2}` shows all ref logs from the oldest to the one for 2
+- The `#` qualifier stands for the # of moves ago so that could be something on another branch in the ref logs
+
+```sh
+# Checkout to HEAD 2 moves ago
+git checkout HEAD@{2}
+```
+
+**Time-based reflog qualifiers**:
+
+- Every reflog entry has a unix timestamp associated with it and also a commit hash and a user.email
+- `git reflog main@{one.week.ago}`
+- `git checkout bugfix@{2.days.ago}`
+- `git difff main@{0} main@{yesterday}`
+
+```sh
+git reflog main@{one.week.ago}
+git checkout bugfix@{2.days.ago}
+git difff main@{0} main@{yesterday}
+```
+
+**Rescuing lost commits with reflog**:
+
+You can lose commits when you do a hard reset but you can still retrieve the data from the reflog.
+
+```sh
+# Undo a commit
+git reset --hard abcd123
+
+# Find the hash for the commit removed above
+git reflog show main
+# You can access that with the commit hash abcd123 or main@{1}
+
+# Checkout hash abcd123 (detached HEAD)
+git checkout abcd123
+git switch -
+git reflog show main
+
+# To restore the commit - undo the undo
+git reset --hard abcd123
+# or instead of abcd123 use main{1}
+```
+
+**Undoing a rebase with reflog**:
+
+- Involves interactive rebasing – fixing it after the fact
+- Use reflog to get the commit hash or HEAD #
+
+```sh
+# fixup
+git rebase -i HEAD~4
+
+# Show the lost commits
+git reflog show branch-name
+
+# Bring them back with
+git reset --hard <commit-hash>
+```
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
