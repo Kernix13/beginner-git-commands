@@ -14,10 +14,10 @@ This file used to be very short but I added sections from the intermediate file,
    1. [Remove unstaged changes](#remove-unstaged-changes)
    1. [Remove staged changes](#remove-staged-changes)
    1. [Remove commits](#remove-commits)
-   1. [Remove git](#remove-git)
    1. [Remove remote origin](#remove-remote-origin)
    1. [Remove a file from git tracking](#remove-a-file-from-git-tracking)
    1. [Remove a file from GitHub](#remove-a-file-from-github)
+   1. [Remove git](#remove-git)
 1. [GitHub Issues](#github-issues)
    1. [How to create an issue](#how-to-create-an-issue)
    1. [Closing an issue](#closing-an-issue)
@@ -79,6 +79,8 @@ git restore --source abc1234 file1 file2
 git restore .
 ```
 
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
+
 ### Remove staged changes
 
 Remove **staged** changes: changes you’ve already added with `git add`, but haven’t committed yet
@@ -104,7 +106,9 @@ git reset path/filename.ext
 git reset
 ```
 
-You can also remove a specific file from staging by using git rm –cached filename.ext.
+You can also remove a specific file from staging by using `git rm –cached filename.ext`.
+
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
 ### Remove commits
 
@@ -157,14 +161,6 @@ That will unstage any changes made to the file(s) AFTER that commit. The changes
 git reset --hard e220bfb1e34b8c6b6fce1deb7884244239284716
 ```
 
-### Remove git
-
-To remove git tracking from a folder use the following command in git bash, the command prompt, or the terminal in VS Code. Make sure you are in the root folder where you want Git removed:
-
-```sh
-rm -rf .git
-```
-
 ### Remove remote origin
 
 I once pasted in my repo link ending in `.gi` instead of `.git` because I missed copying the `t`. Use the following to remove the origin and try again:
@@ -183,6 +179,8 @@ git rm --cached filename.ext
 
 Pair this with adding the file (or its pattern) to `.gitignore` so Git doesn’t stage it again. This is especially useful for sensitive files like `.env` or directories such as `node_modules/` that should stay local but not be version-controlled.
 
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
+
 ### Remove a file from GitHub
 
 I used the following command to remove a file from GitHub that had a different case from my local copy. I mistakenly created my file name as `errorMiddleWare.js` where the `W` should have been lowercase `w`. I made the change to my local filename but the filename on GitHub maintained the uppercase `W`. Here is the command I ran to fix that followed by an explanation of the command:
@@ -196,6 +194,16 @@ git rm -r --cached .
 3. `--cached`: specifies that the removal should happen only on the staging index. Working directory files will be left alone
 
 I thought the entire project was deleted and then added to staging because EVERY file was highlighted green in VS Code, but that not the case. I can't explain it but use this command if you also have a file where the case changed and the local file and GitHub file do not match.
+
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
+
+### Remove git
+
+If you really messedthings up and you want to start over, you can remove git tracking from your project folder. To remove git tracking from a folder use the following command in git bash or the terminal in VS Code. Make sure you are in the root folder where you want Git removed:
+
+```sh
+rm -rf .git
+```
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
