@@ -22,10 +22,10 @@ This file used to be very short but I added sections from the intermediate file,
 1. [git reset](#git-reset)
 1. [git revert](#git-revert)
 1. [git rebase](#git-rebase)
-1. [restore vs reset vs revert vs rebase]
+1. [restore vs reset vs revert vs rebase](#restore-vs-reset-vs-revert-vs-rebase)
 1. [git Log](#git-log)
    1. [what is HEAD](#what-is-head)
-1. [git Diff](#git-diff)(#restore-vs-reset-vs-revert-vs-rebase)
+1. [git Diff](#git-diff)
 1. [git reflog](#git-reflog)
 1. [GitHub Issues](#github-issues)
    1. [How to create an issue](#how-to-create-an-issue)
