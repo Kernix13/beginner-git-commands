@@ -370,11 +370,67 @@ You want to add branch protection rules if you have collaborators. If you are ju
 
 ### Remote Tracking Branches
 
-> COMING SOON
+- `git fetch` and `git pull` both deal with getting changes from a public repo
+- When you clone a repo you get all the commits, the files, and the branches + git is initiated
+- But there are 2 branch references for main/default – and the one basic one is just main
+  - The remote has just `main`, but your local cloned repo has main and `origin/main`
+  - `origin/main` is the "Remote Tracking Branch" - a reference and it points back to the last commit on the origin remote
+- When you have origin/main, that is a "remote tracking brach reference" – it's just a pointer but it doesn’t move because it is pointing back at the last known commit on the main branch from the origin remote
+- As you make commits on your local version, main and origin/main will diverge – main will move with the local commits but origin/main will not
+- Remote Tracking Branch: the bookmark/pointer that remembers at the last time you communicated with this remote repo, here is where the default branch was pointing on that github repo on origin – they follow this pattern
+  - `<remotename>/<branchname>`:
+
+1. origin/main references the state of the main branch on the remote repo named origin
+2. upstream/logo references the state of the logo branch on the remote repo named upstream
+
+- `upstream` is another common remote name besides `origin`
+- Use `git branch -r` to view the remote branches your local repo knows about: origin/main
+
+> `origin/main` is the remote tracking branch
 
 ```sh
 # View the remote branches your local repo knows about, shows all the remote branches from the clone
 git branch -r
+```
+
+**checking out remote tracking branches**:
+
+> "_Your branch is ahead of 'origin/master' by 1 commit._"
+
+- Now main and origin/main are not pointing at the same thing – that's normal – it's so you know how far ahead you are – run `git checkout origin/main`:
+
+```sh
+# See where you were before making commits
+# puts you in detached HEAD
+git checkout origin/main
+```
+
+Then you will see:
+
+> "_You are in 'detached HEAD' state. You can look around, make experimental changes and commit them, and you can discard any commits you make in this state without impacting any branches by switching back to a branch._"
+
+- You can undo this operation with `git switch`
+- If you want to reference where the remote is use origin/main or whatever name/branch you have
+- Whenever you clone, whatever the default branch is that is what you get – you get all the data including the branches but it’s not all in your workspace at once
+
+How do you make a local branch connected to origin/branch-name?
+
+- When you do `git switch branch-name`, git will create a branch with that name and automatically track the remote branch `origin/branch-name`
+- Normally when you try to switch to a branch that does not exist you get "fatal: invalid reference ...", but not for branches that exist on the remote repo you cloned
+
+```sh
+# This shows all the remote branches from the clone
+git branch -r
+
+# This creates a local branch named branch-name and track origin/branch-name
+git switch branch-name
+
+# The old way of doing that
+git checkout --track origin/branch-name
+
+# Switch your local to to a commit/state for a remote-tracking branch
+# Results in "detached HEAD", you are no longer on a local branch, but directly on a commit
+git checkout origin/branch-name
 ```
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
