@@ -38,6 +38,7 @@ Some of the git commands below can be considered beginner but they involve using
    1. [Clone or fork a gist](#clone-or-fork-a-gist)
    1. [Editing a gist](#editing-a-gist)
 1. ✅ [GitHub pages](#github-pages)
+1. ✅ [Git aliases](#github-aliases)
 
 ## Branches
 
@@ -1079,5 +1080,38 @@ There are 2 types:
 - Any time you update the `gh-pages` branch (or whatever page you chose) your website will update
 
 > Open a browser and go to https://username.github.io
+
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
+
+## Git aliases
+
+> DON'T USE EXCLAMATION MARKS ! IN THE TERMINAL, EVEN IN QUOTES
+
+A git alias is a shortcut, a custom command. that corresponds to an existing git command.
+
+- NOTE: An exclamation point (`!`) in a git alias tells git that this is a shell script
+- One word of caution: make sure you only use them on your computer, not on someone else's computer
+
+```sh
+# Manually set these in the file ~/.gitconfig
+[alias]
+  s = status
+  l = log
+
+# git s = git status
+
+# Or from the command line:
+git config --global alias.s status
+git config --global alias.l log
+
+# Aliases with arguments
+git config --global alias.cm commit -m
+```
+
+Exploring existing useful aliases online
+
+- [gitalias](https://github.com/GitAlias/gitalias)
+- [Must Have Git Aliases: Advanced Examples](https://www.durdn.com/blog/2012/11/22/must-have-git-aliases-advanced-examples/)
+- [The Ultimate Git Alias Setup](https://gist.github.com/mwhite/6887990)
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
