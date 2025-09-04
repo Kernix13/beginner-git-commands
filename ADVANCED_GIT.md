@@ -18,8 +18,8 @@ This file used to be very short but I added sections from the intermediate file,
    1. [Remove a file from git tracking](#remove-a-file-from-git-tracking)
    1. [Remove a file from GitHub](#remove-a-file-from-github)
    1. [Remove git](#remove-git)
-1. [git restore](#git-restore)
-1. [git reset](#git-reset)
+1. ✅ [git restore](#git-restore)
+1. ✅ [git reset](#git-reset)
 1. [git revert](#git-revert)
 1. [git rebase](#git-rebase)
 1. [restore vs reset vs revert vs rebase](#restore-vs-reset-vs-revert-vs-rebase)
@@ -217,28 +217,63 @@ rm -rf .git
 > These notes are not good!
 
 - `git restore` helps with undoing operations
-- use `git restore --staged <file>` to unstage any files you added
-- FIRST, you can discard changes since the last commit
+- Use `git restore --staged <file>` to unstage any files you added
+- First, you can discard changes since the last commit
 - `git restore <file-name>` - to restore the file to the contents in the HEAD – if you have uncommitted changes in the file, they will be lost – it replaces `git checkout HEAD <file-name>`
+  - Use if you do not want to include the file in your next commit
 - `git restore filename` restores using HEAD as the default source, but you can change that using the `--source` option
 - SECOND, you can reference a particular commit
 - `git restore --source HEAD~1 <file-name>` - restores the contents of `file-name` to the state prior to HEAD – you can also use a particular commit hash as the source
-- so either a commit hash or `HEAD~num` – all the other files and branches are untouched
+- So either a commit hash or `HEAD~num` – all the other files and branches are untouched
+
+```sh
+# or (newer Git versions prefer):
+git restore filename
+# NOTE: The above command is not undoable - any uncommited changes will be lost, git has no record of them after this command
+
+# restores the contents of filename to the state prior to HEAD
+# so HEAD~1 would be 2 commits prior - you have to use --source
+# use HEAD~# syntax or 7-digit commit hash
+git restore --source HEAD~1 filename
+git restore --source abc1234 file1 file2
+# To undo removing changes from the above 2 commands just do
+# This goes back to the most recent commit
+git restore filename
+
+# Discard all unstaged changes
+git restore .
+
+# Remove a file from staging
+git restore --staged filename
+```
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
 ## git reset
 
 - `git reset` restores a repo back to a specific commit – the commits are gone
-- common if you did work on the master branch but you meant to do it on a new branch
-- there are 2 versions: regular and a hard reset
+- Common if you did work on the master branch but you meant to do it on a new branch
+- There are 2 versions: regular and a hard reset
 - `git reset <commit-hash>` - restores a repo back to a specific commit, use the 7-digit hash from the `git log --oneline` command
-- but that is a regular reset and that only removed the commits – the changes are still in the working directory – you just went back in time by removing commits – to Git, that's where the history stops – but for some reason it kept the changes in the file – WHY IS THAT?
+- But that is a regular reset and that only removed the commits – the changes are still in the working directory – you just went back in time by removing commits – to Git, that's where the history stops – but for some reason it kept the changes in the file – WHY IS THAT?
 - **Answer**: it's useful if you make commits on the wrong branch – you can keep that work and move it to another branch – how do you do that? By creating a new branch and then adding/committing the changes on that one – this may be what I did when I made a branch on a branch and made changes on that
 - `git reset --hard <commit-hash>` - a hard reset that loses all the commits up to that commit hash – AND – the changes are removed from your working directory
-- like `git restore` you can use a commit hash or `HEAD~3` or whatever number
+- Like `git restore` you can use a commit hash or `HEAD~3` or whatever number
 - YOU NEED TO BE CAREFUL USING `--hard`
-- note this is on a per-branch basis
+- Note this is on a per-branch basis
+
+```sh
+# Restore a repo back to a specific commit
+# This removes the commits but does not remove the work from those commits
+# the changes are still in y our working directory
+# this is good when you did work on the wrong branch so you want to keep the work but move it to another branch
+git log --oneline
+git reset <commit-hash>
+
+# Hard reset: loses all the commits up to that commit hash, the changes are removed from your working directory
+git reset --hard <commit-hash>
+git reset --hard HEAD~1
+```
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
