@@ -29,6 +29,7 @@ Some of the git commands below can be considered beginner but they involve using
 1. [git pull](#git-pull)
 1. [git fetch vs git pull](#git-fetch-vs-git-pull)
 1. [Miscellaneous git stuff](#miscellaneous-git-stuff)
+   1. [Git config files](#git-config-files)
    1. [Use the raw link](#use-the-raw-link)
    1. [Download a folder from GitHub](#download-a-folder-from-github)
    1. [githubuser](#githubuser)
@@ -728,6 +729,55 @@ It's then up to the source repo owner to merge the PR in or not.
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
 ## Miscellaneous git stuff
+
+### Git config files
+
+Git looks for the following config files:
+
+1. LOCAL config file: `.git/config` and applies only to that repo - OR
+2. GLOBAL config file: `~/.gitconfig` or `~/config/git/config` - OR
+3. SYSTEM config file: if you have multiple users on one machine, config settings applies to all of those users
+
+GLOBAL:
+
+- Any config variables you change in the file or from the command line will be applied across all git repos, e.g.: `git config --global user.name "Your name"`
+- The global config file is in a `~/.gitconfig` file and in the home directory by default – `C:\Users\pc\.gitconfig`
+- You can open it up to edit or print it out using `cat ~/.gitconfig`
+- Also try `git config --list` to see all the settings
+- Aliases are the most important thing to update in that file – but most commonly you will set `user.name`, `user.email`, `init.defaultBranch` and `code.editor`
+
+```sh
+# Example of the contents in ~/.gitconfig
+cat ~/.gitconfig
+[user]
+        email = somename@gmail.com
+        name = Some Name
+[core]
+        editor = code --wait
+[init]
+        defaultBranch = main
+[color]
+        ui = auto
+```
+
+LOCAL:
+
+- The LOCAL config file is inside the .git folder for each of your repos: `.git/config`
+- Every repo has that file - if you put something in that file it will only be for that one repo
+- This is also where you can add git aliases for a particular repo
+- You can have customization for one repo that won't affect other repos
+- Check out [Git Config docs](https://git-scm.com/docs/git-config)
+- `--global` for global settings and `--local` for local/repo settings
+
+```sh
+# Set user.name globally (what you should have already done)
+git config --global user.name "name"
+
+# Set user.name in local config file
+git config --local user.name "name"
+```
+
+> Developers often share their config files so look at what other people set
 
 ### Use the raw link
 
