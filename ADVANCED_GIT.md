@@ -20,7 +20,7 @@ This file used to be very short but I added sections from the intermediate file,
    1. [Remove git](#remove-git)
 1. ✅ [git restore](#git-restore)
 1. ✅ [git reset](#git-reset)
-1. [git revert](#git-revert)
+1. ✅ [git revert](#git-revert)
 1. [git rebase](#git-rebase)
 1. [restore vs reset vs revert vs rebase](#restore-vs-reset-vs-revert-vs-rebase)
 1. [git log](#git-log)
@@ -284,12 +284,15 @@ git reset --hard HEAD~1
 - `revert` is similar to `reset` in that they both "undo" changes, but they do it in different ways
 - `git reset hash` actually moves the branch pointer backwards, eliminating commits – as if the commits NEVER occurred
 - `git revert` instead creates a brand new commit which reverses/undos the changes from an earlier commit – because it results in a new commit, you have to enter a commit msg – instead of deleting everything, deleting history – that can be a problem if you are collaborating with other people
-- with reset, you lose the commits that came after the one you used in the command – they are gone!
-- with revert you get rid of the changes but you do not lose the commit for those changes – you have history!
+- With reset, you lose the commits that came after the one you used in the command – they are gone!
+- With revert you get rid of the changes but you do not lose the commit for those changes – you have history!
+- Sometimes reverting a commit can result in conflicts - manual merge conflict resolution
 
-> When to use `reset` and when to use `revert`?
+When to use `reset` and when to use `revert`?
 
-- it has to do with collaboration – if you want to reverse some commits that other people already have on their machines, you should use `revert` – if you want to reverse commits that you haven't shared with others, use `reset` and no one will ever know
+- It has to do with collaboration:
+  - If you want to reverse some commits that other people already have on their machines, you should use `revert`
+  - If you want to reverse commits that you haven't shared with others, use `reset` and no one will ever know
 
 ```sh
 git revert <commit-hash>
