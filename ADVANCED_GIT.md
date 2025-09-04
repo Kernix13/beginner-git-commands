@@ -41,11 +41,6 @@ This file used to be very short but I added sections from the intermediate file,
    1. [Replies to your pull request](#replies-to-your-pull-request)
    1. [Code comments](#code-comments)
 1. [Staying up to date](#staying-up-to-date)
-1. [Handling merge conflicts](#handling-merge-conflicts)
-   1. [More on merge conflicts](#more-on-merge-conflicts)
-   1. [Another section on merge conflicts](#another-section-on-merge-conflicts)
-   1. [The steps to resolve a merge conflict](#the-steps-to-resolve-a-merge-conflict)
-   1. [using vs code to resolve conflicts](#using-vs-code-to-resolve-conflicts)
 1. ✅ [Terminal commands](#terminal-commands)
 1. [GitHub Two Factor Authentication](#github-two-factor-authentication)
    1. [Two-factor authentication recovery codes](#two-factor-authentication-recovery-codes)
@@ -818,121 +813,6 @@ git pull upstream master
 So run `git merge upstream/master` every time before making your changes and doing a push if you chose to use `git fetch`. That will ensure you always have the latest state of `master` locally.
 
 The main thing to know is that the master branch will most likely be updated regularly as you are working on your branch. You will want to pull those changes down to your local master branch.
-
-<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
-
-## Handling merge conflicts
-
-> This section definitely needs to be edited and rewritten - I'm a little fuzzy on this process.
-
-Read more here: [Conflicts on a pull request](https://github.com/freeCodeCamp/freeCodeCamp/blob/main/docs/how-to-setup-freecodecamp-locally.md#making-changes-locally 'Making changes locally').
-
-A merge conflict is when 2 or more people change the same code/content but with different values. However, I don't think a beginner contributor would actually handle merge conflicts.
-
-But if you have a conflict, in VS Code you will see something like:
-
-```sh
-<<<<<<< HEAD (Current Change)
-<p>some change here</p>
-=======
-<p>different change here</p>
->>>>>>> Branch-Name (Incoming Change)
-```
-
-Where `HEAD` is pointing to the last commit for your current branch, usually main/master. What you would do is:
-
-1. Decide which change you want to keep,
-1. Delete EVERYTHING else -> the change you don't want and the equal (`=`), less than (`<`), and greater than (`>`) signs along with the text like `HEAD` and `Current Change`. Everything other than the actual change that you want.
-
-Although, that is the hard way to do it.
-
-<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
-
-### More on merge conflicts
-
-Git can NOT automatically merge the branches when there is a merge conflict – they have to manually be resolved
-
-- when you merge a branch into main or another branch where the same line was changed on both branches, you will get a warning in the terminal AND the file with the conflict will open with conflict marrkers and the line(s) in question -
-- `HEAD` starts with `<<<<` and ends/includes `=====`, below that is the file changes you are trying to merge into main – do you want just the main changes, just the branch changes or BOTH or some combination of both?
-- so make that choice and remove the conflict markers then save the file(s) – my file is red-orange with a green btn `Resolve in Merge Editor` - what is that?
-- add `git status` before step 4 – runniing that shows the terminal msg
-
-```bash
-You have unmerged paths.
-(fix conflicts and run "git commit")
-(use "git merge --abort" to abort the merge)
-```
-
-- so `git add` modified file > `git commit -m "merged test-branch"`
-
-<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
-
-### Another section on merge conflicts
-
-When a line in the same file was changed in the branch you are trying to merge _AND_ in master, then you will get a merge conflict with a message:
-
-> CONFLICT (content): Merge conflict in file.ext
-> Automatic merge failed; fix conflicts then commit the result.
-
-This is a multi-step process
-
-1. You have to open the files where there are conflicts
-2. "Fix" the conflicts
-3. Commit the change
-
-The files that are conflicting have new content - many `<`, `>`, and `=` symbols and `HEAD` and the other branch name
-
-It shows the content that came from the `HEAD` branch, the branch you are on, indicated by `<<<<<< HEAD`, followed by the content then `=======`.
-
-Then below the equal signs is the content from the branch followed by `>>>>> branch-name` (usually main/master).
-
-You have to figure out which to keep and which to delete, then get rid of all the extra symbols and keywords and save the file. Then you `add` and `commit` the changes.
-
-<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
-
-### The steps to resolve a merge conflict
-
-1. Open the file(s)
-2. Edit the file(s)
-3. Remove the conflict markers
-4. Run `git status` to see terminal messages
-5. Add your changes and then commit them
-
-> This is the line I will test changing! This sentence is from test-branch.
-
-This sentence will not be in conflict with the `main` branch.
-
-Terminal messages you see with a merge conflict:
-
-> You have unmerged paths.
-> (fix conflicts and run “git commit”)
-> (use “git merge --abort” to abort the merge)
-
-- I think it may not work with changes to untracked files,
-- And it has to be changes within the branch you ran the command
-
-<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
-
-### using vs code to resolve conflicts
-
-- use `git status` on each brach as a check
-- in VS Code there is a built in interface – you don't have to manually delete everything -
-- I did not get a conflict – terminal msg: `"Merge made by the 'ort' strategy."`
-
-> `ort` is much faster than recursive
-> `ort` has a better performance, and it's now the default merge strategy in newer Git versions
-
-above the HEAD line are 4 options you can click:
-
-1. `Accept Current Change` – that is for `main` or whichever branch you are merging into
-2. `Accept Incoming Change`
-3. `Accept Both Changes`
-4. `Compare Changes`
-
-Notes:
-
-- if you click Compare Changes, it looks like whatever was changed last is highlighted red, and the first file is highlighted green
-- but sometimes you need to add code and work with both files to resolve the conflict
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
