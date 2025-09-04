@@ -710,7 +710,53 @@ It's then up to the source repo owner to merge the PR in or not.
 
 ## git fetch
 
-> COMING SOON
+main vs origin/main: They are the same when you clone or use pull but as you do work, they diverge
+
+Working Directory (or Working Tree) VS. Local Repository (or .git directory):
+
+- Working Directory: actual directory on your local file system
+- Local Repository/.git diectory: serves as the core of Git's version control system for your project
+
+> The <ins>local repository</ins> is essentially the `.git` hidden folder inside the working directory (workspace). The <ins>working directory</ins> (workspace) is essentially your project folder - it's everything, including local repo
+
+push, pull, fetch:
+
+- `git push` takes commits from a local repo and pushed them to the remote repo
+- `git fetch` and `git pull` both go the other direction – they get changes from a remote repo
+- `git fetch` takes remote changes and brings them down to the local repo (.git) but NOT into your working directory
+- `git pull` on the other hand DOES bring the changes down into your working directory
+
+**git fetch**:
+
+- `git fetch` does not integrate the changes into your working files – you need a `git merge` for that!
+- It lets you see what others have been working on without having to merge those changes into your local repo
+- `git fetch <remote>` - the default is `origin` so you could just do `git fetch` but it;s common to use `git fetch upstream` for contributing
+- that command fetches branches and history from a specific remote repo – it only updates remote tracking branches
+- `git fetch <remote> <branch>` - to fetch a specific branch from the remote repo – e.g. `git fetch origin main`
+- If you have made changes on `main`, and there are changes on the remote `main` braanch, you can use `git fetch origin main`, or just `git fetch` to get everything, and `origin/main` will update
+  - Then you can look at the files and see what changed but your main branch will not have changed
+-
+
+```sh
+# Check for changes on the remote:
+git fetch
+
+git fetch <remote>
+git fetch origin
+
+git fetch <remote> <branch>
+git fetch origin main
+
+git fetch upstream
+git merge upstream/main
+
+# Use the following to create a new branch that is on the remote and is the changes fetched with git fetch:
+git checkout origin/branch-name
+# or this will do the same
+git switch branch-name
+```
+
+- You will often see a message in the terminal that you are behind `origin/main` and to use `git pull` to update
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
