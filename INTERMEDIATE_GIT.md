@@ -25,9 +25,9 @@ Some of the git commands below can be considered beginner but they involve using
 1. ✅ [Forking](#forking)
    1. [Fork and Clone Workflow](#fork-and-clone-workflow)
 1. [Pull Requests](#pull-requests)
-1. [git fetch](#git-fetch)
-1. [git pull](#git-pull)
-1. [git fetch vs git pull](#git-fetch-vs-git-pull)
+1. ✅ [git fetch](#git-fetch)
+1. ✅ [git pull](#git-pull)
+   1. [git fetch vs git pull](#git-fetch-vs-git-pull)
 1. ✅ [Miscellaneous git stuff](#miscellaneous-git-stuff)
    1. [Git config files](#git-config-files)
    1. [Use the raw link](#use-the-raw-link)
@@ -754,6 +754,12 @@ git merge upstream/main
 git checkout origin/branch-name
 # or this will do the same
 git switch branch-name
+
+# Other commands
+git fetch -f
+git fetch --force
+git fetch -p
+git fetch --prune
 ```
 
 - You will often see a message in the terminal that you are behind `origin/main` and to use `git pull` to update
@@ -762,13 +768,60 @@ git switch branch-name
 
 ## git pull
 
-> COMING SOON
+`pull` is similar to `fetch` to retrieve changes from a remote repo, but pull actually updates your HEAD branch with whatever changes are retrieved from the remote – it updates your working directory/code
+
+- git pull ~= git fetch + git merge
+- use `git branch -r` to list the remote-tracking branches in your repository
+  - It shows the branches your local Git knows about on the remote (like origin), but not your local branches
+  - These are the branch references that get updated when you run `git fetch` or `git pull`
+  - It helps you see what branches exist on the remote, even if you haven’t checked them out locally
+- `git branch -r` = "show me the remote branches I know about"
+
+```sh
+git branch -r
+origin/HEAD -> origin/main
+origin/main
+origin/feature-branch
+origin/fix-bug
+```
+
+> WHERE YOU RUN GIT PULL FROM MATTERS!
+
+- `git pull <remote> <branch>` - fetches the changes and merges them into the current branch but can result in merge conflicts
+- Whatever branch you are on, that is where the changes will be merged into – and like any other merge, that can result in merge conflicts
+
+```sh
+git pull
+git pull <remote> <branch>
+git pull origin main
+git pull origin features
+```
+
+Shorter syntax for git pull
+
+> `git pull` depends on the context of where you are
+
+- `git pull` is a shorter syntax where you don't have to specify the remote or the branch that you want to pull
+  - Normally you will be on a branch and git defaults to `origin` if it is not specified
+  - The branch will default to whatever tracking connection is configured for your current branch
+  - Those connections are made by git when you clone a repo
+- But you will need the longer syntax when you have multiple remotes, which you will, like `origin` and `upstream`
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
-## git fetch vs git pull
+### git fetch vs git pull
 
-> COMING SOON
+git fetch:
+
+- Updates the remote tracking branches with the new changes
+- Does not merge changes onto your current HEAD branch
+- Safe to do at any time
+
+git pull:
+
+- Updates the current branch with the new changes, merging them in
+- Can result in merge conflicts
+- Not recommended if you have uncommitted changes
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
