@@ -25,6 +25,9 @@ Some of the git commands below can be considered beginner but they involve using
 1. ✅ [Forking](#forking)
    1. [Fork and Clone Workflow](#fork-and-clone-workflow)
 1. [Pull Requests](#pull-requests)
+1. [git fetch](#git-fetch)
+1. [git pull](#git-pull)
+1. [git fetch vs git pull](#git-fetch-vs-git-pull)
 1. [Miscellaneous git stuff](#miscellaneous-git-stuff)
    1. [Use the raw link](#use-the-raw-link)
    1. [Download a folder from GitHub](#download-a-folder-from-github)
@@ -703,6 +706,24 @@ It's then up to the source repo owner to merge the PR in or not.
 ## Pull Requests
 
 > coming soon - check the section on PRs in `ADVANCED_GIT.md`
+
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
+
+## git fetch
+
+> COMING SOON
+
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
+
+## git pull
+
+> COMING SOON
+
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
+
+## git fetch vs git pull
+
+> COMING SOON
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
