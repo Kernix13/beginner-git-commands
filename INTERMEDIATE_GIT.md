@@ -28,7 +28,7 @@ Some of the git commands below can be considered beginner but they involve using
 1. [git fetch](#git-fetch)
 1. [git pull](#git-pull)
 1. [git fetch vs git pull](#git-fetch-vs-git-pull)
-1. [Miscellaneous git stuff](#miscellaneous-git-stuff)
+1. ✅ [Miscellaneous git stuff](#miscellaneous-git-stuff)
    1. [Git config files](#git-config-files)
    1. [Use the raw link](#use-the-raw-link)
    1. [Download a folder from GitHub](#download-a-folder-from-github)
@@ -39,8 +39,6 @@ Some of the git commands below can be considered beginner but they involve using
 1. ✅ [GitHub pages](#github-pages)
 
 ## Branches
-
-![alt text](image.png)
 
 In the beginning you will be working on your default branch which will most likely be `master`, or `main` if you changed the default name. You will definitely be working with branches when you start contributing to other people's repositories, but it would be a good idea to experiment with branches on your own projects.
 
