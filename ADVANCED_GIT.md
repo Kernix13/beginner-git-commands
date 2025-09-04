@@ -313,15 +313,31 @@ There are a lot to this commit to know, understand and think about. This is a hu
 
 ## restore vs reset vs revert vs rebase
 
-1. `restore`: to restore the contents of a **_file_** to a specific point or to unstage files
-   1. `git restore <file-name> `
-   1. `git restore --source HEAD~1 <file-name>`
-   1. `git restore --staged <file-name>`
-1. `reset`: reset a repo back to a specific **_commit_**
-   1. `git reset <commit-hash>`
-   1. `git reset --hard <commit-hash>`
-1. `revert`: similar to `reset`, **_undo changes_**, moves the branch pointer backwards, eliminating commits
-   1. `git revert <commit-hash>`
+- `restore` = fix your working directory or staging area.
+- `reset` = move your branch pointer (and maybe staging/working directory depending on flags).
+- `revert` = create a new commit that undoes another.
+- `rebase` = rewrite commit history by moving or combining commits onto a new base commit.
+
+1. `restore`: Used to restore the contents of a file (or multiple files) from a commit, or to unstage changes without touching commit history.
+   1. `git restore <file-name>` → throw away uncommitted changes in the working directory, restore file from HEAD.
+   1. `git restore --source <commit-hash> <file-name>` → restore the file’s content from a specific commit.
+   1. `git restore --staged <file-name>` → unstage the file (move it back to working directory, keep changes).
+1. `reset`: Moves the branch pointer to a specific commit
+   1. **`reset` rewrites history**.
+   1. Can eliminate commits from history (if using `--hard` or `--mixed`).
+   1. Can be destructive if those commits have been pushed and others depend on them.
+   1. Think: "rewind history to this point."
+   1. `git reset <commit-hash>` → default `--mixed`, moves branch pointer and keeps changes staged → unstaged.
+   1. `git reset --soft <commit-hash>` → moves branch pointer but keeps changes staged (as if you hadn’t committed yet).
+   1. `git reset --hard <commit-hash>` → moves branch pointer and wipes out changes (staged + working directory).
+1. `revert`: Creates a new commit that undoes the changes from a previous commit (or range of commits).
+   1. **`revert` preserves history**
+   1. Does not move the branch pointer backwards.
+   1. Safe for shared branches, because history is preserved.
+   1. Think: "apply an opposite patch.""
+   1. `git revert <commit-hash>` → creates a new commit that undoes the changes from that commit.
+   1. `git revert -n <commit-hash>` → “no commit,” stages the revert so you can review/edit before committing.
+   1. `git revert <old-commit>..<new-commit>` → revert a range of commits in one step.
 1. `rebase`: an alternative to `git merge` or a cleanup tool for merge commits
    1. `git rebase main` or `git rebase <branch-name`
    1. `git rebase --continue`
