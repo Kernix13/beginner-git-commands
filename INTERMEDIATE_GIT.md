@@ -25,6 +25,7 @@ Some of the git commands below can be considered beginner but they involve using
 1. ✅ [Forking](#forking)
    1. [Fork and Clone Workflow](#fork-and-clone-workflow)
 1. [Pull Requests](#pull-requests)
+   1. [Merging pull requests with conflicts](#merging-pull-requests-with-conflicts)
 1. ✅ [git fetch](#git-fetch)
 1. ✅ [git pull](#git-pull)
    1. [git fetch vs git pull](#git-fetch-vs-git-pull)
@@ -704,7 +705,80 @@ It's then up to the source repo owner to merge the PR in or not.
 
 ## Pull Requests
 
-> coming soon - check the section on PRs in `ADVANCED_GIT.md`
+- At some point, the new work on feature branches will need to be merged into the master branch – that is what Pull Requests are for:
+  - To view the code,
+  - Discuss the code,
+  - Then merge when approved
+- Pull Requests are a feature build into products like GitHub and GitLab
+- They allow developers to alert team-members to new work that needs to be reviewed
+- This provides a mechanism to approve or reject the work for a branch
+- They also facilitate discussion and feedback on the commits
+- Work on feature branches will need to be merged into the main/master branch but a code review will need to be done
+
+The process:
+
+1. Work locally on a feature branch
+2. Push the feture branch to github
+3. Open a PR as a result of #2: Click the green button Compare & pull request or the Pull request button below that
+   1. Include a title and description of your PR
+   2. Make changes if requested to do so
+4. Wait for the PR to be approved and merged or start a discussion on the PR
+
+- You can click the _Compare_ button to compare the branch you pushed with main/master.
+- Clicking _Create pull request_ simply "requests" merging the branch into main
+- Remember to `@mention` someone in the PR or Issues
+- Changes can be made to a pull request after it has been created
+- Not every pull request can be merged automatically on GitHub
+- Click the _Merge pull request_ button > then _Confirm merge_
+- You can then delete the branch on GitHub
+- When you click `Merge pull request`, `main` on GitHub will have code that you do not have locally
+  - Delete the branch on your local machine: `git branch -D branch-name`
+  - Then run `git pull origin main`
+
+```sh
+# Why -D instead of -d?
+git branch -D branch-name
+git pull origin main
+```
+
+### Merging pull requests with conflicts
+
+> SKIP FOR NOW
+
+```sh
+# Switch to main branch
+git switch main
+
+# Pull down changes into main
+git pull origin main
+
+# Make a new branch new-branch and have it track origin/new-branch & switch to it
+git checkout -b new-branch origin/new-branch
+# Or easier:
+git switch new-branch
+
+# Merge in the new branch
+git merge main
+# Resolve the conflict in VS Code
+git add .
+git commit -m "fix conflict"
+
+# Merge the changes and update on GitHub
+git switch main
+
+# Merge new-branch into main
+git merge --no-ff new-branch
+# You need to add a merge commit message, or accept the default message
+
+# Push to GitHub
+git push origin main
+
+# Delete the branch on GitHub and locally if no longer needed
+git branch -D new-branch
+
+# Pull down changes
+git pull origin main
+```
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
@@ -789,6 +863,7 @@ origin/fix-bug
 
 - `git pull <remote> <branch>` - fetches the changes and merges them into the current branch but can result in merge conflicts
 - Whatever branch you are on, that is where the changes will be merged into – and like any other merge, that can result in merge conflicts
+- Always pull down before you merge a branch locally: `git pull origin main`
 
 ```sh
 git pull
