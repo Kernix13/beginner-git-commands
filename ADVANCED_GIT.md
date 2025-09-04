@@ -22,6 +22,10 @@ This file used to be very short but I added sections from the intermediate file,
 1. ✅ [git reset](#git-reset)
 1. ✅ [git revert](#git-revert)
 1. [git rebase](#git-rebase)
+   1. [Comparing merging and rebasing](#comparing-merging-and-rebasing)
+   1. [When not to rebase](#when-not-to-rebase)
+   1. [Handling conflicts and rebasing](#handling-conflicts-and-rebasing)
+   1. [Interactive rebase](#interactive-rebase)
 1. [restore vs reset vs revert vs rebase](#restore-vs-reset-vs-revert-vs-rebase)
 1. [git log](#git-log)
    1. [what is HEAD](#what-is-head)
@@ -311,6 +315,135 @@ There are a lot to this commit to know, understand and think about. This is a hu
 1. `git rebase --continue`
 1. `git rebase -i HEAD~4 `
 
+### Comparing merging and rebasing
+
+The problem with merging, something that rebasing addresses that merging does not:
+
+- You don't want to diverge from main for a long time without getting new changes but you are still working on your feature-branch
+- You have to merge your branch with main resulting in a merge commit not a fast forward merge
+- You may have to do that multiple times(very active main branch) - that's a bunch of merge commits from main and that muddies your feature-branch's history
+- You can instead `rebase` the feature branch onto the main branch - this moves the entire feature branch so that it BEGINS at the tip of the main branch
+- Instead of using a merge commit, rebasing rewrites history by creating new commits for each of the original feature branch commits
+  - Remember: merge commits have 2 parents!
+- Rebasing is another way of combining branches – rebasing rewrites history – you are creating new commits – git creates new commits based upon the original feature branch commits
+- You rebase the feature branch onto the master branch
+- "re-base" -> a new base for the feature branch
+- Feature branch commits are added to the tip of the master branch
+- Your feature branch has a new BASE at the tip of the master branch
+
+```sh
+# Switch to your feature branch
+git switch feature
+# rebase the feature branch onto the main branch
+git rebase main
+```
+
+- `rebase` moves the entire feature branch so that it begins at the tip of the master branch
+- Rebasing rewrites history by creating new commits for each of the feture branch commits
+- So you still have your feature branch but it looks like its commits are on main – now the merge commits are gone and you have new commit hashes – new history!
+
+**NOTE**: you rebase _ONTO_ master/main
+
+Benefits:
+
+1. It makes it easier for someone to review your feature branch commits
+2. You get a cleaner & linear project history
+3. No unnecessary merge commits
+
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
+
+### When not to rebase
+
+- **The Golden Rule**: Because rebase rewrites commits, you should NEVER rebase commits that have been shared with others
+  - If you already pushed commits to GitHub then **_DO NOT_** rebase them unless you are positive no one on the team is using those commits
+  - If you do, it is really hard to reconcile the alternate histories
+- You want to rebase commits that you have on your machine and other people don't – you don’t want to rebase the master branch – you can rebase your work onto the master branch – that is not changing the master branch
+- The branch that you are on when you call `rebase` is the branch that is rebased
+- Don't rewrite history that other people have!!!
+
+> _You are not changing the branch you are rebasing onto The branch that you are on when you call rebase, is the branch that is rebased - you rebase ONTO master_
+
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
+
+### Handling conflicts and rebasing
+
+One way to fix a rebase conflict is to run `git rebase --abort` – or resolve the conflict like a normal merge conflict – do in vs code. I do not understand `rebase` that well, even less so for this section. Here are the commands I have:
+
+```sh
+# To reset back to before rebase:
+git rebase --abort
+
+# Run the following after fixing conflict:
+git add/rm <conflicted_files>
+
+# Then run:
+git rebase --continue
+
+# To skip this commit/patch:
+git rebase --skip
+
+# Run this to see the failed patch:
+git am --show-current-path
+```
+
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
+
+### Interactive rebase
+
+Use interactive rebase to clean up your git history, to edit commits, to change commit messages, change the contents of a commit, drop or delete an entire commit, ...:
+
+- Common to do before you share your finished feature branch
+  - If you have some half complete commits - you can streamline them down before you share the code with anyone
+- To do this you do not specify a branch to rebase onto, instead you use the `-i` flag which enters the interactive mode which allows you to edit comments, files, drop commits, etc
+- You need to specify how far back you want to rewrite commits – you are not rebasing onto another branch, you are rebasing a series of commits onto the HEAD they currently are based on:
+
+```sh
+git rebase -i HEAD~4
+```
+
+When you enter that cmd you will get a list of your commits preceded with a cmd:
+
+- `pick`: use the commit (the default) – `p` – keep this commit as is
+- `reword`: use the commit, but edit the commit msg – `pr`
+- `edit`: use commit but stop for amending – `e`
+- `squash`: use commit contents but meld it into previous commit – `s`
+- `fixup`: like "squash", use commit contents but meld it into previous commit & discard the commit msg – `f`
+- `drop`: remove commit – `d`
+- Other less ommon types: exec, break, label, reset, merge
+- NOTE: you can use the word or the letter, so `fixup` or just `f`
+- Notice that the commits order is reversed - the first one is the last one
+
+```sh
+git log --oneline
+git rebase -i HEAD~#
+
+# Example output
+pick 0e19c7a initial commit
+pick cbee26b addproject files
+pick 519aab6 add basic HTML boilerplate
+pick 240827f add bootstrap
+fixup 6e39a76 forgot to add bootstrap js script
+pick 4ff2290 add top navbar
+fixup 2a45e71 fix navbar typos
+fixup 655204d fix another navbar typo
+pick 63ff2f1 create README.md
+
+# 1. The fixup for "forgot to add bootstrap js" will add that commit to the commit before it "add bootstrap" and remove the commit message for 6e39a76
+# Result (I think t he commit hashes after the fixup are changed?!?)
+pick 0e19c7a initial commit
+pick cbee26b addproject files
+pick 519aab6 add basic HTML boilerplate
+pick 240827f add bootstrap
+pick 4ff2290 add top navbar
+fixup 2a45e71 fix navbar typos
+fixup 655204d fix another navbar typo
+pick 63ff2f1 create README.md
+
+# 2. The 2 fixups for "fix another navbar typo" and "fix navbar typos" will have their commit messages removed and the commit content added to "4ff2290 add top navbar"
+```
+
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
+
 ## restore vs reset vs revert vs rebase
 
 - `restore` = fix your working directory or staging area.
@@ -338,9 +471,9 @@ There are a lot to this commit to know, understand and think about. This is a hu
    1. `git revert <commit-hash>` → creates a new commit that undoes the changes from that commit.
    1. `git revert -n <commit-hash>` → “no commit,” stages the revert so you can review/edit before committing.
    1. `git revert <old-commit>..<new-commit>` → revert a range of commits in one step.
-1. `rebase`: an alternative to `git merge` or a cleanup tool for merge commits
-   1. `git rebase main` or `git rebase <branch-name`
-   1. `git rebase --continue`
+1. `rebase`: An alternative to `git merge` or a cleanup tool for merge commits. Reapplies commits from your branch on top of another branch, creating a linear history instead of a merge commit. Can also be used interactively to clean up commit history.
+   1. `git rebase main` (or `git rebase <branch-name>`) → replay commits from current branch onto the tip of `main`.
+   1. `git rebase -i HEAD~4` → interactively edit, fixup, squash, reword, or drop the last 4 commits.
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
