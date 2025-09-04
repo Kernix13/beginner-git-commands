@@ -10,6 +10,7 @@ Some of the git commands below can be considered beginner but they involve using
 
 1. ✅ [Branches](#branches)
    1. [Branches and HEAD](#branches-and-head)
+   1. [Checking out old commits](#checking-out-old-commits)
 1. ✅ [Merge branches locally](#merge-branches-locally)
    1. [Generating merge commits locally](#generating-merge-commits-locally)
    1. [Merge conflicts](#merge-conflicts)
@@ -102,6 +103,45 @@ git branch -D branch-name
 git log
 # Abbreviated version
 git log --oneline
+```
+
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
+
+### Checking out old commits
+
+```sh
+# to view a previous commit
+git checkout abc1234
+# switch to a branch to reattach HEAD
+git switch main
+```
+
+- `git checkout abc1234`: to view a previous commit – you can use `git log` or `git log --oneline` to view commit hashes – you need the first 7 digits of a commit hash
+
+**detached HEAD**:
+
+Any checkout of a commit that is not the name of one of your branches will result in **_detached HEAD_**. When we run git checkout origin/blah, we are no longer on a local branch. HEAD is pointing to a floating commit that is not rooted to any local branch
+
+- If you do git log, you won't see any commits after the one you checked out with
+- If you do git status you see HEAD detached at 0db14ae
+- Normally, HEAD points to a particular branch reference – amd the branch reference points to the tip of the branch, the most recent commit – HEAD is always pointing to a branch – the branch you are currently on – HEAD refers to a branch reference NOT to a commit - the branch reference points to a commit
+- But when you run `git checkout commithash` you have HEAD refer to a commit NOT to a branch reference – it’s not a normal "state" – you are technically now NOT on a branch
+
+You have 3 options at this point:
+
+1. You can examine the contents of the old commit – leave and go back to wherever you were before – or create a new branch and switch to it; and make and save changes
+2. Leave and go back to main - reattach HEAD
+3. Create a new branch and switch to it and do work from that point - you can pick a previous commit then branch off at that point to try something else - you will not have any of the changes from commits that happened after that commit
+
+- To go back to main/master you just have to switch/checkout to main/master
+
+```sh
+# Go to the commit before current HEAD
+# Puts you back into detached HEAD
+# Same as git checkout abc1234
+git checkout HEAD~1
+# go back 2
+git checkout HEAD~2
 ```
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
