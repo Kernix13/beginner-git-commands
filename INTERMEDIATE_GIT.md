@@ -272,6 +272,9 @@ If you click _Compare Changes_, whatever was changed last is highlighted red, an
 
 ## Pushing branches to your repository
 
+- All new development work should be done on separate branches
+- Remember to run git pull to get any changes to main or new branches before you merge or push
+
 Use these commands when pushing the committed changes for your new branch:
 
 ```sh
