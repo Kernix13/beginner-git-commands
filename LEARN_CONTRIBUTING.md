@@ -6,7 +6,7 @@ Learn the steps you will need to contribute to an open-source project.
 
 ## Detailed Steps
 
-> ### REMEMBER, REMEMBER, REMEMBER TO CREATE YOUR BRANCH _BEFORE_ DOING ANY WORK!!!
+> ### REMEMBER, REMEMBER, REMEMBER TO CREATE YOUR BRANCH <ins><em>BEFORE</em></ins> DOING ANY WORK!!!
 
 1. Create a branch on local machine for the issue
 2. Create an issue with label(s) on GitHub
