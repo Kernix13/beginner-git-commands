@@ -144,8 +144,6 @@ Create an Issue
 4. Assign someone to the issue (optional)
 5. Submit
 
-..........................................................................
-
 ## 2. Branch name
 
 **Branch name**:
@@ -155,8 +153,6 @@ Create an Issue
   - chore/update-deps
   - refactor/pricing-card-css
   - feat/contact-form
-
-..........................................................................
 
 ## 3. Commits
 
@@ -199,8 +195,6 @@ fix(navbar): resolve mobile overlap
 - Commits: `prefix: desc` or `prefix(scope): desc`
 - Prefixes are most useful if they align with your issue labels!
   - See Conventional Commits
-
-..........................................................................
 
 ## 4. Pull Requests
 
@@ -261,8 +255,6 @@ warning: deleting branch 'docs/learn-contributing' that has been merged to
 Deleted branch docs/learn-contributing (was b737c7e).
 ```
 
-..........................................................................
-
 ## Git Commnads
 
 ```sh
@@ -306,8 +298,6 @@ git push origin -d branch-to-delete
 git fetch --prune
 ```
 
-...........................................................................
-
 ## Clone vs fork and contributing
 
 ### Cloning
@@ -345,8 +335,6 @@ When to Use Each
 - Clone - Your class/teammate adds you as a collaborator - You now have write access
 - Fork - You want to contribute to a repo - You can’t push directly, so you fork and PR
 - Fork - You’re contributing to a public open-source project - You won’t have push access
-
-..................................................................
 
 ## Issue Labels and Commit/PR Prefixes
 
