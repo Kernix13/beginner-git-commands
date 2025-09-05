@@ -76,19 +76,60 @@ Basic Steps:
 6. Pull changes
 7. Delete the branch
 
-## 1. Issues
+## 1. Branch name
+
+Try an pick a branch name that is descriptive of the task.
+
+### Strict Rules
+
+- Cannot start with a hyphen (`-`)
+- Cannot end with a dot (`.`)
+- Cannot contain multiple consecutive forward slashes (`//`)
+- Cannot contain the sequence `@{.`
+- Cannot be the single character `@`
+- Cannot contain control characters (like newline, tab - `\n`, `\t`, `\r`)
+- Cannot contain special characters that have meaning in the shell, unless escaped or quoted (e.g., `$` for variables).
+- Cannot contain characters like `~`, `^`, `:`, `?`, `*`, `[`, `\`, or spaces without proper escaping/quoting, as these can conflict with shell or Git's internal parsing.
+
+### Best Practices for brnach names:
+
+- **Lowercase and Hyphen-separated**: Use lowercase letters and separate words with hyphens
+- **Descriptive and Concise**: The name should clearly indicate the purpose of the branch
+- **Prefixing for Categories**: Use prefixes to categorize the branch's purpose (e.g., `feature/`, `bugfix/`, `hotfix/`, `release/`). This helps in organizing and identifying branches
+- **Include Issue/Ticket ID** (Optional but Recommended): If working with an issue tracker, include the issue ID for easy reference (e.g., feature/JIRA-123-new-dashboard)
+- **Avoid Long Names**: Keep branch names reasonably short for better readability and ease of use in commands
+- **Consistency**:
+  Maintain a consistent naming convention across the project or team
+
+Example of a good branch name:
+
+```sh
+feature/user-profile-enhancements
+bugfix/login-authentication-error
+hotfix/critical-production-issue
+```
+
+**Branch name**:
+
+- type/task
+  - fix/navbar-active-item
+  - chore/update-deps
+  - refactor/pricing-card-css
+  - feat/add-contact-form
+
+## 2. Issues
 
 - Issue title
 - Issue description
 - Issue label
 
-**Issue title**:
+### A. Issue title:
 
 Best practice for solo or small repos: Let labels do the categorization, and keep issue titles clean and descriptive.
 
 . . . . . . . . . . . . . . . . . . .
 
-**Issue description**:
+### B. Issue description:
 
 - What the current state is (anonymous function)
 - What needs to change (refactor to named function)
@@ -108,7 +149,7 @@ OPTIONAL:
 
 . . . . . . . . . . . . . . . . . . .
 
-**Issue label**:
+### C. Issue label:
 
 ```
 bug: Something isn't working
@@ -146,16 +187,6 @@ Create an Issue
 4. Assign someone to the issue (optional)
 5. Submit
 
-## 2. Branch name
-
-**Branch name**:
-
-- type/task
-  - fix/navbar-spacing
-  - chore/update-deps
-  - refactor/pricing-card-css
-  - feat/contact-form
-
 ## 3. Commits
 
 A good commit message should:
@@ -190,7 +221,7 @@ refactor(keyboard): extract tab key handler
 fix(navbar): resolve mobile overlap
 ```
 
-- Consider: api, build, ci, chore, config, docs, env, feat, fix, perf, refactor, sec (Security), style, test, deps, design, revert, merge
+- Consider these prefixes: api, build, ci, chore, config, docs, env, feat, fix, perf, refactor, sec (Security), style, test, deps, design, revert, merge
 
 > Use the `type: description` format
 
@@ -200,14 +231,14 @@ fix(navbar): resolve mobile overlap
 
 ## 4. Pull Requests
 
-**Pull Request Titles**:
+### A. Pull Request Titles:
 
 - By default, GitHub sets the PR title to the commit message of the first commit in the branch. So yes — it "defaults" to a commit message, but you should edit the PR title to be more human-readable.
-- A PR is the package of changes you’re proposing, so its title should summarize the whole branch, not just the first commit.
+- _A PR is the package of changes you’re proposing, so its title should summarize the whole branch, not just the first commit_.
 
 . . . . . . . . . . . . . . . . . . . . . .
 
-**Pull Request Description**:
+### B. Pull Request Description:
 
 Write a helpful PR description
 
@@ -244,11 +275,16 @@ Example:
 After Merge: Clean Up
 
 ```sh
+# Switch to main branch
 git switch main
+
+# Pull down changes from the merge on GitHub
 git pull
-# Then delete your branch
+
+# Then delete your local and remote branches
 git branch -d fix/tab-key-shortcut
 git push origin -d fix/tab-key-shortcut
+
 # Optional cleanup
 git fetch --prune
 
@@ -259,25 +295,27 @@ Deleted branch docs/learn-contributing (was b737c7e).
 
 ## Git Commnads
 
+Here are the commands needed from start to finish
+
 ```sh
-# Create new_branch and switch to it (I don't use checkout):
+# REmember to run git status as often as you need
+# Create new_branch and switch to it (I don't use checkout -b):
 git switch -c new_branch
 
-# Add and commit:
+# Make changes then add and commit:
 git add .
 git commit -m "your message"
 
-# push changes to GitHub:
+# Push changes to GitHub:
 git push --set-upstream origin new_branch
 # or shorthand:
 git push -u origin new_branch
 
-# future pushes:
+# Future pushes:
 git push
 
 # switch back to main
 git switch main
-git status
 
 # Ensures your local main branch reflects any changes from the merged PR
 git pull
@@ -290,10 +328,9 @@ git branch -d branch-to-delete
 
 # check branches
 git branch
-# delete a remote branch
 
+# delete a remote branch
 git push origin -d branch-to-delete
-# Pull the latest from main (make sure you are on main):
 
 # Optional but Recommended
 # Removes stale tracking references like origin/new_branch that no longer exist remotely
