@@ -9,12 +9,14 @@ Learn the steps you will need to contribute to an open-source project.
 > ### REMEMBER, REMEMBER, REMEMBER TO CREATE YOUR BRANCH <ins><em>BEFORE</em></ins> DOING ANY WORK!!!
 
 1. Create a branch on local machine for the issue
+   1. Switch to main - don't create a branch on the tip on another branch!
 2. Create an issue with label(s) on GitHub
    1. Issue title
    2. Issue description
    3. Issue label
    4. Issue assignee
 3. Make changes, commit and push the changed file(s)
+   1. Add proper commit message systax. If our fix requires multiple commits, make the first commit perfect.
 4. Merging the resulting pull request
    1. Click the "Compare and pull request" button
    2. Rewrite PR title (original commit mesage) to more clearly descibe your work
