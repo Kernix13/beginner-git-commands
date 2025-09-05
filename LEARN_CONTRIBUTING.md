@@ -6,18 +6,20 @@ Learn the steps you will need to contribute to an open-source project.
 
 ## Detailed Steps
 
-1. Create an issue with label(s) on GitHub
+> ### REMEMBER, REMEMBER, REMEMBER TO CREATE YOUR BRANCH _BEFORE_ DOING ANY WORK!!!
+
+1. Create a branch on local machine for the issue
+2. Create an issue with label(s) on GitHub
    1. Issue title
    2. Issue description
    3. Issue label
    4. Issue assignee
-2. Create a branch on local machine for the issue
 3. Make changes, commit and push the changed file(s)
 4. Merging the resulting pull request
    1. Click the "Compare and pull request" button
-   2. Rewrite PR title (original commit mesage) if necessary
-   3. Add a description of the actions you took.
-   4. Add "Fixes #number" in the title to close the issue (or to the description? Which is best: title or description?) You can also add it in the final merge description field
+   2. Rewrite PR title (original commit mesage) to more clearly descibe your work
+   3. Add a description of the actions you took to fix the issue
+   4. Add "Fixes #number" in the title to close the issue (or in the description field? Which is best: title or description?) You can also add it in the final merge description field
    5. Click the "Create pull request" button below textarea field
    6. Click the "Merge pull request" button. Other options are "Squash and merge" or "Rebase and merge"
    7. Click the "Confirm merge" button: "_Pull request successfully merged and closed_"
@@ -27,7 +29,7 @@ Learn the steps you will need to contribute to an open-source project.
 
 ## Overview
 
-Looking at freeCodeCamp and React repos:
+Looking at freeCodeCamp and React repos for their use of prefixes in issue and PR titles, and commit messages:
 
 Issues
 
@@ -44,7 +46,7 @@ PRs
 - freeCodeCamp: `prefix:` or `prefix(scope):`
 - React: `[prefix]` sometimes
 
-Mine:
+Mine: (Copy freeCodeCamp's approach)
 
 1. Issue titles: just title + 1-3 labels
 2. Branch name: type/task - refactor/button-css, bug/hamburger-menu
@@ -66,8 +68,8 @@ Prefix example:
 
 Basic Steps:
 
-1. Create an issue
-2. Create a branch
+1. Create a branch
+2. Create an issue
 3. Do the work
 4. Add, commit, push changes -> Pull Request
 5. Merge PR
