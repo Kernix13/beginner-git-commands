@@ -255,6 +255,10 @@ git branch -d fix/tab-key-shortcut
 git push origin -d fix/tab-key-shortcut
 # Optional cleanup
 git fetch --prune
+
+warning: deleting branch 'docs/learn-contributing' that has been merged to
+'refs/remotes/origin/docs/learn-contributing', but not yet merged to HEAD.
+Deleted branch docs/learn-contributing (was b737c7e).
 ```
 
 ..........................................................................
@@ -264,10 +268,11 @@ git fetch --prune
 ```sh
 # Create new_branch and switch to it (I don't use checkout):
 git switch -c new_branch
-# Add to staging:
+
+# Add and commit:
 git add .
-# commit changes:
 git commit -m "your message"
+
 # push changes to GitHub:
 git push --set-upstream origin new_branch
 # or shorthand:
@@ -275,19 +280,24 @@ git push -u origin new_branch
 
 # future pushes:
 git push
+
 # switch back to main
 git switch main
 git status
+
 # Ensures your local main branch reflects any changes from the merged PR
 git pull
 
 # check branches
 git branch
+
 # delete a local branch that has been fully merged
 git branch -d branch-to-delete
+
 # check branches
 git branch
 # delete a remote branch
+
 git push origin -d branch-to-delete
 # Pull the latest from main (make sure you are on main):
 
