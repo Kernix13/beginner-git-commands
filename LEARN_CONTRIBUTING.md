@@ -19,7 +19,7 @@ Learn the steps you will need to contribute to an open-source project.
    1. Add proper commit message systax. If our fix requires multiple commits, make the first commit perfect.
 4. Merging the resulting pull request
    1. Click the "Compare and pull request" button
-   2. Rewrite PR title (original commit mesage) to more clearly descibe your work
+   2. Rewrite PR title (edit original commit mesage) to more clearly descibe your work
    3. Add a description of the actions you took to fix the issue
    4. Add "Fixes #number" in the title to close the issue (or in the description field? Which is best: title or description?) You can also add it in the final merge description field
    5. Click the "Create pull request" button below textarea field
