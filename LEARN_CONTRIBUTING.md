@@ -21,7 +21,7 @@ Learn the steps you will need to contribute to an open-source project.
    1. Click the "Compare and pull request" button
    2. Rewrite PR title (edit original commit mesage) to more clearly descibe your work
    3. Add a description of the actions you took to fix the issue
-   4. Add "Fixes #number" in the title to close the issue (or in the description field? Which is best: title or description?) You can also add it in the final merge description field
+   4. Add "closes #123" in the PR description field
    5. Click the "Create pull request" button below textarea field
    6. Click the "Merge pull request" button. Other options are "Squash and merge" or "Rebase and merge"
    7. Click the "Confirm merge" button: "_Pull request successfully merged and closed_"
@@ -390,3 +390,37 @@ When to Use Each
 | blocked       | (no prefix)      | N/A                                  |
 | todo          | (no prefix)      | N/A                                  |
 | high priority | (no prefix)      | N/A                                  |
+
+## Important notes on commits and PRs
+
+The green "Compare & pull request" button is GitHub saying: "Hey, you pushed a new branch. Do you want to open a PR right away?"
+
+But you don’t have to. Two options: you can open the PR right away, or wait until you’re done
+
+1. Option 1: Open PR immediately
+
+- You click the button right after your first push.
+- A PR is created, even if the work isn’t finished yet.
+- You keep pushing commits → they show up automatically in that PR.
+- This is handy if you want early feedback or to track progress.
+
+2. Option 2: Wait until you’re ready
+
+- Ignore the button at first.
+- Keep committing and pushing to your branch until the issue is solved.
+- Only when you’re satisfied, open the PR.
+- Cleaner if you’re working solo and don’t need anyone watching your progress.
+
+So the process for option 1 is:
+
+- Click the "Compare and pull request" button
+  - You do not need to finish all your work before creating the PR
+  - Once the PR is open, you can continue committing and pushing to the same branch
+  - Every push updates the open PR automatically
+- Rewrite PR title (original commit mesage) to more clearly descibe your work
+- Add a description of the actions you took to fix the issue
+- Add "`closes #123`" in the PR description field
+  - NOTE: You can always edit the PR description before merging at which point you can add "`closes #123`"
+- Click the "Create pull request" button below textarea field
+- Click the "Merge pull request" button when done your work. Other options are "Squash and merge" or "Rebase and merge"
+- Click the "Confirm merge" button, you will see this message: "Pull request successfully merged and closed"
