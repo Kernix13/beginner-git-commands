@@ -315,6 +315,8 @@ There are a lot to this commit to know, understand and think about. This is a hu
 1. `git rebase --continue`
 1. `git rebase -i HEAD~4 `
 
+Look into `git cherry-pick` for when someone accidentally creates a branch(es) on a branch instead of main, and rebase is not an option.
+
 ### Comparing merging and rebasing
 
 The problem with merging, something that rebasing addresses that merging does not:
