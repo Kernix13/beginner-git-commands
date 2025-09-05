@@ -1,25 +1,25 @@
 # Learn the basic of the contributing process
 
-> **Issue to Pull Request process**
+> **Issue to Pull Request process**: Learn the steps you will need to contribute to an open-source project.
 
-Learn the steps you will need to contribute to an open-source project.
+There is a lot you need to be good at before contributing like creating branches, pushing branches, and deleting branches. You also need how to write good commit messages, Pull Request Titles and Descriptions, creating issues and labels, plus all t he correct git commands.
+
+This document is meant to do all of the steps on your repos first, so that when you start contributing, you will understand the entire process.
 
 ## Detailed Steps
 
 > ### REMEMBER, REMEMBER, REMEMBER TO CREATE YOUR BRANCH <ins><em>BEFORE</em></ins> DOING ANY WORK!!!
 
 1. Create a branch on local machine for the issue
-   1. Switch to main - don't create a branch on the tip on another branch!
-2. Create an issue with label(s) on GitHub
+2. Create an issue with a label(s) on GitHub
    1. Issue title
    2. Issue description
    3. Issue label
-   4. Issue assignee
+   4. Issue assignee (optional)
 3. Make changes, commit and push the changed file(s)
-   1. Add proper commit message systax. If our fix requires multiple commits, make the first commit perfect.
 4. Merging the resulting pull request
    1. Click the "Compare and pull request" button
-   2. Rewrite PR title (edit original commit mesage) to more clearly descibe your work
+   2. Rewrite PR title (edit original commit message) to more clearly descibe your work
    3. Add a description of the actions you took to fix the issue
    4. Add "closes #123" in the PR description field
    5. Click the "Create pull request" button below textarea field
@@ -33,25 +33,25 @@ Learn the steps you will need to contribute to an open-source project.
 
 Looking at freeCodeCamp and React repos for their use of prefixes in issue and PR titles, and commit messages:
 
-Issues
+Issue titles:
 
 - freeCodeCamp: just title + 2-3 labels
-- React: `prefix:` or `[prefix]:` or nothing + 1 to 3 labels (mostly 1)
+- React: `prefix:` or `[prefix]:` or just title + 1 to 3 labels (mostly 1)
 
-Commits
+Commit messages:
 
 - freeCodeCamp: `prefix:` or `prefix(scope):`
 - React: `[prefix]` sometimes
 
-PRs
+Pull Request titles:
 
 - freeCodeCamp: `prefix:` or `prefix(scope):`
 - React: `[prefix]` sometimes
 
 Mine: (Copy freeCodeCamp's approach)
 
-1. Issue titles: just title + 1-3 labels
-2. Branch name: type/task - refactor/button-css, bug/hamburger-menu
+1. Branch name: type/task (e.g., refactor/button-css, bug/hamburger-menu)
+2. Issue titles: just title + 1-3 labels
 3. Commit titles: `prefix: desc` or `prefix(scope): desc`
 4. Pull Request titles: `prefix: desc` or `prefix(scope): desc`
 
@@ -76,48 +76,42 @@ Basic Steps:
 4. Add, commit, push changes -> Pull Request
 5. Merge PR
 6. Pull changes
-7. Delete the branch
+7. Delete local and remote branches
 
 ## 1. Branch name
 
-Try an pick a branch name that is descriptive of the task.
+Choose a branch name that is descriptive of the task. Also, remember to switch to main - don't create a branch on the tip on another branch!
 
 ### Strict Rules
 
 - Cannot start with a hyphen (`-`)
 - Cannot end with a dot (`.`)
-- Cannot contain multiple consecutive forward slashes (`//`)
-- Cannot contain the sequence `@{.`
 - Cannot be the single character `@`
-- Cannot contain control characters (like newline, tab - `\n`, `\t`, `\r`)
-- Cannot contain special characters that have meaning in the shell, unless escaped or quoted (e.g., `$` for variables).
-- Cannot contain characters like `~`, `^`, `:`, `?`, `*`, `[`, `\`, or spaces without proper escaping/quoting, as these can conflict with shell or Git's internal parsing.
+- Cannot contain:
+  - multiple consecutive forward slashes (`//`)
+  - the sequence `@{.`
+  - control characters (like newline, tab - `\n`, `\t`, `\r`)
+  - special characters that have meaning in the shell, unless escaped or quoted (e.g., `$` for variables)
+  - characters like `~`, `^`, `:`, `?`, `*`, `[`, `\`, or spaces without proper escaping/quoting, as these can conflict with shell or Git's internal parsing.
 
-### Best Practices for brnach names:
+### Best Practices for branch names:
 
 - **Lowercase and Hyphen-separated**: Use lowercase letters and separate words with hyphens
 - **Descriptive and Concise**: The name should clearly indicate the purpose of the branch
 - **Prefixing for Categories**: Use prefixes to categorize the branch's purpose (e.g., `feature/`, `bugfix/`, `hotfix/`, `release/`). This helps in organizing and identifying branches
-- **Include Issue/Ticket ID** (Optional but Recommended): If working with an issue tracker, include the issue ID for easy reference (e.g., feature/JIRA-123-new-dashboard)
 - **Avoid Long Names**: Keep branch names reasonably short for better readability and ease of use in commands
-- **Consistency**:
-  Maintain a consistent naming convention across the project or team
+- **Consistency**: Maintain a consistent naming convention across the project or team
+- **Include Issue/Ticket ID** (Optional but Recommended): If working with an issue tracker, include the issue ID for easy reference (e.g., feature/JIRA-123-new-dashboard)
 
-Example of a good branch name:
+**Examples of a good branch name**: type/task
 
-```sh
-feature/user-profile-enhancements
-bugfix/login-authentication-error
-hotfix/critical-production-issue
-```
-
-**Branch name**:
-
-- type/task
-  - fix/navbar-active-item
-  - chore/update-deps
-  - refactor/pricing-card-css
-  - feat/add-contact-form
+- feature/user-profile-enhancements
+- bugfix/login-authentication-error
+- hotfix/critical-production-issue
+- fix/navbar-active-item
+- chore/update-deps
+- refactor/pricing-card-css
+- feat/add-contact-form
 
 ## 2. Issues
 
@@ -133,13 +127,12 @@ Best practice for solo or small repos: Let labels do the categorization, and kee
 
 ### B. Issue description:
 
-- What the current state is (anonymous function)
-- What needs to change (refactor to named function)
-- Where it should go (/utils folder)
-
-1. Current state – What’s happening now?
-2. Desired change – What should be different?
-3. Location/context – Where in the codebase or app does this apply?
+- Current state – What's happening now?
+  - What the current state is (_anonymous function_)
+- Desired change – What should be different?
+  - What needs to change (_refactor to named function_)
+- Location/context – Where in the codebase or app does this apply?
+  - Where it should go (_/utils folder_)
 
 OPTIONAL:
 
@@ -153,29 +146,31 @@ OPTIONAL:
 
 ### C. Issue label:
 
-```
-bug: Something isn't working
-documentation: Improvements or additions to documentation
-enhancement: New feature or request
-feature: a new addition, big or small (or enhancement?)
+Here are some common issue labels:
 
-refactor: architectural/code restructuring
-chore: minor maintenance, like updating deps, renaming, cleaning files
+- docs or documentation: Improvements or additions to documentation
+- enhancement: New feature or request (or feature)
+- bug: Something isn't working
+- refactor: architectural/code restructuring
+- chore: minor maintenance, like updating deps, renaming, cleaning files
+- in progress: currently being worked on
+- todo: queued for work
+- good first issue: Good for newcomers
+- help wanted: Extra attention is needed
+- question: Further information is requested
+- high priority
+- low priority
+- duplicate: This issue or pull request already exists
+- invalid: This doesn't seem right
+- wontfix: This will not be worked on
 
-in progress: currently being worked on
-todo: queued for work
+To create a label:
 
-good first issue: Good for newcomers
-help wanted: Extra attention is needed
-question: Further information is requested
-
-high priority
-low priority
-
-duplicate: This issue or pull request already exists
-invalid: This doesn't seem right
-wontfix: This will not be worked on
-```
+1. Click the Issues tab
+2. Click Labels button
+3. Click New label button
+4. Give it a name, description, and color
+5. Click Create label
 
 ### More on Issues
 
@@ -194,7 +189,7 @@ Create an Issue
 A good commit message should:
 
 - Explain what changed
-- 50 chars to 70 chars max
+- 50 characters to 70 characters max
 
 Commit Hygiene (What it Really Means):
 
@@ -205,25 +200,27 @@ Commit Hygiene (What it Really Means):
 
 Be consistent:
 
-- lowercase types,
-- no period at end,
+- lowercase types
+- no period at end
 - concise phrasing
 
 Commit Messages
 
-- Commits are small, atomic units of change.
+- Commits are small, atomic units of change
 - Many repos follow Conventional Commits style:
 
 ```sh
 type(optionalscope): description
+
 # Examples
 refactor(api): simplify error handling
 fix(auth): handle expired tokens correctly
-refactor(keyboard): extract tab key handler
+refactor: extract tab key handler
 fix(navbar): resolve mobile overlap
+docs: edit README file
 ```
 
-- Consider these prefixes: api, build, ci, chore, config, docs, env, feat, fix, perf, refactor, sec (Security), style, test, deps, design, revert, merge
+- Consider these prefixes: api, build, ci, chore, config, docs, env, feat, fix, perf, refactor, sec (security), style, test, deps, design, revert, merge
 
 > Use the `type: description` format
 
@@ -235,8 +232,8 @@ fix(navbar): resolve mobile overlap
 
 ### A. Pull Request Titles:
 
-- By default, GitHub sets the PR title to the commit message of the first commit in the branch. So yes — it "defaults" to a commit message, but you should edit the PR title to be more human-readable.
-- _A PR is the package of changes you’re proposing, so its title should summarize the whole branch, not just the first commit_.
+- By default, GitHub sets the PR title to the commit message of the commit for the branch, but you should edit the PR title to be more human-readable.
+- _A PR is the package of changes you're proposing, so its title should summarize the whole branch, not just the first commit_.
 
 . . . . . . . . . . . . . . . . . . . . . .
 
@@ -290,6 +287,7 @@ git push origin -d fix/tab-key-shortcut
 # Optional cleanup
 git fetch --prune
 
+# I saw this warning:
 warning: deleting branch 'docs/learn-contributing' that has been merged to
 'refs/remotes/origin/docs/learn-contributing', but not yet merged to HEAD.
 Deleted branch docs/learn-contributing (was b737c7e).
@@ -339,43 +337,39 @@ git push origin -d branch-to-delete
 git fetch --prune
 ```
 
-## Clone vs fork and contributing
+## Important notes on commits and PRs
 
-### Cloning
+The green "Compare & pull request" button is GitHub saying: "Hey, you pushed a new branch. Do you want to open a PR right away?"
 
-Cloning: gets a repo that is not on your machine based on a URL, but you can't push your changes to someone's repo
+But you don't have to. Two options: you can open the PR right away, or wait until you're done
 
-Typical use cases for cloning:
+1. Option 1: Open PR immediately
 
-- You own the repo
-- You’re a collaborator or team member
-- Your teammate added you with push access
+- You click the button right after your first push.
+- A PR is created, even if the work isn't finished yet.
+- You keep pushing commits → they show up automatically in that PR.
+- This is handy if you want early feedback or to track progress.
 
-### Forking
+2. Option 2: Wait until you're ready
 
-FORKS: a personal copy of someone else's repos in your account – the copy is called a "fork". If you want to make changes and push them up to GitHub, then fork the repo and push to your forked version. Then you can clone your fork and the remote will be set to push to your copy of the repo.
+- Ignore the button at first.
+- Keep committing and pushing to your branch until the issue is solved.
+- Only when you're satisfied, open the PR.
+- Cleaner if you're working solo and don't need anyone watching your progress.
 
-THAT IS THE POINT OF FORKING - TO CONTRIBUTE TO AN OPEN-SOURCE PROJECT!
+So the process for option 1 is:
 
-Reasons to fork:
-
-- Creates a personal copy of a repo on GitHub, under your own account
-- Used when you don’t have write access to the original repo
-- You work on your own copy and then open a pull request to contribute back
-
-Steps:
-
-1. Click "Fork" on GitHub to create your own copy
-2. Clone your forked repo
-3. Make changes, push to your fork
-4. Open a pull request to the original repo
-
-When to Use Each
-
-- Clone - You’re working on your own project - You already own the repo
-- Clone - Your class/teammate adds you as a collaborator - You now have write access
-- Fork - You want to contribute to a repo - You can’t push directly, so you fork and PR
-- Fork - You’re contributing to a public open-source project - You won’t have push access
+- Click the "Compare and pull request" button
+  - You do not need to finish all your work before creating the PR
+  - Once the PR is open, you can continue committing and pushing to the same branch
+  - Every push updates the open PR automatically
+- Rewrite PR title (original commit mesage) to more clearly descibe your work
+- Add a description of the actions you took to fix the issue
+- Add "`closes #123`" in the PR description field
+  - NOTE: You can always edit the PR description before merging at which point you can add "`closes #123`"
+- Click the "Create pull request" button below textarea field
+- Click the "Merge pull request" button when done your work. Other options are "Squash and merge" or "Rebase and merge"
+- Click the "Confirm merge" button, you will see this message: "Pull request successfully merged and closed"
 
 ## Issue Labels and Commit/PR Prefixes
 
@@ -391,36 +385,40 @@ When to Use Each
 | todo          | (no prefix)      | N/A                                  |
 | high priority | (no prefix)      | N/A                                  |
 
-## Important notes on commits and PRs
+## Clone vs fork and contributing
 
-The green "Compare & pull request" button is GitHub saying: "Hey, you pushed a new branch. Do you want to open a PR right away?"
+### Cloning
 
-But you don’t have to. Two options: you can open the PR right away, or wait until you’re done
+Cloning: gets a repo that is not on your machine based on a URL, but you can't push your changes to someone's repo
 
-1. Option 1: Open PR immediately
+Typical use cases for cloning:
 
-- You click the button right after your first push.
-- A PR is created, even if the work isn’t finished yet.
-- You keep pushing commits → they show up automatically in that PR.
-- This is handy if you want early feedback or to track progress.
+- You own the repo
+- You're a collaborator or team member
+- Your teammate added you with push access
 
-2. Option 2: Wait until you’re ready
+### Forking
 
-- Ignore the button at first.
-- Keep committing and pushing to your branch until the issue is solved.
-- Only when you’re satisfied, open the PR.
-- Cleaner if you’re working solo and don’t need anyone watching your progress.
+FORKS: a personal copy of someone else's repos in your account – the copy is called a "fork". If you want to make changes and push them up to GitHub, then fork the repo, clone your fork and the remote will be set to push to your copy of the repo. Now you can push to your forked version
 
-So the process for option 1 is:
+THAT IS THE POINT OF FORKING - TO CONTRIBUTE TO AN OPEN-SOURCE PROJECT!
 
-- Click the "Compare and pull request" button
-  - You do not need to finish all your work before creating the PR
-  - Once the PR is open, you can continue committing and pushing to the same branch
-  - Every push updates the open PR automatically
-- Rewrite PR title (original commit mesage) to more clearly descibe your work
-- Add a description of the actions you took to fix the issue
-- Add "`closes #123`" in the PR description field
-  - NOTE: You can always edit the PR description before merging at which point you can add "`closes #123`"
-- Click the "Create pull request" button below textarea field
-- Click the "Merge pull request" button when done your work. Other options are "Squash and merge" or "Rebase and merge"
-- Click the "Confirm merge" button, you will see this message: "Pull request successfully merged and closed"
+Reasons to fork:
+
+- Creates a personal copy of a repo on GitHub, under your own account
+- Used when you don't have write access to the original repo
+- You work on your own copy and then open a pull request to contribute back
+
+Steps:
+
+1. Click "Fork" on GitHub to create your own copy
+2. Clone your forked repo
+3. Make changes, push to your fork
+4. Open a pull request to the original repo
+
+When to Use Each
+
+- Clone - You're working on your own project - You already own the repo
+- Clone - Your class/teammate adds you as a collaborator - You now have write access
+- Fork - You want to contribute to a repo - You can't push directly, so you fork and PR
+- Fork - You're contributing to a public open-source project - You won't have push access (this sounds wrong)
