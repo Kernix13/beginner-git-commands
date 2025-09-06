@@ -55,12 +55,6 @@ This file used to be very short but I added sections from the intermediate file,
 
 You will make mistakes from time to time. Here are ways to fix the most common mistakes.
 
-Git reset summary:
-
-- `git reset` (no args) = unstage all files
-- `git reset HEAD <file>` = unstage just that file
-- `git reset --mixed HEAD~1` = undo the last commit but keep changes (unstaged)
-
 ### Remove unstaged changes
 
 ```sh
@@ -162,6 +156,12 @@ That will unstage any changes made to the file(s) AFTER that commit. The changes
 ```sh
 git reset --hard e220bfb1e34b8c6b6fce1deb7884244239284716
 ```
+
+**Git reset summary**:
+
+- `git reset` (no args) = unstage all files
+- `git reset HEAD <file>` = unstage just that file
+- `git reset --mixed HEAD~1` = undo the last commit but keep changes (unstaged)
 
 ### Remove remote origin
 
