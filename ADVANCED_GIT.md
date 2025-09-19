@@ -179,6 +179,8 @@ If you want Git to stop tracking a file but keep it locally, use:
 git rm --cached filename.ext
 ```
 
+Without the flag `--cached`, Git would remove the file (delete) from t he working directory.
+
 Pair this with adding the file (or its pattern) to `.gitignore` so Git doesn’t stage it again. This is especially useful for sensitive files like `.env` or directories such as `node_modules/` that should stay local but not be version-controlled.
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
