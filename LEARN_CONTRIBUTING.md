@@ -490,6 +490,8 @@ When to Use Each
 
 These are the steps from above but with git code blocks and my method of writing titles and messages. The commands will include practical examples instead of `branch_name`.
 
+> ### REMEMBER, REMEMBER, REMEMBER TO CREATE YOUR BRANCH <ins><em>BEFORE</em></ins> DOING ANY WORK!!!
+
 1. Create a branch on local machine for the issue.
 
 ```sh
