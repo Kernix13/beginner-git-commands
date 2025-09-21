@@ -30,6 +30,7 @@ This file used to be very short but I added sections from the intermediate file,
 1. ✅ [git log](#git-log)
    1. [what is HEAD](#what-is-head)
 1. [git diff](#git-diff)
+1. [git show](#git-show)
 1. ✅ [git reflog](#git-reflog)
 1. ✅ [git tag](#git-tag)
    1. [Semantic Versioning](#semantic-versioning)
@@ -179,6 +180,8 @@ If you want Git to stop tracking a file but keep it locally, use:
 git rm --cached filename.ext
 ```
 
+Without the flag `--cached`, Git would remove the file (delete) from t he working directory.
+
 Pair this with adding the file (or its pattern) to `.gitignore` so Git doesn’t stage it again. This is especially useful for sensitive files like `.env` or directories such as `node_modules/` that should stay local but not be version-controlled.
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
@@ -251,6 +254,7 @@ git restore --staged filename
 ## git reset
 
 - `git reset` restores a repo back to a specific commit – the commits are gone
+  - Moves your project back to a previous commit
 - Common if you did work on the master branch but you meant to do it on a new branch
 - There are 2 versions: regular and a hard reset
 - `git reset <commit-hash>` - restores a repo back to a specific commit, use the 7-digit hash from the `git log --oneline` command
@@ -281,6 +285,7 @@ git reset --hard HEAD~1
 `git revert` is the first command that you would use when dealing specifically with remote repositories. All the commands up to this point are used with local and remote repos, but this one is only for remote repositories with 2 or more contributors.
 
 - `revert` is similar to `reset` in that they both "undo" changes, but they do it in different ways
+  - Undoes a previous commit by making a new commit on top of your history
 - `git reset hash` actually moves the branch pointer backwards, eliminating commits – as if the commits NEVER occurred
 - `git revert` instead creates a brand new commit which reverses/undos the changes from an earlier commit – because it results in a new commit, you have to enter a commit msg – instead of deleting everything, deleting history – that can be a problem if you are collaborating with other people
 - With reset, you lose the commits that came after the one you used in the command – they are gone!
@@ -295,6 +300,9 @@ When to use `reset` and when to use `revert`?
 
 ```sh
 git revert <commit-hash>
+# This should open a file named COMMIT_EDITMSG to edit the commit msg, then:
+git log --oneline
+
 git revert HEAD~1
 ```
 
@@ -499,6 +507,13 @@ Check the [Git Docs](https://git-scm.com/docs).
 - you can filter by who made the commit, when it was, sort them, …
 - more commonly you will use `--oneline` – shorthand for `"--pretty=oneline --abbrev-commit"` used together: `git log --oneline`
 - THAT ONE IS EXCELLENT!!!
+- use `q` or `wq` to exit git log - same for git diff
+
+```sh
+git log
+git log --oneline
+git log --stat
+```
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
@@ -526,22 +541,40 @@ Check the [Git Docs](https://git-scm.com/docs).
 I am unsure of all the commands, but I believe these are common ones you would use:
 
 ```sh
+# differences between your working directory and the staging area
 git diff
 
+# differences between working directory vs. last commit
 git diff HEAD
 git diff HEAD [filename]
 
+# differences between staging area vs. last commit
 git diff --cached
 git diff --staged
 git diff --staged [filename]
 
+# differences between A vs. B
 git diff filename1..filename2
 git diff branch1..branch2
 git diff commit1..commit2
 git diff <commithash1> <commithash2>
 
+# Unsure about these
 git diff HEAD~1 HEAD
-git diff <hash1>
+git diff <commit-hash1>
+```
+
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
+
+## git show
+
+Primarily used to display information about a single Git object, most commonly a commit. When used with a commit, it shows the commit message, author, date, and the full textual diff introduced by that specific commit
+
+When given a commit ID, it presents a verbose output including the commit metadata and the patch (diff) for that commit
+
+```sh
+git show <commit-id>
+git show abcd123
 ```
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>

@@ -60,6 +60,9 @@ git -v
 # See all settings
 git config --list
 
+# See all settings you configured
+git config --global --list
+
 # check your name and email
 git config user.name
 git config user.email
