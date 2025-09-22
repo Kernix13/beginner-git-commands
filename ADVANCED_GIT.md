@@ -51,6 +51,7 @@ This file used to be very short but I added sections from the intermediate file,
    1. [Two-factor authentication recovery codes](#two-factor-authentication-recovery-codes)
 1. [Signed Commits](#signed-commits)
 1. [ci cd pipeline](#ci-cd-pipeline)
+1. [Code reviews](#code-reviews)
 
 ## Fixing mistakes
 
@@ -1280,5 +1281,11 @@ Also check out [Telling Git about your SSH key](https://docs.github.com/en/authe
 > Continuous integration and continuous delivery (CI/CD) is a software development methodology that allows for rapid, frequent, and reliable code updates. It is a core component of DevOps, which is a set of practices that aims to foster collaboration and communication between development and operations teams
 
 You can practice this on your projects hosted on Netlify or VErcel for example. It's a simple as puhing to GitHub and Netlify or Vercel will notice the change and redeploy your project/app/website.
+
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
+
+## Code reviews
+
+I currently do not know anything about this process other than making comments in code pushed via a pull request. I'll write more as I learn more about this...
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
