@@ -53,7 +53,7 @@ This document is meant to do all of the steps on your repos first, so that when 
 4. Merging the resulting pull request
    1. Click the "Compare and pull request" button
    2. Rewrite PR title (edit original commit message) to more clearly descibe your work
-   3. Add a description of the actions you took to fix the issue
+   3. Add a description of the actions you took to fix the issue - MAKE SURE TO LINK THE AN ISSUE #: `Issue #5`
    4. Add "closes #123" in the PR description field
    5. Click the "Create pull request" button below textarea field
    6. Click the "Merge pull request" button. Other options are "Squash and merge" or "Rebase and merge"

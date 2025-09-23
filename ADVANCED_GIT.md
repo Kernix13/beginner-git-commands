@@ -1286,6 +1286,44 @@ You can practice this on your projects hosted on Netlify or VErcel for example. 
 
 ## Code reviews
 
-I currently do not know anything about this process other than making comments in code pushed via a pull request. I'll write more as I learn more about this...
+Code reviews are not something you typically do as a developer.
+
+Reviewing a Pull Request
+
+- click on _Files changed_ in the PR
+- You will all t he files that were changed - the changes are in green in the right pane, the changes are in red in the left pane
+- If you hover over any line in either pane you will see a `+` symbol - click it to add a comment for that line of code
+  - You can also select multiple rows by clicking the `+` icon then press `SHIFT` and drag
+- When you click on a row, a textarea will open where you can add your comment
+- You can click on the button _Add single comment_ - when you do that a notification will be sent to everyone following that PR - that will be for every comment you make that way
+- Insteadclick _Start a review_ - that marks the comment as Pending
+- When you are done, click the _Finish your review_ button at the top-right of the page where you can leave a final comment - you also have the choice to:
+  - Commnet only
+  - Approve the review
+  - Request changes
+- Then click _Submit review_
+
+Making suggestions
+
+- When you click on the `+` icon, above the textarea is a `+/-` icon - if you click it, it adds a suggestion in the textarea:
+
+```suggestion
+console.log('You code sux!')
+```
+
+````
+```suggestion
+console.log('You code sux!')
+```
+````
+
+- then click Add review comment
+
+Miscellaneous:
+
+- You can mark a file as reviewed which will condense the file so the page is easier to navigate
+- between comment, approve, or request changes, request changes will block them from being able to merge, but the comment option will not block that
+- As a reviewer you can edit there PR title and description, but send it back asking them to be more descriptive.
+- To better understand the PR, take a look at the commit history for it
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
