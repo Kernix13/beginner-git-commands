@@ -79,6 +79,9 @@ git config --global init.defaultBranch main
 
 # Make VS Code your default editor
 git config --global core.editor "code --wait"
+
+# Global git ignore, make sure to add that file to your home directory
+git config --global core.excludesFile '~/.gitignore'
 ```
 
 You may need to create an SSH key and add it to your GitHub account as an additional step to authentication. I followed the steps from the following links and I had no problems:
