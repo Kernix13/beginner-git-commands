@@ -185,6 +185,8 @@ git push
 git push origin main
 ```
 
+**NOTE**: The recommended character lengths for a Git commit message - Should be kept to a maximum of 50 characters (soft limit), but no more than 72 characters as some tools truncate longer messages.
+
 Here are some related git commands:
 
 ```sh
