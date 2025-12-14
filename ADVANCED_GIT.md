@@ -26,7 +26,7 @@ This file used to be very short but I added sections from the intermediate file,
    1. [When not to rebase](#when-not-to-rebase)
    1. [Handling conflicts and rebasing](#handling-conflicts-and-rebasing)
    1. [Interactive rebase](#interactive-rebase)
-1. ✅ [restore vs reset vs revert vs rebase](#restore-vs-reset-vs-revert-vs-rebase)
+1. ✅ [restore vs revert vs reset vs rebase](#restore-vs-revert-vs-reset-vs-rebase)
 1. ✅ [git log](#git-log)
    1. [what is HEAD](#what-is-head)
 1. [git diff](#git-diff)
@@ -455,25 +455,17 @@ pick 63ff2f1 create README.md
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
-## restore vs reset vs revert vs rebase
+## restore vs revert vs reset vs rebase
 
-- `restore` = fix your working directory or staging area.
-- `reset` = move your branch pointer (and maybe staging/working directory depending on flags).
-- `revert` = create a new commit that undoes another.
-- `rebase` = rewrite commit history by moving or combining commits onto a new base commit.
+- `git restore` -> Used to unstage files or discard uncommitted local changes in files, restoring them to their last committed state - DOES NOT REWRITE HISTORY
+- `git revert` -> Undo changes introduced by a specific commit by creating a new, inverse commit - create a new commit that undoes another commit - The safe way to undo changes on public or shared branches - DOES NOT REWRITE HISTORY
+- `git reset` -> Undo commits by moving the branch pointer to a previous state (and/or maybe staging/working directory depending on flags). Used for local, unpushed changes when you want to remove commits entirely, as if they never happened - **_REWRITES HISTORY_**
+- `git rebase` -> Reorganize or move a series of commits onto a new base commit to maintain a clean, linear project history - rewrite commit history by moving or combining commits onto a new base commit. Used on local branches to incorporate upstream changes or clean up commits before merging into a shared branch - **_REWRITES HISTORY_**
 
 1. `restore`: Used to restore the contents of a file (or multiple files) from a commit, or to unstage changes without touching commit history.
    1. `git restore <file-name>` → throw away uncommitted changes in the working directory, restore file from HEAD.
    1. `git restore --source <commit-hash> <file-name>` → restore the file’s content from a specific commit.
    1. `git restore --staged <file-name>` → unstage the file (move it back to working directory, keep changes).
-1. `reset`: Moves the branch pointer to a specific commit
-   1. **`reset` rewrites history**.
-   1. Can eliminate commits from history (if using `--hard` or `--mixed`).
-   1. Can be destructive if those commits have been pushed and others depend on them.
-   1. Think: "rewind history to this point."
-   1. `git reset <commit-hash>` → default `--mixed`, moves branch pointer and keeps changes staged → unstaged.
-   1. `git reset --soft <commit-hash>` → moves branch pointer but keeps changes staged (as if you hadn’t committed yet).
-   1. `git reset --hard <commit-hash>` → moves branch pointer and wipes out changes (staged + working directory).
 1. `revert`: Creates a new commit that undoes the changes from a previous commit (or range of commits).
    1. **`revert` preserves history**
    1. Does not move the branch pointer backwards.
@@ -482,9 +474,24 @@ pick 63ff2f1 create README.md
    1. `git revert <commit-hash>` → creates a new commit that undoes the changes from that commit.
    1. `git revert -n <commit-hash>` → “no commit,” stages the revert so you can review/edit before committing.
    1. `git revert <old-commit>..<new-commit>` → revert a range of commits in one step.
+1. `reset`: Moves the branch pointer to a specific commit
+   1. **`reset` rewrites history**.
+   1. Can eliminate commits from history (if using `--hard` or `--mixed`).
+   1. Can be destructive if those commits have been pushed and others depend on them.
+   1. Think: "rewind history to this point."
+   1. `git reset <commit-hash>` → default `--mixed`, moves branch pointer and keeps changes staged → unstaged.
+   1. `git reset --soft <commit-hash>` → moves branch pointer but keeps changes staged (as if you hadn’t committed yet).
+   1. `git reset --hard <commit-hash>` → moves branch pointer and wipes out changes (staged + working directory).
 1. `rebase`: An alternative to `git merge` or a cleanup tool for merge commits. Reapplies commits from your branch on top of another branch, creating a linear history instead of a merge commit. Can also be used interactively to clean up commit history.
+   1. **`rebase` rewrites history**.
    1. `git rebase main` (or `git rebase <branch-name>`) → replay commits from current branch onto the tip of `main`.
    1. `git rebase -i HEAD~4` → interactively edit, fixup, squash, reword, or drop the last 4 commits.
+
+Key differences:
+
+- `git reset` vs. `git revert`: Both "undo" things, but reset is for private work and wipes out the history, while revert is for public work and adds a new commit to cancel the effect of an old one.
+- `git rebase` vs. the others: Rebase is for organizing commit history and integrating changes from one branch to another in a linear way, not for "undoing" things in the same sense as reset or revert
+- `git restore` vs. the others: Restore specifically handles uncommitted changes within the working directory and staging area, effectively moving files back to a previous state without involving the commit history directly. It doesn't deal with commits themselves, unlike the other three commands
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
