@@ -33,6 +33,7 @@ This document is meant to do all of the steps on your repos first, so that when 
    1. [Open a Pull Request](#open-a-pull-request)
 1. [Git Commands](#git-commands)
 1. [Important notes on commits and PRs](#important-notes-on-commits-and-prs)
+1. [Contributor pull requests](#contributor-pull-requests)
 1. [Issue Labels and Commit and PR Prefixes](#issue-labels-and-commit-and-pr-prefixes)
 1. [Clone vs fork and contributing](#clone-vs-fork-and-contributing)
    1. [Cloning](#cloning)
@@ -425,6 +426,64 @@ So the process for option 1 is:
 - Click the "Create pull request" button below textarea field
 - Click the "Merge pull request" button when done your work. Other options are "Squash and merge" or "Rebase and merge"
 - Click the "Confirm merge" button, you will see this message: "Pull request successfully merged and closed"
+
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
+
+## Contributor pull requests
+
+When someone submits a pull request (PR) to your repository, they are proposing changes to your codebase — not modifying it directly. As the maintainer, your job is to review, test, and decide whether those changes fit the project.
+
+Start by reading the PR description and linked issue (if any). Make sure:
+
+- The PR actually addresses the stated problem
+- The change matches the project’s direction and design decisions
+- No unrelated refactors or stylistic changes are bundled in
+
+Before merging, you should test the contributor’s changes locally. GitHub’s file diff shows what changed, but only local testing shows how the application actually behaves. This is especially important for logic changes, UI behavior, etc.
+
+If the PR is out of date with your current main branch, GitHub may show conflicts. In that case, the contributor usually needs to update their branch before you can merge.
+
+Remember: nothing in a PR affects your main branch until you click Merge.
+
+### Testing a Contributor’s PR Locally
+
+The following commands fetch the contributor’s PR branch to your machine so you can run and test it safely.
+
+```sh
+# CD into your project folder
+# 1. Fetch the pull request as a local branch
+git fetch origin pull/PR_NUMBER/head:pr-PR_NUMBER
+# where : --> means "Save it locally as…"
+
+# Example:
+# git fetch origin pull/10/head:pr-10
+
+# 2. Switch to the PR branch
+git checkout pr-test
+
+# 3. Run your project and test:
+# - Does the feature work as expected?
+# - Any runtime errors, warnings, or unexpected output?
+# - Did anything unrelated break?
+# - Does it match the issue requirements?
+
+# 4. When done testing, go back to main
+git checkout main
+
+# 5. Delete the temporary test branch
+git branch -D pr-test
+```
+
+### Things Maintainers Should Watch For
+
+- PR solves the issue but also changes unrelated code
+- Library “standardization” that overrides deliberate project choices
+- Features that work but don’t match UX or design intent
+- Code that works but introduces errors or warnings
+
+You are not just checking if code runs — you are protecting the direction and consistency of the project.
+
+If everything looks good then you can merge the PR into your main branch on GitHub.
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
