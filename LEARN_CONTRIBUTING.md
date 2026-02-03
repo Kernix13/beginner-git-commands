@@ -368,10 +368,11 @@ git push -u origin new_branch
 # Future pushes:
 git push
 
-# switch back to main
+# Go thru the PR and merge process on GitHub
+# Then locally switch back to main
 git switch main
 
-# Ensures your local main branch reflects any changes from the merged PR
+# Ensure your local main branch reflects any changes from the merged PR
 git pull
 
 # check branches
@@ -452,14 +453,14 @@ The following commands fetch the contributor’s PR branch to your machine so yo
 ```sh
 # CD into your project folder
 # 1. Fetch the pull request as a local branch
-git fetch origin pull/PR_NUMBER/head:pr-PR_NUMBER
+git fetch origin pull/PR_NUMBER/head:pr-PR_NUMBER-test
 # where : --> means "Save it locally as…"
 
 # Example:
 # git fetch origin pull/10/head:pr-10
 
 # 2. Switch to the PR branch
-git checkout pr-test
+git checkout pr-PR_NUMBER-test
 
 # 3. Run your project and test:
 # - Does the feature work as expected?
@@ -471,7 +472,13 @@ git checkout pr-test
 git checkout main
 
 # 5. Delete the temporary test branch
-git branch -D pr-test
+git branch -D pr-PR_NUMBER-test
+
+# 6. Pull down changes from the merged PR
+git pull
+
+# 7. Removes stale tracking references that no longer exist remotely
+git fetch --prune
 ```
 
 ### Things Maintainers Should Watch For

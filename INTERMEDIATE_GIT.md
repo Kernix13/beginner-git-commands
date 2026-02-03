@@ -24,6 +24,7 @@ Some of the git commands below can be considered beginner but they involve using
 1. ✅ [Stashing your changes](#stashing-your-changes)
 1. ✅ [Forking](#forking)
    1. [Fork and Clone Workflow](#fork-and-clone-workflow)
+   1. [Forking vs cloning](#forking-vs-cloning)
 1. [Pull Requests](#pull-requests)
    1. [Merging pull requests with conflicts](#merging-pull-requests-with-conflicts)
 1. ✅ [git fetch](#git-fetch)
@@ -617,7 +618,7 @@ Then just use `git push` for future pushes.
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
-## Fork and Clone Workflow
+### Fork and Clone Workflow
 
 In your forked copy you will see messages like "This branch is 1 commit ahead of username:master", or whatever the number is based on your commits. You can ignore that and not do anything with the original repo. Or you can attempt to share your work by making a PR to the source repo.
 
@@ -704,6 +705,51 @@ To make a pull request to the original project:
 It's then up to the source repo owner to merge the PR in or not.
 
 > Make sure you are going from `feature_branch` to `main` (or whatever branch to branch you want) by looking at the fields _base repository_ and _head repository_ at the top of the "Open a pull request page".
+
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
+
+### Forking vs cloning
+
+> _When do I fork vs just clone to contribute?_
+
+The answer depends on write permission.
+
+| Write access? | You fork? | You clone?         |
+| :------------ | :-------- | :----------------- |
+| ❌ NO         | ✅ YES    | ✅ YES (your copy) |
+| ✅ YES        | ❌ NO     | ✅ YES             |
+
+When you can't push to their repo, your fork - GitHub blocks you from pushing branches to their repo:
+
+- You clone your fork
+- Push your branch to your fork
+- Open PR from fork → upstream
+
+When you can push branches directly to their repo, you only have to clone. The repo owner added you as a collaborator.
+
+#### Collaborator vs Contributor
+
+- Contributor: Someone whose code was merged into the repo
+- Collaborator: Someone with write permission to the repo
+
+GitHub shows people under "Contributors" after a merge — but that does not give them access.
+
+#### How someone becomes a collaborator
+
+Only the repo owner can do this: Repo → Settings → Collaborators → Add people
+
+That sends an invite. They must accept. Nothing else grants write access. Not:
+
+- Opening issues ❌
+- Opening PRs ❌
+- Having PRs merged ❌
+- Being listed as contributor ❌
+
+Branch protection & security settings control things like:
+
+- Can people push directly to main?
+- Are PR reviews required?
+- Status checks required?
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
