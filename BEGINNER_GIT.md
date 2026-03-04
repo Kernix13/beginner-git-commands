@@ -200,6 +200,9 @@ git remote rename <oldname> <newname>
 git help
 git help -m
 git help -a
+
+# Get help on a specific command
+git <command> --help
 ```
 
 When you run `git init` you will see your brnach name in the lower left corner of VS Code. You will also see all your file names turn green with a `U` next to them. The `U` stands for "untracked".

@@ -457,7 +457,7 @@ git fetch origin pull/PR_NUMBER/head:pr-PR_NUMBER-test
 # where : --> means "Save it locally as…"
 
 # Example:
-# git fetch origin pull/10/head:pr-10
+# git fetch origin pull/10/head:pr-10-test
 
 # 2. Switch to the PR branch
 git checkout pr-PR_NUMBER-test
