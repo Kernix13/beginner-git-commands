@@ -523,11 +523,3 @@ Here is my current to-do list:
 - What are the steps to contributing? Issues, issue labels, pull-requests, squashing PRs, ...
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
-
-<!-- ## Git keywords
-
-I'm wondering if putting in the following keywords will help beginners searching on GitHub to find this repo:
-
-**Keywords**: git for beginners, basic git commands, basic git commands cheat sheet, basic git commands github, basic git commands for beginners, basic git commands list, basic commands for git, github basic commands, basic commands in git, basic git command, basic git commands to know, what are basic git commands, git guide command line, most basic git commands, basic commands of git, basic git workflow commands, basic git cheat sheet, git commands cheat sheet github.
-
-<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div> -->
