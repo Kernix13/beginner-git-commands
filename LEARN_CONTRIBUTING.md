@@ -2,6 +2,8 @@
 
 > **Issue to Pull Request process**: Learn the steps you will need to contribute to an open-source project.
 
+**NOTE/QUESTION**: What are branch protection rules, when do y ou need them and do I need them for my projects?
+
 There is a lot you need to be good at before contributing like creating branches, pushing branches, and deleting branches. You also need how to write good commit messages, Pull Request Titles and Descriptions, creating issues and labels, plus all t he correct git commands.
 
 This document is meant to do all of the steps on your repos first, so that when you start contributing, you will understand the entire process.
