@@ -58,7 +58,7 @@ This document is meant to do all of the steps on your repos first, so that when 
    4. Add "closes #123" in the PR description field
    5. Click the "Create pull request" button below textarea field
    6. Click the "Merge pull request" button. Other options are "Squash and merge" or "Rebase and merge"
-   7. Click the "Confirm merge" button: "_Pull request successfully merged and closed_"
+   7. Click the "Confirm merge" button: "_Pull request successfully merged and closed_". You could opt to delete the branch here instead of locally.
 5. Pull main/merged changes from remote to local
 6. Delete the local branch and the remote branch
 7. Run `git fetch --prune`
@@ -67,22 +67,25 @@ This document is meant to do all of the steps on your repos first, so that when 
 
 ## Overview
 
-Looking at freeCodeCamp and React repos for their use of prefixes in issue and PR titles, and commit messages:
+I found the following looking at [freeCodeCamp](https://github.com/freeCodeCamp/freeCodeCamp/issues), [React](https://github.com/facebook/react/issues), and [MDN](https://github.com/mdn/content/issues) repos for their use of prefixes in issue and PR titles, and commit messages:
 
 ### Issue titles
 
-- freeCodeCamp: just title + 2-3 labels
-- React: `prefix:` or `[prefix]:` or just title + 1 to 3 labels (mostly 1)
+- freeCodeCamp: just title + 1-3 labels, occasionally 1
+- React: `prefix:` or `[prefix]` + 1-3 labels (mostly 1)
+- MDN: just title, sometimes `[prefix]` + 1-3 labels (mostly 2)
 
 ### Commit messages
 
 - freeCodeCamp: `prefix:` or `prefix(scope):`
 - React: `[prefix]` sometimes
+- MDN: `prefix:` or `prefix(scope):` or just message
 
 ### Pull Request titles
 
 - freeCodeCamp: `prefix:` or `prefix(scope):`
-- React: `[prefix]` sometimes
+- React: `[prefix]` or `prefix(scope):` or `prefix/scope` or title + 1-3 labels (mostly 1)
+- MDN: title mostly, sometimes `prefix:` + 1-3 labels
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
@@ -95,6 +98,7 @@ Looking at freeCodeCamp and React repos for their use of prefixes in issue and P
 
 Example:
 
+- Brance: `refactor/data-fetching`
 - Issue: "Refactor data fetching logic"
 - Commit: refactor(api): simplify error handling
 - PR: "refactor: API data fetching for clarity and maintainability"
@@ -275,6 +279,7 @@ docs: edit README file
 - Commits: `prefix: desc` or `prefix(scope): desc`
 - Prefixes are most useful if they align with your issue labels!
   - See Conventional Commits
+- I have changed my messages from past tense to present tense since present tense seems to be more common with enterprise repos
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
@@ -495,6 +500,8 @@ If everything looks good then you can merge the PR into your main branch on GitH
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
 ## Issue Labels and Commit and PR Prefixes
+
+> _Should I add a branch name example for each?_
 
 | Issue Label   | Commit/PR Prefix | Example Commit Message               |
 | :------------ | :--------------- | :----------------------------------- |
