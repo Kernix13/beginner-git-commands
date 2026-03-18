@@ -78,7 +78,7 @@ I found the following looking at [freeCodeCamp](https://github.com/freeCodeCamp/
 ### Commit messages
 
 - freeCodeCamp: `prefix:` or `prefix(scope):`
-- React: `[prefix]` sometimes
+- React: just message, `[prefix]` sometimes
 - MDN: `prefix:` or `prefix(scope):` or just message
 
 ### Pull Request titles
@@ -98,7 +98,7 @@ I found the following looking at [freeCodeCamp](https://github.com/freeCodeCamp/
 
 Example:
 
-- Brance: `refactor/data-fetching`
+- Branch: `refactor/data-fetching`
 - Issue: "Refactor data fetching logic"
 - Commit: refactor(api): simplify error handling
 - PR: "refactor: API data fetching for clarity and maintainability"
