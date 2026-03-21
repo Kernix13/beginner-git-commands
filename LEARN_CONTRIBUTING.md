@@ -2,9 +2,9 @@
 
 > **Issue to Pull Request process**: Learn the steps you will need to contribute to an open-source project.
 
-**NOTE/QUESTION**: What are branch protection rules, when do y ou need them and do I need them for my projects?
+**NOTE/QUESTION**: What are branch protection rules, when do you need them and do I need them for my projects?
 
-There is a lot you need to be good at before contributing like creating branches, pushing branches, and deleting branches. You also need how to write good commit messages, Pull Request Titles and Descriptions, creating issues and labels, plus all t he correct git commands.
+There is a lot you need to know before contributing like creating branches, pushing branches, and deleting branches. You also need how to write good commit messages, Pull Request Titles and Descriptions, creating issues and labels, plus all the correct git commands.
 
 This document is meant to do all of the steps on your repos first, so that when you start contributing, you will understand the entire process.
 
@@ -12,13 +12,14 @@ This document is meant to do all of the steps on your repos first, so that when 
 
 ## Table of contents
 
+1. [Git Commands](#git-commands)
 1. [Detailed Steps](#detailed-steps)
+   1. [Basic Steps](#basic-steps)
 1. [Overview](#overview)
    1. [Issue titles](#issue-titles)
    1. [Commit messages](#commit-messages)
    1. [Pull Request titles](#pull-equest-titles)
    1. [My approach](#my-approach)
-   1. [Basic Steps](#basic-steps)
 1. [1. Branch name](#1-branch-name)
    1. [Strict Rules](#strict-rules)
    1. [Best Practices for branch names](#best-practices-for-branch-names)
@@ -33,7 +34,6 @@ This document is meant to do all of the steps on your repos first, so that when 
    1. [A. Pull Request Titles](#a-pull-request-titles)
    1. [B. Pull Request Description](#B-pull-request-description)
    1. [Open a Pull Request](#open-a-pull-request)
-1. [Git Commands](#git-commands)
 1. [Important notes on commits and PRs](#important-notes-on-commits-and-prs)
 1. [Contributor pull requests](#contributor-pull-requests)
 1. [Issue Labels and Commit and PR Prefixes](#issue-labels-and-commit-and-pr-prefixes)
@@ -41,6 +41,55 @@ This document is meant to do all of the steps on your repos first, so that when 
    1. [Cloning](#cloning)
    1. [Forking](#forking)
 1. [Detailed steps with code blocks](#detailed-steps-with-code-blocks)
+
+## Git Commands
+
+Here are the commands needed from start to finish
+
+```sh
+# Remember to run git status as often as you need
+# Create new_branch and switch to it
+git switch -c new_branch
+# Or with checkout
+git checkout -b new_branch
+
+# Make changes then add and commit:
+git add .
+git commit -m "your message"
+
+# Push changes to GitHub:
+git push --set-upstream origin new_branch
+# or shorthand:
+git push -u origin new_branch
+
+# Future pushes if you intend to continue working on the branch:
+git push
+
+# Go thru the PR and merge process on GitHub
+# Then locally switch back to main
+git switch main
+
+# Ensure your local main branch reflects any changes from the merged PR
+git pull
+
+# check branches
+git branch
+
+# delete a local branch that has been fully merged
+git branch -d branch-to-delete
+
+# check branches
+git branch
+
+# delete a remote branch
+git push origin -d branch-to-delete
+
+# Optional but Recommended
+# Removes stale tracking references like origin/new_branch that no longer exist remotely
+git fetch --prune
+```
+
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
 ## Detailed Steps
 
@@ -64,6 +113,16 @@ This document is meant to do all of the steps on your repos first, so that when 
 5. Pull main/merged changes from remote to local
 6. Delete the local branch and the remote branch
 7. Run `git fetch --prune`
+
+### Basic Steps
+
+1. Create a branch
+2. Create an issue
+3. Do the work
+4. Add, commit, push changes -> Pull Request
+5. Merge PR
+6. Pull changes
+7. Delete local and remote branches
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
@@ -111,16 +170,6 @@ Prefix example:
 - Issue title beginning -> `docs:` (NOT FOR ME)
 - Commit message beginning -> `docs:`
 - PR title beginning -> `docs:`
-
-### Basic Steps
-
-1. Create a branch
-2. Create an issue
-3. Do the work
-4. Add, commit, push changes -> Pull Request
-5. Merge PR
-6. Pull changes
-7. Delete local and remote branches
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
@@ -350,53 +399,6 @@ git fetch --prune
 warning: deleting branch 'docs/learn-contributing' that has been merged to
 'refs/remotes/origin/docs/learn-contributing', but not yet merged to HEAD.
 Deleted branch docs/learn-contributing (was b737c7e).
-```
-
-<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
-
-## Git Commands
-
-Here are the commands needed from start to finish
-
-```sh
-# Remember to run git status as often as you need
-# Create new_branch and switch to it (I don't use checkout -b):
-git switch -c new_branch
-
-# Make changes then add and commit:
-git add .
-git commit -m "your message"
-
-# Push changes to GitHub:
-git push --set-upstream origin new_branch
-# or shorthand:
-git push -u origin new_branch
-
-# Future pushes:
-git push
-
-# Go thru the PR and merge process on GitHub
-# Then locally switch back to main
-git switch main
-
-# Ensure your local main branch reflects any changes from the merged PR
-git pull
-
-# check branches
-git branch
-
-# delete a local branch that has been fully merged
-git branch -d branch-to-delete
-
-# check branches
-git branch
-
-# delete a remote branch
-git push origin -d branch-to-delete
-
-# Optional but Recommended
-# Removes stale tracking references like origin/new_branch that no longer exist remotely
-git fetch --prune
 ```
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
