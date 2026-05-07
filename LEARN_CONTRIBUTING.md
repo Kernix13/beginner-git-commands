@@ -639,3 +639,80 @@ git fetch --prune
 ```
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
+
+## Example contributing guidelines
+
+### freeCodeCamp
+
+1. [Contribute to the Codebase](https://contribute.freecodecamp.org/how-to-contribute-to-the-codebase/)
+
+```sh
+# Update your copy of the freeCodeCamp upstream repository
+git fetch upstream
+
+# Hard reset your main branch with the freeCodeCamp main
+git reset --hard upstream/main
+
+# Push your main branch to your origin to have a clean history on your fork
+git push origin main --force
+
+# Create your branch
+git checkout -b fix/update-guide-for-xyz
+# Your branch name should start with a fix/, feat/, docs/, etc.
+# Avoid using issue numbers in branches
+
+git add .
+git commit -m "fix: my short commit message"
+# examples of conventional commit messages:
+#  fix: improve HTML step
+#  fix: fix build scripts for Travis-CI
+#  feat: add link to JavaScript hoisting article
+#  docs: update contributing guidelines
+
+# push your changes to your fork
+git push origin branch/name-here
+```
+
+2. [How to open a Pull Request (PR)](https://contribute.freecodecamp.org/how-to-open-a-pull-request/)
+
+> Make sure the PR title follows our convention
+
+3. [Prepare a Good PR Title](https://contribute.freecodecamp.org/how-to-open-a-pull-request/#prepare-a-good-pr-title)
+
+```
+<type>([optional scope(s)]): <description>
+fix(curriculum): tests for the do...while loop challenge
+```
+
+determine the type, scope (optional), and description:
+
+| Type     | Description                                                  |
+| :------- | :----------------------------------------------------------- |
+| fix      | Bug fixes: repair something that wasn’t working correctly    |
+| feat     | New features: add new functionality that didn’t exist before |
+| refactor | Code cleanup - reorganizing code without changes to logic    |
+| docs     | Documentation: updating README files, comments, etc          |
+
+Scope
+
+- curriculum: Lessons, challenges, projects, and learning content
+- a11y: Accessibility improvements and fixes
+- i18n: Internationalization and language translations
+- api: Backend API and server-side code
+- client: Frontend client application code
+- tools: Development scripts, build tools, and configuration
+
+Description: less than 30 characters
+
+Proposing a Pull Request
+
+- By default, all pull requests should be against the freeCodeCamp main repo, main branch
+- Make sure that your Base Fork is set to freeCodeCamp/freeCodeCamp
+- Include a more detailed summary of the changes
+- Make sure you follow the PR checklist
+- Use the correct way to link issues in the description of the PR
+- Do not `@mention` maintainers or reviewers on your pull request
+
+4. [Codebase Best Practices](https://contribute.freecodecamp.org/codebase-best-practices/): good notes here
+
+<div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
