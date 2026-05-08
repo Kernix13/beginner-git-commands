@@ -41,6 +41,7 @@ This document is meant to do all of the steps on your repos first, so that when 
    1. [Cloning](#cloning)
    1. [Forking](#forking)
 1. [Detailed steps with code blocks](#detailed-steps-with-code-blocks)
+1. [Example contributing guidelines](#example-contributing-guidelines)
 
 ## Git Commands
 
@@ -647,7 +648,9 @@ git fetch --prune
 1. [Contribute to the Codebase](https://contribute.freecodecamp.org/how-to-contribute-to-the-codebase/)
 
 ```sh
-# Update your copy of the freeCodeCamp upstream repository
+# First step: Fork the freeCodeCamp repository on GitHub
+
+# Then update your copy of the freeCodeCamp upstream repository
 git fetch upstream
 
 # Hard reset your main branch with the freeCodeCamp main
@@ -661,21 +664,29 @@ git checkout -b fix/update-guide-for-xyz
 # Your branch name should start with a fix/, feat/, docs/, etc.
 # Avoid using issue numbers in branches
 
+# Add your changes
 git add .
+
+# Commit your changes
 git commit -m "fix: my short commit message"
-# examples of conventional commit messages:
+
+# Examples of conventional commit messages:
 #  fix: improve HTML step
 #  fix: fix build scripts for Travis-CI
 #  feat: add link to JavaScript hoisting article
 #  docs: update contributing guidelines
 
-# push your changes to your fork
+# Push your changes to your fork
 git push origin branch/name-here
+# Example:
+git push origin fix/update-guide-for-xyz
+
+# Then open a pull request (see links and text below)
 ```
 
 2. [How to open a Pull Request (PR)](https://contribute.freecodecamp.org/how-to-open-a-pull-request/)
 
-> Make sure the PR title follows our convention
+> Make sure the PR title follows their convention:
 
 3. [Prepare a Good PR Title](https://contribute.freecodecamp.org/how-to-open-a-pull-request/#prepare-a-good-pr-title)
 
@@ -684,7 +695,7 @@ git push origin branch/name-here
 fix(curriculum): tests for the do...while loop challenge
 ```
 
-determine the type, scope (optional), and description:
+Determine the type, scope (optional), and description:
 
 | Type     | Description                                                  |
 | :------- | :----------------------------------------------------------- |
@@ -711,7 +722,7 @@ Proposing a Pull Request
 - Include a more detailed summary of the changes
 - Make sure you follow the PR checklist
 - Use the correct way to link issues in the description of the PR
-- Do not `@mention` maintainers or reviewers on your pull request
+- Do **_not_** `@mention` maintainers or reviewers on your pull request
 
 4. [Codebase Best Practices](https://contribute.freecodecamp.org/codebase-best-practices/): good notes here
 
