@@ -337,6 +337,8 @@ docs: edit README file
 
 ## 4. Pull Requests
 
+Typically, you would review your notes and commit messages then summarize them for your pull request description. NOTE: You can have more than one commit for a PR.
+
 ### A. Pull Request Titles
 
 - By default, GitHub sets the PR title to the commit message of the commit for the branch, but you should edit the PR title to be more human-readable.
@@ -727,3 +729,6 @@ Proposing a Pull Request
 4. [Codebase Best Practices](https://contribute.freecodecamp.org/codebase-best-practices/): good notes here
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
+
+> [!NOTE]
+> The [review-pull-requests](https://github.com/skills/review-pull-requests) lesson from GitHub is interesting. If you complete, check the Issues tab and click on the one closed issues for some really good notes about reviewing PRs.
