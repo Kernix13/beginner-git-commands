@@ -732,3 +732,6 @@ Proposing a Pull Request
 
 > [!NOTE]
 > The [review-pull-requests](https://github.com/skills/review-pull-requests) lesson from GitHub is interesting. If you complete, check the Issues tab and click on the one closed issues for some really good notes about reviewing PRs.
+
+> [!NOTE]
+> The [skills-introduction-to-repository-management](https://github.com/Kernix13/skills-introduction-to-repository-management) lesson from GitHub is excellent to learn how to protect your repo and other tips!
