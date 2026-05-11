@@ -793,15 +793,8 @@ Notes:
 - At the top navigation, click the Security tab > In the left navigation, click the Policy option > Click the Start setup button. An editor will be started to create the file SECURITY.md > click the Expand file tree button to show the list of files > change the branch to prepare-to-collaborate
 - Tip If you switch to a branch that does not contain the same file, the editor will become empty. Press the Restore button to retrieve the previous editor's content
 
-Here are some additional exercises for a deeper dive:
-
-- Skills: [Secure your repository supply chain](https://github.com/skills/secure-repository-supply-chain)
-- Skills: [Introduction to CodeQL](https://github.com/skills/introduction-to-codeql)
-- Skills: [Introduction to Secret Scanning](https://github.com/skills/introduction-to-secret-scanning)
-
 Here are some useful references from the GitHub Docs:
 
-- [How to ignore files](https://docs.github.com/en/get-started/git-basics/ignoring-files)
 - [Template gitignore files](https://github.com/github/gitignore)
 - [Creating rulesets for a repository](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository#using-fnmatch-syntax)
 - [Managing a branch protection rule](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule)
