@@ -36,7 +36,6 @@ Repos needing protection
 | web-accessibility-tester                     | **Yes**  |   15   |
 | posts-and-chat-app                           | **Yes**  |   16   |
 | astro-blog                                   | **Yes**  |   17   |
-| astro-blog                                   | **Yes**  |   18   |
 | postcss-demo                                 | **Yes**  |   19   |
 | webpack-demo                                 | **Yes**  |   20   |
 | parcel-sass-setup                            | **Yes**  |   21   |
@@ -45,19 +44,19 @@ Yes ID:
 
 1. requirements.txt, dependabot branches, .env, Security & quality vulnerabilities ✅
 2. exercise - was setup already I think
-3. MAYBE: Security & quality vulnerabilities, Dependabot alerts but no message on main page, 3 personal branches
+3. MAYBE: Security & quality vulnerabilities, Dependabot alerts but no message on main page, 3 personal branches ✅
 4. branches, dependabot, Security & quality vulnerabilities
 5. package.json, Security & quality vulnerabilities
 6. package.json, Security & quality vulnerabilities
 7. MAYBE: package.json, .env, Security & quality vulnerabilities
-8. package.json, dependabot branches
+8. package.json, dependabot branches ✅
 9. package.json, dependabot branches
 10. package.json, dependabot branches
-11. package.json, dependabot branches
+11. package.json, dependabot branches ✅
 12. package.json, dependabot branches
-13. package.json, dependabot branches
+13. package.json, dependabot branches ✅
 14. package.json, dependabot branches
-15. package.json, dependabot branches
+15. package.json, dependabot branches ✅
 16. package.json, dependabot branches
 17. package.json, dependabot branches
 18. package.json, dependabot branches
@@ -191,42 +190,50 @@ Notes:
 
 1. **Rulesets**: Settings tab: Rules > Rulesets > Click the New ruleset dropdown and select New branch ruleset
 
-- Set the Ruleset Name as Protect main and change the Enforcement status to Active
+- Set the Ruleset Name as "Protect main" and change the Enforcement status to Active
 - Find the Targets section and use the Add target dropdown to add 2 entries
   - Add the _Include default branch_ option to ensure protections aren't bypassed by switching the default branch
-  - Use the _include by pattern_ option and enter the pattern main
+  - Use the _include by pattern_ option and enter the pattern `main`
 - Find the Rules section and ensure the following items are checked
-  - Restrict deletions
-  - Require a pull request before merging -> Required approvals: 0 & Require review from Code Owners
-  - Block force pushes
+  - _Restrict deletions_
+  - _Require a pull request before merging_ -> "Required approvals: 0" & "Require review from Code Owners"
+  - _Block force pushes_
 - Scroll to the bottom and click the Create button to save the ruleset
 
-2. CONTRIBUTING.md and CODEOWNERS files
-3. Add your first collaborator: requires another person with a GitHub account to participate
+2. **Dependabot** - Track and create alerts for vulnerabilities found in upstream dependencies used in your project. Automatically create pull requests to upgrade dependencies to safe versions. Check out the [Secure Repository Supply Chain](https://github.com/skills/secure-repository-supply-chain) Skills exercise
+
+- Settings tab > Advanced Security > Dependabot section > Verify or change the settings to match the following
+  - _Dependabot alerts_: enabled
+  - _Dependabot security updates_: enabled
+  - _Grouped security updates_: enabled
+- Find _Dependabot version updates_ and click the Enable button - This will open an editor to create a configuration file
+  - In the left files list, at the top, click the Expand file tree button to show the list of files
+  - Set the package-ecosytem to `pip` or `npm` or whatever you need to so Dependabot will automatically monitor your requirements/packages. Example:
+
+```yml
+version: 2
+updates:
+  - package-ecosystem: 'pip' # See documentation for possible values
+    directory: '/' # Location of package manifests
+    schedule:
+      interval: 'weekly'
+```
+
+3. CONTRIBUTING.md and CODEOWNERS files
+4. Add your first collaborator: requires another person with a GitHub account to participate
 
 - Settings tab > select Collaborators > Manage access > click the Add people button
 - Enter a friend/colleague's GitHub username or email then press the Add to repository button
 - NOTE: Personal repositories only have one collaboration role type. A "collaborator" receives write permissions but NOT admin permissions. If you need finer permissions, consider starting a free organization and assigning repository roles.
 
-4. Code of Conduct - This document sets expectations for how community members should interact. Think of it like the Student Handbook at Mergington High - it outlines respectful behavior, how to report non-technical problems, and consequences for violations.
+5. Code of Conduct - This document sets expectations for how community members should interact. Think of it like the Student Handbook at Mergington High - it outlines respectful behavior, how to report non-technical problems, and consequences for violations.
 
 - The [Contributor Covenant](https://www.contributor-covenant.org/) is a popular code of conduct used by many projects
 - Settings tab > verify Issues is enabled > Set up templates button to enter the issue templates editor > Click the Add template dropdown and select Bug report > Click the Preview and edit button to show the current template. Click the Edit icon (pencil) to make the fields editable
 
-5. Issue Templates - These provide structure when someone reports a problem or suggests a new feature. They can help the community effectively communicate their needs for new features and provide enough information to solve bugs. You might consider trying the public preview for [issue forms](https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms), which provide a friendlier user experience when creating issues
+6. Issue Templates - These provide structure when someone reports a problem or suggests a new feature. They can help the community effectively communicate their needs for new features and provide enough information to solve bugs. You might consider trying the public preview for [issue forms](https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms), which provide a friendlier user experience when creating issues
 
 > working in parallel on 2 branches now: That's exactly what working with multiple collaborators is like
-
-6. **Dependabot** - Track and create alerts for vulnerabilities found in upstream dependencies used in your project. Automatically create pull requests to upgrade dependencies to safe versions.
-
-- check out the [Secure Repository Supply Chain](https://github.com/skills/secure-repository-supply-chain) Skills exercise
-- Settings tab > Advanced Security > Dependabot section > Verify or change the settings to match the following
-  - Dependabot alerts: enabled
-  - Dependabot security updates: enabled
-  - Grouped security updates: enabled
-- Find Dependabot version updates and click the Enable button - This will open an editor to create a configuration file
-  - In the left files list, at the top, click the Expand file tree button to show the list of files
-  - Set the package-ecosytem to pip or npm or whatever you need to so Dependabot will automatically monitor your requirements/packages
 
 7. Code Scanning - Analyze your repository's code to find security vulnerabilities and coding errors. Use GitHub Copilot Autofix to automatically suggest fixes for these alerts.
 
