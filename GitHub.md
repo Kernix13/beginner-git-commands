@@ -7,16 +7,6 @@
 
 ## My repos needing branch rules
 
-Repos with no issues with npm or branches or other:
-
-- skills-communicate-using-markdown | skills-getting-started-with-github-copilot | vision-grid-express | learn-git | task-tracker | github-finder | music-store-mern-ecommerce | house-marketplace | _github-actions-dotfiles_ | CY_project | feedback-app | typescript-virtual-keyboard | WriterAssist | chordy-svg | content | tarp-configurations | webpack-starter | freeCodeCamp
-
-Repos with no issues, vanilla repo:
-
-- personal-portfolio | guitar-chord-names | CY-portfolio-template | DataAnalysisModule3 | skills-introduction-to-github | bash-shell-scripts | windows-cmd-prompt | to-do-app | codeCompare | fetch-apis | dev-tools | music-player | rural-homestead | htaccess | M1W6Deliverable | M1W4Deliverable | M1W3Deliverable | in-class-assignment-m1-w1 | print-student-grades | markdown-cheatsheet | csharp-oop-interface-inheritance | csharp-oop-class-syntax | csharp-exception-object-demo | what-chord-is-this | cy-pathway-readmes | Kernix13 | skills-review-pull-requests | csharp-JsonSerializer-example | csharp-boilerplate-code-snippets | beginner-git-commands | csharp-system-io-classes | mobile-menus | rebuild | learnWP | freelance | kernix13.github.io | basic-fetch-practice | summer-chores | media-queries-practice | responsive-contact-card | correct-the-html-responsive | grid-wireframe-practice | flexbox-wireframe-practice | personal-swot | code-you-resume | Text_File_Creator | website-marketing | word-count-read-time | WP-Docs | custom-admin-footer | kwd-word-filter | tower | lynbrooke | express-pets | pet-adoption | dns-records | node-npm-basics | form-submit | pre-code-formatter | springfield-leaf-pickup | word-count-plugin | online-communication | tmdb-flixx-app | video_player | javascript-cheat-sheet | basic-mysql-statements | markdown-preview | web-dev-job | weather-api-app | web-development-notes | search-and-shortcuts |
-
-Repos needing protection
-
 | repo name                                    | Protect? | Yes ID |
 | :------------------------------------------- | :------: | :----: |
 | github-readme-seo-analysis                   | **Yes**  |   1    |
@@ -261,6 +251,64 @@ Here are some useful references from the GitHub Docs:
 
 > [!NOTE]
 > The [review-pull-requests](https://github.com/skills/review-pull-requests) lesson from GitHub is interesting. If you complete, check the Issues tab and click on the one closed issues for some really good notes about reviewing PRs.
+
+A pull request is a collaboration area where work in one branch is reviewed before merging it into another branch. It has different tabs to manage the conversation and easily review changes.
+
+1. Conversation - A general log of the pull request activity. It also provides an open space for fellow collaborators and the community to provide ideas, suggestions, and general feedback.
+2. Commits - A list of only the commits unique to the proposed branch.
+3. Checks - The results of any automations applied to the pull request using GitHub Actions. That's for another exercise, though.
+4. Files Changed - A Diff view that easily shows the proposed changes in a before/after view. It also has options to add comments and reviews in context.
+
+When you create a PR, make sure to select the following options:
+
+- base: main
+- compare: branch-name
+
+Pull request assignees
+
+- Assign yourself or someone else
+
+### Leave a review
+
+The best way to get a review is to ask for one. By assigning a reviewer, they get 3 options for providing feedback:
+
+- Comment - General feedback without approval or rejection.
+- Approve - Allows merging if rulesets, code owners, or other policies are enforced.
+- Request Changes - The proposed changes need do not meet expectations and need additional work. A review should be re-requested after the changes are made.
+
+What does a review typically look like?
+
+1. Reviewing the title and description are clear and concise. It should easily convey the intended changes and any associated issues.
+2. Reviewing the Files changed tab to ensure all proposed code matches the description.
+3. For most updates, try out the proposed change to verify they match the intention.
+4. Use the repository's contributing guide for any guidance on review requirements, testing, quality verification, etc.
+
+To leave a review:
+
+1. On the pull request, click the Files changed tab.
+2. Take a moment to review the change.
+3. Above the comparison view, click the Submit review button.
+4. Enter a comment and click the Submit review button.
+
+Note: You can't choose Approve or Request changes on your own pull request
+
+### Suggest changes
+
+The Add a suggestion feature is a button in the comment text editor. It inserts a specially formatted code block. Instead of only showing a comment, GitHub will also provide a Commit suggestion button. This allows the author to accept the suggestion and commit it with the push of a button.
+
+1. On the pull request, click Files changed.
+2. Find the comparison view for the file.
+3. Hover your cursor next to the line numbers for the modified line.
+4. Click the plus icon to show an inline comment form.
+5. Click the Add a suggestion button to insert a modifiable copy of the line.
+
+### Apply a suggested change
+
+1. In the pull request navigation, select the Conversation tab.
+2. Scroll down and click the Commit suggestion button to open a commit message form.
+3. Edit the commit message to the below text and click the Commit changes button.
+
+## Miscellaneous
 
 ```
 The "24-Hour Rule" for npm
