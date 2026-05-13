@@ -35,11 +35,7 @@ Some of the git commands below can be considered beginner but they involve using
    1. [Use the raw link](#use-the-raw-link)
    1. [Download a folder from GitHub](#download-a-folder-from-github)
    1. [githubuser](#githubuser)
-1. ✅ [Creating a GitHub gist](#creating-a-github-gist)
-   1. [Clone or fork a gist](#clone-or-fork-a-gist)
-   1. [Editing a gist](#editing-a-gist)
-1. ✅ [GitHub pages](#github-pages)
-1. ✅ [Git aliases](#github-aliases)
+1. ✅ [Git aliases](#git-aliases)
 
 ## Branches
 

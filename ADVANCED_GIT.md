@@ -1281,6 +1281,68 @@ git config --global commit.gpgsign true
 
 Also check out [Telling Git about your SSH key](https://docs.github.com/en/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key#telling-git-about-your-ssh-key)
 
+### Creating an SSH Key
+
+You may need to create an SSH key and add it to your GitHub account as an additional step to authentication. I followed the steps from the following links and I had no problems:
+
+1. Link 1: [Checking for existing SSH keys](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/checking-for-existing-ssh-keys)
+
+```sh
+# Check to see if you already have an SSH key
+ls -al ~/.ssh
+```
+
+2. Link 2: [Generating a new SSH key and adding it to the ssh-agent](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+
+**NOTE**: Even though I am on Windows, I chose to use Git Bash and the commands from the tab for _Linux_. I chose NOT to enter a passphrase:
+
+```sh
+# 1. Generate your key (use the email you set with user.email above)
+ssh-keygen -t ed25519 -C "myemail@somewhere.com"
+
+# or if that doesn't work:
+ssh-keygen -t rsa -b 4096 -C "myemail@somewhere.com"
+
+# 2. Press ENTER to accept the default file location
+# 3. Enter Passphrase or press ENTER for no passphrase, then repeat - that generates the .pub key
+# 4. Then start the ssh-agent in the background (in Git Bash/Linux):
+eval "$(ssh-agent -s)"
+# you should see: Agent pid 59566
+
+# 5. Add your SSH private key to the ssh-agent
+ssh-add ~/.ssh/id_ed25519
+
+# 6. Copy the SSH public key to your clipboard.
+clip < ~/.ssh/id_ed25519.pub
+```
+
+3. Link 3: [Adding a new SSH key to your GitHub account](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
+
+All those commands above worked. Then go to GitHub and follow these steps:
+
+1. Click your profile photo, then click Settings.
+2. In the "_Access_" section of the sidebar, click _SSH and GPG keys_.
+3. Click the _New SSH key_ or _Add SSH key_ button.
+4. In the "_Title_" field, add a descriptive label for the new key, e.g. "Personal Laptop" but the title is not important.
+5. Leave the default for the dropdown for Key type set to Authentification key
+6. Paste your public key into the "Key" field.
+7. Click _Add SSH key_. If prompted, confirm access to your account on GitHub.
+
+To test to make sure that worked run:
+
+```sh
+ssh -T git@github.com
+# you should see the message "Hi YourName! You've successfully authenticated, but GitHub does not provide shell access."
+
+# if that doesn't work run
+eval `ssh-agent -s`
+
+# You should see some pis number (not "1234")
+Agent pid 1234
+```
+
+On my first `git push` to GitHub I got a message about having to authenticate my GitHub account. There was a new tab open in Chrome where I clicked _Authenticate_ and I think I only had to enter my GitHub password.
+
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>
 
 ## ci cd pipeline
