@@ -226,6 +226,14 @@ A pull request is a collaboration area where work in one branch is reviewed befo
 3. Checks - The results of any automations applied to the pull request using GitHub Actions. That's for another exercise, though.
 4. Files Changed - A Diff view that easily shows the proposed changes in a before/after view. It also has options to add comments and reviews in context.
 
+### Basic steps
+
+1. Verify correct `base` and `compare` branches
+2. Assign a reviewer
+3. Leave a review
+4. Suggest changes
+5. Apply a suggested change
+
 When you create a PR, make sure to select the following options:
 
 - base: main
