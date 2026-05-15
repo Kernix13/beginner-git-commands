@@ -5,54 +5,21 @@
 3. Repo Management (NEW)
 4. Pull Request Reviews (NEW)
 
-## My repos needing branch rules
+## My repos needing branch rules (left to-do)
 
-| repo name                                    | Protect? | Yes ID |
-| :------------------------------------------- | :------: | :----: |
-| github-readme-seo-analysis                   | **Yes**  |   1    |
-| skills-introduction-to-repository-management |   _No_   |   2    |
-| tarp-configs                                 |  MAYBE   |   3    |
-| tailwind-example                             | **Yes**  |   4    |
-| vs-code-tips                                 | **Yes**  |   5    |
-| netlify-pets                                 | **Yes**  |   6    |
-| the-quote-card-express                       |  MAYBE   |   7    |
-| kwd-react-plugin                             | **Yes**  |   8    |
-| sass-library                                 | **Yes**  |   9    |
-| php-laravel-postnchat                        | **Yes**  |   10   |
-| puppeteer-web-scraper                        | **Yes**  |   11   |
-| support-desk                                 | **Yes**  |   12   |
-| yelp-retreat                                 | **Yes**  |   13   |
-| astro-website                                | **Yes**  |   14   |
-| web-accessibility-tester                     | **Yes**  |   15   |
-| posts-and-chat-app                           | **Yes**  |   16   |
-| astro-blog                                   | **Yes**  |   17   |
-| postcss-demo                                 | **Yes**  |   19   |
-| webpack-demo                                 | **Yes**  |   20   |
-| parcel-sass-setup                            | **Yes**  |   21   |
+| repo name             | Protect? |
+| :-------------------- | :------: |
+| tailwind-example      | **Yes**  |
+| netlify-pets          | **Yes**  |
+| sass-library          | **Yes**  |
+| php-laravel-postnchat | **Yes**  |
+| support-desk          | **Yes**  |
+| astro-website         | **Yes**  |
+| posts-and-chat-app    | **Yes**  |
+| astro-blog            | **Yes**  |
+| webpack-demo          | **Yes**  |
 
 Yes ID:
-
-1. requirements.txt, dependabot branches, .env, Security & quality vulnerabilities ✅
-2. exercise - was setup already I think
-3. MAYBE: Security & quality vulnerabilities, Dependabot alerts but no message on main page, 3 personal branches ✅
-4. branches, dependabot, Security & quality vulnerabilities
-5. package.json, Security & quality vulnerabilities
-6. package.json, Security & quality vulnerabilities
-7. MAYBE: package.json, .env, Security & quality vulnerabilities
-8. package.json, dependabot branches ✅
-9. package.json, dependabot branches
-10. package.json, dependabot branches
-11. package.json, dependabot branches ✅
-12. package.json, dependabot branches
-13. package.json, dependabot branches ✅
-14. package.json, dependabot branches
-15. package.json, dependabot branches ✅
-16. package.json, dependabot branches
-17. package.json, dependabot branches
-18. package.json, dependabot branches
-19. package.json, dependabot branches
-20. package.json, dependabot branches
-21. package.json, dependabot branches ✅
 
 ### Dependabot PRs are "Active" Pushes
 
@@ -310,11 +277,9 @@ The Add a suggestion feature is a button in the comment text editor. It inserts 
 
 ## Miscellaneous
 
-```
 The "24-Hour Rule" for npm
 
-If you want that same safeguard on your current npm projects, you can actually add it to your .npmrc file right now. As of npm CLI 11.10.0 (released in February 2026), you can set a "cooldown" just like pnpm.
+If you want that same safeguard on your current npm projects, you can actually add it to your `.npmrc` file right now. As of npm CLI 11.10.0 (released in February 2026), you can set a "cooldown" just like pnpm.
 
-- How to do it: Add min-release-age=1 to your .npmrc.
+- How to do it: Add `min-release-age=1` to your `.npmrc`.
 - What it does: It tells npm: "If a package version was published less than 24 hours ago, do not install it."
-```
