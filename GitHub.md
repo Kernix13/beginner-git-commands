@@ -283,6 +283,27 @@ The Add a suggestion feature is a button in the comment text editor. It inserts 
 2. Scroll down and click the Commit suggestion button to open a commit message form.
 3. Edit the commit message to the below text and click the Commit changes button.
 
+## The Pull Request Checklist (Post-Push)
+
+1. Link the Issue: In the PR description box on the right-hand side, look for the Development section and link it to your open Issue (or type Closes #IssueNumber in the main description text).
+2. Assign a Reviewer: Under the Reviewers section on the right sidebar, select your partner (or yourself for solo practice) to request their eyes on the code.
+3. Open the "Files Changed" Tab: Navigate to the Files Changed tab at the top of the PR to see a visual "diff" (differences) between your branch and the main branch.
+4. Initiate a Review Session:
+   - Hover over a specific line of code you want to discuss.
+   - Click the blue plus (+) icon.
+   - Type your feedback or notes.
+   - Click Start a review (instead of Add single comment) to bundle your thoughts together.
+5. Leave Multiple Pending Comments: Go through the rest of the code, adding more comments to lines that need adjustments, questions, or explanations. These will remain hidden from everyone else until you finish.
+6. Submit the Unified Review:
+   - Look at the top right of the file viewer and click the Submit review button.
+   - Write an overall summary of the review in the text box.
+   - Select your review type: Comment (for thoughts/discussion), Approve (looks great, ready to merge), or Request changes (needs fixes before merging).
+   - Click Submit review to publish all your comments at once.
+7. Address the Feedback (If Changes are Requested): If your peer requested fixes, you don't close the PR. You go back to your code editor, fix the mistakes on that same branch, and push the new commits. The PR will automatically update with the new code.
+8. Resolve Conversations: Once a piece of feedback has been fixed or agreed upon, click the Resolve conversation button under that comment thread to clean up the PR timeline.
+9. The Final Merge: Once all conversations are resolved and the code has an "Approved" status, scroll to the bottom of the Conversation tab and click the green Merge pull request button, then confirm the merge.
+10. Housekeeping: Click the Delete branch button that appears immediately after merging to keep your remote repository clean.
+
 ## Miscellaneous
 
 The "24-Hour Rule" for npm
