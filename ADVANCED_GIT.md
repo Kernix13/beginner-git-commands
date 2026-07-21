@@ -207,10 +207,16 @@ I thought the entire project was deleted and then added to staging because EVERY
 
 ### Remove git
 
-If you really messedthings up and you want to start over, you can remove git tracking from your project folder. To remove git tracking from a folder use the following command in git bash or the terminal in VS Code. Make sure you are in the root folder where you want Git removed:
+If you really messed things up and you want to start over, you can remove git tracking from your project folder. To remove git tracking from a folder use the following command in git bash or the terminal in VS Code. Make sure you are in the root folder where you want Git removed:
 
 ```sh
 rm -rf .git
+```
+
+To show the path where your git repository or `.git` folder is located, use the `git rev-parse` command
+
+```sh
+git rev-parse --absolute-git-dir
 ```
 
 <div align="right"><a href="#back-to-top" title="Table of Contents">Back to Top</a></div>

@@ -45,7 +45,7 @@ To verify that git is installed, type `git --version` or `git -v` for short. If 
 
 On your first push ever to GitHub from your machine, you will need to authenticate your machine with GitHub. This is so Git/GitHub knows that you are who you say you are.
 
-In the past you could just use `user.name` and `user.email` to verify your identity to GitHub. Now you have to generate an SSH key for authentification. I used the following docs to do that:
+In the past you could just use `user.name` and `user.email` to verify your identity to GitHub. Now you have to generate an SSH key for authentification. I used the following docs to do that: (see [ADVANCED_GIT.git](./ADVANCED_GIT.md))
 
 However, you still need to have `user.name` and `user.email` set. Here are the commands I used but I suggest using the 2 links above as they are the offical source and the commands or syntax may change over time:
 
