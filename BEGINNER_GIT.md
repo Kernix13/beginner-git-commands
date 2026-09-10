@@ -203,6 +203,12 @@ git add index.html && git commit -m "Update index.html"
 
 Also, try not to make changes to any files on GitHub. If you do, you need to run either `git pull` or `git fetch`. The only time you may need to create a file on GitHub is adding a LICENSE file. See the INTERMEDIATE_GIT.md file for details on those commands.
 
+You can view the status using the `--short` flag:
+
+```bash
+git status --short
+```
+
 ### Commands GitHub shows with new repo
 
 NOTE: Ignore the commands `git add README.md` and `git branch -M main`. If you want to add a README file, then do it manually in your local repo and add content to it. And you should have already configured your default branch name.
